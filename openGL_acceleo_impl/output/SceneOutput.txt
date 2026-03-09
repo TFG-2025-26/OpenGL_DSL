@@ -1,0 +1,12 @@
+Configuración del Scene Manager
+-------------------------------
+ID de Ventana: 0 
+Dimensiones: 0 x 0 
+Estado mStop: false
+
+Viewport detectado. Generando su archivo de configuración...
+ 
+
+Lista de Escenas:
+  - Escena (Visible: true)
+    Número de nodos: 1

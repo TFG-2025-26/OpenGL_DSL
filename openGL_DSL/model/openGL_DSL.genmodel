@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/openGL_DSL/src-gen" creationIcons="false" editDirectory="/openGL_DSL.edit/src-gen"
+    editorDirectory="/openGL_DSL.editor/src-gen" modelPluginID="openGL_DSL" modelName="OpenGL_DSL"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="21.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>openGL_DSL.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="OpenGL_DSL" disposableProviderFactory="true" ecorePackage="openGL_DSL.ecore#/">
+    <genDataTypes ecoreDataType="openGL_DSL.ecore#//GLsizei"/>
+    <genDataTypes ecoreDataType="openGL_DSL.ecore#//GLuint"/>
+    <genDataTypes ecoreDataType="openGL_DSL.ecore#//vec2"/>
+    <genDataTypes ecoreDataType="openGL_DSL.ecore#//vec3"/>
+    <genDataTypes ecoreDataType="openGL_DSL.ecore#//vec4"/>
+    <genDataTypes ecoreDataType="openGL_DSL.ecore#//mat4"/>
+    <genDataTypes ecoreDataType="openGL_DSL.ecore#//GLquadricObj"/>
+    <genClasses ecoreClass="openGL_DSL.ecore#//SceneManager">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//SceneManager/WinId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//SceneManager/WinW"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//SceneManager/WinH"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//SceneManager/viewport"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//SceneManager/camera"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//SceneManager/scenes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//SceneManager/mStop"/>
+      <genOperations ecoreOperation="openGL_DSL.ecore#//SceneManager/run"/>
+      <genOperations ecoreOperation="openGL_DSL.ecore#//SceneManager/close"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//ViewPort">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//ViewPort/xLeft"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//ViewPort/yBolt"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//ViewPort/xWidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//ViewPort/yHeight"/>
+      <genOperations ecoreOperation="openGL_DSL.ecore#//ViewPort/upload"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Camera">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Camera/mEye"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Camera/mLook"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Camera/mUp"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Camera/modelViewMat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Camera/mProjMat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Camera/mNearVal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Camera/mFarVal"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Scene">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Scene/Visible"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Scene/nodo"/>
+      <genOperations ecoreOperation="openGL_DSL.ecore#//Scene/addNode"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Light">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Light/cont"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Light/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Light/ambient"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Light/difusse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Light/specular"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Light/posDIr"/>
+      <genOperations ecoreOperation="openGL_DSL.ecore#//Light/uploadL">
+        <genParameters ecoreParameter="openGL_DSL.ecore#//Light/uploadL/modelViewMat"/>
+      </genOperations>
+      <genOperations ecoreOperation="openGL_DSL.ecore#//Light/disable"/>
+      <genOperations ecoreOperation="openGL_DSL.ecore#//Light/enable"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//DirLight"/>
+    <genClasses ecoreClass="openGL_DSL.ecore#//PosLight">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//PosLight/kc"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//PosLight/kl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//PosLight/kq"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//SpotLight">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//SpotLight/direction"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//SpotLight/cutoff"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//SpotLight/exp"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Node">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Node/light"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Node/nodo"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Node/abs_entity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Node/posicion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Node/rotacion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Node/escala"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="openGL_DSL.ecore#//Abs_Entity">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/texture"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/material"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/mesh"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Abs_Entity/mModelMat"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Abs_Entity/mColor"/>
+      <genOperations ecoreOperation="openGL_DSL.ecore#//Abs_Entity/render">
+        <genParameters ecoreParameter="openGL_DSL.ecore#//Abs_Entity/render/modelViewMat"/>
+      </genOperations>
+      <genOperations ecoreOperation="openGL_DSL.ecore#//Abs_Entity/upload"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="openGL_DSL.ecore#//QuadricEntity">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//QuadricEntity/q"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Esfera"/>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Circulo"/>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Rectangulo"/>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Material">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/ambient"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/difusse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/specular"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/expF"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/face"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/sh"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Mesh">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Mesh/mPrimitive"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Mesh/nNumVertices"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Mesh/vColors"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Mesh/vVertices"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Mesh/vTexCoords"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Mesh/vNormals"/>
+      <genOperations ecoreOperation="openGL_DSL.ecore#//Mesh/mNumVertices"/>
+      <genOperations ecoreOperation="openGL_DSL.ecore#//Mesh/render"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//MbR">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//MbR/n"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//MbR/m"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//MbR/perfil"/>
+      <genOperations ecoreOperation="openGL_DSL.ecore#//MbR/generateIndexMbR">
+        <genParameters ecoreParameter="openGL_DSL.ecore#//MbR/generateIndexMbR/n"/>
+        <genParameters ecoreParameter="openGL_DSL.ecore#//MbR/generateIndexMbR/m"/>
+        <genParameters ecoreParameter="openGL_DSL.ecore#//MbR/generateIndexMbR/perfil"/>
+      </genOperations>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Texture">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Texture/mWidth"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Texture/mHeight"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Texture/mId"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//IndexMesh">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//IndexMesh/vIndices"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//IndexMesh/nNumIndices"/>
+      <genOperations ecoreOperation="openGL_DSL.ecore#//IndexMesh/buildNormalVectors"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

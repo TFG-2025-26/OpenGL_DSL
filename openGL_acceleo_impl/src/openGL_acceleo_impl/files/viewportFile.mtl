@@ -1,0 +1,11 @@
+[comment encoding = UTF-8 /]
+[module viewportFile('http://www.example.org/openGL_DSL')]
+
+[template public generateViewPortFile(aViewPort : ViewPort)]
+[file ('viewport_'.concat(aViewPort.xLeft.toString()).concat('.txt'), false, 'UTF-8')]
+DETALLES DEL VIEWPORT
+---------------------
+Coordenadas: ([aViewPort.xLeft /], [aViewPort.yBolt /]) 
+Dimensiones: [aViewPort.xWidth /] (Ancho) x [aViewPort.yHeight /] (Alto) 
+[/file]
+[/template]
