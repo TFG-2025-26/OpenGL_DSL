@@ -1,3 +1,5 @@
 ﻿  main.cpp
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(10,28): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(59,28): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(59,23): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(59,18): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
   IG1App.vcxproj -> C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\bin\IG1AppDebug.exe

@@ -1,4 +1,0 @@
-DETALLES DEL VIEWPORT
----------------------
-Coordenadas: (0, 0) 
-Dimensiones:  (Ancho) x  (Alto) 

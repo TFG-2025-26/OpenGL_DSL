@@ -1,44 +1,73 @@
-#include <GL/glut.h>
+#include <GL/freeglut.h>
+#include <glm/glm.hpp>   // OpenGL Mathematics
 #include <iostream>
 
-// Configuración generada desde el modelo XMI
-const int WIN_WIDTH = 0;
-const int WIN_HEIGHT = 0;
-const int WIN_ID = 0;
+#include "Viewport.h"
+#include "Camera.h"
 
-void init() {
-    glClearColor(0.0, 0.0, 0.7, 1.0);
-    glEnable(GL_DEPTH_TEST);
-}
+using namespace std;
+
+// Variables globales
+Viewport* viewport = nullptr;
+Camera* camera = nullptr;
 
 void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glLoadIdentity();
-
-    // Generando Escena Scene
-    glPushMatrix();
-        // Renderizado de entidades del nodo
-            // Renderizando Rectangulo
-            glBegin(GL_QUADS);
-                glVertex2f(-0.5, -0.5);
-                glVertex2f(0.5, -0.5);
-                glVertex2f(0.5, 0.5);
-                glVertex2f(-0.5, 0.5);
-            glEnd();
-         
-    glPopMatrix();
+    
+    camera->upload();
 
     glutSwapBuffers();
 }
 
+void iniWinOpenGL() { // Initialization
+	cout << "Starting glut...\n";
+	int argc = 0;
+	glutInit(&argc, nullptr);
+
+	glutInitContextVersion(3, 3);
+	glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE); // GLUT_CORE_PROFILE
+	glutInitContextFlags(GLUT_DEBUG);                   // GLUT_FORWARD_COMPATIBLE
+
+	glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
+
+	glutInitWindowSize(800, 600); // window size
+	// glutInitWindowPosition (140, 140);
+
+	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE |
+	                    GLUT_DEPTH /*| GLUT_STENCIL*/); // RGBA colors, double buffer, depth
+	                                                    // buffer and stencil buffer
+
+	glutCreateWindow(
+	  "OpenGL Engine - MDE Generated"); // with its associated OpenGL context, return window's identifier
+
+	glutDisplayFunc(display);
+
+	cout << glGetString(GL_VERSION) << '\n';
+	cout << glGetString(GL_VENDOR) << '\n';
+}
+
+void init() {
+    // create an OpenGL Context
+    iniWinOpenGL();
+
+    // create the scene after creating the context
+    // allocate memory and resources
+     // Inicialización de Viewport y Cámara
+    viewport = new Viewport(800, 600);
+    camera = new Camera(viewport);
+
+    glClearColor(0.6, 0.7, 0.8, 1.0);
+
+    // CARGA DE ENTIDADES DESDE EL MODELO XMI
+}
+
 int main(int argc, char** argv) {
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);
-    glutCreateWindow("OpenGL Engine - ID: 0");
-    
     init();
-    glutDisplayFunc(display);
     glutMainLoop();
+
+    // Limpieza de memoria
+    delete camera;
+    delete viewport;
+
     return 0;
 }
