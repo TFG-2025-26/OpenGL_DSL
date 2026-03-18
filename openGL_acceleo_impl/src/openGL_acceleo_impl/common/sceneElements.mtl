@@ -1,20 +1,12 @@
 [comment encoding = UTF-8 /]
 [module sceneElements('http://www.example.org/openGL_DSL')]
 
-[template public generateCppRender(ent : Abs_Entity)]
-[if (ent.oclIsKindOf(Esfera))]
-    // Renderizando Esfera
-    glColor3f(1.0f, 0.0f, 0.0f); // Color base
-    glutWireSphere(1.0, 20, 20);
-[elseif (ent.oclIsKindOf(Rectangulo))]
-    // Renderizando Rectangulo
-    glBegin(GL_QUADS);
-        glVertex2f(-0.5, -0.5);
-        glVertex2f(0.5, -0.5);
-        glVertex2f(0.5, 0.5);
-        glVertex2f(-0.5, 0.5);
-    glEnd();
-[else]
-    // Entidad genérica: [ent.eClass().name /]
-[/if]
+[import openGL_acceleo_impl::files::entityFile /]
+
+[template public generateSceneLogic(aScene : Scene)]
+[for (n : Node | aScene.nodo)]
+    [for (ent : Abs_Entity | n.abs_entity)]
+        [ent.generateEntity() /]
+    [/for]
+[/for]
 [/template]

@@ -1,39 +1,64 @@
 [comment encoding = UTF-8 /]
 [module generate('http://www.example.org/openGL_DSL')]
 
-[import openGL_acceleo_impl::common::sceneElements /]
+[import openGL_acceleo_impl::files::viewportFile /]
+[import openGL_acceleo_impl::files::cameraFile /]
+[import openGL_acceleo_impl::files::entityFile /]
 
-[template public generateElement(aSceneManager : SceneManager)]
+[template public generateElement(aSM : SceneManager)]
 [comment @main/]
-[file ('main.cpp', false, 'UTF-8')]
-#include <GL/glut.h>
-#include <iostream>
 
-// Configuración generada desde el modelo XMI
-const int WIN_WIDTH = [aSceneManager.WinW /];
-const int WIN_HEIGHT = [aSceneManager.WinH /];
-const int WIN_ID = [aSceneManager.WinId /];
+[comment 1. Disparamos la generación de todos los ficheros .h y .cpp individuales /]
+[if (not aSM.viewport.oclIsUndefined())]
+    [aSM.viewport.generateViewport() /]
+[/if]
+[if (not aSM.camera.oclIsUndefined())]
+    [aSM.camera.generateCamera() /]
+[/if]
+
+[comment Generación de ficheros de clases de entidades /]
+[for (s : Scene | aSM.scenes)]
+    [for (n : Node | s.nodo)]
+        [for (ent : Abs_Entity | n.abs_entity)]
+            [ent.generateEntity() /]
+        [/for]
+    [/for]
+[/for]
+
+[comment 2. Generación del main.cpp con la lógica de renderizado real /]
+[file ('main.cpp', false, 'UTF-8')]
+#include <GL/freeglut.h>
+#include <vector>
+#include "Viewport.h"
+#include "Camera.h"
+
+// Inclusión de la estructura de clases del Ecore
+#include "Abs_Entity.h"
+#include "Esfera.h"
+#include "Rectangulo.h"
+
+// Variables globales
+Viewport* viewport = nullptr;
+Camera* camera = nullptr;
+std::vector<Abs_Entity*> entities; // Vector de la clase base abstracta
 
 void init() {
-    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
     glEnable(GL_DEPTH_TEST);
+    if (camera) camera->setVM();
 }
 
 void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glLoadIdentity();
+    
+    if (viewport) viewport->upload();
+    if (camera) camera->uploadVM();
 
-    [for (s : Scene | aSceneManager.scenes)]
-    // Generando Escena [s.eClass().name /]
-    [for (n : Node | s.nodo)]
-    glPushMatrix();
-        // Renderizado de entidades del nodo
-        [for (ent : Abs_Entity | n.abs_entity)]
-        [ent.generateCppRender() /] 
-        [/for]
-    glPopMatrix();
-    [/for]
-    [/for]
+    // LLAMADA REAL AL RENDER (Polimorfismo C++)
+    // Recorremos el vector y cada objeto ejecuta su propio render() (.cpp de la hija)
+    for (Abs_Entity* e : entities) {
+        e->render();
+    }
 
     glutSwapBuffers();
 }
@@ -41,12 +66,39 @@ void display() {
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(WIN_WIDTH, WIN_HEIGHT);
-    glutCreateWindow("OpenGL Engine - ID: [aSceneManager.WinId /]");
-    
+    glutInitWindowSize([aSM.WinW/], [aSM.WinH/]);
+    glutCreateWindow("OpenGL Engine - MDE Generated");
+
+    // Inicialización de Viewport y Cámara
+    [if (not aSM.viewport.oclIsUndefined())]
+    viewport = new Viewport([aSM.viewport.xWidth/], [aSM.viewport.yHeight/]);
+    [/if]
+    [if (not aSM.camera.oclIsUndefined())]
+    camera = new Camera(viewport);
+    [/if]
+
+    // CARGA DE ENTIDADES DESDE EL MODELO XMI
+    [for (s : Scene | aSM.scenes)]
+    [for (n : Node | s.nodo)]
+    [for (ent : Abs_Entity | n.abs_entity)]
+    [if (ent.oclIsKindOf(Esfera))]
+    entities.push_back(new Esfera()); 
+    [elseif (ent.oclIsKindOf(Rectangulo))]
+    entities.push_back(new Rectangulo());
+    [/if]
+    [/for]
+    [/for]
+    [/for]
+
     init();
     glutDisplayFunc(display);
     glutMainLoop();
+
+    // Limpieza de memoria
+    for (Abs_Entity* e : entities) delete e;
+    delete camera;
+    delete viewport;
+
     return 0;
 }
 [/file]

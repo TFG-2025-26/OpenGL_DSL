@@ -1,53 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="sceneElements" nsURI="openGL_acceleo_impl::common::sceneElements" startHeaderPosition="29" endHeaderPosition="563">
+  <mtl:Module name="sceneElements" nsURI="openGL_acceleo_impl::common::sceneElements" startHeaderPosition="29" endHeaderPosition="137">
     <input>
       <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
     </input>
-    <ownedModuleElement xsi:type="mtl:Template" name="generateCppRender" visibility="Public">
-      <body xsi:type="mtl:IfBlock">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    // Renderizando Esfera&#xA;    glColor3f(1.0f, 0.0f, 0.0f); // Color base&#xA;    glutWireSphere(1.0, 20, 20);&#xA;"/>
-        <ifExpr xsi:type="ocl.ecore:OperationCallExp">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-          <source xsi:type="ocl.ecore:VariableExp" name="ent" referredVariable="/0/generateCppRender/ent">
-            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
-          </source>
-          <argument xsi:type="ocl.ecore:TypeExp" eType="/6/Esfera">
-            <referredType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Esfera"/>
-          </argument>
-          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsKindOf"/>
-        </ifExpr>
-        <else>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    // Entidad genérica: "/>
-          <body xsi:type="ocl.ecore:PropertyCallExp">
+    <imports href="../files/entityFile.emtl#/0"/>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateSceneLogic" visibility="Public">
+      <body xsi:type="mtl:ForBlock">
+        <body xsi:type="mtl:ForBlock">
+          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        "/>
+          <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <source xsi:type="ocl.ecore:OperationCallExp">
-              <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EClass"/>
-              <source xsi:type="ocl.ecore:VariableExp" name="ent" referredVariable="/0/generateCppRender/ent">
-                <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
-              </source>
-              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/emf/2002/Ecore#//EObject/eClass"/>
-            </source>
-            <referredProperty xsi:type="ecore:EAttribute" href="http://www.eclipse.org/emf/2002/Ecore#//ENamedElement/name"/>
+            <definition href="../files/entityFile.emtl#/0/generateEntity"/>
+            <argument xsi:type="ocl.ecore:VariableExp" name="ent" referredVariable="/0/generateSceneLogic/%/%/ent">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+            </argument>
           </body>
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
-        </else>
-        <elseIf>
-          <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    // Renderizando Rectangulo&#xA;    glBegin(GL_QUADS);&#xA;        glVertex2f(-0.5, -0.5);&#xA;        glVertex2f(0.5, -0.5);&#xA;        glVertex2f(0.5, 0.5);&#xA;        glVertex2f(-0.5, 0.5);&#xA;    glEnd();&#xA;"/>
-          <ifExpr xsi:type="ocl.ecore:OperationCallExp">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-            <source xsi:type="ocl.ecore:VariableExp" name="ent" referredVariable="/0/generateCppRender/ent">
-              <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+          <loopVariable name="ent">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+          </loopVariable>
+          <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/6/OrderedSet(Abs_Entity)">
+            <source xsi:type="ocl.ecore:VariableExp" name="n" referredVariable="/0/generateSceneLogic/%/n">
+              <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
             </source>
-            <argument xsi:type="ocl.ecore:TypeExp" eType="/6/Rectangulo">
-              <referredType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Rectangulo"/>
-            </argument>
-            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny_Class/oclIsKindOf"/>
-          </ifExpr>
-        </elseIf>
+            <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/openGL_DSL#//Node/abs_entity"/>
+          </iterSet>
+        </body>
+        <loopVariable name="n">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
+        </loopVariable>
+        <iterSet xsi:type="ocl.ecore:PropertyCallExp" eType="/6/OrderedSet(Node)">
+          <source xsi:type="ocl.ecore:VariableExp" name="aScene" referredVariable="/0/generateSceneLogic/aScene">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/openGL_DSL#//Scene/nodo"/>
+        </iterSet>
       </body>
-      <parameter name="ent">
-        <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+      <parameter name="aScene">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
       </parameter>
     </ownedModuleElement>
   </mtl:Module>
@@ -71,13 +62,25 @@
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
         <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
       </eAnnotations>
-      <eOperations name="generateCppRender">
+      <eOperations name="generateSceneLogic">
         <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
-        <eAnnotations source="MTL" references="/0/generateCppRender"/>
+        <eAnnotations source="MTL" references="/0/generateSceneLogic"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="ent">
+        <eParameters name="aScene">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateEntity">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="../files/entityFile.emtl#/0/generateEntity"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="anEntity">
           <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
         </eParameters>
       </eOperations>
@@ -102,9 +105,24 @@
         <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
       </eAnnotations>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Scene_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/openGL_DSL#//Scene"/>
+      </eAnnotations>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Abs_Entity_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
         <references href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Esfera_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/openGL_DSL#//Esfera"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Rectangulo_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/openGL_DSL#//Rectangulo"/>
       </eAnnotations>
     </eClassifiers>
   </ecore:EPackage>
@@ -112,124 +130,122 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
   </ocl.ecore:Variable>
-  <ecore:EPackage name="types">
-    <eClassifiers xsi:type="ocl.ecore:TypeType" name="Esfera">
-      <referredType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Esfera"/>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Node)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ocl.ecore:TypeType" name="Rectangulo">
-      <referredType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Rectangulo"/>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Abs_Entity)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
     </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="i">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/generateCppRender">
-      <details key="start" value="90"/>
-      <details key="end" value="583"/>
-      <details key="line" value="4"/>
-    </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/generateCppRender/%">
-      <details key="start" value="144"/>
-      <details key="end" value="571"/>
-      <details key="line" value="5"/>
-    </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/generateCppRender/%/%">
-      <details key="start" value="175"/>
-      <details key="end" value="282"/>
+    <eAnnotations source="positions.0" references="/0/generateSceneLogic">
+      <details key="start" value="141"/>
+      <details key="end" value="331"/>
       <details key="line" value="6"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/generateCppRender/%/%.1">
-      <details key="start" value="148"/>
-      <details key="end" value="173"/>
-      <details key="line" value="0"/>
+    <eAnnotations source="positions.1" references="/0/generateSceneLogic/%">
+      <details key="start" value="194"/>
+      <details key="end" value="319"/>
+      <details key="line" value="7"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/generateCppRender/%/%.1/ent">
-      <details key="start" value="149"/>
-      <details key="end" value="152"/>
-      <details key="line" value="0"/>
+    <eAnnotations source="positions.2" references="/0/generateSceneLogic/%/%">
+      <details key="start" value="229"/>
+      <details key="end" value="312"/>
+      <details key="line" value="8"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/generateCppRender/%/%.1/%">
-      <details key="start" value="165"/>
-      <details key="end" value="171"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/generateCppRender/%/%.2">
-      <details key="start" value="512"/>
-      <details key="end" value="566"/>
-      <details key="line" value="17"/>
-    </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/generateCppRender/%/%.2/%">
-      <details key="start" value="519"/>
-      <details key="end" value="544"/>
-      <details key="line" value="18"/>
-    </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/generateCppRender/%/%.2/%.1">
-      <details key="start" value="545"/>
-      <details key="end" value="562"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/generateCppRender/%/%.2/%.1/%">
-      <details key="start" value="545"/>
-      <details key="end" value="557"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/generateCppRender/%/%.2/%.1/%/ent">
-      <details key="start" value="545"/>
-      <details key="end" value="548"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/generateCppRender/%/%.2/%.2">
-      <details key="start" value="565"/>
-      <details key="end" value="566"/>
-      <details key="line" value="19"/>
-    </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/generateCppRender/%/%.3">
-      <details key="start" value="282"/>
-      <details key="end" value="512"/>
+    <eAnnotations source="positions.3" references="/0/generateSceneLogic/%/%/%">
+      <details key="start" value="269"/>
+      <details key="end" value="277"/>
       <details key="line" value="9"/>
     </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/generateCppRender/%/%.3/%">
-      <details key="start" value="321"/>
-      <details key="end" value="512"/>
+    <eAnnotations source="positions.4" references="/0/generateSceneLogic/%/%/%.1">
+      <details key="start" value="278"/>
+      <details key="end" value="298"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateSceneLogic/%/%/%.1/ent">
+      <details key="start" value="278"/>
+      <details key="end" value="281"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateSceneLogic/%/%/%.2">
+      <details key="start" value="301"/>
+      <details key="end" value="302"/>
       <details key="line" value="10"/>
     </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/generateCppRender/%/%.3/%.1">
-      <details key="start" value="290"/>
-      <details key="end" value="319"/>
+    <eAnnotations source="positions.7" references="/0/generateSceneLogic/%/%/ent">
+      <details key="start" value="235"/>
+      <details key="end" value="251"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateSceneLogic/%/%/%.3">
+      <details key="start" value="254"/>
+      <details key="end" value="266"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/generateCppRender/%/%.3/%.1/ent">
-      <details key="start" value="291"/>
-      <details key="end" value="294"/>
+    <eAnnotations source="positions.9" references="/0/generateSceneLogic/%/%/%.3/n">
+      <details key="start" value="254"/>
+      <details key="end" value="255"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/generateCppRender/%/%.3/%.1/%">
-      <details key="start" value="307"/>
-      <details key="end" value="317"/>
+    <eAnnotations source="positions.10" references="/0/generateSceneLogic/%/n">
+      <details key="start" value="200"/>
+      <details key="end" value="208"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateSceneLogic/%/%.1">
+      <details key="start" value="211"/>
+      <details key="end" value="222"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/generateCppRender/ent">
-      <details key="start" value="125"/>
-      <details key="end" value="141"/>
-      <details key="line" value="4"/>
+    <eAnnotations source="positions.12" references="/0/generateSceneLogic/%/%.1/aScene">
+      <details key="start" value="211"/>
+      <details key="end" value="217"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateSceneLogic/aScene">
+      <details key="start" value="177"/>
+      <details key="end" value="191"/>
+      <details key="line" value="6"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

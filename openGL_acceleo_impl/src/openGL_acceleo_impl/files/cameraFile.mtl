@@ -1,0 +1,53 @@
+[comment encoding = UTF-8 /]
+[module cameraFile('http://www.example.org/openGL_DSL')]
+
+[template public generateCamera(aCam : Camera)]
+[comment --- GENERACIÓN DE Camera.h --- /]
+[file ('Camera.h', false, 'UTF-8')]
+#ifndef _H_Camera_H_
+#define _H_Camera_H_
+
+#include <glm/glm.hpp>
+#include "Viewport.h"
+
+class Camera {
+public:
+    Camera(Viewport* vp);
+    void uploadVM() const;
+    void setVM();
+
+private:
+    glm::dmat4 mViewMat;
+    glm::dmat4 mProjMat;
+    double mNear, mFar;
+    Viewport* mViewPort;
+};
+#endif
+[/file]
+
+[comment --- GENERACIÓN DE Camera.cpp --- /]
+[file ('Camera.cpp', false, 'UTF-8')]
+#include "Camera.h"
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+Camera::Camera(Viewport* vp) 
+    : mViewPort(vp), mViewMat(1.0), mProjMat(1.0) {
+    mNear = [aCam.mNearVal/];
+    mFar = [aCam.mFarVal/];
+}
+
+void Camera::setVM() {
+    // Valores por defecto inspirados en tu codigo fuente
+    glm::dvec3 eye(0, 0, 500);
+    glm::dvec3 look(0, 0, 0);
+    glm::dvec3 up(0, 1, 0);
+    mViewMat = glm::lookAt(eye, look, up);
+}
+
+void Camera::uploadVM() const {
+    glMatrixMode(GL_MODELVIEW);
+    glLoadMatrixd(glm::value_ptr(mViewMat));
+}
+[/file]
+[/template]

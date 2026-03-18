@@ -1,74 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="viewportFile" nsURI="openGL_acceleo_impl::files::viewportFile" startHeaderPosition="29" endHeaderPosition="312">
+  <mtl:Module name="viewportFile" nsURI="openGL_acceleo_impl::files::viewportFile" startHeaderPosition="29" endHeaderPosition="188">
     <input>
       <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
     </input>
-    <ownedModuleElement xsi:type="mtl:Template" name="generateViewPortFile" visibility="Public">
+    <ownedModuleElement xsi:type="mtl:Template" name="generateViewport" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="DETALLES DEL VIEWPORT&#xA;---------------------&#xA;Coordenadas: ("/>
-        <body xsi:type="ocl.ecore:PropertyCallExp">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-          <source xsi:type="ocl.ecore:VariableExp" name="aViewPort" referredVariable="/0/generateViewPortFile/aViewPort">
-            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
-          </source>
-          <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/openGL_DSL#//ViewPort/xLeft"/>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=", "/>
-        <body xsi:type="ocl.ecore:PropertyCallExp">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-          <source xsi:type="ocl.ecore:VariableExp" name="aViewPort" referredVariable="/0/generateViewPortFile/aViewPort">
-            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
-          </source>
-          <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/openGL_DSL#//ViewPort/yBolt"/>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=") &#xA;Dimensiones: "/>
-        <body xsi:type="ocl.ecore:PropertyCallExp">
-          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-          <source xsi:type="ocl.ecore:VariableExp" name="aViewPort" referredVariable="/0/generateViewPortFile/aViewPort">
-            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
-          </source>
-          <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/openGL_DSL#//ViewPort/xWidth"/>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" (Ancho) x "/>
-        <body xsi:type="ocl.ecore:PropertyCallExp">
-          <eType xsi:type="ocl.ecore:AnyType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
-          <source xsi:type="ocl.ecore:VariableExp" name="aViewPort" referredVariable="/0/generateViewPortFile/aViewPort">
-            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
-          </source>
-          <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/openGL_DSL#//ViewPort/yHeight"/>
-        </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" (Alto) &#xA;"/>
-        <fileUrl xsi:type="ocl.ecore:OperationCallExp">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Viewport_H_&#xA;#define _H_Viewport_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;&#xA;class Viewport {&#xA;public:&#xA;    // Declaración del constructor&#xA;    Viewport(GLsizei xw, GLsizei yh);&#xA;    ~Viewport() = default;&#xA;&#xA;    void upload() const;&#xA;    void setSize(GLsizei xw, GLsizei yh);&#xA;    void setPos(GLsizei xl, GLsizei yb);&#xA;&#xA;private:&#xA;    GLsizei xLeft, yBot, xWidth, yHeight;&#xA;};&#xA;#endif&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Viewport.h">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <source xsi:type="ocl.ecore:OperationCallExp">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <source xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="viewport_">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            </source>
-            <argument xsi:type="ocl.ecore:OperationCallExp">
-              <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <source xsi:type="ocl.ecore:PropertyCallExp">
-                <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-                <source xsi:type="ocl.ecore:VariableExp" name="aViewPort" referredVariable="/0/generateViewPortFile/aViewPort">
-                  <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
-                </source>
-                <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/openGL_DSL#//ViewPort/xLeft"/>
-              </source>
-              <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/toString"/>
-            </argument>
-            <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
-          </source>
-          <argument xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".txt">
-            <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          </argument>
-          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String_Class/concat"/>
         </fileUrl>
         <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
       </body>
-      <parameter name="aViewPort">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Viewport.h&quot;&#xA;&#xA;// El constructor usa los parámetros xw/yh y los valores del modelo xLeft/yBolt&#xA;Viewport::Viewport(GLsizei xw, GLsizei yh)&#xA;    : xWidth(xw)&#xA;    , yHeight(yh)&#xA;    , xLeft("/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aVP" referredVariable="/0/generateViewport/aVP">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/openGL_DSL#//ViewPort/xLeft"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=")&#xA;    , yBot("/>
+        <body xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="aVP" referredVariable="/0/generateViewport/aVP">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+          </source>
+          <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/openGL_DSL#//ViewPort/yBolt"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=")&#xA;{&#xA;}&#xA;&#xA;void Viewport::upload() const {&#xA;    glViewport(xLeft, yBot, xWidth, yHeight);&#xA;}&#xA;&#xA;void Viewport::setSize(GLsizei xw, GLsizei yh) {&#xA;    xWidth = xw;&#xA;    yHeight = yh;&#xA;}&#xA;&#xA;void Viewport::setPos(GLsizei xl, GLsizei yb) {&#xA;    xLeft = xl;&#xA;    yBot = yb;&#xA;}&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Viewport.cpp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aVP">
         <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
       </parameter>
     </ownedModuleElement>
@@ -93,13 +65,13 @@
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
         <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
       </eAnnotations>
-      <eOperations name="generateViewPortFile">
+      <eOperations name="generateViewport">
         <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
-        <eAnnotations source="MTL" references="/0/generateViewPortFile"/>
+        <eAnnotations source="MTL" references="/0/generateViewport"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aViewPort">
+        <eParameters name="aVP">
           <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
         </eParameters>
       </eOperations>
@@ -164,124 +136,89 @@
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
-    <eAnnotations source="positions.0" references="/0/generateViewPortFile">
+    <eAnnotations source="positions.0" references="/0/generateViewport">
       <details key="start" value="89"/>
-      <details key="end" value="431"/>
+      <details key="end" value="1209"/>
       <details key="line" value="4"/>
     </eAnnotations>
-    <eAnnotations source="positions.1" references="/0/generateViewPortFile/%">
-      <details key="start" value="150"/>
-      <details key="end" value="419"/>
-      <details key="line" value="5"/>
-    </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/generateViewPortFile/%/%">
-      <details key="start" value="237"/>
-      <details key="end" value="295"/>
+    <eAnnotations source="positions.1" references="/0/generateViewport/%">
+      <details key="start" value="191"/>
+      <details key="end" value="605"/>
       <details key="line" value="6"/>
     </eAnnotations>
-    <eAnnotations source="positions.3" references="/0/generateViewPortFile/%/%.1">
-      <details key="start" value="296"/>
-      <details key="end" value="311"/>
+    <eAnnotations source="positions.2" references="/0/generateViewport/%/%">
+      <details key="start" value="229"/>
+      <details key="end" value="598"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateViewport/%/%.1">
+      <details key="start" value="198"/>
+      <details key="end" value="210"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/generateViewPortFile/%/%.1/aViewPort">
-      <details key="start" value="296"/>
-      <details key="end" value="305"/>
+    <eAnnotations source="positions.4" references="/0/generateViewport/%/%.2">
+      <details key="start" value="219"/>
+      <details key="end" value="226"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/generateViewPortFile/%/%.2">
-      <details key="start" value="314"/>
-      <details key="end" value="316"/>
-      <details key="line" value="8"/>
+    <eAnnotations source="positions.5" references="/0/generateViewport/%.1">
+      <details key="start" value="606"/>
+      <details key="end" value="607"/>
+      <details key="line" value="27"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/generateViewPortFile/%/%.3">
-      <details key="start" value="317"/>
-      <details key="end" value="332"/>
+    <eAnnotations source="positions.6" references="/0/generateViewport/%.2">
+      <details key="start" value="664"/>
+      <details key="end" value="1197"/>
+      <details key="line" value="29"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateViewport/%.2/%">
+      <details key="start" value="704"/>
+      <details key="end" value="897"/>
+      <details key="line" value="30"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateViewport/%.2/%.1">
+      <details key="start" value="898"/>
+      <details key="end" value="907"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/generateViewPortFile/%/%.3/aViewPort">
-      <details key="start" value="317"/>
-      <details key="end" value="326"/>
+    <eAnnotations source="positions.9" references="/0/generateViewport/%.2/%.1/aVP">
+      <details key="start" value="898"/>
+      <details key="end" value="901"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/generateViewPortFile/%/%.4">
-      <details key="start" value="335"/>
-      <details key="end" value="351"/>
-      <details key="line" value="8"/>
+    <eAnnotations source="positions.10" references="/0/generateViewport/%.2/%.2">
+      <details key="start" value="909"/>
+      <details key="end" value="922"/>
+      <details key="line" value="36"/>
     </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/generateViewPortFile/%/%.5">
-      <details key="start" value="352"/>
-      <details key="end" value="368"/>
+    <eAnnotations source="positions.11" references="/0/generateViewport/%.2/%.3">
+      <details key="start" value="923"/>
+      <details key="end" value="932"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/generateViewPortFile/%/%.5/aViewPort">
-      <details key="start" value="352"/>
-      <details key="end" value="361"/>
+    <eAnnotations source="positions.12" references="/0/generateViewport/%.2/%.3/aVP">
+      <details key="start" value="923"/>
+      <details key="end" value="926"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/generateViewPortFile/%/%.6">
-      <details key="start" value="371"/>
-      <details key="end" value="382"/>
-      <details key="line" value="9"/>
+    <eAnnotations source="positions.13" references="/0/generateViewport/%.2/%.4">
+      <details key="start" value="934"/>
+      <details key="end" value="1190"/>
+      <details key="line" value="37"/>
     </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/generateViewPortFile/%/%.7">
-      <details key="start" value="383"/>
-      <details key="end" value="400"/>
+    <eAnnotations source="positions.14" references="/0/generateViewport/%.2/%.5">
+      <details key="start" value="671"/>
+      <details key="end" value="685"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/generateViewPortFile/%/%.7/aViewPort">
-      <details key="start" value="383"/>
-      <details key="end" value="392"/>
+    <eAnnotations source="positions.15" references="/0/generateViewport/%.2/%.6">
+      <details key="start" value="694"/>
+      <details key="end" value="701"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/generateViewPortFile/%/%.8">
-      <details key="start" value="403"/>
-      <details key="end" value="412"/>
-      <details key="line" value="9"/>
-    </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/generateViewPortFile/%/%.9">
-      <details key="start" value="157"/>
-      <details key="end" value="218"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/generateViewPortFile/%/%.9/%">
-      <details key="start" value="157"/>
-      <details key="end" value="203"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/generateViewPortFile/%/%.9/%/%">
-      <details key="start" value="157"/>
-      <details key="end" value="168"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.18" references="/0/generateViewPortFile/%/%.9/%/%.1">
-      <details key="start" value="176"/>
-      <details key="end" value="202"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.19" references="/0/generateViewPortFile/%/%.9/%/%.1/%">
-      <details key="start" value="176"/>
-      <details key="end" value="191"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.20" references="/0/generateViewPortFile/%/%.9/%/%.1/%/aViewPort">
-      <details key="start" value="176"/>
-      <details key="end" value="185"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.21" references="/0/generateViewPortFile/%/%.9/%.1">
-      <details key="start" value="211"/>
-      <details key="end" value="217"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.22" references="/0/generateViewPortFile/%/%.10">
-      <details key="start" value="227"/>
-      <details key="end" value="234"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.23" references="/0/generateViewPortFile/aViewPort">
-      <details key="start" value="127"/>
-      <details key="end" value="147"/>
+    <eAnnotations source="positions.16" references="/0/generateViewport/aVP">
+      <details key="start" value="123"/>
+      <details key="end" value="137"/>
       <details key="line" value="4"/>
     </eAnnotations>
   </ecore:EAnnotation>
