@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="sceneFile" nsURI="openGL_acceleo_impl::files::sceneFile" startHeaderPosition="29" endHeaderPosition="174">
+    <input>
+      <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateScene" visibility="Public">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Scene_H_&#xA;#define _H_Scene_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;glm/glm.hpp>&#xA;&#xA;#include &quot;Camera.h&quot;&#xA;#include &quot;Node.h&quot;&#xA;&#xA;#include &lt;vector>&#xA;&#xA;class Scene&#xA;{&#xA;public:&#xA;&#x9;Scene() = default;&#xA;&#x9;~Scene()&#xA;&#x9;{&#xA;&#x9;&#x9;free();&#xA;&#x9;&#x9;resetGL();&#xA;&#x9;};&#xA;&#xA;&#x9;Scene(const Scene&amp; s) = delete;            // no copy constructor&#xA;&#x9;Scene&amp; operator=(const Scene&amp; s) = delete; // no copy assignment&#xA;&#xA;&#x9;void init();&#xA;&#xA;&#x9;void render(Camera const&amp; cam) const;&#xA;&#xA;    void addNode(Node* n);&#xA;&#xA;&#xA;protected:&#xA;&#x9;void free();&#xA;&#x9;void setGL();&#xA;&#x9;void resetGL();&#xA;&#xA;&#x9;std::vector&lt;Node*> nodes; // Entities (graphic objects) of the scene&#xA;&#x9;&#xA;};&#xA;&#xA;#endif //_H_Scene_H_&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Scene.h">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Scene.h&quot;&#xA;&#xA;#include &lt;glm/gtc/matrix_transform.hpp>&#xA;#include &lt;glm/gtc/type_ptr.hpp>&#xA;&#xA;using namespace glm;&#xA;&#xA;void&#xA;Scene::init()&#xA;{&#xA;&#x9;setGL(); // OpenGL settings&#xA;&#x9;&#xA;}&#xA;&#xA;void&#xA;Scene::free()&#xA;{ // release memory and resources&#xA;&#xA;&#x9;for (Node* el : nodes) {&#xA;&#x9;&#x9;delete el;&#xA;&#x9;&#x9;el = nullptr;&#xA;&#x9;}&#xA;}&#xA;&#xA;void&#xA;Scene::setGL()&#xA;{&#xA;&#x9;// OpenGL basic setting&#xA;&#x9;glClearColor(0.6, 0.7, 0.8, 1.0); // background color (alpha=1 -> opaque)&#xA;&#x9;glEnable(GL_DEPTH_TEST);          // enable Depth test&#xA;&#x9;glEnable(GL_TEXTURE_2D);&#xA;&#x9;glEnable(GL_BLEND);&#xA;&#x9;glEnable(GL_NORMALIZE);&#xA;&#x9;glEnable(GL_COLOR_MATERIAL);&#xA;&#x9;//glEnable(GL_LIGHTING);&#xA;}&#xA;&#xA;void&#xA;Scene::resetGL()&#xA;{&#xA;&#x9;glClearColor(.0, .0, .0, .0); // background color (alpha=1 -> opaque)&#xA;&#x9;glDisable(GL_DEPTH_TEST);     // disable Depth test&#xA;&#x9;glDisable(GL_TEXTURE_2D);&#xA;&#x9;glDisable(GL_BLEND);&#xA;&#x9;glDisable(GL_NORMALIZE);&#xA;&#x9;glDisable(GL_COLOR_MATERIAL);&#xA;&#x9;//glDisable(GL_LIGHTING);&#xA;}&#xA;&#xA;void&#xA;Scene::render(Camera const&amp; cam) const&#xA;{&#xA;&#x9;&#xA;&#x9;cam.upload();&#xA;&#xA;&#x9;for (Node* n : nodes) {&#xA;&#x9;&#x9;n->render(cam.viewMat());&#xA;&#x9;}&#xA;}&#xA;&#xA;void&#xA;Scene::addNode(Node* n)&#xA;{&#xA;&#x9;nodes.push_back(n);&#xA;}&#xA;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Scene.cpp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aScene">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="generateScene">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateScene"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aScene">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Scene_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/openGL_DSL#//Scene"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/generateScene">
+      <details key="start" value="87"/>
+      <details key="end" value="1981"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateScene/%">
+      <details key="start" value="177"/>
+      <details key="end" value="823"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateScene/%/%">
+      <details key="start" value="212"/>
+      <details key="end" value="816"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateScene/%/%.1">
+      <details key="start" value="184"/>
+      <details key="end" value="193"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateScene/%/%.2">
+      <details key="start" value="202"/>
+      <details key="end" value="209"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateScene/%.1">
+      <details key="start" value="824"/>
+      <details key="end" value="825"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateScene/%.2">
+      <details key="start" value="869"/>
+      <details key="end" value="1969"/>
+      <details key="line" value="52"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateScene/%.2/%">
+      <details key="start" value="906"/>
+      <details key="end" value="1962"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateScene/%.2/%.1">
+      <details key="start" value="876"/>
+      <details key="end" value="887"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateScene/%.2/%.2">
+      <details key="start" value="896"/>
+      <details key="end" value="903"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateScene/aScene">
+      <details key="start" value="118"/>
+      <details key="end" value="132"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

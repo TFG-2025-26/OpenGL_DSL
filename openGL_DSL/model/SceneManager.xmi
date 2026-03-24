@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openGL_DSL:SceneManager
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:openGL_DSL="http://www.example.org/openGL_DSL"
+    WinW="800"
+    WinH="600">
+  <viewport/>
+  <camera/>
+  <scenes>
+    <nodo>
+      <abs_entity
+          xsi:type="openGL_DSL:EjesRGB"
+          Lenght="400.0"/>
+    </nodo>
+  </scenes>
+</openGL_DSL:SceneManager>

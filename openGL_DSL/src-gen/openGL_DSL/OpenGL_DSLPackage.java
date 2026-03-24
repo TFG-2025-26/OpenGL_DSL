@@ -1986,6 +1986,106 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int TEXTURE_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link openGL_DSL.impl.EjesRGBImpl <em>Ejes RGB</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see openGL_DSL.impl.EjesRGBImpl
+	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getEjesRGB()
+	 * @generated
+	 */
+	int EJES_RGB = 19;
+
+	/**
+	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB__TEXTURE = ABS_ENTITY__TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Material</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB__MATERIAL = ABS_ENTITY__MATERIAL;
+
+	/**
+	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB__MESH = ABS_ENTITY__MESH;
+
+	/**
+	 * The feature id for the '<em><b>MModel Mat</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB__MMODEL_MAT = ABS_ENTITY__MMODEL_MAT;
+
+	/**
+	 * The feature id for the '<em><b>MColor</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB__MCOLOR = ABS_ENTITY__MCOLOR;
+
+	/**
+	 * The feature id for the '<em><b>Lenght</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB__LENGHT = ABS_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Ejes RGB</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Render</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Upload</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB___UPLOAD = ABS_ENTITY___UPLOAD;
+
+	/**
+	 * The number of operations of the '<em>Ejes RGB</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB_OPERATION_COUNT = ABS_ENTITY_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>GLsizei</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1993,7 +2093,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getGLsizei()
 	 * @generated
 	 */
-	int GLSIZEI = 19;
+	int GLSIZEI = 20;
 
 	/**
 	 * The meta object id for the '<em>GLuint</em>' data type.
@@ -2003,7 +2103,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getGLuint()
 	 * @generated
 	 */
-	int GLUINT = 20;
+	int GLUINT = 21;
 
 	/**
 	 * The meta object id for the '<em>vec2</em>' data type.
@@ -2013,7 +2113,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getvec2()
 	 * @generated
 	 */
-	int VEC2 = 21;
+	int VEC2 = 22;
 
 	/**
 	 * The meta object id for the '<em>vec3</em>' data type.
@@ -2023,7 +2123,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getvec3()
 	 * @generated
 	 */
-	int VEC3 = 22;
+	int VEC3 = 23;
 
 	/**
 	 * The meta object id for the '<em>vec4</em>' data type.
@@ -2033,7 +2133,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getvec4()
 	 * @generated
 	 */
-	int VEC4 = 23;
+	int VEC4 = 24;
 
 	/**
 	 * The meta object id for the '<em>mat4</em>' data type.
@@ -2043,7 +2143,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getmat4()
 	 * @generated
 	 */
-	int MAT4 = 24;
+	int MAT4 = 25;
 
 	/**
 	 * The meta object id for the '<em>GLquadric Obj</em>' data type.
@@ -2053,7 +2153,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getGLquadricObj()
 	 * @generated
 	 */
-	int GLQUADRIC_OBJ = 25;
+	int GLQUADRIC_OBJ = 26;
 
 	/**
 	 * Returns the meta object for class '{@link openGL_DSL.SceneManager <em>Scene Manager</em>}'.
@@ -3080,6 +3180,27 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EOperation getIndexMesh__BuildNormalVectors();
 
 	/**
+	 * Returns the meta object for class '{@link openGL_DSL.EjesRGB <em>Ejes RGB</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Ejes RGB</em>'.
+	 * @see openGL_DSL.EjesRGB
+	 * @generated
+	 */
+	EClass getEjesRGB();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.EjesRGB#getLenght <em>Lenght</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Lenght</em>'.
+	 * @see openGL_DSL.EjesRGB#getLenght()
+	 * @see #getEjesRGB()
+	 * @generated
+	 */
+	EAttribute getEjesRGB_Lenght();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>GLsizei</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3984,6 +4105,24 @@ public interface OpenGL_DSLPackage extends EPackage {
 		 * @generated
 		 */
 		EOperation INDEX_MESH___BUILD_NORMAL_VECTORS = eINSTANCE.getIndexMesh__BuildNormalVectors();
+
+		/**
+		 * The meta object literal for the '{@link openGL_DSL.impl.EjesRGBImpl <em>Ejes RGB</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see openGL_DSL.impl.EjesRGBImpl
+		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getEjesRGB()
+		 * @generated
+		 */
+		EClass EJES_RGB = eINSTANCE.getEjesRGB();
+
+		/**
+		 * The meta object literal for the '<em><b>Lenght</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EJES_RGB__LENGHT = eINSTANCE.getEjesRGB_Lenght();
 
 		/**
 		 * The meta object literal for the '<em>GLsizei</em>' data type.

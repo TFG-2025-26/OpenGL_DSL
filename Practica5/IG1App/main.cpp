@@ -4,17 +4,22 @@
 
 #include "Viewport.h"
 #include "Camera.h"
+#include "Scene.h"
+#include <vector>
 
 using namespace std;
 
 // Variables globales
 Viewport* viewport = nullptr;
 Camera* camera = nullptr;
+vector<Scene*> scenes;
 
 void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    camera->upload();
+    for (Scene* sc : scenes) {
+		sc->render(*camera);
+	}
 
     glutSwapBuffers();
 }
@@ -56,9 +61,16 @@ void init() {
     viewport = new Viewport(800, 600);
     camera = new Camera(viewport);
 
-    glClearColor(0.6, 0.7, 0.8, 1.0);
-
     // CARGA DE ENTIDADES DESDE EL MODELO XMI
+    Scene* sc;
+    Node* nd;
+    sc = new Scene();
+    scenes.push_back(sc);
+        nd = new Node(dvec3(0,0,0), dvec3(0,0,0), dvec3(1,1,1));
+                        nd->addEntity(new EjesRGB(400.0));
+        sc->addNode(nd);
+    sc->init();
+
 }
 
 int main(int argc, char** argv) {
@@ -66,6 +78,10 @@ int main(int argc, char** argv) {
     glutMainLoop();
 
     // Limpieza de memoria
+    for (Scene* sc : scenes) {
+	delete sc;
+	sc = nullptr;
+    }
     delete camera;
     delete viewport;
 

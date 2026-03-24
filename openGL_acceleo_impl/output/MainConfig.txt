@@ -1,0 +1,17 @@
+CONFIGURACIÓN GLOBAL DEL MOTOR
+==============================
+ID Ventana: 0 
+Resolución: 0 x 0 
+
+
+
+Cámara detectada: Near=0.0, Far=10000.0
+
+LISTADO DE ESCENAS
+------------------
+Escena (Visible: true)
+  Nodos detectados en XMI:
+    * Nodo en posición: (0, 0, 0)
+      - Luz tipo: PosLight
+      - Entidad: Esfera (Color: )
+

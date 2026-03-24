@@ -1,0 +1,249 @@
+[comment encoding = UTF-8 /]
+[module cameraFile('http://www.example.org/openGL_DSL')]
+
+[template public generateCamera(aCam : Camera)]
+[comment --- GENERACIÓN DE Camera.h --- /]
+[file ('Camera.h', false, 'UTF-8')]
+#ifndef _H_Camera_H_
+#define _H_Camera_H_
+
+#include <GL/freeglut.h>
+#include <glm/glm.hpp>
+
+#include "Viewport.h"
+
+class Camera
+{
+public:
+	explicit Camera(Viewport* vp);
+	~Camera() = default;
+
+	// viewPort
+	Viewport const& viewPort() const { return *mViewPort; };
+
+	// view matrix
+	glm::dmat4 const& viewMat() const { return mViewMat; };
+
+	void pitch(GLdouble a); // rotates a degrees on the X axis
+	void yaw(GLdouble a);   // rotates a degrees on the Y axis
+	void roll(GLdouble a);  // rotates a degrees on the Z axis
+
+	// projection matrix
+	glm::dmat4 const& projMat() const { return mProjMat; };
+
+	// sets scene visible area size
+	void setSize(GLdouble xw, GLdouble yh);
+	// updates the scale factor
+	void setScale(GLdouble s);
+
+	// transfers its viewport, the view matrix and projection matrix to the GPU
+	void upload() const
+	{
+		mViewPort->upload();
+		uploadVM();
+		uploadPM();
+	};
+
+	void moveLR(GLdouble cs); // A izquierda/A derecha
+	void moveFB(GLdouble cs); // Adelante/Atrás
+	void moveUD(GLdouble cs); // Arriba/Abajo
+
+	void changePrj();
+
+	void pitchReal(GLdouble cs);
+	void yawReal(GLdouble cs);
+	void rollReal(GLdouble cs);
+
+protected:
+	glm::dvec3 mEye = {0.0, 0.0, 500.0}; // camera's position
+	glm::dvec3 mLook = {0.0, 0.0, 0.0};  // target's position
+	glm::dvec3 mUp = {0.0, 1.0, 0.0};    // the up vector
+
+	glm::dmat4 mViewMat;   // view matrix = inverse of modeling matrix
+	void uploadVM() const; // transfers viewMat to the GPU
+
+	glm::dmat4 mProjMat;   // projection matrix
+	void uploadPM() const; // transfers projMat to the GPU
+
+	GLdouble xRight, xLeft, yTop, yBot;     // size of scene visible area
+	GLdouble mNearVal = 1, mFarVal = 10000; // view volume
+	GLdouble mScaleFact = 1;                // scale factor
+	bool bOrto = true;                      // orthogonal or perspective projection
+
+	Viewport* mViewPort; // the viewport
+
+	void setVM();
+	void setPM();
+
+	glm::dvec3 mRight;
+	glm::dvec3 mUpward;
+	glm::dvec3 mFront;
+
+	void setAxes();
+
+	GLdouble mAng; 
+	GLdouble mRadio;
+};
+#endif
+[/file]
+
+[comment --- GENERACIÓN DE Camera.cpp --- /]
+[file ('Camera.cpp', false, 'UTF-8')]
+#include "Camera.h"
+
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <glm/gtc/matrix_access.hpp>
+
+using namespace glm;
+
+Camera::Camera(Viewport* vp)
+  : mViewMat(1.0)
+  , mProjMat(1.0)
+  , xRight(vp->width() / 2.0)
+  , xLeft(-xRight)
+  , yTop(vp->height() / 2.0)
+  , yBot(-yTop)
+  , mViewPort(vp)
+{
+    setVM();
+	setPM();
+}
+
+void
+Camera::uploadVM() const
+{
+	glMatrixMode(GL_MODELVIEW);
+	glLoadMatrixd(value_ptr(mViewMat)); // transfers view matrix to the GPU
+}
+
+void
+Camera::setVM()
+{
+	mViewMat = lookAt(mEye, mLook, mUp); // glm::lookAt defines the view matrix
+	setAxes();
+}
+
+void
+Camera::pitch(GLdouble a)
+{
+	mViewMat = rotate(mViewMat, glm::radians(a), glm::dvec3(1.0, 0, 0));
+	// glm::rotate returns mViewMat * rotationMatrix
+}
+
+void
+Camera::yaw(GLdouble a)
+{
+	mViewMat = rotate(mViewMat, glm::radians(a), glm::dvec3(0, 1.0, 0));
+	// glm::rotate returns mViewMat * rotationMatrix
+}
+
+void
+Camera::roll(GLdouble a)
+{
+	mViewMat = rotate(mViewMat, glm::radians(a), glm::dvec3(0, 0, 1.0));
+	// glm::rotate returns mViewMat * rotationMatrix
+}
+
+void
+Camera::setSize(GLdouble xw, GLdouble yh)
+{
+	xRight = xw / 2.0;
+	xLeft = -xRight;
+	yTop = yh / 2.0;
+	yBot = -yTop;
+	setPM();
+}
+
+void
+Camera::setScale(GLdouble s)
+{
+	mScaleFact -= s;
+	if (mScaleFact < 0)
+		mScaleFact = 0.01;
+	setPM();
+}
+
+void
+Camera::setPM()
+{
+	if (bOrto) { //  if orthogonal projection
+		mProjMat = ortho(xLeft * mScaleFact,
+		                 xRight * mScaleFact,
+		                 yBot * mScaleFact,
+		                 yTop * mScaleFact,
+		                 mNearVal,
+		                 mFarVal);
+		// glm::ortho defines the orthogonal projection matrix
+	}
+	else {
+		mProjMat = frustum(xLeft * mScaleFact,
+			               xRight * mScaleFact,
+			               yBot * mScaleFact,
+			               yTop * mScaleFact,
+			               mNearVal,
+			               mFarVal);
+	}
+}
+
+void
+Camera::uploadPM() const
+{
+	glMatrixMode(GL_PROJECTION);
+	glLoadMatrixd(value_ptr(mProjMat)); // transfers projection matrix to the GPU
+	glMatrixMode(GL_MODELVIEW);
+}
+
+void
+Camera::setAxes() {
+	mRight = row(mViewMat, 0);
+	mUpward = row(mViewMat, 1);
+	mFront = -row(mViewMat, 2);
+}
+
+void
+Camera::moveLR(GLdouble cs) {
+	mEye += mRight * cs;
+	mLook += mRight * cs;
+	setVM();
+}
+
+void
+Camera::moveFB(GLdouble cs) {
+	mEye += mFront * cs;
+	mLook += mFront * cs;
+	setVM();
+}
+
+void
+Camera::moveUD(GLdouble cs) {
+	mEye += mUpward * cs;
+	mLook += mUpward * cs;
+	setVM();
+}
+
+void
+Camera::changePrj() {
+	bOrto = !bOrto;
+	setPM();
+}
+
+void
+Camera::pitchReal(GLdouble cs) {
+	dmat4 rot = rotate(dmat4(1), glm::radians(cs), glm::dvec3(1.0, 0, 0));
+	mViewMat = rot * mViewMat;
+}
+
+void
+Camera::yawReal(GLdouble cs) {
+	dmat4 rot = rotate(dmat4(1), glm::radians(cs), glm::dvec3(0, 1.0, 0));
+	mViewMat = rot * mViewMat;
+}
+
+void
+Camera::rollReal(GLdouble cs) {
+	dmat4 rot = rotate(dmat4(1), glm::radians(cs), glm::dvec3(0, 0, 1.0));
+	mViewMat = rot * mViewMat;
+}
+[/file]
+[/template]

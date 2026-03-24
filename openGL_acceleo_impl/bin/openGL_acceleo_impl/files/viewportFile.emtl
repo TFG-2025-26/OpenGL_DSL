@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="viewportFile" nsURI="openGL_acceleo_impl::files::viewportFile" startHeaderPosition="30" endHeaderPosition="192">
+    <input>
+      <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateViewport" visibility="Public">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Viewport_H_&#xD;&#xA;#define _H_Viewport_H_&#xD;&#xA;&#xD;&#xA;#include &lt;GL/freeglut.h>&#xD;&#xA;#include &lt;glm/glm.hpp>&#xD;&#xA;&#xD;&#xA;class Viewport&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;Viewport(GLsizei xw, GLsizei yh)&#xD;&#xA;&#x9;  : xWidth(xw)&#xD;&#xA;&#x9;  , yHeight(yh){};&#xD;&#xA;&#x9;~Viewport() = default;&#xD;&#xA;&#xD;&#xA;&#x9;GLsizei left() const { return xLeft; };     // viewport left position&#xD;&#xA;&#x9;GLsizei bot() const { return yBot; };       // viewport bottom position&#xD;&#xA;&#x9;GLsizei width() const { return xWidth; };   // viewport width&#xD;&#xA;&#x9;GLsizei height() const { return yHeight; }; // viewport height&#xD;&#xA;&#xD;&#xA;&#x9;void setPos(GLsizei xl, GLsizei yb);  // sets viewport position (left and bottom)&#xD;&#xA;&#x9;void setSize(GLsizei xw, GLsizei yh); // sets viewport size (width and height)&#xD;&#xA;&#xD;&#xA;&#x9;void upload() const; // transfers viewport to the GPU&#xD;&#xA;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLint xLeft = 0, yBot = 0; // viewport's position: left and bottom&#xD;&#xA;&#x9;GLsizei xWidth, yHeight;   // viewport's size: width and height&#xD;&#xA;};&#xD;&#xA;#endif&#xD;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Viewport.h">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Viewport.h&quot;&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Viewport::setSize(GLsizei xw, GLsizei yh)&#xD;&#xA;{&#xD;&#xA;&#x9;xWidth = xw;&#xD;&#xA;&#x9;yHeight = yh;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Viewport::setPos(GLsizei xl, GLsizei yb)&#xD;&#xA;{&#xD;&#xA;&#x9;xLeft = xl;&#xD;&#xA;&#x9;yBot = yb;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Viewport::upload() const&#xD;&#xA;{&#xD;&#xA;&#x9;glViewport(xLeft, yBot, xWidth, yHeight); // transfers viewport to the GPU&#xD;&#xA;}&#xD;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Viewport.cpp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aVP">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="generateViewport">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateViewport"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aVP">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_ViewPort_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/openGL_DSL#//ViewPort"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/generateViewport">
+      <details key="start" value="92"/>
+      <details key="end" value="1567"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateViewport/%">
+      <details key="start" value="196"/>
+      <details key="end" value="1133"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateViewport/%/%">
+      <details key="start" value="235"/>
+      <details key="end" value="1126"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateViewport/%/%.1">
+      <details key="start" value="203"/>
+      <details key="end" value="215"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateViewport/%/%.2">
+      <details key="start" value="224"/>
+      <details key="end" value="231"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateViewport/%.1">
+      <details key="start" value="1135"/>
+      <details key="end" value="1137"/>
+      <details key="line" value="37"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateViewport/%.2">
+      <details key="start" value="1195"/>
+      <details key="end" value="1554"/>
+      <details key="line" value="39"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateViewport/%.2/%">
+      <details key="start" value="1236"/>
+      <details key="end" value="1547"/>
+      <details key="line" value="40"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateViewport/%.2/%.1">
+      <details key="start" value="1202"/>
+      <details key="end" value="1216"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateViewport/%.2/%.2">
+      <details key="start" value="1225"/>
+      <details key="end" value="1232"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateViewport/aVP">
+      <details key="start" value="126"/>
+      <details key="end" value="140"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

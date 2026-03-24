@@ -1,58 +1,87 @@
 #include <GL/freeglut.h>
-#include <vector>
+#include <glm/glm.hpp>   // OpenGL Mathematics
+#include <iostream>
+
 #include "Viewport.h"
 #include "Camera.h"
+#include "Scene.h"
+#include <vector>
 
-// Inclusión de la estructura de clases del Ecore
-#include "Abs_Entity.h"
-#include "Esfera.h"
-#include "Rectangulo.h"
+using namespace std;
 
 // Variables globales
 Viewport* viewport = nullptr;
 Camera* camera = nullptr;
-std::vector<Abs_Entity*> entities; // Vector de la clase base abstracta
-
-void init() {
-    glClearColor(0.1f, 0.1f, 0.1f, 1.0f);
-    glEnable(GL_DEPTH_TEST);
-    if (camera) camera->setVM();
-}
+vector<Scene*> scenes;
 
 void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
-    if (viewport) viewport->upload();
-    if (camera) camera->uploadVM();
-
-    // LLAMADA REAL AL RENDER (Polimorfismo C++)
-    // Recorremos el vector y cada objeto ejecuta su propio render() (.cpp de la hija)
-    for (Abs_Entity* e : entities) {
-        e->render();
-    }
+    for (Scene* sc : scenes) {
+		sc->render(*camera);
+	}
 
     glutSwapBuffers();
 }
 
-int main(int argc, char** argv) {
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(0, 0);
-    glutCreateWindow("OpenGL Engine - MDE Generated");
+void iniWinOpenGL() { // Initialization
+	cout << "Starting glut...\n";
+	int argc = 0;
+	glutInit(&argc, nullptr);
 
-    // Inicialización de Viewport y Cámara
-    viewport = new Viewport(, );
+	glutInitContextVersion(3, 3);
+	glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE); // GLUT_CORE_PROFILE
+	glutInitContextFlags(GLUT_DEBUG);                   // GLUT_FORWARD_COMPATIBLE
+
+	glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
+
+	glutInitWindowSize(800, 600); // window size
+	// glutInitWindowPosition (140, 140);
+
+	glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE |
+	                    GLUT_DEPTH /*| GLUT_STENCIL*/); // RGBA colors, double buffer, depth
+	                                                    // buffer and stencil buffer
+
+	glutCreateWindow(
+	  "OpenGL Engine - MDE Generated"); // with its associated OpenGL context, return window's identifier
+
+	glutDisplayFunc(display);
+
+	cout << glGetString(GL_VERSION) << '\n';
+	cout << glGetString(GL_VENDOR) << '\n';
+}
+
+void init() {
+    // create an OpenGL Context
+    iniWinOpenGL();
+
+    // create the scene after creating the context
+    // allocate memory and resources
+     // Inicialización de Viewport y Cámara
+    viewport = new Viewport(800, 600);
     camera = new Camera(viewport);
 
     // CARGA DE ENTIDADES DESDE EL MODELO XMI
-    entities.push_back(new Esfera()); 
+    Scene* sc;
+    Node* nd;
+    sc = new Scene();
+    scenes.push_back(sc);
+        nd = new Node(dvec3(0,0,0), dvec3(0,0,0), dvec3(1,1,1));
+                        nd->addEntity(new EjesRGB(400.0));
+        sc->addNode(nd);
+    sc->init();
 
+}
+
+int main(int argc, char** argv) {
     init();
-    glutDisplayFunc(display);
     glutMainLoop();
 
     // Limpieza de memoria
-    for (Abs_Entity* e : entities) delete e;
+    for (Scene* sc : scenes) {
+	delete sc;
+	sc = nullptr;
+    }
     delete camera;
     delete viewport;
 

@@ -1,0 +1,136 @@
+[comment encoding = UTF-8 /]
+[module meshFile('http://www.example.org/openGL_DSL')]
+
+
+[template public generateMesh(aMesh : Mesh)]
+[comment --- Mesh.cpp --- /]
+[file ('Mesh.h', false, 'UTF-8')]
+#ifndef _H_Mesh_H_
+#define _H_Mesh_H_
+
+#include <GL/freeglut.h>
+#include <glm/glm.hpp>
+
+#include <vector>
+
+class Mesh
+{
+public:
+	static Mesh* createRGBAxes(GLdouble l); // creates a new 3D-RGB axes mesh
+
+	Mesh() = default;
+	virtual ~Mesh() = default;
+
+	Mesh(const Mesh& m) = delete;            // no copy constructor
+	Mesh& operator=(const Mesh& m) = delete; // no copy assignment
+
+	virtual void render() const;
+
+	GLuint size() const { return mNumVertices; }; // number of elements
+	std::vector<glm::dvec3> const& vertices() const { return vVertices; };
+	std::vector<glm::dvec4> const& colors() const { return vColors; };
+
+	void addColorVertice(double r, double g, double b, double a);
+
+protected:
+	GLuint mPrimitive =
+	  GL_TRIANGLES;          // graphic primitive: GL_POINTS, GL_LINES, GL_TRIANGLES, ...
+	GLuint mNumVertices = 0; // number of elements ( = vVertices.size())
+	std::vector<glm::dvec3> vVertices; // vertex array
+	std::vector<glm::dvec4> vColors;   // color array
+	std::vector<glm::dvec2> vTexCoords; //vector de coordenadas de textura
+	std::vector<glm::dvec3> vNormals; // vector de normales
+	virtual void draw() const;
+};
+
+#endif //_H_Scene_H_
+[/file]
+
+[comment --- Mesh.cpp --- /]
+[file ('Mesh.cpp', false, 'UTF-8')]
+#include "Mesh.h"
+
+#include <fstream>
+using namespace std;
+using namespace glm;
+
+void
+Mesh::draw() const
+{
+	glDrawArrays(
+	  mPrimitive,
+	  0,
+	  size()); // primitive graphic, first index and number of elements to be rendered
+}
+
+void
+Mesh::render() const
+{
+	if (vVertices.size() > 0) { // transfer data
+		// transfer the coordinates of the vertices
+		glEnableClientState(GL_VERTEX_ARRAY);
+		glVertexPointer(
+		  3, GL_DOUBLE, 0, vVertices.data()); // number of coordinates per vertex, type of
+		                                      // each coordinate, stride, pointer
+		if (vColors.size() > 0) {             // transfer colors
+			glEnableClientState(GL_COLOR_ARRAY);
+			glColorPointer(
+			  4, GL_DOUBLE, 0, vColors.data()); // components number (rgba=4), type of
+			                                    // each component, stride, pointer
+		}
+		if (vTexCoords.size() > 0) {
+			glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+			glTexCoordPointer(2, GL_DOUBLE, 0, vTexCoords.data());
+		}
+		if (vNormals.size() > 0) {
+			glEnableClientState(GL_NORMAL_ARRAY);
+			glNormalPointer(GL_DOUBLE, 0, vNormals.data());
+		}
+		draw();
+
+		glDisableClientState(GL_NORMAL_ARRAY);
+		glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+		glDisableClientState(GL_COLOR_ARRAY);
+		glDisableClientState(GL_VERTEX_ARRAY);
+	}
+}
+
+void Mesh::addColorVertice(double r, double g, double b, double a) {
+	vColors.emplace_back(r, g, b, a);
+}
+
+Mesh*
+Mesh::createRGBAxes(GLdouble l)
+{
+	Mesh* mesh = new Mesh();
+
+	mesh->mPrimitive = GL_LINES;
+
+	mesh->mNumVertices = 6;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+
+	// X axis vertices
+	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
+	mesh->vVertices.emplace_back(l, 0.0, 0.0);
+	// Y axis vertices
+	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
+	mesh->vVertices.emplace_back(0.0, l, 0.0);
+	// Z axis vertices
+	mesh->vVertices.emplace_back(0.0, 0.0, 0.0);
+	mesh->vVertices.emplace_back(0.0, 0.0, l);
+
+	mesh->vColors.reserve(mesh->mNumVertices);
+	// X axis color: red  (Alpha = 1 : fully opaque)
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);
+	// Y axis color: green
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);
+	// Z axis color: blue
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+
+	return mesh;
+}
+[/file]
+[/template]

@@ -166,6 +166,15 @@ public interface OpenGL_DSLFactory extends EFactory {
 	IndexMesh createIndexMesh();
 
 	/**
+	 * Returns a new object of class '<em>Ejes RGB</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Ejes RGB</em>'.
+	 * @generated
+	 */
+	EjesRGB createEjesRGB();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

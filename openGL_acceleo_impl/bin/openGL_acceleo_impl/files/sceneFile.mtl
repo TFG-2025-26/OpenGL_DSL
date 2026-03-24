@@ -1,0 +1,120 @@
+[comment encoding = UTF-8 /]
+[module sceneFile('http://www.example.org/openGL_DSL')]
+
+
+[template public generateScene(aScene : Scene)]
+[comment --- GENERACIÓN DE Scene.h --- /]
+[file ('Scene.h', false, 'UTF-8')]
+#ifndef _H_Scene_H_
+#define _H_Scene_H_
+
+#include <GL/freeglut.h>
+#include <glm/glm.hpp>
+
+#include "Camera.h"
+#include "Node.h"
+
+#include <vector>
+
+class Scene
+{
+public:
+	Scene() = default;
+	~Scene()
+	{
+		free();
+		resetGL();
+	};
+
+	Scene(const Scene& s) = delete;            // no copy constructor
+	Scene& operator=(const Scene& s) = delete; // no copy assignment
+
+	void init();
+
+	void render(Camera const& cam) const;
+
+    void addNode(Node* n);
+
+
+protected:
+	void free();
+	void setGL();
+	void resetGL();
+
+	std::vector<Node*> nodes; // Entities (graphic objects) of the scene
+	
+};
+
+#endif //_H_Scene_H_
+[/file]
+
+[comment --- GENERACIÓN DE Scene.cpp --- /]
+[file ('Scene.cpp', false, 'UTF-8')]
+#include "Scene.h"
+
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
+using namespace glm;
+
+void
+Scene::init()
+{
+	setGL(); // OpenGL settings
+	
+}
+
+void
+Scene::free()
+{ // release memory and resources
+
+	for (Node* el : nodes) {
+		delete el;
+		el = nullptr;
+	}
+}
+
+void
+Scene::setGL()
+{
+	// OpenGL basic setting
+	glClearColor(0.6, 0.7, 0.8, 1.0); // background color (alpha=1 -> opaque)
+	glEnable(GL_DEPTH_TEST);          // enable Depth test
+	glEnable(GL_TEXTURE_2D);
+	glEnable(GL_BLEND);
+	glEnable(GL_NORMALIZE);
+	glEnable(GL_COLOR_MATERIAL);
+	//glEnable(GL_LIGHTING);
+}
+
+void
+Scene::resetGL()
+{
+	glClearColor(.0, .0, .0, .0); // background color (alpha=1 -> opaque)
+	glDisable(GL_DEPTH_TEST);     // disable Depth test
+	glDisable(GL_TEXTURE_2D);
+	glDisable(GL_BLEND);
+	glDisable(GL_NORMALIZE);
+	glDisable(GL_COLOR_MATERIAL);
+	//glDisable(GL_LIGHTING);
+}
+
+void
+Scene::render(Camera const& cam) const
+{
+	
+	cam.upload();
+
+	for (Node* n : nodes) {
+		n->render(cam.viewMat());
+	}
+}
+
+void
+Scene::addNode(Node* n)
+{
+	nodes.push_back(n);
+}
+
+[/file]
+[/template]

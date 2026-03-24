@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="meshFile" nsURI="openGL_acceleo_impl::files::meshFile" startHeaderPosition="29" endHeaderPosition="157">
+    <input>
+      <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateMesh" visibility="Public">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Mesh_H_&#xA;#define _H_Mesh_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;glm/glm.hpp>&#xA;&#xA;#include &lt;vector>&#xA;&#xA;class Mesh&#xA;{&#xA;public:&#xA;&#x9;static Mesh* createRGBAxes(GLdouble l); // creates a new 3D-RGB axes mesh&#xA;&#xA;&#x9;Mesh() = default;&#xA;&#x9;virtual ~Mesh() = default;&#xA;&#xA;&#x9;Mesh(const Mesh&amp; m) = delete;            // no copy constructor&#xA;&#x9;Mesh&amp; operator=(const Mesh&amp; m) = delete; // no copy assignment&#xA;&#xA;&#x9;virtual void render() const;&#xA;&#xA;&#x9;GLuint size() const { return mNumVertices; }; // number of elements&#xA;&#x9;std::vector&lt;glm::dvec3> const&amp; vertices() const { return vVertices; };&#xA;&#x9;std::vector&lt;glm::dvec4> const&amp; colors() const { return vColors; };&#xA;&#xA;&#x9;void addColorVertice(double r, double g, double b, double a);&#xA;&#xA;protected:&#xA;&#x9;GLuint mPrimitive =&#xA;&#x9;  GL_TRIANGLES;          // graphic primitive: GL_POINTS, GL_LINES, GL_TRIANGLES, ...&#xA;&#x9;GLuint mNumVertices = 0; // number of elements ( = vVertices.size())&#xA;&#x9;std::vector&lt;glm::dvec3> vVertices; // vertex array&#xA;&#x9;std::vector&lt;glm::dvec4> vColors;   // color array&#xA;&#x9;std::vector&lt;glm::dvec2> vTexCoords; //vector de coordenadas de textura&#xA;&#x9;std::vector&lt;glm::dvec3> vNormals; // vector de normales&#xA;&#x9;virtual void draw() const;&#xA;};&#xA;&#xA;#endif //_H_Scene_H_&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mesh.h">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Mesh.h&quot;&#xA;&#xA;#include &lt;fstream>&#xA;using namespace std;&#xA;using namespace glm;&#xA;&#xA;void&#xA;Mesh::draw() const&#xA;{&#xA;&#x9;glDrawArrays(&#xA;&#x9;  mPrimitive,&#xA;&#x9;  0,&#xA;&#x9;  size()); // primitive graphic, first index and number of elements to be rendered&#xA;}&#xA;&#xA;void&#xA;Mesh::render() const&#xA;{&#xA;&#x9;if (vVertices.size() > 0) { // transfer data&#xA;&#x9;&#x9;// transfer the coordinates of the vertices&#xA;&#x9;&#x9;glEnableClientState(GL_VERTEX_ARRAY);&#xA;&#x9;&#x9;glVertexPointer(&#xA;&#x9;&#x9;  3, GL_DOUBLE, 0, vVertices.data()); // number of coordinates per vertex, type of&#xA;&#x9;&#x9;                                      // each coordinate, stride, pointer&#xA;&#x9;&#x9;if (vColors.size() > 0) {             // transfer colors&#xA;&#x9;&#x9;&#x9;glEnableClientState(GL_COLOR_ARRAY);&#xA;&#x9;&#x9;&#x9;glColorPointer(&#xA;&#x9;&#x9;&#x9;  4, GL_DOUBLE, 0, vColors.data()); // components number (rgba=4), type of&#xA;&#x9;&#x9;&#x9;                                    // each component, stride, pointer&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;if (vTexCoords.size() > 0) {&#xA;&#x9;&#x9;&#x9;glEnableClientState(GL_TEXTURE_COORD_ARRAY);&#xA;&#x9;&#x9;&#x9;glTexCoordPointer(2, GL_DOUBLE, 0, vTexCoords.data());&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;if (vNormals.size() > 0) {&#xA;&#x9;&#x9;&#x9;glEnableClientState(GL_NORMAL_ARRAY);&#xA;&#x9;&#x9;&#x9;glNormalPointer(GL_DOUBLE, 0, vNormals.data());&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;draw();&#xA;&#xA;&#x9;&#x9;glDisableClientState(GL_NORMAL_ARRAY);&#xA;&#x9;&#x9;glDisableClientState(GL_TEXTURE_COORD_ARRAY);&#xA;&#x9;&#x9;glDisableClientState(GL_COLOR_ARRAY);&#xA;&#x9;&#x9;glDisableClientState(GL_VERTEX_ARRAY);&#xA;&#x9;}&#xA;}&#xA;&#xA;void Mesh::addColorVertice(double r, double g, double b, double a) {&#xA;&#x9;vColors.emplace_back(r, g, b, a);&#xA;}&#xA;&#xA;Mesh*&#xA;Mesh::createRGBAxes(GLdouble l)&#xA;{&#xA;&#x9;Mesh* mesh = new Mesh();&#xA;&#xA;&#x9;mesh->mPrimitive = GL_LINES;&#xA;&#xA;&#x9;mesh->mNumVertices = 6;&#xA;&#x9;mesh->vVertices.reserve(mesh->mNumVertices);&#xA;&#xA;&#x9;// X axis vertices&#xA;&#x9;mesh->vVertices.emplace_back(0.0, 0.0, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back(l, 0.0, 0.0);&#xA;&#x9;// Y axis vertices&#xA;&#x9;mesh->vVertices.emplace_back(0.0, 0.0, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back(0.0, l, 0.0);&#xA;&#x9;// Z axis vertices&#xA;&#x9;mesh->vVertices.emplace_back(0.0, 0.0, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back(0.0, 0.0, l);&#xA;&#xA;&#x9;mesh->vColors.reserve(mesh->mNumVertices);&#xA;&#x9;// X axis color: red  (Alpha = 1 : fully opaque)&#xA;&#x9;mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);&#xA;&#x9;mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);&#xA;&#x9;// Y axis color: green&#xA;&#x9;mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);&#xA;&#x9;mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);&#xA;&#x9;// Z axis color: blue&#xA;&#x9;mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);&#xA;&#x9;mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);&#xA;&#xA;&#x9;return mesh;&#xA;}&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mesh.cpp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aMesh">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="generateMesh">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateMesh"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aMesh">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Mesh_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/openGL_DSL#//Mesh"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/generateMesh">
+      <details key="start" value="86"/>
+      <details key="end" value="3805"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateMesh/%">
+      <details key="start" value="160"/>
+      <details key="end" value="1362"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateMesh/%/%">
+      <details key="start" value="194"/>
+      <details key="end" value="1355"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateMesh/%/%.1">
+      <details key="start" value="167"/>
+      <details key="end" value="175"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateMesh/%/%.2">
+      <details key="start" value="184"/>
+      <details key="end" value="191"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateMesh/%.1">
+      <details key="start" value="1363"/>
+      <details key="end" value="1364"/>
+      <details key="line" value="48"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateMesh/%.2">
+      <details key="start" value="1393"/>
+      <details key="end" value="3793"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateMesh/%.2/%">
+      <details key="start" value="1429"/>
+      <details key="end" value="3786"/>
+      <details key="line" value="51"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateMesh/%.2/%.1">
+      <details key="start" value="1400"/>
+      <details key="end" value="1410"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateMesh/%.2/%.2">
+      <details key="start" value="1419"/>
+      <details key="end" value="1426"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateMesh/aMesh">
+      <details key="start" value="116"/>
+      <details key="end" value="128"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

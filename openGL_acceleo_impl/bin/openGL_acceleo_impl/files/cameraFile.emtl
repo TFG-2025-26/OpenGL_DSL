@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="cameraFile" nsURI="openGL_acceleo_impl::files::cameraFile" startHeaderPosition="30" endHeaderPosition="179">
+    <input>
+      <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateCamera" visibility="Public">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Camera_H_&#xD;&#xA;#define _H_Camera_H_&#xD;&#xA;&#xD;&#xA;#include &lt;GL/freeglut.h>&#xD;&#xA;#include &lt;glm/glm.hpp>&#xD;&#xA;&#xD;&#xA;#include &quot;Viewport.h&quot;&#xD;&#xA;&#xD;&#xA;class Camera&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit Camera(Viewport* vp);&#xD;&#xA;&#x9;~Camera() = default;&#xD;&#xA;&#xD;&#xA;&#x9;// viewPort&#xD;&#xA;&#x9;Viewport const&amp; viewPort() const { return *mViewPort; };&#xD;&#xA;&#xD;&#xA;&#x9;// view matrix&#xD;&#xA;&#x9;glm::dmat4 const&amp; viewMat() const { return mViewMat; };&#xD;&#xA;&#xD;&#xA;&#x9;void pitch(GLdouble a); // rotates a degrees on the X axis&#xD;&#xA;&#x9;void yaw(GLdouble a);   // rotates a degrees on the Y axis&#xD;&#xA;&#x9;void roll(GLdouble a);  // rotates a degrees on the Z axis&#xD;&#xA;&#xD;&#xA;&#x9;// projection matrix&#xD;&#xA;&#x9;glm::dmat4 const&amp; projMat() const { return mProjMat; };&#xD;&#xA;&#xD;&#xA;&#x9;// sets scene visible area size&#xD;&#xA;&#x9;void setSize(GLdouble xw, GLdouble yh);&#xD;&#xA;&#x9;// updates the scale factor&#xD;&#xA;&#x9;void setScale(GLdouble s);&#xD;&#xA;&#xD;&#xA;&#x9;// transfers its viewport, the view matrix and projection matrix to the GPU&#xD;&#xA;&#x9;void upload() const&#xD;&#xA;&#x9;{&#xD;&#xA;&#x9;&#x9;mViewPort->upload();&#xD;&#xA;&#x9;&#x9;uploadVM();&#xD;&#xA;&#x9;&#x9;uploadPM();&#xD;&#xA;&#x9;};&#xD;&#xA;&#xD;&#xA;&#x9;void moveLR(GLdouble cs); // A izquierda/A derecha&#xD;&#xA;&#x9;void moveFB(GLdouble cs); // Adelante/Atrás&#xD;&#xA;&#x9;void moveUD(GLdouble cs); // Arriba/Abajo&#xD;&#xA;&#xD;&#xA;&#x9;void changePrj();&#xD;&#xA;&#xD;&#xA;&#x9;void pitchReal(GLdouble cs);&#xD;&#xA;&#x9;void yawReal(GLdouble cs);&#xD;&#xA;&#x9;void rollReal(GLdouble cs);&#xD;&#xA;&#xD;&#xA;protected:&#xD;&#xA;&#x9;glm::dvec3 mEye = {0.0, 0.0, 500.0}; // camera's position&#xD;&#xA;&#x9;glm::dvec3 mLook = {0.0, 0.0, 0.0};  // target's position&#xD;&#xA;&#x9;glm::dvec3 mUp = {0.0, 1.0, 0.0};    // the up vector&#xD;&#xA;&#xD;&#xA;&#x9;glm::dmat4 mViewMat;   // view matrix = inverse of modeling matrix&#xD;&#xA;&#x9;void uploadVM() const; // transfers viewMat to the GPU&#xD;&#xA;&#xD;&#xA;&#x9;glm::dmat4 mProjMat;   // projection matrix&#xD;&#xA;&#x9;void uploadPM() const; // transfers projMat to the GPU&#xD;&#xA;&#xD;&#xA;&#x9;GLdouble xRight, xLeft, yTop, yBot;     // size of scene visible area&#xD;&#xA;&#x9;GLdouble mNearVal = 1, mFarVal = 10000; // view volume&#xD;&#xA;&#x9;GLdouble mScaleFact = 1;                // scale factor&#xD;&#xA;&#x9;bool bOrto = true;                      // orthogonal or perspective projection&#xD;&#xA;&#xD;&#xA;&#x9;Viewport* mViewPort; // the viewport&#xD;&#xA;&#xD;&#xA;&#x9;void setVM();&#xD;&#xA;&#x9;void setPM();&#xD;&#xA;&#xD;&#xA;&#x9;glm::dvec3 mRight;&#xD;&#xA;&#x9;glm::dvec3 mUpward;&#xD;&#xA;&#x9;glm::dvec3 mFront;&#xD;&#xA;&#xD;&#xA;&#x9;void setAxes();&#xD;&#xA;&#xD;&#xA;&#x9;GLdouble mAng; &#xD;&#xA;&#x9;GLdouble mRadio;&#xD;&#xA;};&#xD;&#xA;#endif&#xD;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Camera.h">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Camera.h&quot;&#xD;&#xA;&#xD;&#xA;#include &lt;glm/gtc/matrix_transform.hpp>&#xD;&#xA;#include &lt;glm/gtc/type_ptr.hpp>&#xD;&#xA;#include &lt;glm/gtc/matrix_access.hpp>&#xD;&#xA;&#xD;&#xA;using namespace glm;&#xD;&#xA;&#xD;&#xA;Camera::Camera(Viewport* vp)&#xD;&#xA;  : mViewMat(1.0)&#xD;&#xA;  , mProjMat(1.0)&#xD;&#xA;  , xRight(vp->width() / 2.0)&#xD;&#xA;  , xLeft(-xRight)&#xD;&#xA;  , yTop(vp->height() / 2.0)&#xD;&#xA;  , yBot(-yTop)&#xD;&#xA;  , mViewPort(vp)&#xD;&#xA;{&#xD;&#xA;    setVM();&#xD;&#xA;&#x9;setPM();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::uploadVM() const&#xD;&#xA;{&#xD;&#xA;&#x9;glMatrixMode(GL_MODELVIEW);&#xD;&#xA;&#x9;glLoadMatrixd(value_ptr(mViewMat)); // transfers view matrix to the GPU&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::setVM()&#xD;&#xA;{&#xD;&#xA;&#x9;mViewMat = lookAt(mEye, mLook, mUp); // glm::lookAt defines the view matrix&#xD;&#xA;&#x9;setAxes();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::pitch(GLdouble a)&#xD;&#xA;{&#xD;&#xA;&#x9;mViewMat = rotate(mViewMat, glm::radians(a), glm::dvec3(1.0, 0, 0));&#xD;&#xA;&#x9;// glm::rotate returns mViewMat * rotationMatrix&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::yaw(GLdouble a)&#xD;&#xA;{&#xD;&#xA;&#x9;mViewMat = rotate(mViewMat, glm::radians(a), glm::dvec3(0, 1.0, 0));&#xD;&#xA;&#x9;// glm::rotate returns mViewMat * rotationMatrix&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::roll(GLdouble a)&#xD;&#xA;{&#xD;&#xA;&#x9;mViewMat = rotate(mViewMat, glm::radians(a), glm::dvec3(0, 0, 1.0));&#xD;&#xA;&#x9;// glm::rotate returns mViewMat * rotationMatrix&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::setSize(GLdouble xw, GLdouble yh)&#xD;&#xA;{&#xD;&#xA;&#x9;xRight = xw / 2.0;&#xD;&#xA;&#x9;xLeft = -xRight;&#xD;&#xA;&#x9;yTop = yh / 2.0;&#xD;&#xA;&#x9;yBot = -yTop;&#xD;&#xA;&#x9;setPM();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::setScale(GLdouble s)&#xD;&#xA;{&#xD;&#xA;&#x9;mScaleFact -= s;&#xD;&#xA;&#x9;if (mScaleFact &lt; 0)&#xD;&#xA;&#x9;&#x9;mScaleFact = 0.01;&#xD;&#xA;&#x9;setPM();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::setPM()&#xD;&#xA;{&#xD;&#xA;&#x9;if (bOrto) { //  if orthogonal projection&#xD;&#xA;&#x9;&#x9;mProjMat = ortho(xLeft * mScaleFact,&#xD;&#xA;&#x9;&#x9;                 xRight * mScaleFact,&#xD;&#xA;&#x9;&#x9;                 yBot * mScaleFact,&#xD;&#xA;&#x9;&#x9;                 yTop * mScaleFact,&#xD;&#xA;&#x9;&#x9;                 mNearVal,&#xD;&#xA;&#x9;&#x9;                 mFarVal);&#xD;&#xA;&#x9;&#x9;// glm::ortho defines the orthogonal projection matrix&#xD;&#xA;&#x9;}&#xD;&#xA;&#x9;else {&#xD;&#xA;&#x9;&#x9;mProjMat = frustum(xLeft * mScaleFact,&#xD;&#xA;&#x9;&#x9;&#x9;               xRight * mScaleFact,&#xD;&#xA;&#x9;&#x9;&#x9;               yBot * mScaleFact,&#xD;&#xA;&#x9;&#x9;&#x9;               yTop * mScaleFact,&#xD;&#xA;&#x9;&#x9;&#x9;               mNearVal,&#xD;&#xA;&#x9;&#x9;&#x9;               mFarVal);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::uploadPM() const&#xD;&#xA;{&#xD;&#xA;&#x9;glMatrixMode(GL_PROJECTION);&#xD;&#xA;&#x9;glLoadMatrixd(value_ptr(mProjMat)); // transfers projection matrix to the GPU&#xD;&#xA;&#x9;glMatrixMode(GL_MODELVIEW);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::setAxes() {&#xD;&#xA;&#x9;mRight = row(mViewMat, 0);&#xD;&#xA;&#x9;mUpward = row(mViewMat, 1);&#xD;&#xA;&#x9;mFront = -row(mViewMat, 2);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::moveLR(GLdouble cs) {&#xD;&#xA;&#x9;mEye += mRight * cs;&#xD;&#xA;&#x9;mLook += mRight * cs;&#xD;&#xA;&#x9;setVM();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::moveFB(GLdouble cs) {&#xD;&#xA;&#x9;mEye += mFront * cs;&#xD;&#xA;&#x9;mLook += mFront * cs;&#xD;&#xA;&#x9;setVM();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::moveUD(GLdouble cs) {&#xD;&#xA;&#x9;mEye += mUpward * cs;&#xD;&#xA;&#x9;mLook += mUpward * cs;&#xD;&#xA;&#x9;setVM();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::changePrj() {&#xD;&#xA;&#x9;bOrto = !bOrto;&#xD;&#xA;&#x9;setPM();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::pitchReal(GLdouble cs) {&#xD;&#xA;&#x9;dmat4 rot = rotate(dmat4(1), glm::radians(cs), glm::dvec3(1.0, 0, 0));&#xD;&#xA;&#x9;mViewMat = rot * mViewMat;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::yawReal(GLdouble cs) {&#xD;&#xA;&#x9;dmat4 rot = rotate(dmat4(1), glm::radians(cs), glm::dvec3(0, 1.0, 0));&#xD;&#xA;&#x9;mViewMat = rot * mViewMat;&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Camera::rollReal(GLdouble cs) {&#xD;&#xA;&#x9;dmat4 rot = rotate(dmat4(1), glm::radians(cs), glm::dvec3(0, 0, 1.0));&#xD;&#xA;&#x9;mViewMat = rot * mViewMat;&#xD;&#xA;}&#xD;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Camera.cpp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aCam">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="generateCamera">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateCamera"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aCam">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Camera_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/openGL_DSL#//Camera"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/generateCamera">
+      <details key="start" value="90"/>
+      <details key="end" value="5508"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateCamera/%">
+      <details key="start" value="183"/>
+      <details key="end" value="2319"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateCamera/%/%">
+      <details key="start" value="220"/>
+      <details key="end" value="2312"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateCamera/%/%.1">
+      <details key="start" value="190"/>
+      <details key="end" value="200"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateCamera/%/%.2">
+      <details key="start" value="209"/>
+      <details key="end" value="216"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateCamera/%.1">
+      <details key="start" value="2321"/>
+      <details key="end" value="2323"/>
+      <details key="line" value="89"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateCamera/%.2">
+      <details key="start" value="2369"/>
+      <details key="end" value="5495"/>
+      <details key="line" value="91"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateCamera/%.2/%">
+      <details key="start" value="2408"/>
+      <details key="end" value="5488"/>
+      <details key="line" value="92"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateCamera/%.2/%.1">
+      <details key="start" value="2376"/>
+      <details key="end" value="2388"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateCamera/%.2/%.2">
+      <details key="start" value="2397"/>
+      <details key="end" value="2404"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateCamera/aCam">
+      <details key="start" value="122"/>
+      <details key="end" value="135"/>
+      <details key="line" value="4"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>
