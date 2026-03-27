@@ -5,8 +5,46 @@
 
 [template public generateSceneLogic(aScene : Scene)]
 [for (n : Node | aScene.nodo)]
-    [for (ent : Abs_Entity | n.abs_entity)]
-        [ent.generateEntity() /]
-    [/for]
+[generateNode(n)/]
 [/for]
+Scene* Scene_[aScene.Name/](){
+    Scene* scene= new Scene();
+[for (n : Node | aScene.nodo)]
+    scene->addNode(Node_[n.Name/]());
+[/for]
+    return scene;
+}
+[/template]
+
+[template public generateNode(n : Node)]
+
+[for (nd : Node | n.nodo)]
+[generateNode(nd)/]
+[/for]
+
+Node* Node_[n.Name/]() {
+    Node* node = new Node(
+        dvec3(0, 0, 0),//pos
+        dvec3(0, 0, 0),//rot
+        dvec3(1, 1, 1)//esc
+    );
+
+[for (ent : Abs_Entity | n.abs_entity)]
+[if (ent.oclIsKindOf(EjesRGB))]
+[let e : EjesRGB = ent.oclAsType(EjesRGB)]
+    node->addEntity(new EjesRGB([e.Lenght/]));
+[/let]
+[elseif (ent.oclIsKindOf(Esfera))]
+    node->addEntity(new Esfera()); 
+[elseif (ent.oclIsKindOf(Rectangulo))]
+    node->addEntity(new Rectangulo());
+[/if]
+[/for]
+    // Generar hijos recursivamente
+[for (child : Node | n.nodo)]
+    node->addNode(Node_[child.Name/]());
+[/for]
+
+    return node;
+}
 [/template]

@@ -4,7 +4,7 @@
     <input>
       <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
     </input>
-    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/meshFile.emtl#/0"/>
+    <imports href="meshFile.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateEntity" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Entity_H_&#xD;&#xA;#define _H_Entity_H_&#xD;&#xA;&#xD;&#xA;#include &lt;GL/freeglut.h>&#xD;&#xA;#include &lt;glm/glm.hpp>&#xD;&#xA;&#xD;&#xA;#include &quot;Mesh.h&quot;&#xD;&#xA;&#xD;&#xA;class Abs_Entity // abstract class&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;Abs_Entity()&#xD;&#xA;&#x9;  : mModelMat(1.0), mColor(1){}; // 4x4 identity matrix&#xD;&#xA;&#x9;virtual ~Abs_Entity() = default;&#xD;&#xA;&#xD;&#xA;&#x9;Abs_Entity(const Abs_Entity&amp; e) = delete;            // no copy constructor&#xD;&#xA;&#x9;Abs_Entity&amp; operator=(const Abs_Entity&amp; e) = delete; // no copy assignment&#xD;&#xA;&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const = 0; // abstract method&#xD;&#xA;&#xD;&#xA;&#x9;// modeling matrix&#xD;&#xA;&#x9;glm::dmat4 const&amp; modelMat() const { return mModelMat; };&#xD;&#xA;&#x9;void setModelMat(glm::dmat4 const&amp; aMat) { mModelMat = aMat; };&#xD;&#xA;&#xD;&#xA;&#x9;glm::dvec4 const&amp; color() const { return mColor; };&#xD;&#xA;&#x9;void setColor(glm::dvec4 const&amp; aColor) { mColor = aColor; };&#xD;&#xA;&#xD;&#xA;protected:&#xD;&#xA;&#x9;Mesh* mMesh = nullptr; // the mesh&#xD;&#xA;&#x9;glm::dmat4 mModelMat;  // modeling matrix&#xD;&#xA;&#x9;glm::dvec4 mColor;     // entity color&#xD;&#xA;&#xD;&#xA;&#x9;// transfers modelViewMat to the GPU&#xD;&#xA;&#x9;virtual void upload(glm::dmat4 const&amp; mModelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class EjesRGB : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit EjesRGB(GLdouble l);&#xD;&#xA;&#x9;~EjesRGB();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;"/>
@@ -30,7 +30,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    "/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/meshFile.emtl#/0/generateMesh"/>
+        <definition href="meshFile.emtl#/0/generateMesh"/>
         <argument xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
           <source xsi:type="ocl.ecore:VariableExp" name="anEntity" referredVariable="/0/generateEntity/anEntity">
@@ -80,7 +80,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/meshFile.emtl#/0/generateMesh"/>
+          <references href="meshFile.emtl#/0/generateMesh"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aMesh">

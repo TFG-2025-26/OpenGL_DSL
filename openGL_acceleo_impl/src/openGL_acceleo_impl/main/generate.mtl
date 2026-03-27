@@ -6,6 +6,7 @@
 [import openGL_acceleo_impl::files::entityFile /]
 [import openGL_acceleo_impl::files::sceneFile /]
 [import openGL_acceleo_impl::files::nodeFile /]
+[import openGL_acceleo_impl::common::sceneElements /]
 
 [template public generateElement(aSM : SceneManager)]
 [comment @main/]
@@ -47,6 +48,11 @@ using namespace std;
 Viewport* viewport = nullptr;
 Camera* camera = nullptr;
 vector<Scene*> scenes;
+
+[for (s : Scene | aSM.scenes)]
+[s.generateSceneLogic()/]
+[/for]
+
 
 void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -101,25 +107,9 @@ void init() {
 
     // CARGA DE ENTIDADES DESDE EL MODELO XMI
     Scene* sc;
-    Node* nd;
     [for (s : Scene | aSM.scenes)]
-    sc = new Scene();
+    sc = Scene_[s.Name/]();
     scenes.push_back(sc);
-        [for (n : Node | s.nodo)]
-        nd = new Node(dvec3(0,0,0), dvec3(0,0,0), dvec3(1,1,1));
-            [for (ent : Abs_Entity | n.abs_entity)]
-                [if (ent.oclIsKindOf(EjesRGB))]
-                    [let e : EjesRGB = ent.oclAsType(EjesRGB)]
-                        nd->addEntity(new EjesRGB([e.Lenght/]));
-                    [/let]
-                [elseif (ent.oclIsKindOf(Esfera))]
-                    nd->addEntity(new Esfera()); 
-                [elseif (ent.oclIsKindOf(Rectangulo))]
-                    nd->addEntity(new Rectangulo());
-                [/if]
-            [/for]
-        sc->addNode(nd);
-        [/for]
     sc->init();
     [/for]
 

@@ -14,6 +14,61 @@ Viewport* viewport = nullptr;
 Camera* camera = nullptr;
 vector<Scene*> scenes;
 
+
+
+
+Node* Node_ejes2() {
+    Node* node = new Node(
+        dvec3(0, 0, 0),//pos
+        dvec3(0, 0, 0),//rot
+        dvec3(1, 1, 1)//esc
+    );
+
+    node->addEntity(new EjesRGB(400.0));
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_Ejes() {
+    Node* node = new Node(
+        dvec3(0, 0, 0),//pos
+        dvec3(0, 0, 0),//rot
+        dvec3(1, 1, 1)//esc
+    );
+
+    node->addEntity(new EjesRGB(400.0));
+    // Generar hijos recursivamente
+    node->addNode(Node_ejes2());
+
+    return node;
+}
+Scene* Scene_ejes(){
+    Scene* scene= new Scene();
+    scene->addNode(Node_Ejes());
+    return scene;
+}
+
+
+Node* Node_extra() {
+    Node* node = new Node(
+        dvec3(0, 0, 0),//pos
+        dvec3(0, 0, 0),//rot
+        dvec3(1, 1, 1)//esc
+    );
+
+    node->addEntity(new EjesRGB(400.0));
+    // Generar hijos recursivamente
+
+    return node;
+}
+Scene* Scene_extra(){
+    Scene* scene= new Scene();
+    scene->addNode(Node_extra());
+    return scene;
+}
+
+
 void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     
@@ -63,12 +118,11 @@ void init() {
 
     // CARGA DE ENTIDADES DESDE EL MODELO XMI
     Scene* sc;
-    Node* nd;
-    sc = new Scene();
+    sc = Scene_ejes();
     scenes.push_back(sc);
-        nd = new Node(dvec3(0,0,0), dvec3(0,0,0), dvec3(1,1,1));
-                        nd->addEntity(new EjesRGB(400.0));
-        sc->addNode(nd);
+    sc->init();
+    sc = Scene_extra();
+    scenes.push_back(sc);
     sc->init();
 
 }

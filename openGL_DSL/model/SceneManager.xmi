@@ -8,8 +8,21 @@
     WinH="600">
   <viewport/>
   <camera/>
-  <scenes>
-    <nodo>
+  <scenes Name="ejes">
+    <nodo Name="Ejes">
+      <nodo
+          Name="ejes2">
+        <abs_entity
+            xsi:type="openGL_DSL:EjesRGB"
+            Lenght="400.0"/>
+      </nodo>
+      <abs_entity
+          xsi:type="openGL_DSL:EjesRGB"
+          Lenght="400.0"/>
+    </nodo>
+  </scenes>
+  <scenes Name="extra">
+    <nodo Name="extra">
       <abs_entity
           xsi:type="openGL_DSL:EjesRGB"
           Lenght="400.0"/>

@@ -40,6 +40,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Camera/mFarVal"/>
     </genClasses>
     <genClasses ecoreClass="openGL_DSL.ecore#//Scene">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Scene/Name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Scene/Visible"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Scene/nodo"/>
       <genOperations ecoreOperation="openGL_DSL.ecore#//Scene/addNode"/>
@@ -69,6 +70,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//SpotLight/exp"/>
     </genClasses>
     <genClasses ecoreClass="openGL_DSL.ecore#//Node">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Node/Name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Node/light"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Node/nodo"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Node/abs_entity"/>
