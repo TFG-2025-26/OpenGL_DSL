@@ -74,9 +74,9 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Node/light"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Node/nodo"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Node/abs_entity"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Node/posicion"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Node/rotacion"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Node/escala"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Node/posicion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Node/rotacion"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Node/escala"/>
     </genClasses>
     <genClasses image="false" ecoreClass="openGL_DSL.ecore#//Abs_Entity">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/texture"/>
@@ -135,6 +135,11 @@
     </genClasses>
     <genClasses ecoreClass="openGL_DSL.ecore#//EjesRGB">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//EjesRGB/Lenght"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Vector3">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Vector3/X"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Vector3/Y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Vector3/Z"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

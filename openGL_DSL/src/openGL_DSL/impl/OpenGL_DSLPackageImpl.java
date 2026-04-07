@@ -23,6 +23,7 @@ import openGL_DSL.Scene;
 import openGL_DSL.SceneManager;
 import openGL_DSL.SpotLight;
 import openGL_DSL.Texture;
+import openGL_DSL.Vector3;
 import openGL_DSL.ViewPort;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -180,6 +181,13 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	private EClass ejesRGBEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass vector3EClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -826,8 +834,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNode_Posicion() {
-		return (EAttribute)nodeEClass.getEStructuralFeatures().get(4);
+	public EReference getNode_Posicion() {
+		return (EReference)nodeEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -836,8 +844,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNode_Rotacion() {
-		return (EAttribute)nodeEClass.getEStructuralFeatures().get(5);
+	public EReference getNode_Rotacion() {
+		return (EReference)nodeEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -846,8 +854,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getNode_Escala() {
-		return (EAttribute)nodeEClass.getEStructuralFeatures().get(6);
+	public EReference getNode_Escala() {
+		return (EReference)nodeEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1296,6 +1304,46 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
+	public EClass getVector3() {
+		return vector3EClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getVector3_X() {
+		return (EAttribute)vector3EClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getVector3_Y() {
+		return (EAttribute)vector3EClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getVector3_Z() {
+		return (EAttribute)vector3EClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getGLsizei() {
 		return gLsizeiEDataType;
 	}
@@ -1450,9 +1498,9 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		createEReference(nodeEClass, NODE__LIGHT);
 		createEReference(nodeEClass, NODE__NODO);
 		createEReference(nodeEClass, NODE__ABS_ENTITY);
-		createEAttribute(nodeEClass, NODE__POSICION);
-		createEAttribute(nodeEClass, NODE__ROTACION);
-		createEAttribute(nodeEClass, NODE__ESCALA);
+		createEReference(nodeEClass, NODE__POSICION);
+		createEReference(nodeEClass, NODE__ROTACION);
+		createEReference(nodeEClass, NODE__ESCALA);
 
 		abs_EntityEClass = createEClass(ABS_ENTITY);
 		createEReference(abs_EntityEClass, ABS_ENTITY__TEXTURE);
@@ -1508,6 +1556,11 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 
 		ejesRGBEClass = createEClass(EJES_RGB);
 		createEAttribute(ejesRGBEClass, EJES_RGB__LENGHT);
+
+		vector3EClass = createEClass(VECTOR3);
+		createEAttribute(vector3EClass, VECTOR3__X);
+		createEAttribute(vector3EClass, VECTOR3__Y);
+		createEAttribute(vector3EClass, VECTOR3__Z);
 
 		// Create data types
 		gLsizeiEDataType = createEDataType(GLSIZEI);
@@ -1628,9 +1681,9 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		initEReference(getNode_Light(), this.getLight(), null, "light", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_Nodo(), this.getNode(), null, "nodo", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_Abs_entity(), this.getAbs_Entity(), null, "abs_entity", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNode_Posicion(), this.getvec3(), "posicion", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNode_Rotacion(), this.getvec3(), "rotacion", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getNode_Escala(), this.getvec3(), "escala", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_Posicion(), this.getVector3(), null, "posicion", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_Rotacion(), this.getVector3(), null, "rotacion", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_Escala(), this.getVector3(), null, "escala", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abs_EntityEClass, Abs_Entity.class, "Abs_Entity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAbs_Entity_Texture(), this.getTexture(), null, "texture", null, 0, 2, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1696,6 +1749,11 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 
 		initEClass(ejesRGBEClass, EjesRGB.class, "EjesRGB", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getEjesRGB_Lenght(), ecorePackage.getEDouble(), "Lenght", null, 0, 1, EjesRGB.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(vector3EClass, Vector3.class, "Vector3", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVector3_X(), ecorePackage.getEDouble(), "X", null, 0, 1, Vector3.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVector3_Y(), ecorePackage.getEDouble(), "Y", null, 0, 1, Vector3.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVector3_Z(), ecorePackage.getEDouble(), "Z", null, 0, 1, Vector3.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(gLsizeiEDataType, Object.class, "GLsizei", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

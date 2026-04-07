@@ -74,6 +74,7 @@ public class OpenGL_DSLFactoryImpl extends EFactoryImpl implements OpenGL_DSLFac
 			case OpenGL_DSLPackage.TEXTURE: return createTexture();
 			case OpenGL_DSLPackage.INDEX_MESH: return createIndexMesh();
 			case OpenGL_DSLPackage.EJES_RGB: return createEjesRGB();
+			case OpenGL_DSLPackage.VECTOR3: return createVector3();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -318,6 +319,17 @@ public class OpenGL_DSLFactoryImpl extends EFactoryImpl implements OpenGL_DSLFac
 	public EjesRGB createEjesRGB() {
 		EjesRGBImpl ejesRGB = new EjesRGBImpl();
 		return ejesRGB;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Vector3 createVector3() {
+		Vector3Impl vector3 = new Vector3Impl();
+		return vector3;
 	}
 
 	/**

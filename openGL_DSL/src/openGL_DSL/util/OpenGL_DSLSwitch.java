@@ -199,6 +199,12 @@ public class OpenGL_DSLSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case OpenGL_DSLPackage.VECTOR3: {
+				Vector3 vector3 = (Vector3)theEObject;
+				T result = caseVector3(vector3);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -500,6 +506,21 @@ public class OpenGL_DSLSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseEjesRGB(EjesRGB object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Vector3</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Vector3</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVector3(Vector3 object) {
 		return null;
 	}
 

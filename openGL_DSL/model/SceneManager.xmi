@@ -9,16 +9,32 @@
   <viewport/>
   <camera/>
   <scenes Name="ejes">
-    <nodo Name="Ejes">
+    <nodo Name="ejes">
       <nodo
           Name="ejes2">
         <abs_entity
             xsi:type="openGL_DSL:EjesRGB"
             Lenght="400.0"/>
+        <posicion
+            X="-200.0"
+            Y="-200.0"/>
+        <rotacion
+            Y="-45.0"/>
+        <escala
+            X="2.0"
+            Y="1.0"
+            Z="1.0"/>
       </nodo>
       <abs_entity
           xsi:type="openGL_DSL:EjesRGB"
           Lenght="400.0"/>
+      <posicion
+          X="100.0"/>
+      <rotacion/>
+      <escala
+          X="1.0"
+          Y="1.0"
+          Z="1.0"/>
     </nodo>
   </scenes>
   <scenes Name="extra">
@@ -26,6 +42,12 @@
       <abs_entity
           xsi:type="openGL_DSL:EjesRGB"
           Lenght="400.0"/>
+      <posicion/>
+      <rotacion/>
+      <escala
+          X="1.0"
+          Y="1.0"
+          Z="1.0"/>
     </nodo>
   </scenes>
 </openGL_DSL:SceneManager>

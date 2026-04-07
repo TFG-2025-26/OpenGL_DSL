@@ -959,7 +959,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int NODE__ABS_ENTITY = 3;
 
 	/**
-	 * The feature id for the '<em><b>Posicion</b></em>' attribute.
+	 * The feature id for the '<em><b>Posicion</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -968,7 +968,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int NODE__POSICION = 4;
 
 	/**
-	 * The feature id for the '<em><b>Rotacion</b></em>' attribute.
+	 * The feature id for the '<em><b>Rotacion</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -977,7 +977,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int NODE__ROTACION = 5;
 
 	/**
-	 * The feature id for the '<em><b>Escala</b></em>' attribute.
+	 * The feature id for the '<em><b>Escala</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2104,6 +2104,61 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int EJES_RGB_OPERATION_COUNT = ABS_ENTITY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link openGL_DSL.impl.Vector3Impl <em>Vector3</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see openGL_DSL.impl.Vector3Impl
+	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getVector3()
+	 * @generated
+	 */
+	int VECTOR3 = 20;
+
+	/**
+	 * The feature id for the '<em><b>X</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR3__X = 0;
+
+	/**
+	 * The feature id for the '<em><b>Y</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR3__Y = 1;
+
+	/**
+	 * The feature id for the '<em><b>Z</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR3__Z = 2;
+
+	/**
+	 * The number of structural features of the '<em>Vector3</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR3_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Vector3</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR3_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '<em>GLsizei</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2111,7 +2166,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getGLsizei()
 	 * @generated
 	 */
-	int GLSIZEI = 20;
+	int GLSIZEI = 21;
 
 	/**
 	 * The meta object id for the '<em>GLuint</em>' data type.
@@ -2121,7 +2176,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getGLuint()
 	 * @generated
 	 */
-	int GLUINT = 21;
+	int GLUINT = 22;
 
 	/**
 	 * The meta object id for the '<em>vec2</em>' data type.
@@ -2131,7 +2186,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getvec2()
 	 * @generated
 	 */
-	int VEC2 = 22;
+	int VEC2 = 23;
 
 	/**
 	 * The meta object id for the '<em>vec3</em>' data type.
@@ -2141,7 +2196,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getvec3()
 	 * @generated
 	 */
-	int VEC3 = 23;
+	int VEC3 = 24;
 
 	/**
 	 * The meta object id for the '<em>vec4</em>' data type.
@@ -2151,7 +2206,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getvec4()
 	 * @generated
 	 */
-	int VEC4 = 24;
+	int VEC4 = 25;
 
 	/**
 	 * The meta object id for the '<em>mat4</em>' data type.
@@ -2161,7 +2216,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getmat4()
 	 * @generated
 	 */
-	int MAT4 = 25;
+	int MAT4 = 26;
 
 	/**
 	 * The meta object id for the '<em>GLquadric Obj</em>' data type.
@@ -2171,7 +2226,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getGLquadricObj()
 	 * @generated
 	 */
-	int GLQUADRIC_OBJ = 26;
+	int GLQUADRIC_OBJ = 27;
 
 
 	/**
@@ -2742,37 +2797,37 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EReference getNode_Abs_entity();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Node#getPosicion <em>Posicion</em>}'.
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Node#getPosicion <em>Posicion</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Posicion</em>'.
+	 * @return the meta object for the containment reference '<em>Posicion</em>'.
 	 * @see openGL_DSL.Node#getPosicion()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EAttribute getNode_Posicion();
+	EReference getNode_Posicion();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Node#getRotacion <em>Rotacion</em>}'.
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Node#getRotacion <em>Rotacion</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Rotacion</em>'.
+	 * @return the meta object for the containment reference '<em>Rotacion</em>'.
 	 * @see openGL_DSL.Node#getRotacion()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EAttribute getNode_Rotacion();
+	EReference getNode_Rotacion();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Node#getEscala <em>Escala</em>}'.
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Node#getEscala <em>Escala</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Escala</em>'.
+	 * @return the meta object for the containment reference '<em>Escala</em>'.
 	 * @see openGL_DSL.Node#getEscala()
 	 * @see #getNode()
 	 * @generated
 	 */
-	EAttribute getNode_Escala();
+	EReference getNode_Escala();
 
 	/**
 	 * Returns the meta object for class '{@link openGL_DSL.Abs_Entity <em>Abs Entity</em>}'.
@@ -3240,6 +3295,49 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getEjesRGB_Lenght();
+
+	/**
+	 * Returns the meta object for class '{@link openGL_DSL.Vector3 <em>Vector3</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Vector3</em>'.
+	 * @see openGL_DSL.Vector3
+	 * @generated
+	 */
+	EClass getVector3();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Vector3#getX <em>X</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>X</em>'.
+	 * @see openGL_DSL.Vector3#getX()
+	 * @see #getVector3()
+	 * @generated
+	 */
+	EAttribute getVector3_X();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Vector3#getY <em>Y</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Y</em>'.
+	 * @see openGL_DSL.Vector3#getY()
+	 * @see #getVector3()
+	 * @generated
+	 */
+	EAttribute getVector3_Y();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Vector3#getZ <em>Z</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Z</em>'.
+	 * @see openGL_DSL.Vector3#getZ()
+	 * @see #getVector3()
+	 * @generated
+	 */
+	EAttribute getVector3_Z();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>GLsizei</em>}'.
@@ -3784,28 +3882,28 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EReference NODE__ABS_ENTITY = eINSTANCE.getNode_Abs_entity();
 
 		/**
-		 * The meta object literal for the '<em><b>Posicion</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Posicion</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NODE__POSICION = eINSTANCE.getNode_Posicion();
+		EReference NODE__POSICION = eINSTANCE.getNode_Posicion();
 
 		/**
-		 * The meta object literal for the '<em><b>Rotacion</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Rotacion</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NODE__ROTACION = eINSTANCE.getNode_Rotacion();
+		EReference NODE__ROTACION = eINSTANCE.getNode_Rotacion();
 
 		/**
-		 * The meta object literal for the '<em><b>Escala</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Escala</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NODE__ESCALA = eINSTANCE.getNode_Escala();
+		EReference NODE__ESCALA = eINSTANCE.getNode_Escala();
 
 		/**
 		 * The meta object literal for the '{@link openGL_DSL.impl.Abs_EntityImpl <em>Abs Entity</em>}' class.
@@ -4180,6 +4278,40 @@ public interface OpenGL_DSLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute EJES_RGB__LENGHT = eINSTANCE.getEjesRGB_Lenght();
+
+		/**
+		 * The meta object literal for the '{@link openGL_DSL.impl.Vector3Impl <em>Vector3</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see openGL_DSL.impl.Vector3Impl
+		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getVector3()
+		 * @generated
+		 */
+		EClass VECTOR3 = eINSTANCE.getVector3();
+
+		/**
+		 * The meta object literal for the '<em><b>X</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VECTOR3__X = eINSTANCE.getVector3_X();
+
+		/**
+		 * The meta object literal for the '<em><b>Y</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VECTOR3__Y = eINSTANCE.getVector3_Y();
+
+		/**
+		 * The meta object literal for the '<em><b>Z</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VECTOR3__Z = eINSTANCE.getVector3_Z();
 
 		/**
 		 * The meta object literal for the '<em>GLsizei</em>' data type.

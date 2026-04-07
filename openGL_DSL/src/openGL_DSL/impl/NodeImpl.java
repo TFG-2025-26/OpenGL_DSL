@@ -8,6 +8,7 @@ import openGL_DSL.Abs_Entity;
 import openGL_DSL.Light;
 import openGL_DSL.Node;
 import openGL_DSL.OpenGL_DSLPackage;
+import openGL_DSL.Vector3;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -94,64 +95,34 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	protected EList<Abs_Entity> abs_entity;
 
 	/**
-	 * The default value of the '{@link #getPosicion() <em>Posicion</em>}' attribute.
+	 * The cached value of the '{@link #getPosicion() <em>Posicion</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPosicion()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object POSICION_EDEFAULT = null;
+	protected Vector3 posicion;
 
 	/**
-	 * The cached value of the '{@link #getPosicion() <em>Posicion</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getPosicion()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object posicion = POSICION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getRotacion() <em>Rotacion</em>}' attribute.
+	 * The cached value of the '{@link #getRotacion() <em>Rotacion</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getRotacion()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object ROTACION_EDEFAULT = null;
+	protected Vector3 rotacion;
 
 	/**
-	 * The cached value of the '{@link #getRotacion() <em>Rotacion</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getRotacion()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object rotacion = ROTACION_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getEscala() <em>Escala</em>}' attribute.
+	 * The cached value of the '{@link #getEscala() <em>Escala</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEscala()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object ESCALA_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getEscala() <em>Escala</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getEscala()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object escala = ESCALA_EDEFAULT;
+	protected Vector3 escala;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -272,7 +243,7 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * @generated
 	 */
 	@Override
-	public Object getPosicion() {
+	public Vector3 getPosicion() {
 		return posicion;
 	}
 
@@ -281,12 +252,14 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setPosicion(Object newPosicion) {
-		Object oldPosicion = posicion;
+	public NotificationChain basicSetPosicion(Vector3 newPosicion, NotificationChain msgs) {
+		Vector3 oldPosicion = posicion;
 		posicion = newPosicion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.NODE__POSICION, oldPosicion, posicion));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.NODE__POSICION, oldPosicion, newPosicion);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -295,7 +268,27 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * @generated
 	 */
 	@Override
-	public Object getRotacion() {
+	public void setPosicion(Vector3 newPosicion) {
+		if (newPosicion != posicion) {
+			NotificationChain msgs = null;
+			if (posicion != null)
+				msgs = ((InternalEObject)posicion).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.NODE__POSICION, null, msgs);
+			if (newPosicion != null)
+				msgs = ((InternalEObject)newPosicion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.NODE__POSICION, null, msgs);
+			msgs = basicSetPosicion(newPosicion, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.NODE__POSICION, newPosicion, newPosicion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Vector3 getRotacion() {
 		return rotacion;
 	}
 
@@ -304,12 +297,14 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setRotacion(Object newRotacion) {
-		Object oldRotacion = rotacion;
+	public NotificationChain basicSetRotacion(Vector3 newRotacion, NotificationChain msgs) {
+		Vector3 oldRotacion = rotacion;
 		rotacion = newRotacion;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.NODE__ROTACION, oldRotacion, rotacion));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.NODE__ROTACION, oldRotacion, newRotacion);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -318,7 +313,27 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * @generated
 	 */
 	@Override
-	public Object getEscala() {
+	public void setRotacion(Vector3 newRotacion) {
+		if (newRotacion != rotacion) {
+			NotificationChain msgs = null;
+			if (rotacion != null)
+				msgs = ((InternalEObject)rotacion).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.NODE__ROTACION, null, msgs);
+			if (newRotacion != null)
+				msgs = ((InternalEObject)newRotacion).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.NODE__ROTACION, null, msgs);
+			msgs = basicSetRotacion(newRotacion, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.NODE__ROTACION, newRotacion, newRotacion));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Vector3 getEscala() {
 		return escala;
 	}
 
@@ -327,12 +342,34 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setEscala(Object newEscala) {
-		Object oldEscala = escala;
+	public NotificationChain basicSetEscala(Vector3 newEscala, NotificationChain msgs) {
+		Vector3 oldEscala = escala;
 		escala = newEscala;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.NODE__ESCALA, oldEscala, escala));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.NODE__ESCALA, oldEscala, newEscala);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setEscala(Vector3 newEscala) {
+		if (newEscala != escala) {
+			NotificationChain msgs = null;
+			if (escala != null)
+				msgs = ((InternalEObject)escala).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.NODE__ESCALA, null, msgs);
+			if (newEscala != null)
+				msgs = ((InternalEObject)newEscala).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.NODE__ESCALA, null, msgs);
+			msgs = basicSetEscala(newEscala, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.NODE__ESCALA, newEscala, newEscala));
 	}
 
 	/**
@@ -349,6 +386,12 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 				return ((InternalEList<?>)getNodo()).basicRemove(otherEnd, msgs);
 			case OpenGL_DSLPackage.NODE__ABS_ENTITY:
 				return ((InternalEList<?>)getAbs_entity()).basicRemove(otherEnd, msgs);
+			case OpenGL_DSLPackage.NODE__POSICION:
+				return basicSetPosicion(null, msgs);
+			case OpenGL_DSLPackage.NODE__ROTACION:
+				return basicSetRotacion(null, msgs);
+			case OpenGL_DSLPackage.NODE__ESCALA:
+				return basicSetEscala(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -403,13 +446,13 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 				getAbs_entity().addAll((Collection<? extends Abs_Entity>)newValue);
 				return;
 			case OpenGL_DSLPackage.NODE__POSICION:
-				setPosicion(newValue);
+				setPosicion((Vector3)newValue);
 				return;
 			case OpenGL_DSLPackage.NODE__ROTACION:
-				setRotacion(newValue);
+				setRotacion((Vector3)newValue);
 				return;
 			case OpenGL_DSLPackage.NODE__ESCALA:
-				setEscala(newValue);
+				setEscala((Vector3)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -436,13 +479,13 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 				getAbs_entity().clear();
 				return;
 			case OpenGL_DSLPackage.NODE__POSICION:
-				setPosicion(POSICION_EDEFAULT);
+				setPosicion((Vector3)null);
 				return;
 			case OpenGL_DSLPackage.NODE__ROTACION:
-				setRotacion(ROTACION_EDEFAULT);
+				setRotacion((Vector3)null);
 				return;
 			case OpenGL_DSLPackage.NODE__ESCALA:
-				setEscala(ESCALA_EDEFAULT);
+				setEscala((Vector3)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -465,11 +508,11 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 			case OpenGL_DSLPackage.NODE__ABS_ENTITY:
 				return abs_entity != null && !abs_entity.isEmpty();
 			case OpenGL_DSLPackage.NODE__POSICION:
-				return POSICION_EDEFAULT == null ? posicion != null : !POSICION_EDEFAULT.equals(posicion);
+				return posicion != null;
 			case OpenGL_DSLPackage.NODE__ROTACION:
-				return ROTACION_EDEFAULT == null ? rotacion != null : !ROTACION_EDEFAULT.equals(rotacion);
+				return rotacion != null;
 			case OpenGL_DSLPackage.NODE__ESCALA:
-				return ESCALA_EDEFAULT == null ? escala != null : !ESCALA_EDEFAULT.equals(escala);
+				return escala != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -486,12 +529,6 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (Name: ");
 		result.append(name);
-		result.append(", posicion: ");
-		result.append(posicion);
-		result.append(", rotacion: ");
-		result.append(rotacion);
-		result.append(", escala: ");
-		result.append(escala);
 		result.append(')');
 		return result.toString();
 	}

@@ -7,6 +7,7 @@
 [for (n : Node | aScene.nodo)]
 [generateNode(n)/]
 [/for]
+
 Scene* Scene_[aScene.Name/](){
     Scene* scene= new Scene();
 [for (n : Node | aScene.nodo)]
@@ -24,9 +25,9 @@ Scene* Scene_[aScene.Name/](){
 
 Node* Node_[n.Name/]() {
     Node* node = new Node(
-        dvec3(0, 0, 0),//pos
-        dvec3(0, 0, 0),//rot
-        dvec3(1, 1, 1)//esc
+        dvec3([n.posicion.X/], [n.posicion.Y/], [n.posicion.Z/]),//pos
+        dvec3([n.rotacion.X/], [n.rotacion.Y/], [n.rotacion.Z/]),//rot
+        dvec3([n.escala.X/], [n.escala.Y/], [n.escala.Z/])//esc
     );
 
 [for (ent : Abs_Entity | n.abs_entity)]

@@ -98,69 +98,69 @@ public interface Node extends EObject {
 	EList<Abs_Entity> getAbs_entity();
 
 	/**
-	 * Returns the value of the '<em><b>Posicion</b></em>' attribute.
+	 * Returns the value of the '<em><b>Posicion</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Posicion</em>' attribute.
-	 * @see #setPosicion(Object)
+	 * @return the value of the '<em>Posicion</em>' containment reference.
+	 * @see #setPosicion(Vector3)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getNode_Posicion()
-	 * @model dataType="openGL_DSL.vec3"
+	 * @model containment="true"
 	 * @generated
 	 */
-	Object getPosicion();
+	Vector3 getPosicion();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.Node#getPosicion <em>Posicion</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.Node#getPosicion <em>Posicion</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Posicion</em>' attribute.
+	 * @param value the new value of the '<em>Posicion</em>' containment reference.
 	 * @see #getPosicion()
 	 * @generated
 	 */
-	void setPosicion(Object value);
+	void setPosicion(Vector3 value);
 
 	/**
-	 * Returns the value of the '<em><b>Rotacion</b></em>' attribute.
+	 * Returns the value of the '<em><b>Rotacion</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Rotacion</em>' attribute.
-	 * @see #setRotacion(Object)
+	 * @return the value of the '<em>Rotacion</em>' containment reference.
+	 * @see #setRotacion(Vector3)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getNode_Rotacion()
-	 * @model dataType="openGL_DSL.vec3"
+	 * @model containment="true"
 	 * @generated
 	 */
-	Object getRotacion();
+	Vector3 getRotacion();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.Node#getRotacion <em>Rotacion</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.Node#getRotacion <em>Rotacion</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Rotacion</em>' attribute.
+	 * @param value the new value of the '<em>Rotacion</em>' containment reference.
 	 * @see #getRotacion()
 	 * @generated
 	 */
-	void setRotacion(Object value);
+	void setRotacion(Vector3 value);
 
 	/**
-	 * Returns the value of the '<em><b>Escala</b></em>' attribute.
+	 * Returns the value of the '<em><b>Escala</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Escala</em>' attribute.
-	 * @see #setEscala(Object)
+	 * @return the value of the '<em>Escala</em>' containment reference.
+	 * @see #setEscala(Vector3)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getNode_Escala()
-	 * @model dataType="openGL_DSL.vec3"
+	 * @model containment="true"
 	 * @generated
 	 */
-	Object getEscala();
+	Vector3 getEscala();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.Node#getEscala <em>Escala</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.Node#getEscala <em>Escala</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Escala</em>' attribute.
+	 * @param value the new value of the '<em>Escala</em>' containment reference.
 	 * @see #getEscala()
 	 * @generated
 	 */
-	void setEscala(Object value);
+	void setEscala(Vector3 value);
 
 } // Node

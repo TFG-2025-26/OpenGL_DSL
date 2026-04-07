@@ -175,6 +175,15 @@ public interface OpenGL_DSLFactory extends EFactory {
 	EjesRGB createEjesRGB();
 
 	/**
+	 * Returns a new object of class '<em>Vector3</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Vector3</em>'.
+	 * @generated
+	 */
+	Vector3 createVector3();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

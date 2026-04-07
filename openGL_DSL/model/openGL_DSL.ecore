@@ -80,9 +80,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="abs_entity" upperBound="-1"
         eType="#//Abs_Entity" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="posicion" eType="#//vec3"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rotacion" eType="#//vec3"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="escala" eType="#//vec3"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="posicion" eType="#//Vector3"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rotacion" eType="#//Vector3"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="escala" eType="#//Vector3"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Abs_Entity" abstract="true">
     <eOperations name="render">
@@ -151,5 +154,10 @@
   <eClassifiers xsi:type="ecore:EDataType" name="GLquadricObj" instanceClassName="java.lang.Object"/>
   <eClassifiers xsi:type="ecore:EClass" name="EjesRGB" eSuperTypes="#//Abs_Entity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Lenght" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Vector3">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="X" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Z" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -19,9 +19,9 @@ vector<Scene*> scenes;
 
 Node* Node_ejes2() {
     Node* node = new Node(
-        dvec3(0, 0, 0),//pos
-        dvec3(0, 0, 0),//rot
-        dvec3(1, 1, 1)//esc
+        dvec3(-200.0, -200.0, 0.0),//pos
+        dvec3(0.0, -45.0, 0.0),//rot
+        dvec3(2.0, 1.0, 1.0)//esc
     );
 
     node->addEntity(new EjesRGB(400.0));
@@ -30,11 +30,11 @@ Node* Node_ejes2() {
     return node;
 }
 
-Node* Node_Ejes() {
+Node* Node_ejes() {
     Node* node = new Node(
-        dvec3(0, 0, 0),//pos
-        dvec3(0, 0, 0),//rot
-        dvec3(1, 1, 1)//esc
+        dvec3(100.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
     );
 
     node->addEntity(new EjesRGB(400.0));
@@ -43,18 +43,19 @@ Node* Node_Ejes() {
 
     return node;
 }
+
 Scene* Scene_ejes(){
     Scene* scene= new Scene();
-    scene->addNode(Node_Ejes());
+    scene->addNode(Node_ejes());
     return scene;
 }
 
 
 Node* Node_extra() {
     Node* node = new Node(
-        dvec3(0, 0, 0),//pos
-        dvec3(0, 0, 0),//rot
-        dvec3(1, 1, 1)//esc
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
     );
 
     node->addEntity(new EjesRGB(400.0));
@@ -62,12 +63,12 @@ Node* Node_extra() {
 
     return node;
 }
+
 Scene* Scene_extra(){
     Scene* scene= new Scene();
     scene->addNode(Node_extra());
     return scene;
 }
-
 
 void display() {
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
