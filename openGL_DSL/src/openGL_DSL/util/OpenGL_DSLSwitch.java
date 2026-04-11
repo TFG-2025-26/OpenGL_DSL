@@ -137,28 +137,6 @@ public class OpenGL_DSLSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case OpenGL_DSLPackage.ESFERA: {
-				Esfera esfera = (Esfera)theEObject;
-				T result = caseEsfera(esfera);
-				if (result == null) result = caseQuadricEntity(esfera);
-				if (result == null) result = caseAbs_Entity(esfera);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case OpenGL_DSLPackage.CIRCULO: {
-				Circulo circulo = (Circulo)theEObject;
-				T result = caseCirculo(circulo);
-				if (result == null) result = caseAbs_Entity(circulo);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case OpenGL_DSLPackage.RECTANGULO: {
-				Rectangulo rectangulo = (Rectangulo)theEObject;
-				T result = caseRectangulo(rectangulo);
-				if (result == null) result = caseAbs_Entity(rectangulo);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case OpenGL_DSLPackage.MATERIAL: {
 				Material material = (Material)theEObject;
 				T result = caseMaterial(material);
@@ -202,6 +180,65 @@ public class OpenGL_DSLSwitch<T> extends Switch<T> {
 			case OpenGL_DSLPackage.VECTOR3: {
 				Vector3 vector3 = (Vector3)theEObject;
 				T result = caseVector3(vector3);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OpenGL_DSLPackage.POLIGONO_REGULAR: {
+				PoligonoRegular poligonoRegular = (PoligonoRegular)theEObject;
+				T result = casePoligonoRegular(poligonoRegular);
+				if (result == null) result = caseAbs_Entity(poligonoRegular);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OpenGL_DSLPackage.VECTOR4: {
+				Vector4 vector4 = (Vector4)theEObject;
+				T result = caseVector4(vector4);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OpenGL_DSLPackage.RECTANGULO: {
+				Rectangulo rectangulo = (Rectangulo)theEObject;
+				T result = caseRectangulo(rectangulo);
+				if (result == null) result = caseAbs_Entity(rectangulo);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OpenGL_DSLPackage.CIRCULO: {
+				Circulo circulo = (Circulo)theEObject;
+				T result = caseCirculo(circulo);
+				if (result == null) result = caseAbs_Entity(circulo);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OpenGL_DSLPackage.ESFERA: {
+				Esfera esfera = (Esfera)theEObject;
+				T result = caseEsfera(esfera);
+				if (result == null) result = caseQuadricEntity(esfera);
+				if (result == null) result = caseAbs_Entity(esfera);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OpenGL_DSLPackage.CILINDRO: {
+				Cilindro cilindro = (Cilindro)theEObject;
+				T result = caseCilindro(cilindro);
+				if (result == null) result = caseQuadricEntity(cilindro);
+				if (result == null) result = caseAbs_Entity(cilindro);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OpenGL_DSLPackage.DISCO: {
+				Disco disco = (Disco)theEObject;
+				T result = caseDisco(disco);
+				if (result == null) result = caseQuadricEntity(disco);
+				if (result == null) result = caseAbs_Entity(disco);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case OpenGL_DSLPackage.DISCO_PARCIAL: {
+				DiscoParcial discoParcial = (DiscoParcial)theEObject;
+				T result = caseDiscoParcial(discoParcial);
+				if (result == null) result = caseQuadricEntity(discoParcial);
+				if (result == null) result = caseAbs_Entity(discoParcial);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -375,51 +412,6 @@ public class OpenGL_DSLSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Esfera</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Esfera</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseEsfera(Esfera object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Circulo</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Circulo</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseCirculo(Circulo object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Rectangulo</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Rectangulo</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseRectangulo(Rectangulo object) {
-		return null;
-	}
-
-	/**
 	 * Returns the result of interpreting the object as an instance of '<em>Material</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
@@ -521,6 +513,126 @@ public class OpenGL_DSLSwitch<T> extends Switch<T> {
 	 * @generated
 	 */
 	public T caseVector3(Vector3 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Poligono Regular</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Poligono Regular</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePoligonoRegular(PoligonoRegular object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Vector4</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Vector4</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseVector4(Vector4 object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Rectangulo</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Rectangulo</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseRectangulo(Rectangulo object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Circulo</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Circulo</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCirculo(Circulo object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Esfera</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Esfera</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseEsfera(Esfera object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Cilindro</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Cilindro</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseCilindro(Cilindro object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Disco</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Disco</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDisco(Disco object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Disco Parcial</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Disco Parcial</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseDiscoParcial(DiscoParcial object) {
 		return null;
 	}
 

@@ -1041,22 +1041,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int ABS_ENTITY__MESH = 2;
 
 	/**
-	 * The feature id for the '<em><b>MModel Mat</b></em>' attribute.
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABS_ENTITY__MMODEL_MAT = 3;
-
-	/**
-	 * The feature id for the '<em><b>MColor</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABS_ENTITY__MCOLOR = 4;
+	int ABS_ENTITY__COLOR = 3;
 
 	/**
 	 * The number of structural features of the '<em>Abs Entity</em>' class.
@@ -1065,7 +1056,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABS_ENTITY_FEATURE_COUNT = 5;
+	int ABS_ENTITY_FEATURE_COUNT = 4;
 
 	/**
 	 * The operation id for the '<em>Render</em>' operation.
@@ -1132,22 +1123,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int QUADRIC_ENTITY__MESH = ABS_ENTITY__MESH;
 
 	/**
-	 * The feature id for the '<em><b>MModel Mat</b></em>' attribute.
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUADRIC_ENTITY__MMODEL_MAT = ABS_ENTITY__MMODEL_MAT;
-
-	/**
-	 * The feature id for the '<em><b>MColor</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUADRIC_ENTITY__MCOLOR = ABS_ENTITY__MCOLOR;
+	int QUADRIC_ENTITY__COLOR = ABS_ENTITY__COLOR;
 
 	/**
 	 * The feature id for the '<em><b>Q</b></em>' attribute.
@@ -1195,288 +1177,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int QUADRIC_ENTITY_OPERATION_COUNT = ABS_ENTITY_OPERATION_COUNT + 0;
 
 	/**
-	 * The meta object id for the '{@link openGL_DSL.impl.EsferaImpl <em>Esfera</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see openGL_DSL.impl.EsferaImpl
-	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getEsfera()
-	 * @generated
-	 */
-	int ESFERA = 11;
-
-	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESFERA__TEXTURE = QUADRIC_ENTITY__TEXTURE;
-
-	/**
-	 * The feature id for the '<em><b>Material</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESFERA__MATERIAL = QUADRIC_ENTITY__MATERIAL;
-
-	/**
-	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESFERA__MESH = QUADRIC_ENTITY__MESH;
-
-	/**
-	 * The feature id for the '<em><b>MModel Mat</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESFERA__MMODEL_MAT = QUADRIC_ENTITY__MMODEL_MAT;
-
-	/**
-	 * The feature id for the '<em><b>MColor</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESFERA__MCOLOR = QUADRIC_ENTITY__MCOLOR;
-
-	/**
-	 * The feature id for the '<em><b>Q</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESFERA__Q = QUADRIC_ENTITY__Q;
-
-	/**
-	 * The number of structural features of the '<em>Esfera</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESFERA_FEATURE_COUNT = QUADRIC_ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESFERA___RENDER__OBJECT = QUADRIC_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESFERA___UPLOAD = QUADRIC_ENTITY___UPLOAD;
-
-	/**
-	 * The number of operations of the '<em>Esfera</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESFERA_OPERATION_COUNT = QUADRIC_ENTITY_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link openGL_DSL.impl.CirculoImpl <em>Circulo</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see openGL_DSL.impl.CirculoImpl
-	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getCirculo()
-	 * @generated
-	 */
-	int CIRCULO = 12;
-
-	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CIRCULO__TEXTURE = ABS_ENTITY__TEXTURE;
-
-	/**
-	 * The feature id for the '<em><b>Material</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CIRCULO__MATERIAL = ABS_ENTITY__MATERIAL;
-
-	/**
-	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CIRCULO__MESH = ABS_ENTITY__MESH;
-
-	/**
-	 * The feature id for the '<em><b>MModel Mat</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CIRCULO__MMODEL_MAT = ABS_ENTITY__MMODEL_MAT;
-
-	/**
-	 * The feature id for the '<em><b>MColor</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CIRCULO__MCOLOR = ABS_ENTITY__MCOLOR;
-
-	/**
-	 * The number of structural features of the '<em>Circulo</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CIRCULO_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CIRCULO___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CIRCULO___UPLOAD = ABS_ENTITY___UPLOAD;
-
-	/**
-	 * The number of operations of the '<em>Circulo</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CIRCULO_OPERATION_COUNT = ABS_ENTITY_OPERATION_COUNT + 0;
-
-	/**
-	 * The meta object id for the '{@link openGL_DSL.impl.RectanguloImpl <em>Rectangulo</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see openGL_DSL.impl.RectanguloImpl
-	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getRectangulo()
-	 * @generated
-	 */
-	int RECTANGULO = 13;
-
-	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGULO__TEXTURE = ABS_ENTITY__TEXTURE;
-
-	/**
-	 * The feature id for the '<em><b>Material</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGULO__MATERIAL = ABS_ENTITY__MATERIAL;
-
-	/**
-	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGULO__MESH = ABS_ENTITY__MESH;
-
-	/**
-	 * The feature id for the '<em><b>MModel Mat</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGULO__MMODEL_MAT = ABS_ENTITY__MMODEL_MAT;
-
-	/**
-	 * The feature id for the '<em><b>MColor</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGULO__MCOLOR = ABS_ENTITY__MCOLOR;
-
-	/**
-	 * The number of structural features of the '<em>Rectangulo</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGULO_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 0;
-
-	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGULO___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGULO___UPLOAD = ABS_ENTITY___UPLOAD;
-
-	/**
-	 * The number of operations of the '<em>Rectangulo</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGULO_OPERATION_COUNT = ABS_ENTITY_OPERATION_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link openGL_DSL.impl.MaterialImpl <em>Material</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1484,7 +1184,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getMaterial()
 	 * @generated
 	 */
-	int MATERIAL = 14;
+	int MATERIAL = 11;
 
 	/**
 	 * The feature id for the '<em><b>Ambient</b></em>' attribute.
@@ -1566,7 +1266,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getMesh()
 	 * @generated
 	 */
-	int MESH = 15;
+	int MESH = 12;
 
 	/**
 	 * The feature id for the '<em><b>MPrimitive</b></em>' attribute.
@@ -1666,7 +1366,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getIndexMesh()
 	 * @generated
 	 */
-	int INDEX_MESH = 18;
+	int INDEX_MESH = 15;
 
 	/**
 	 * The feature id for the '<em><b>MPrimitive</b></em>' attribute.
@@ -1793,7 +1493,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getMbR()
 	 * @generated
 	 */
-	int MB_R = 16;
+	int MB_R = 13;
 
 	/**
 	 * The feature id for the '<em><b>MPrimitive</b></em>' attribute.
@@ -1956,7 +1656,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getTexture()
 	 * @generated
 	 */
-	int TEXTURE = 17;
+	int TEXTURE = 14;
 
 	/**
 	 * The feature id for the '<em><b>MWidth</b></em>' attribute.
@@ -2011,7 +1711,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getEjesRGB()
 	 * @generated
 	 */
-	int EJES_RGB = 19;
+	int EJES_RGB = 16;
 
 	/**
 	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
@@ -2041,22 +1741,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int EJES_RGB__MESH = ABS_ENTITY__MESH;
 
 	/**
-	 * The feature id for the '<em><b>MModel Mat</b></em>' attribute.
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EJES_RGB__MMODEL_MAT = ABS_ENTITY__MMODEL_MAT;
-
-	/**
-	 * The feature id for the '<em><b>MColor</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EJES_RGB__MCOLOR = ABS_ENTITY__MCOLOR;
+	int EJES_RGB__COLOR = ABS_ENTITY__COLOR;
 
 	/**
 	 * The feature id for the '<em><b>Lenght</b></em>' attribute.
@@ -2111,7 +1802,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getVector3()
 	 * @generated
 	 */
-	int VECTOR3 = 20;
+	int VECTOR3 = 17;
 
 	/**
 	 * The feature id for the '<em><b>X</b></em>' attribute.
@@ -2159,6 +1850,842 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int VECTOR3_OPERATION_COUNT = 0;
 
 	/**
+	 * The meta object id for the '{@link openGL_DSL.impl.PoligonoRegularImpl <em>Poligono Regular</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see openGL_DSL.impl.PoligonoRegularImpl
+	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getPoligonoRegular()
+	 * @generated
+	 */
+	int POLIGONO_REGULAR = 18;
+
+	/**
+	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR__TEXTURE = ABS_ENTITY__TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Material</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR__MATERIAL = ABS_ENTITY__MATERIAL;
+
+	/**
+	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR__MESH = ABS_ENTITY__MESH;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR__COLOR = ABS_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Num Vertices</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR__NUM_VERTICES = ABS_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Radio</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR__RADIO = ABS_ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Rellenar</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR__RELLENAR = ABS_ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Poligono Regular</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Render</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Upload</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR___UPLOAD = ABS_ENTITY___UPLOAD;
+
+	/**
+	 * The number of operations of the '<em>Poligono Regular</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR_OPERATION_COUNT = ABS_ENTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link openGL_DSL.impl.Vector4Impl <em>Vector4</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see openGL_DSL.impl.Vector4Impl
+	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getVector4()
+	 * @generated
+	 */
+	int VECTOR4 = 19;
+
+	/**
+	 * The feature id for the '<em><b>R</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR4__R = 0;
+
+	/**
+	 * The feature id for the '<em><b>G</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR4__G = 1;
+
+	/**
+	 * The feature id for the '<em><b>B</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR4__B = 2;
+
+	/**
+	 * The feature id for the '<em><b>A</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR4__A = 3;
+
+	/**
+	 * The number of structural features of the '<em>Vector4</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR4_FEATURE_COUNT = 4;
+
+	/**
+	 * The number of operations of the '<em>Vector4</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int VECTOR4_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link openGL_DSL.impl.RectanguloImpl <em>Rectangulo</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see openGL_DSL.impl.RectanguloImpl
+	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getRectangulo()
+	 * @generated
+	 */
+	int RECTANGULO = 20;
+
+	/**
+	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO__TEXTURE = ABS_ENTITY__TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Material</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO__MATERIAL = ABS_ENTITY__MATERIAL;
+
+	/**
+	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO__MESH = ABS_ENTITY__MESH;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO__COLOR = ABS_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Ancho</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO__ANCHO = ABS_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Alto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO__ALTO = ABS_ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Rellenar</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO__RELLENAR = ABS_ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Rectangulo</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Render</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Upload</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO___UPLOAD = ABS_ENTITY___UPLOAD;
+
+	/**
+	 * The number of operations of the '<em>Rectangulo</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO_OPERATION_COUNT = ABS_ENTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link openGL_DSL.impl.CirculoImpl <em>Circulo</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see openGL_DSL.impl.CirculoImpl
+	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getCirculo()
+	 * @generated
+	 */
+	int CIRCULO = 21;
+
+	/**
+	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO__TEXTURE = ABS_ENTITY__TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Material</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO__MATERIAL = ABS_ENTITY__MATERIAL;
+
+	/**
+	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO__MESH = ABS_ENTITY__MESH;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO__COLOR = ABS_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Radio</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO__RADIO = ABS_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Rellenar</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO__RELLENAR = ABS_ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Circulo</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Render</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Upload</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO___UPLOAD = ABS_ENTITY___UPLOAD;
+
+	/**
+	 * The number of operations of the '<em>Circulo</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO_OPERATION_COUNT = ABS_ENTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link openGL_DSL.impl.EsferaImpl <em>Esfera</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see openGL_DSL.impl.EsferaImpl
+	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getEsfera()
+	 * @generated
+	 */
+	int ESFERA = 22;
+
+	/**
+	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA__TEXTURE = QUADRIC_ENTITY__TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Material</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA__MATERIAL = QUADRIC_ENTITY__MATERIAL;
+
+	/**
+	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA__MESH = QUADRIC_ENTITY__MESH;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA__COLOR = QUADRIC_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Q</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA__Q = QUADRIC_ENTITY__Q;
+
+	/**
+	 * The feature id for the '<em><b>Radio</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA__RADIO = QUADRIC_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Esfera</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA_FEATURE_COUNT = QUADRIC_ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Render</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA___RENDER__OBJECT = QUADRIC_ENTITY___RENDER__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Upload</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA___UPLOAD = QUADRIC_ENTITY___UPLOAD;
+
+	/**
+	 * The number of operations of the '<em>Esfera</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA_OPERATION_COUNT = QUADRIC_ENTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link openGL_DSL.impl.CilindroImpl <em>Cilindro</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see openGL_DSL.impl.CilindroImpl
+	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getCilindro()
+	 * @generated
+	 */
+	int CILINDRO = 23;
+
+	/**
+	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO__TEXTURE = QUADRIC_ENTITY__TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Material</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO__MATERIAL = QUADRIC_ENTITY__MATERIAL;
+
+	/**
+	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO__MESH = QUADRIC_ENTITY__MESH;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO__COLOR = QUADRIC_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Q</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO__Q = QUADRIC_ENTITY__Q;
+
+	/**
+	 * The feature id for the '<em><b>Radio Base</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO__RADIO_BASE = QUADRIC_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Radio Tope</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO__RADIO_TOPE = QUADRIC_ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Altura</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO__ALTURA = QUADRIC_ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The number of structural features of the '<em>Cilindro</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO_FEATURE_COUNT = QUADRIC_ENTITY_FEATURE_COUNT + 3;
+
+	/**
+	 * The operation id for the '<em>Render</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO___RENDER__OBJECT = QUADRIC_ENTITY___RENDER__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Upload</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO___UPLOAD = QUADRIC_ENTITY___UPLOAD;
+
+	/**
+	 * The number of operations of the '<em>Cilindro</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO_OPERATION_COUNT = QUADRIC_ENTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link openGL_DSL.impl.DiscoImpl <em>Disco</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see openGL_DSL.impl.DiscoImpl
+	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getDisco()
+	 * @generated
+	 */
+	int DISCO = 24;
+
+	/**
+	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO__TEXTURE = QUADRIC_ENTITY__TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Material</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO__MATERIAL = QUADRIC_ENTITY__MATERIAL;
+
+	/**
+	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO__MESH = QUADRIC_ENTITY__MESH;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO__COLOR = QUADRIC_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Q</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO__Q = QUADRIC_ENTITY__Q;
+
+	/**
+	 * The feature id for the '<em><b>Radio Interno</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO__RADIO_INTERNO = QUADRIC_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Radio Externo</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO__RADIO_EXTERNO = QUADRIC_ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Disco</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_FEATURE_COUNT = QUADRIC_ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Render</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO___RENDER__OBJECT = QUADRIC_ENTITY___RENDER__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Upload</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO___UPLOAD = QUADRIC_ENTITY___UPLOAD;
+
+	/**
+	 * The number of operations of the '<em>Disco</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_OPERATION_COUNT = QUADRIC_ENTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link openGL_DSL.impl.DiscoParcialImpl <em>Disco Parcial</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see openGL_DSL.impl.DiscoParcialImpl
+	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getDiscoParcial()
+	 * @generated
+	 */
+	int DISCO_PARCIAL = 25;
+
+	/**
+	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL__TEXTURE = QUADRIC_ENTITY__TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Material</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL__MATERIAL = QUADRIC_ENTITY__MATERIAL;
+
+	/**
+	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL__MESH = QUADRIC_ENTITY__MESH;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL__COLOR = QUADRIC_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Q</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL__Q = QUADRIC_ENTITY__Q;
+
+	/**
+	 * The feature id for the '<em><b>Radio Interno</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL__RADIO_INTERNO = QUADRIC_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Radio Externo</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL__RADIO_EXTERNO = QUADRIC_ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Angulo Inicio</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL__ANGULO_INICIO = QUADRIC_ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Amplitud Angulo</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL__AMPLITUD_ANGULO = QUADRIC_ENTITY_FEATURE_COUNT + 3;
+
+	/**
+	 * The number of structural features of the '<em>Disco Parcial</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL_FEATURE_COUNT = QUADRIC_ENTITY_FEATURE_COUNT + 4;
+
+	/**
+	 * The operation id for the '<em>Render</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL___RENDER__OBJECT = QUADRIC_ENTITY___RENDER__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Upload</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL___UPLOAD = QUADRIC_ENTITY___UPLOAD;
+
+	/**
+	 * The number of operations of the '<em>Disco Parcial</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL_OPERATION_COUNT = QUADRIC_ENTITY_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>GLsizei</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2166,7 +2693,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getGLsizei()
 	 * @generated
 	 */
-	int GLSIZEI = 21;
+	int GLSIZEI = 26;
 
 	/**
 	 * The meta object id for the '<em>GLuint</em>' data type.
@@ -2176,7 +2703,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getGLuint()
 	 * @generated
 	 */
-	int GLUINT = 22;
+	int GLUINT = 27;
 
 	/**
 	 * The meta object id for the '<em>vec2</em>' data type.
@@ -2186,7 +2713,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getvec2()
 	 * @generated
 	 */
-	int VEC2 = 23;
+	int VEC2 = 28;
 
 	/**
 	 * The meta object id for the '<em>vec3</em>' data type.
@@ -2196,7 +2723,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getvec3()
 	 * @generated
 	 */
-	int VEC3 = 24;
+	int VEC3 = 29;
 
 	/**
 	 * The meta object id for the '<em>vec4</em>' data type.
@@ -2206,7 +2733,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getvec4()
 	 * @generated
 	 */
-	int VEC4 = 25;
+	int VEC4 = 30;
 
 	/**
 	 * The meta object id for the '<em>mat4</em>' data type.
@@ -2216,7 +2743,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getmat4()
 	 * @generated
 	 */
-	int MAT4 = 26;
+	int MAT4 = 31;
 
 	/**
 	 * The meta object id for the '<em>GLquadric Obj</em>' data type.
@@ -2226,7 +2753,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getGLquadricObj()
 	 * @generated
 	 */
-	int GLQUADRIC_OBJ = 27;
+	int GLQUADRIC_OBJ = 32;
 
 
 	/**
@@ -2873,26 +3400,15 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EReference getAbs_Entity_Mesh();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Abs_Entity#getMModelMat <em>MModel Mat</em>}'.
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Abs_Entity#getColor <em>Color</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>MModel Mat</em>'.
-	 * @see openGL_DSL.Abs_Entity#getMModelMat()
+	 * @return the meta object for the containment reference '<em>Color</em>'.
+	 * @see openGL_DSL.Abs_Entity#getColor()
 	 * @see #getAbs_Entity()
 	 * @generated
 	 */
-	EAttribute getAbs_Entity_MModelMat();
-
-	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Abs_Entity#getMColor <em>MColor</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>MColor</em>'.
-	 * @see openGL_DSL.Abs_Entity#getMColor()
-	 * @see #getAbs_Entity()
-	 * @generated
-	 */
-	EAttribute getAbs_Entity_MColor();
+	EReference getAbs_Entity_Color();
 
 	/**
 	 * Returns the meta object for the '{@link openGL_DSL.Abs_Entity#render(java.lang.Object) <em>Render</em>}' operation.
@@ -2934,36 +3450,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getQuadricEntity_Q();
-
-	/**
-	 * Returns the meta object for class '{@link openGL_DSL.Esfera <em>Esfera</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Esfera</em>'.
-	 * @see openGL_DSL.Esfera
-	 * @generated
-	 */
-	EClass getEsfera();
-
-	/**
-	 * Returns the meta object for class '{@link openGL_DSL.Circulo <em>Circulo</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Circulo</em>'.
-	 * @see openGL_DSL.Circulo
-	 * @generated
-	 */
-	EClass getCirculo();
-
-	/**
-	 * Returns the meta object for class '{@link openGL_DSL.Rectangulo <em>Rectangulo</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Rectangulo</em>'.
-	 * @see openGL_DSL.Rectangulo
-	 * @generated
-	 */
-	EClass getRectangulo();
 
 	/**
 	 * Returns the meta object for class '{@link openGL_DSL.Material <em>Material</em>}'.
@@ -3338,6 +3824,328 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getVector3_Z();
+
+	/**
+	 * Returns the meta object for class '{@link openGL_DSL.PoligonoRegular <em>Poligono Regular</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Poligono Regular</em>'.
+	 * @see openGL_DSL.PoligonoRegular
+	 * @generated
+	 */
+	EClass getPoligonoRegular();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.PoligonoRegular#getNumVertices <em>Num Vertices</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Num Vertices</em>'.
+	 * @see openGL_DSL.PoligonoRegular#getNumVertices()
+	 * @see #getPoligonoRegular()
+	 * @generated
+	 */
+	EAttribute getPoligonoRegular_NumVertices();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.PoligonoRegular#getRadio <em>Radio</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radio</em>'.
+	 * @see openGL_DSL.PoligonoRegular#getRadio()
+	 * @see #getPoligonoRegular()
+	 * @generated
+	 */
+	EAttribute getPoligonoRegular_Radio();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.PoligonoRegular#isRellenar <em>Rellenar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rellenar</em>'.
+	 * @see openGL_DSL.PoligonoRegular#isRellenar()
+	 * @see #getPoligonoRegular()
+	 * @generated
+	 */
+	EAttribute getPoligonoRegular_Rellenar();
+
+	/**
+	 * Returns the meta object for class '{@link openGL_DSL.Vector4 <em>Vector4</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Vector4</em>'.
+	 * @see openGL_DSL.Vector4
+	 * @generated
+	 */
+	EClass getVector4();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Vector4#getR <em>R</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>R</em>'.
+	 * @see openGL_DSL.Vector4#getR()
+	 * @see #getVector4()
+	 * @generated
+	 */
+	EAttribute getVector4_R();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Vector4#getG <em>G</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>G</em>'.
+	 * @see openGL_DSL.Vector4#getG()
+	 * @see #getVector4()
+	 * @generated
+	 */
+	EAttribute getVector4_G();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Vector4#getB <em>B</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>B</em>'.
+	 * @see openGL_DSL.Vector4#getB()
+	 * @see #getVector4()
+	 * @generated
+	 */
+	EAttribute getVector4_B();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Vector4#getA <em>A</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>A</em>'.
+	 * @see openGL_DSL.Vector4#getA()
+	 * @see #getVector4()
+	 * @generated
+	 */
+	EAttribute getVector4_A();
+
+	/**
+	 * Returns the meta object for class '{@link openGL_DSL.Rectangulo <em>Rectangulo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Rectangulo</em>'.
+	 * @see openGL_DSL.Rectangulo
+	 * @generated
+	 */
+	EClass getRectangulo();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Rectangulo#getAncho <em>Ancho</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Ancho</em>'.
+	 * @see openGL_DSL.Rectangulo#getAncho()
+	 * @see #getRectangulo()
+	 * @generated
+	 */
+	EAttribute getRectangulo_Ancho();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Rectangulo#getAlto <em>Alto</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Alto</em>'.
+	 * @see openGL_DSL.Rectangulo#getAlto()
+	 * @see #getRectangulo()
+	 * @generated
+	 */
+	EAttribute getRectangulo_Alto();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Rectangulo#isRellenar <em>Rellenar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rellenar</em>'.
+	 * @see openGL_DSL.Rectangulo#isRellenar()
+	 * @see #getRectangulo()
+	 * @generated
+	 */
+	EAttribute getRectangulo_Rellenar();
+
+	/**
+	 * Returns the meta object for class '{@link openGL_DSL.Circulo <em>Circulo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Circulo</em>'.
+	 * @see openGL_DSL.Circulo
+	 * @generated
+	 */
+	EClass getCirculo();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Circulo#getRadio <em>Radio</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radio</em>'.
+	 * @see openGL_DSL.Circulo#getRadio()
+	 * @see #getCirculo()
+	 * @generated
+	 */
+	EAttribute getCirculo_Radio();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Circulo#isRellenar <em>Rellenar</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Rellenar</em>'.
+	 * @see openGL_DSL.Circulo#isRellenar()
+	 * @see #getCirculo()
+	 * @generated
+	 */
+	EAttribute getCirculo_Rellenar();
+
+	/**
+	 * Returns the meta object for class '{@link openGL_DSL.Esfera <em>Esfera</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Esfera</em>'.
+	 * @see openGL_DSL.Esfera
+	 * @generated
+	 */
+	EClass getEsfera();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Esfera#getRadio <em>Radio</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radio</em>'.
+	 * @see openGL_DSL.Esfera#getRadio()
+	 * @see #getEsfera()
+	 * @generated
+	 */
+	EAttribute getEsfera_Radio();
+
+	/**
+	 * Returns the meta object for class '{@link openGL_DSL.Cilindro <em>Cilindro</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Cilindro</em>'.
+	 * @see openGL_DSL.Cilindro
+	 * @generated
+	 */
+	EClass getCilindro();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Cilindro#getRadioBase <em>Radio Base</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radio Base</em>'.
+	 * @see openGL_DSL.Cilindro#getRadioBase()
+	 * @see #getCilindro()
+	 * @generated
+	 */
+	EAttribute getCilindro_RadioBase();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Cilindro#getRadioTope <em>Radio Tope</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radio Tope</em>'.
+	 * @see openGL_DSL.Cilindro#getRadioTope()
+	 * @see #getCilindro()
+	 * @generated
+	 */
+	EAttribute getCilindro_RadioTope();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Cilindro#getAltura <em>Altura</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Altura</em>'.
+	 * @see openGL_DSL.Cilindro#getAltura()
+	 * @see #getCilindro()
+	 * @generated
+	 */
+	EAttribute getCilindro_Altura();
+
+	/**
+	 * Returns the meta object for class '{@link openGL_DSL.Disco <em>Disco</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Disco</em>'.
+	 * @see openGL_DSL.Disco
+	 * @generated
+	 */
+	EClass getDisco();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Disco#getRadioInterno <em>Radio Interno</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radio Interno</em>'.
+	 * @see openGL_DSL.Disco#getRadioInterno()
+	 * @see #getDisco()
+	 * @generated
+	 */
+	EAttribute getDisco_RadioInterno();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Disco#getRadioExterno <em>Radio Externo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radio Externo</em>'.
+	 * @see openGL_DSL.Disco#getRadioExterno()
+	 * @see #getDisco()
+	 * @generated
+	 */
+	EAttribute getDisco_RadioExterno();
+
+	/**
+	 * Returns the meta object for class '{@link openGL_DSL.DiscoParcial <em>Disco Parcial</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Disco Parcial</em>'.
+	 * @see openGL_DSL.DiscoParcial
+	 * @generated
+	 */
+	EClass getDiscoParcial();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.DiscoParcial#getRadioInterno <em>Radio Interno</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radio Interno</em>'.
+	 * @see openGL_DSL.DiscoParcial#getRadioInterno()
+	 * @see #getDiscoParcial()
+	 * @generated
+	 */
+	EAttribute getDiscoParcial_RadioInterno();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.DiscoParcial#getRadioExterno <em>Radio Externo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radio Externo</em>'.
+	 * @see openGL_DSL.DiscoParcial#getRadioExterno()
+	 * @see #getDiscoParcial()
+	 * @generated
+	 */
+	EAttribute getDiscoParcial_RadioExterno();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.DiscoParcial#getAnguloInicio <em>Angulo Inicio</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Angulo Inicio</em>'.
+	 * @see openGL_DSL.DiscoParcial#getAnguloInicio()
+	 * @see #getDiscoParcial()
+	 * @generated
+	 */
+	EAttribute getDiscoParcial_AnguloInicio();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.DiscoParcial#getAmplitudAngulo <em>Amplitud Angulo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Amplitud Angulo</em>'.
+	 * @see openGL_DSL.DiscoParcial#getAmplitudAngulo()
+	 * @see #getDiscoParcial()
+	 * @generated
+	 */
+	EAttribute getDiscoParcial_AmplitudAngulo();
 
 	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>GLsizei</em>}'.
@@ -3940,20 +4748,12 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EReference ABS_ENTITY__MESH = eINSTANCE.getAbs_Entity_Mesh();
 
 		/**
-		 * The meta object literal for the '<em><b>MModel Mat</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Color</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute ABS_ENTITY__MMODEL_MAT = eINSTANCE.getAbs_Entity_MModelMat();
-
-		/**
-		 * The meta object literal for the '<em><b>MColor</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute ABS_ENTITY__MCOLOR = eINSTANCE.getAbs_Entity_MColor();
+		EReference ABS_ENTITY__COLOR = eINSTANCE.getAbs_Entity_Color();
 
 		/**
 		 * The meta object literal for the '<em><b>Render</b></em>' operation.
@@ -3988,36 +4788,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute QUADRIC_ENTITY__Q = eINSTANCE.getQuadricEntity_Q();
-
-		/**
-		 * The meta object literal for the '{@link openGL_DSL.impl.EsferaImpl <em>Esfera</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see openGL_DSL.impl.EsferaImpl
-		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getEsfera()
-		 * @generated
-		 */
-		EClass ESFERA = eINSTANCE.getEsfera();
-
-		/**
-		 * The meta object literal for the '{@link openGL_DSL.impl.CirculoImpl <em>Circulo</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see openGL_DSL.impl.CirculoImpl
-		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getCirculo()
-		 * @generated
-		 */
-		EClass CIRCULO = eINSTANCE.getCirculo();
-
-		/**
-		 * The meta object literal for the '{@link openGL_DSL.impl.RectanguloImpl <em>Rectangulo</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see openGL_DSL.impl.RectanguloImpl
-		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getRectangulo()
-		 * @generated
-		 */
-		EClass RECTANGULO = eINSTANCE.getRectangulo();
 
 		/**
 		 * The meta object literal for the '{@link openGL_DSL.impl.MaterialImpl <em>Material</em>}' class.
@@ -4312,6 +5082,262 @@ public interface OpenGL_DSLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute VECTOR3__Z = eINSTANCE.getVector3_Z();
+
+		/**
+		 * The meta object literal for the '{@link openGL_DSL.impl.PoligonoRegularImpl <em>Poligono Regular</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see openGL_DSL.impl.PoligonoRegularImpl
+		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getPoligonoRegular()
+		 * @generated
+		 */
+		EClass POLIGONO_REGULAR = eINSTANCE.getPoligonoRegular();
+
+		/**
+		 * The meta object literal for the '<em><b>Num Vertices</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLIGONO_REGULAR__NUM_VERTICES = eINSTANCE.getPoligonoRegular_NumVertices();
+
+		/**
+		 * The meta object literal for the '<em><b>Radio</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLIGONO_REGULAR__RADIO = eINSTANCE.getPoligonoRegular_Radio();
+
+		/**
+		 * The meta object literal for the '<em><b>Rellenar</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute POLIGONO_REGULAR__RELLENAR = eINSTANCE.getPoligonoRegular_Rellenar();
+
+		/**
+		 * The meta object literal for the '{@link openGL_DSL.impl.Vector4Impl <em>Vector4</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see openGL_DSL.impl.Vector4Impl
+		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getVector4()
+		 * @generated
+		 */
+		EClass VECTOR4 = eINSTANCE.getVector4();
+
+		/**
+		 * The meta object literal for the '<em><b>R</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VECTOR4__R = eINSTANCE.getVector4_R();
+
+		/**
+		 * The meta object literal for the '<em><b>G</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VECTOR4__G = eINSTANCE.getVector4_G();
+
+		/**
+		 * The meta object literal for the '<em><b>B</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VECTOR4__B = eINSTANCE.getVector4_B();
+
+		/**
+		 * The meta object literal for the '<em><b>A</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute VECTOR4__A = eINSTANCE.getVector4_A();
+
+		/**
+		 * The meta object literal for the '{@link openGL_DSL.impl.RectanguloImpl <em>Rectangulo</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see openGL_DSL.impl.RectanguloImpl
+		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getRectangulo()
+		 * @generated
+		 */
+		EClass RECTANGULO = eINSTANCE.getRectangulo();
+
+		/**
+		 * The meta object literal for the '<em><b>Ancho</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RECTANGULO__ANCHO = eINSTANCE.getRectangulo_Ancho();
+
+		/**
+		 * The meta object literal for the '<em><b>Alto</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RECTANGULO__ALTO = eINSTANCE.getRectangulo_Alto();
+
+		/**
+		 * The meta object literal for the '<em><b>Rellenar</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute RECTANGULO__RELLENAR = eINSTANCE.getRectangulo_Rellenar();
+
+		/**
+		 * The meta object literal for the '{@link openGL_DSL.impl.CirculoImpl <em>Circulo</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see openGL_DSL.impl.CirculoImpl
+		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getCirculo()
+		 * @generated
+		 */
+		EClass CIRCULO = eINSTANCE.getCirculo();
+
+		/**
+		 * The meta object literal for the '<em><b>Radio</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CIRCULO__RADIO = eINSTANCE.getCirculo_Radio();
+
+		/**
+		 * The meta object literal for the '<em><b>Rellenar</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CIRCULO__RELLENAR = eINSTANCE.getCirculo_Rellenar();
+
+		/**
+		 * The meta object literal for the '{@link openGL_DSL.impl.EsferaImpl <em>Esfera</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see openGL_DSL.impl.EsferaImpl
+		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getEsfera()
+		 * @generated
+		 */
+		EClass ESFERA = eINSTANCE.getEsfera();
+
+		/**
+		 * The meta object literal for the '<em><b>Radio</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ESFERA__RADIO = eINSTANCE.getEsfera_Radio();
+
+		/**
+		 * The meta object literal for the '{@link openGL_DSL.impl.CilindroImpl <em>Cilindro</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see openGL_DSL.impl.CilindroImpl
+		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getCilindro()
+		 * @generated
+		 */
+		EClass CILINDRO = eINSTANCE.getCilindro();
+
+		/**
+		 * The meta object literal for the '<em><b>Radio Base</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CILINDRO__RADIO_BASE = eINSTANCE.getCilindro_RadioBase();
+
+		/**
+		 * The meta object literal for the '<em><b>Radio Tope</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CILINDRO__RADIO_TOPE = eINSTANCE.getCilindro_RadioTope();
+
+		/**
+		 * The meta object literal for the '<em><b>Altura</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CILINDRO__ALTURA = eINSTANCE.getCilindro_Altura();
+
+		/**
+		 * The meta object literal for the '{@link openGL_DSL.impl.DiscoImpl <em>Disco</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see openGL_DSL.impl.DiscoImpl
+		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getDisco()
+		 * @generated
+		 */
+		EClass DISCO = eINSTANCE.getDisco();
+
+		/**
+		 * The meta object literal for the '<em><b>Radio Interno</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISCO__RADIO_INTERNO = eINSTANCE.getDisco_RadioInterno();
+
+		/**
+		 * The meta object literal for the '<em><b>Radio Externo</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISCO__RADIO_EXTERNO = eINSTANCE.getDisco_RadioExterno();
+
+		/**
+		 * The meta object literal for the '{@link openGL_DSL.impl.DiscoParcialImpl <em>Disco Parcial</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see openGL_DSL.impl.DiscoParcialImpl
+		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getDiscoParcial()
+		 * @generated
+		 */
+		EClass DISCO_PARCIAL = eINSTANCE.getDiscoParcial();
+
+		/**
+		 * The meta object literal for the '<em><b>Radio Interno</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISCO_PARCIAL__RADIO_INTERNO = eINSTANCE.getDiscoParcial_RadioInterno();
+
+		/**
+		 * The meta object literal for the '<em><b>Radio Externo</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISCO_PARCIAL__RADIO_EXTERNO = eINSTANCE.getDiscoParcial_RadioExterno();
+
+		/**
+		 * The meta object literal for the '<em><b>Angulo Inicio</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISCO_PARCIAL__ANGULO_INICIO = eINSTANCE.getDiscoParcial_AnguloInicio();
+
+		/**
+		 * The meta object literal for the '<em><b>Amplitud Angulo</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute DISCO_PARCIAL__AMPLITUD_ANGULO = eINSTANCE.getDiscoParcial_AmplitudAngulo();
 
 		/**
 		 * The meta object literal for the '<em>GLsizei</em>' data type.

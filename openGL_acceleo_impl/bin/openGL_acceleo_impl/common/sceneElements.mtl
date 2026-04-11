@@ -13,6 +13,7 @@ Scene* Scene_[aScene.Name/](){
 [for (n : Node | aScene.nodo)]
     scene->addNode(Node_[n.Name/]());
 [/for]
+    scene->setVisible([aScene.Visible/]);
     return scene;
 }
 [/template]
@@ -25,20 +26,84 @@ Scene* Scene_[aScene.Name/](){
 
 Node* Node_[n.Name/]() {
     Node* node = new Node(
+[if (n.posicion <> null)]
         dvec3([n.posicion.X/], [n.posicion.Y/], [n.posicion.Z/]),//pos
+[else]
+        dvec3(0.0, 0.0, 0.0),//pos
+[/if]
+[if (n.rotacion <> null)]
         dvec3([n.rotacion.X/], [n.rotacion.Y/], [n.rotacion.Z/]),//rot
+[else]
+        dvec3(0.0, 0.0, 0.0),//rot
+[/if]
+[if (n.escala <> null)]
         dvec3([n.escala.X/], [n.escala.Y/], [n.escala.Z/])//esc
+[else]
+        dvec3(1.0, 1.0, 1.0)//esc
+[/if]
     );
 
 [for (ent : Abs_Entity | n.abs_entity)]
 [if (ent.oclIsKindOf(EjesRGB))]
 [let e : EjesRGB = ent.oclAsType(EjesRGB)]
     node->addEntity(new EjesRGB([e.Lenght/]));
+[/let] 
+[elseif (ent.oclIsKindOf(PoligonoRegular))]
+[let e : PoligonoRegular = ent.oclAsType(PoligonoRegular)]
+    auto e[n.abs_entity->indexOf(ent)/] = new PoligonoRegular([e.NumVertices/],[e.Radio/],[e.Rellenar/]);
+    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
+[if (ent.Color <> null)]
+    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
+[/if]
+[/let]
+[elseif (ent.oclIsKindOf(Rectangulo))]
+    [let e : Rectangulo = ent.oclAsType(Rectangulo)]
+    auto e[n.abs_entity->indexOf(ent)/] = new Rectangulo([e.Ancho/],[e.Alto/],[e.Rellenar/]);
+    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
+[if (ent.Color <> null)]
+    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
+[/if]
+[/let]
+[elseif (ent.oclIsKindOf(Circulo))]
+    [let e : Circulo = ent.oclAsType(Circulo)]
+    auto e[n.abs_entity->indexOf(ent)/] = new Circulo([e.Radio/],[e.Rellenar/]);
+    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
+[if (ent.Color <> null)]
+    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
+[/if]
 [/let]
 [elseif (ent.oclIsKindOf(Esfera))]
-    node->addEntity(new Esfera()); 
-[elseif (ent.oclIsKindOf(Rectangulo))]
-    node->addEntity(new Rectangulo());
+    [let e : Esfera = ent.oclAsType(Esfera)]
+    auto e[n.abs_entity->indexOf(ent)/] = new Sphere([e.Radio/]);
+    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
+[if (ent.Color <> null)]
+    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
+[/if]
+[/let]
+[elseif (ent.oclIsKindOf(Cilindro))]
+    [let e : Cilindro = ent.oclAsType(Cilindro)]
+    auto e[n.abs_entity->indexOf(ent)/] = new Cylinder([e.RadioBase/],[e.RadioTope/],[e.Altura/]);
+    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
+[if (ent.Color <> null)]
+    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
+[/if]
+[/let]
+[elseif (ent.oclIsKindOf(Disco))]
+    [let e : Disco = ent.oclAsType(Disco)]
+    auto e[n.abs_entity->indexOf(ent)/] = new Disk([e.RadioInterno/],[e.RadioExterno/]);
+    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
+[if (ent.Color <> null)]
+    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
+[/if]
+[/let]
+[elseif (ent.oclIsKindOf(DiscoParcial))]
+    [let e : DiscoParcial = ent.oclAsType(DiscoParcial)]
+    auto e[n.abs_entity->indexOf(ent)/] = new PartialDisk([e.RadioInterno/],[e.RadioExterno/],[e.AnguloInicio/],[e.AmplitudAngulo/]);
+    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
+[if (ent.Color <> null)]
+    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
+[/if]
+[/let]
 [/if]
 [/for]
     // Generar hijos recursivamente

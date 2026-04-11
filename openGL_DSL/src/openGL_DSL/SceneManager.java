@@ -53,12 +53,13 @@ public interface SceneManager extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Win W</b></em>' attribute.
+	 * The default value is <code>"800"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Win W</em>' attribute.
 	 * @see #setWinW(int)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getSceneManager_WinW()
-	 * @model
+	 * @model default="800"
 	 * @generated
 	 */
 	int getWinW();
@@ -75,12 +76,13 @@ public interface SceneManager extends EObject {
 
 	/**
 	 * Returns the value of the '<em><b>Win H</b></em>' attribute.
+	 * The default value is <code>"600"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Win H</em>' attribute.
 	 * @see #setWinH(int)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getSceneManager_WinH()
-	 * @model
+	 * @model default="600"
 	 * @generated
 	 */
 	int getWinH();

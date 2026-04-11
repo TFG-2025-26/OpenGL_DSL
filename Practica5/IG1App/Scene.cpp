@@ -9,7 +9,6 @@ void
 Scene::init()
 {
 	setGL(); // OpenGL settings
-	
 }
 
 void
@@ -50,17 +49,25 @@ Scene::resetGL()
 void
 Scene::render(Camera const& cam) const
 {
-	
-	cam.upload();
+	if(visible){
+       cam.upload();
 
-	for (Node* n : nodes) {
-		n->render(cam.viewMat());
-	}
+	   for (Node* n : nodes) {
+		   n->render(cam.viewMat());
+	   }
+    }
+	
 }
 
 void
 Scene::addNode(Node* n)
 {
 	nodes.push_back(n);
+}
+
+void
+Scene::setVisible(bool v)
+{
+	visible=v;
 }
 

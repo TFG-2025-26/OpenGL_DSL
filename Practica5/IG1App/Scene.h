@@ -27,6 +27,7 @@ public:
 	void render(Camera const& cam) const;
 
     void addNode(Node* n);
+    void setVisible(bool v);
 
 
 protected:
@@ -35,6 +36,7 @@ protected:
 	void resetGL();
 
 	std::vector<Node*> nodes; // Entities (graphic objects) of the scene
+    bool visible;
 	
 };
 

@@ -15,6 +15,11 @@ Camera::Camera(Viewport* vp)
   , yBot(-yTop)
   , mViewPort(vp)
 {
+    mEye = dvec3(0, 0, 500);
+    mLook = dvec3(0, 0, 0);
+    mUp = dvec3(0, 1, 0);
+    mAng = -45;
+    mRadio = 1000;
     setVM();
 	setPM();
 }
@@ -153,4 +158,13 @@ void
 Camera::rollReal(GLdouble cs) {
 	dmat4 rot = rotate(dmat4(1), glm::radians(cs), glm::dvec3(0, 0, 1.0));
 	mViewMat = rot * mViewMat;
+}
+
+void 
+Camera::orbit(GLdouble incAng, GLdouble incY) {
+	mAng += incAng;
+	mEye.x = mLook.x + cos(radians(mAng)) * mRadio;
+	mEye.z = mLook.z - sin(radians(mAng)) * mRadio;
+	mEye.y += incY;
+	setVM();
 }

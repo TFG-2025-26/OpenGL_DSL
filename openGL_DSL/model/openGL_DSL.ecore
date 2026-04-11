@@ -5,8 +5,10 @@
     <eOperations name="run"/>
     <eOperations name="close"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="WinId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WinW" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WinH" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WinW" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="800"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="WinH" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="600"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="viewport" eType="#//ViewPort"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="camera" eType="#//Camera"
@@ -97,15 +99,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="material" eType="#//Material"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mesh" eType="#//Mesh" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mModelMat" eType="#//mat4"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mColor" eType="#//vec4"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="Color" eType="#//Vector4"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuadricEntity" abstract="true" eSuperTypes="#//Abs_Entity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="q" eType="#//GLquadricObj"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Esfera" eSuperTypes="#//QuadricEntity"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Circulo" eSuperTypes="#//Abs_Entity"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Rectangulo" eSuperTypes="#//Abs_Entity"/>
   <eClassifiers xsi:type="ecore:EClass" name="Material">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ambient" eType="#//vec4"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="difusse" eType="#//vec4"/>
@@ -159,5 +158,44 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="X" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Y" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Z" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PoligonoRegular" eSuperTypes="#//Abs_Entity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="NumVertices" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Radio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Rellenar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Vector4">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="R" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="G" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="B" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="A" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rectangulo" eSuperTypes="#//Abs_Entity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Ancho" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Alto" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Rellenar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Circulo" eSuperTypes="#//Abs_Entity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Radio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Rellenar" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Esfera" eSuperTypes="#//QuadricEntity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Radio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cilindro" eSuperTypes="#//QuadricEntity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RadioBase" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RadioTope" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Altura" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Disco" eSuperTypes="#//QuadricEntity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RadioInterno" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RadioExterno" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DiscoParcial" eSuperTypes="#//QuadricEntity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RadioInterno" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RadioExterno" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AnguloInicio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmplitudAngulo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -3,7 +3,7 @@
 
 
 [template public generateMesh(aMesh : Mesh)]
-[comment --- Mesh.cpp --- /]
+[comment --- Mesh.h --- /]
 [file ('Mesh.h', false, 'UTF-8')]
 #ifndef _H_Mesh_H_
 #define _H_Mesh_H_
@@ -31,6 +31,10 @@ public:
 	std::vector<glm::dvec4> const& colors() const { return vColors; };
 
 	void addColorVertice(double r, double g, double b, double a);
+
+    static Mesh* generateRegularPolygon(GLuint num, GLdouble r, GLuint primitive);
+
+    static Mesh* generateRectangle(GLdouble w, GLdouble h);
 
 protected:
 	GLuint mPrimitive =
@@ -129,6 +133,57 @@ Mesh::createRGBAxes(GLdouble l)
 	// Z axis color: blue
 	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
 	mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);
+
+	return mesh;
+}
+
+Mesh*
+Mesh::generateRegularPolygon(GLuint num, GLdouble r, GLuint primitive)
+{
+	// variables
+	int auxnum = num;
+	float alfa = 90.0, angsep = 360 / num;
+
+	Mesh* mesh = new Mesh();
+
+	mesh->mPrimitive = primitive;
+
+	mesh->mNumVertices = num;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+
+	for (int i = 0; i < auxnum; i++)
+	{
+		auto alfaAux = glm::radians(alfa);
+
+		auto x = r * glm::cos(alfaAux);
+		auto y = r * glm::sin(alfaAux);
+
+		mesh->vVertices.emplace_back(x, y, 0.0);
+
+		alfa += angsep;
+	}
+
+	mesh->vColors.reserve(mesh->mNumVertices);
+
+	return mesh;
+}
+
+Mesh*
+Mesh::generateRectangle(GLdouble w, GLdouble h) {
+
+	Mesh* mesh = new Mesh();
+
+	mesh->mPrimitive = GL_TRIANGLE_STRIP;
+
+	mesh->mNumVertices = 4;
+	mesh->vVertices.reserve(mesh->mNumVertices);
+
+	mesh->vVertices.emplace_back((w / 2) * -1, h / 2, 0.0);
+	mesh->vVertices.emplace_back((w / 2) * -1, (h / 2) * -1, 0.0);
+	mesh->vVertices.emplace_back(w/2, h/2, 0.0);
+	mesh->vVertices.emplace_back(w / 2, (h / 2) * -1, 0.0);
+
+	mesh->vColors.reserve(mesh->mNumVertices);
 
 	return mesh;
 }

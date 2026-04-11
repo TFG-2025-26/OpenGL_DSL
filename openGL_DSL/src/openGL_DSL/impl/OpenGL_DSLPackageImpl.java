@@ -4,8 +4,11 @@ package openGL_DSL.impl;
 
 import openGL_DSL.Abs_Entity;
 import openGL_DSL.Camera;
+import openGL_DSL.Cilindro;
 import openGL_DSL.Circulo;
 import openGL_DSL.DirLight;
+import openGL_DSL.Disco;
+import openGL_DSL.DiscoParcial;
 import openGL_DSL.EjesRGB;
 import openGL_DSL.Esfera;
 import openGL_DSL.IndexMesh;
@@ -16,6 +19,7 @@ import openGL_DSL.Mesh;
 import openGL_DSL.Node;
 import openGL_DSL.OpenGL_DSLFactory;
 import openGL_DSL.OpenGL_DSLPackage;
+import openGL_DSL.PoligonoRegular;
 import openGL_DSL.PosLight;
 import openGL_DSL.QuadricEntity;
 import openGL_DSL.Rectangulo;
@@ -24,6 +28,7 @@ import openGL_DSL.SceneManager;
 import openGL_DSL.SpotLight;
 import openGL_DSL.Texture;
 import openGL_DSL.Vector3;
+import openGL_DSL.Vector4;
 import openGL_DSL.ViewPort;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -124,27 +129,6 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass esferaEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass circuloEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass rectanguloEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass materialEClass = null;
 
 	/**
@@ -188,6 +172,62 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	private EClass vector3EClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass poligonoRegularEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass vector4EClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass rectanguloEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass circuloEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass esferaEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cilindroEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass discoEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass discoParcialEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -904,18 +944,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getAbs_Entity_MModelMat() {
-		return (EAttribute)abs_EntityEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getAbs_Entity_MColor() {
-		return (EAttribute)abs_EntityEClass.getEStructuralFeatures().get(4);
+	public EReference getAbs_Entity_Color() {
+		return (EReference)abs_EntityEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -956,36 +986,6 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	@Override
 	public EAttribute getQuadricEntity_Q() {
 		return (EAttribute)quadricEntityEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getEsfera() {
-		return esferaEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getCirculo() {
-		return circuloEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EClass getRectangulo() {
-		return rectanguloEClass;
 	}
 
 	/**
@@ -1344,6 +1344,306 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
+	public EClass getPoligonoRegular() {
+		return poligonoRegularEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPoligonoRegular_NumVertices() {
+		return (EAttribute)poligonoRegularEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPoligonoRegular_Radio() {
+		return (EAttribute)poligonoRegularEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getPoligonoRegular_Rellenar() {
+		return (EAttribute)poligonoRegularEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getVector4() {
+		return vector4EClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getVector4_R() {
+		return (EAttribute)vector4EClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getVector4_G() {
+		return (EAttribute)vector4EClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getVector4_B() {
+		return (EAttribute)vector4EClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getVector4_A() {
+		return (EAttribute)vector4EClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getRectangulo() {
+		return rectanguloEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRectangulo_Ancho() {
+		return (EAttribute)rectanguloEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRectangulo_Alto() {
+		return (EAttribute)rectanguloEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getRectangulo_Rellenar() {
+		return (EAttribute)rectanguloEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getCirculo() {
+		return circuloEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCirculo_Radio() {
+		return (EAttribute)circuloEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCirculo_Rellenar() {
+		return (EAttribute)circuloEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getEsfera() {
+		return esferaEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getEsfera_Radio() {
+		return (EAttribute)esferaEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getCilindro() {
+		return cilindroEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCilindro_RadioBase() {
+		return (EAttribute)cilindroEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCilindro_RadioTope() {
+		return (EAttribute)cilindroEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCilindro_Altura() {
+		return (EAttribute)cilindroEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDisco() {
+		return discoEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDisco_RadioInterno() {
+		return (EAttribute)discoEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDisco_RadioExterno() {
+		return (EAttribute)discoEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getDiscoParcial() {
+		return discoParcialEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiscoParcial_RadioInterno() {
+		return (EAttribute)discoParcialEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiscoParcial_RadioExterno() {
+		return (EAttribute)discoParcialEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiscoParcial_AnguloInicio() {
+		return (EAttribute)discoParcialEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getDiscoParcial_AmplitudAngulo() {
+		return (EAttribute)discoParcialEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getGLsizei() {
 		return gLsizeiEDataType;
 	}
@@ -1506,19 +1806,12 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		createEReference(abs_EntityEClass, ABS_ENTITY__TEXTURE);
 		createEReference(abs_EntityEClass, ABS_ENTITY__MATERIAL);
 		createEReference(abs_EntityEClass, ABS_ENTITY__MESH);
-		createEAttribute(abs_EntityEClass, ABS_ENTITY__MMODEL_MAT);
-		createEAttribute(abs_EntityEClass, ABS_ENTITY__MCOLOR);
+		createEReference(abs_EntityEClass, ABS_ENTITY__COLOR);
 		createEOperation(abs_EntityEClass, ABS_ENTITY___RENDER__OBJECT);
 		createEOperation(abs_EntityEClass, ABS_ENTITY___UPLOAD);
 
 		quadricEntityEClass = createEClass(QUADRIC_ENTITY);
 		createEAttribute(quadricEntityEClass, QUADRIC_ENTITY__Q);
-
-		esferaEClass = createEClass(ESFERA);
-
-		circuloEClass = createEClass(CIRCULO);
-
-		rectanguloEClass = createEClass(RECTANGULO);
 
 		materialEClass = createEClass(MATERIAL);
 		createEAttribute(materialEClass, MATERIAL__AMBIENT);
@@ -1562,6 +1855,44 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		createEAttribute(vector3EClass, VECTOR3__Y);
 		createEAttribute(vector3EClass, VECTOR3__Z);
 
+		poligonoRegularEClass = createEClass(POLIGONO_REGULAR);
+		createEAttribute(poligonoRegularEClass, POLIGONO_REGULAR__NUM_VERTICES);
+		createEAttribute(poligonoRegularEClass, POLIGONO_REGULAR__RADIO);
+		createEAttribute(poligonoRegularEClass, POLIGONO_REGULAR__RELLENAR);
+
+		vector4EClass = createEClass(VECTOR4);
+		createEAttribute(vector4EClass, VECTOR4__R);
+		createEAttribute(vector4EClass, VECTOR4__G);
+		createEAttribute(vector4EClass, VECTOR4__B);
+		createEAttribute(vector4EClass, VECTOR4__A);
+
+		rectanguloEClass = createEClass(RECTANGULO);
+		createEAttribute(rectanguloEClass, RECTANGULO__ANCHO);
+		createEAttribute(rectanguloEClass, RECTANGULO__ALTO);
+		createEAttribute(rectanguloEClass, RECTANGULO__RELLENAR);
+
+		circuloEClass = createEClass(CIRCULO);
+		createEAttribute(circuloEClass, CIRCULO__RADIO);
+		createEAttribute(circuloEClass, CIRCULO__RELLENAR);
+
+		esferaEClass = createEClass(ESFERA);
+		createEAttribute(esferaEClass, ESFERA__RADIO);
+
+		cilindroEClass = createEClass(CILINDRO);
+		createEAttribute(cilindroEClass, CILINDRO__RADIO_BASE);
+		createEAttribute(cilindroEClass, CILINDRO__RADIO_TOPE);
+		createEAttribute(cilindroEClass, CILINDRO__ALTURA);
+
+		discoEClass = createEClass(DISCO);
+		createEAttribute(discoEClass, DISCO__RADIO_INTERNO);
+		createEAttribute(discoEClass, DISCO__RADIO_EXTERNO);
+
+		discoParcialEClass = createEClass(DISCO_PARCIAL);
+		createEAttribute(discoParcialEClass, DISCO_PARCIAL__RADIO_INTERNO);
+		createEAttribute(discoParcialEClass, DISCO_PARCIAL__RADIO_EXTERNO);
+		createEAttribute(discoParcialEClass, DISCO_PARCIAL__ANGULO_INICIO);
+		createEAttribute(discoParcialEClass, DISCO_PARCIAL__AMPLITUD_ANGULO);
+
 		// Create data types
 		gLsizeiEDataType = createEDataType(GLSIZEI);
 		gLuintEDataType = createEDataType(GLUINT);
@@ -1604,18 +1935,22 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		posLightEClass.getESuperTypes().add(this.getLight());
 		spotLightEClass.getESuperTypes().add(this.getPosLight());
 		quadricEntityEClass.getESuperTypes().add(this.getAbs_Entity());
-		esferaEClass.getESuperTypes().add(this.getQuadricEntity());
-		circuloEClass.getESuperTypes().add(this.getAbs_Entity());
-		rectanguloEClass.getESuperTypes().add(this.getAbs_Entity());
 		mbREClass.getESuperTypes().add(this.getIndexMesh());
 		indexMeshEClass.getESuperTypes().add(this.getMesh());
 		ejesRGBEClass.getESuperTypes().add(this.getAbs_Entity());
+		poligonoRegularEClass.getESuperTypes().add(this.getAbs_Entity());
+		rectanguloEClass.getESuperTypes().add(this.getAbs_Entity());
+		circuloEClass.getESuperTypes().add(this.getAbs_Entity());
+		esferaEClass.getESuperTypes().add(this.getQuadricEntity());
+		cilindroEClass.getESuperTypes().add(this.getQuadricEntity());
+		discoEClass.getESuperTypes().add(this.getQuadricEntity());
+		discoParcialEClass.getESuperTypes().add(this.getQuadricEntity());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sceneManagerEClass, SceneManager.class, "SceneManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getSceneManager_WinId(), ecorePackage.getEInt(), "WinId", null, 0, 1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSceneManager_WinW(), ecorePackage.getEInt(), "WinW", null, 0, 1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSceneManager_WinH(), ecorePackage.getEInt(), "WinH", null, 0, 1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSceneManager_WinW(), ecorePackage.getEInt(), "WinW", "800", 0, 1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSceneManager_WinH(), ecorePackage.getEInt(), "WinH", "600", 0, 1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSceneManager_Viewport(), this.getViewPort(), null, "viewport", null, 0, 1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSceneManager_Camera(), this.getCamera(), null, "camera", null, 0, 1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSceneManager_Scenes(), this.getScene(), null, "scenes", null, 0, -1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1689,8 +2024,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		initEReference(getAbs_Entity_Texture(), this.getTexture(), null, "texture", null, 0, 2, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbs_Entity_Material(), this.getMaterial(), null, "material", null, 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbs_Entity_Mesh(), this.getMesh(), null, "mesh", null, 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAbs_Entity_MModelMat(), this.getmat4(), "mModelMat", null, 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getAbs_Entity_MColor(), this.getvec4(), "mColor", null, 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbs_Entity_Color(), this.getVector4(), null, "Color", null, 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getAbs_Entity__Render__Object(), null, "render", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getmat4(), "modelViewMat", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1699,12 +2033,6 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 
 		initEClass(quadricEntityEClass, QuadricEntity.class, "QuadricEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuadricEntity_Q(), this.getGLquadricObj(), "q", null, 0, 1, QuadricEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(esferaEClass, Esfera.class, "Esfera", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(circuloEClass, Circulo.class, "Circulo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(rectanguloEClass, Rectangulo.class, "Rectangulo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(materialEClass, Material.class, "Material", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMaterial_Ambient(), this.getvec4(), "ambient", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1754,6 +2082,44 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		initEAttribute(getVector3_X(), ecorePackage.getEDouble(), "X", null, 0, 1, Vector3.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVector3_Y(), ecorePackage.getEDouble(), "Y", null, 0, 1, Vector3.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getVector3_Z(), ecorePackage.getEDouble(), "Z", null, 0, 1, Vector3.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(poligonoRegularEClass, PoligonoRegular.class, "PoligonoRegular", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPoligonoRegular_NumVertices(), ecorePackage.getEInt(), "NumVertices", null, 0, 1, PoligonoRegular.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPoligonoRegular_Radio(), ecorePackage.getEDouble(), "Radio", null, 0, 1, PoligonoRegular.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPoligonoRegular_Rellenar(), ecorePackage.getEBoolean(), "Rellenar", null, 0, 1, PoligonoRegular.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(vector4EClass, Vector4.class, "Vector4", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getVector4_R(), ecorePackage.getEDouble(), "R", null, 0, 1, Vector4.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVector4_G(), ecorePackage.getEDouble(), "G", null, 0, 1, Vector4.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVector4_B(), ecorePackage.getEDouble(), "B", null, 0, 1, Vector4.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getVector4_A(), ecorePackage.getEDouble(), "A", null, 0, 1, Vector4.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(rectanguloEClass, Rectangulo.class, "Rectangulo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getRectangulo_Ancho(), ecorePackage.getEDouble(), "Ancho", null, 0, 1, Rectangulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRectangulo_Alto(), ecorePackage.getEDouble(), "Alto", null, 0, 1, Rectangulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRectangulo_Rellenar(), ecorePackage.getEBoolean(), "Rellenar", "true", 0, 1, Rectangulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(circuloEClass, Circulo.class, "Circulo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCirculo_Radio(), ecorePackage.getEDouble(), "Radio", null, 0, 1, Circulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCirculo_Rellenar(), ecorePackage.getEBoolean(), "Rellenar", null, 0, 1, Circulo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(esferaEClass, Esfera.class, "Esfera", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getEsfera_Radio(), ecorePackage.getEDouble(), "Radio", null, 0, 1, Esfera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(cilindroEClass, Cilindro.class, "Cilindro", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCilindro_RadioBase(), ecorePackage.getEDouble(), "RadioBase", null, 0, 1, Cilindro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCilindro_RadioTope(), ecorePackage.getEDouble(), "RadioTope", null, 0, 1, Cilindro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCilindro_Altura(), ecorePackage.getEDouble(), "Altura", null, 0, 1, Cilindro.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(discoEClass, Disco.class, "Disco", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDisco_RadioInterno(), ecorePackage.getEDouble(), "RadioInterno", null, 0, 1, Disco.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDisco_RadioExterno(), ecorePackage.getEDouble(), "RadioExterno", null, 0, 1, Disco.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(discoParcialEClass, DiscoParcial.class, "DiscoParcial", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getDiscoParcial_RadioInterno(), ecorePackage.getEDouble(), "RadioInterno", null, 0, 1, DiscoParcial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiscoParcial_RadioExterno(), ecorePackage.getEDouble(), "RadioExterno", null, 0, 1, DiscoParcial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiscoParcial_AnguloInicio(), ecorePackage.getEDouble(), "AnguloInicio", null, 0, 1, DiscoParcial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getDiscoParcial_AmplitudAngulo(), ecorePackage.getEDouble(), "AmplitudAngulo", null, 0, 1, DiscoParcial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(gLsizeiEDataType, Object.class, "GLsizei", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

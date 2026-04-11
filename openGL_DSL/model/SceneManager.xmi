@@ -3,51 +3,216 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:openGL_DSL="http://www.example.org/openGL_DSL"
-    WinW="800"
-    WinH="600">
+    xmlns:openGL_DSL="http://www.example.org/openGL_DSL">
   <viewport/>
   <camera/>
-  <scenes Name="ejes">
-    <nodo Name="ejes">
-      <nodo
-          Name="ejes2">
-        <abs_entity
-            xsi:type="openGL_DSL:EjesRGB"
-            Lenght="400.0"/>
-        <posicion
-            X="-200.0"
-            Y="-200.0"/>
-        <rotacion
-            Y="-45.0"/>
-        <escala
-            X="2.0"
-            Y="1.0"
-            Z="1.0"/>
-      </nodo>
+  <scenes Name="eje">
+    <nodo Name="eje">
       <abs_entity
           xsi:type="openGL_DSL:EjesRGB"
           Lenght="400.0"/>
-      <posicion
-          X="100.0"/>
-      <rotacion/>
-      <escala
-          X="1.0"
-          Y="1.0"
-          Z="1.0"/>
     </nodo>
   </scenes>
-  <scenes Name="extra">
-    <nodo Name="extra">
+  <scenes Name="poligonos"
+      Visible="false">
+    <nodo Name="poligonos">
+      <nodo
+          Name="triangulo">
+        <abs_entity
+            xsi:type="openGL_DSL:PoligonoRegular"
+            NumVertices="3"
+            Radio="100.0">
+          <Color
+              R="1.0"
+              A="1.0"/>
+        </abs_entity>
+      </nodo>
+      <nodo
+          Name="cuadrado">
+        <abs_entity
+            xsi:type="openGL_DSL:PoligonoRegular"
+            NumVertices="4"
+            Radio="200.0"
+            Rellenar="true">
+          <Color
+              G="1.0"
+              A="1.0"/>
+        </abs_entity>
+      </nodo>
+      <nodo
+          Name="pentagono">
+        <abs_entity
+            xsi:type="openGL_DSL:PoligonoRegular"
+            NumVertices="5"
+            Radio="300.0">
+          <Color
+              B="1.0"
+              A="1.0"/>
+        </abs_entity>
+      </nodo>
+      <nodo
+          Name="hexagono">
+        <abs_entity
+            xsi:type="openGL_DSL:PoligonoRegular"
+            NumVertices="6"
+            Radio="400.0"
+            Rellenar="true">
+          <Color
+              R="1.0"
+              G="1.0"
+              A="1.0"/>
+        </abs_entity>
+      </nodo>
+    </nodo>
+  </scenes>
+  <scenes Name="rectangulos"
+      Visible="false">
+    <nodo Name="rectangulos">
       <abs_entity
-          xsi:type="openGL_DSL:EjesRGB"
-          Lenght="400.0"/>
-      <posicion/>
-      <rotacion/>
-      <escala
-          X="1.0"
-          Y="1.0"
-          Z="1.0"/>
+          xsi:type="openGL_DSL:Rectangulo"
+          Ancho="100.0"
+          Alto="50.0"
+          Rellenar="false">
+        <Color
+            A="1.0"/>
+      </abs_entity>
+      <abs_entity
+          xsi:type="openGL_DSL:Rectangulo"
+          Ancho="200.0"
+          Alto="100.0"/>
+      <abs_entity
+          xsi:type="openGL_DSL:Rectangulo"
+          Ancho="300.0"
+          Alto="200.0"
+          Rellenar="false">
+        <Color
+            R="1.0"
+            A="1.0"/>
+      </abs_entity>
+    </nodo>
+  </scenes>
+  <scenes Name="circulos"
+      Visible="false">
+    <nodo Name="circulos">
+      <abs_entity
+          xsi:type="openGL_DSL:Circulo"
+          Radio="100.0"/>
+      <abs_entity
+          xsi:type="openGL_DSL:Circulo"
+          Radio="200.0"
+          Rellenar="true">
+        <Color
+            R="1.0"
+            A="1.0"/>
+      </abs_entity>
+    </nodo>
+  </scenes>
+  <scenes Name="esferas"
+      Visible="false">
+    <nodo Name="esferas">
+      <nodo
+          Name="esfera1">
+        <abs_entity
+            xsi:type="openGL_DSL:Esfera"
+            Radio="200.0"/>
+      </nodo>
+      <nodo
+          Name="esfera2">
+        <abs_entity
+            xsi:type="openGL_DSL:Esfera"
+            Radio="100.0">
+          <Color
+              R="0.6"
+              G="0.6"
+              B="0.6"
+              A="1.0"/>
+        </abs_entity>
+        <posicion
+            X="100.0"
+            Y="100.0"/>
+      </nodo>
+    </nodo>
+  </scenes>
+  <scenes Name="cilindros"
+      Visible="false">
+    <nodo Name="cilindros">
+      <nodo
+          Name="cilindro1">
+        <abs_entity
+            xsi:type="openGL_DSL:Cilindro"
+            RadioBase="50.0"
+            RadioTope="50.0"
+            Altura="100.0"/>
+      </nodo>
+      <nodo
+          Name="cilindro2">
+        <abs_entity
+            xsi:type="openGL_DSL:Cilindro"
+            RadioBase="100.0"
+            RadioTope="100.0"
+            Altura="200.0">
+          <Color
+              G="1.0"
+              B="1.0"
+              A="1.0"/>
+        </abs_entity>
+        <posicion
+            X="200.0"/>
+      </nodo>
+      <rotacion
+          X="-90.0"/>
+    </nodo>
+  </scenes>
+  <scenes Name="discos"
+      Visible="false">
+    <nodo Name="discos">
+      <nodo
+          Name="disco1">
+        <abs_entity
+            xsi:type="openGL_DSL:Disco"
+            RadioInterno="50.0"
+            RadioExterno="100.0"/>
+      </nodo>
+      <nodo
+          Name="disco2">
+        <abs_entity
+            xsi:type="openGL_DSL:Disco"
+            RadioInterno="100.0"
+            RadioExterno="200.0">
+          <Color
+              R="1.0"
+              B="1.0"
+              A="1.0"/>
+        </abs_entity>
+        <posicion
+            X="200.0"/>
+      </nodo>
+    </nodo>
+  </scenes>
+  <scenes Name="discosParciales">
+    <nodo Name="discosParciales">
+      <nodo
+          Name="discoParcial1">
+        <abs_entity
+            xsi:type="openGL_DSL:DiscoParcial"
+            RadioInterno="50.0"
+            RadioExterno="100.0"
+            AmplitudAngulo="90.0"/>
+      </nodo>
+      <nodo
+          Name="discoParcial2">
+        <abs_entity
+            xsi:type="openGL_DSL:DiscoParcial"
+            RadioInterno="100.0"
+            RadioExterno="200.0"
+            AnguloInicio="180.0"
+            AmplitudAngulo="45.0">
+          <Color
+              A="1.0"/>
+        </abs_entity>
+        <posicion
+            X="300.0"/>
+      </nodo>
     </nodo>
   </scenes>
 </openGL_DSL:SceneManager>

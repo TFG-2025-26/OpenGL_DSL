@@ -94,33 +94,6 @@ public interface OpenGL_DSLFactory extends EFactory {
 	Node createNode();
 
 	/**
-	 * Returns a new object of class '<em>Esfera</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Esfera</em>'.
-	 * @generated
-	 */
-	Esfera createEsfera();
-
-	/**
-	 * Returns a new object of class '<em>Circulo</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Circulo</em>'.
-	 * @generated
-	 */
-	Circulo createCirculo();
-
-	/**
-	 * Returns a new object of class '<em>Rectangulo</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Rectangulo</em>'.
-	 * @generated
-	 */
-	Rectangulo createRectangulo();
-
-	/**
 	 * Returns a new object of class '<em>Material</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -182,6 +155,78 @@ public interface OpenGL_DSLFactory extends EFactory {
 	 * @generated
 	 */
 	Vector3 createVector3();
+
+	/**
+	 * Returns a new object of class '<em>Poligono Regular</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Poligono Regular</em>'.
+	 * @generated
+	 */
+	PoligonoRegular createPoligonoRegular();
+
+	/**
+	 * Returns a new object of class '<em>Vector4</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Vector4</em>'.
+	 * @generated
+	 */
+	Vector4 createVector4();
+
+	/**
+	 * Returns a new object of class '<em>Rectangulo</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Rectangulo</em>'.
+	 * @generated
+	 */
+	Rectangulo createRectangulo();
+
+	/**
+	 * Returns a new object of class '<em>Circulo</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Circulo</em>'.
+	 * @generated
+	 */
+	Circulo createCirculo();
+
+	/**
+	 * Returns a new object of class '<em>Esfera</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Esfera</em>'.
+	 * @generated
+	 */
+	Esfera createEsfera();
+
+	/**
+	 * Returns a new object of class '<em>Cilindro</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cilindro</em>'.
+	 * @generated
+	 */
+	Cilindro createCilindro();
+
+	/**
+	 * Returns a new object of class '<em>Disco</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Disco</em>'.
+	 * @generated
+	 */
+	Disco createDisco();
+
+	/**
+	 * Returns a new object of class '<em>Disco Parcial</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Disco Parcial</em>'.
+	 * @generated
+	 */
+	DiscoParcial createDiscoParcial();
 
 	/**
 	 * Returns the package supported by this factory.

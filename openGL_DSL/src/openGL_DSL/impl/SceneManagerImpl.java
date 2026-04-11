@@ -74,7 +74,7 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int WIN_W_EDEFAULT = 0;
+	protected static final int WIN_W_EDEFAULT = 800;
 
 	/**
 	 * The cached value of the '{@link #getWinW() <em>Win W</em>}' attribute.
@@ -94,7 +94,7 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int WIN_H_EDEFAULT = 0;
+	protected static final int WIN_H_EDEFAULT = 600;
 
 	/**
 	 * The cached value of the '{@link #getWinH() <em>Win H</em>}' attribute.

@@ -4,11 +4,10 @@
     <input>
       <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
     </input>
-    <imports href="meshFile.emtl#/0"/>
+    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/meshFile.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateEntity" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Entity_H_&#xD;&#xA;#define _H_Entity_H_&#xD;&#xA;&#xD;&#xA;#include &lt;GL/freeglut.h>&#xD;&#xA;#include &lt;glm/glm.hpp>&#xD;&#xA;&#xD;&#xA;#include &quot;Mesh.h&quot;&#xD;&#xA;&#xD;&#xA;class Abs_Entity // abstract class&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;Abs_Entity()&#xD;&#xA;&#x9;  : mModelMat(1.0), mColor(1){}; // 4x4 identity matrix&#xD;&#xA;&#x9;virtual ~Abs_Entity() = default;&#xD;&#xA;&#xD;&#xA;&#x9;Abs_Entity(const Abs_Entity&amp; e) = delete;            // no copy constructor&#xD;&#xA;&#x9;Abs_Entity&amp; operator=(const Abs_Entity&amp; e) = delete; // no copy assignment&#xD;&#xA;&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const = 0; // abstract method&#xD;&#xA;&#xD;&#xA;&#x9;// modeling matrix&#xD;&#xA;&#x9;glm::dmat4 const&amp; modelMat() const { return mModelMat; };&#xD;&#xA;&#x9;void setModelMat(glm::dmat4 const&amp; aMat) { mModelMat = aMat; };&#xD;&#xA;&#xD;&#xA;&#x9;glm::dvec4 const&amp; color() const { return mColor; };&#xD;&#xA;&#x9;void setColor(glm::dvec4 const&amp; aColor) { mColor = aColor; };&#xD;&#xA;&#xD;&#xA;protected:&#xD;&#xA;&#x9;Mesh* mMesh = nullptr; // the mesh&#xD;&#xA;&#x9;glm::dmat4 mModelMat;  // modeling matrix&#xD;&#xA;&#x9;glm::dvec4 mColor;     // entity color&#xD;&#xA;&#xD;&#xA;&#x9;// transfers modelViewMat to the GPU&#xD;&#xA;&#x9;virtual void upload(glm::dmat4 const&amp; mModelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class EjesRGB : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit EjesRGB(GLdouble l);&#xD;&#xA;&#x9;~EjesRGB();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;"/>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="class Esfera : public Abs_Entity {&#xD;&#xA;public:&#xD;&#xA;    Esfera(double r = 1.0) : mRadius(r) {}&#xD;&#xA;    virtual ~Esfera() = default;&#xD;&#xA;    virtual void render(glm::dmat4 const&amp; modelViewMat);&#xD;&#xA;private:&#xD;&#xA;    double mRadius;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Rectangulo : public Abs_Entity {&#xD;&#xA;public:&#xD;&#xA;    Rectangulo() {}&#xD;&#xA;    virtual ~Rectangulo() = default;&#xD;&#xA;    virtual void render(glm::dmat4 const&amp; modelViewMat);&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;#endif&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Entity_H_&#xD;&#xA;#define _H_Entity_H_&#xD;&#xA;&#xD;&#xA;#include &lt;GL/freeglut.h>&#xD;&#xA;#include &lt;glm/glm.hpp>&#xD;&#xA;&#xD;&#xA;#include &quot;Mesh.h&quot;&#xD;&#xA;&#xD;&#xA;class Abs_Entity // abstract class&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;Abs_Entity()&#xD;&#xA;&#x9;&#x9;: mModelMat(1.0), mColor(1) {&#xD;&#xA;&#x9;}; // 4x4 identity matrix&#xD;&#xA;&#x9;virtual ~Abs_Entity() = default;&#xD;&#xA;&#xD;&#xA;&#x9;Abs_Entity(const Abs_Entity&amp; e) = delete;            // no copy constructor&#xD;&#xA;&#x9;Abs_Entity&amp; operator=(const Abs_Entity&amp; e) = delete; // no copy assignment&#xD;&#xA;&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const = 0; // abstract method&#xD;&#xA;&#xD;&#xA;&#x9;// modeling matrix&#xD;&#xA;&#x9;glm::dmat4 const&amp; modelMat() const { return mModelMat; };&#xD;&#xA;&#x9;void setModelMat(glm::dmat4 const&amp; aMat) { mModelMat = aMat; };&#xD;&#xA;&#xD;&#xA;&#x9;glm::dvec4 const&amp; color() const { return mColor; };&#xD;&#xA;&#x9;void setColor(glm::dvec4 const&amp; aColor) { mColor = aColor; };&#xD;&#xA;&#xD;&#xA;protected:&#xD;&#xA;&#x9;Mesh* mMesh = nullptr; // the mesh&#xD;&#xA;&#x9;glm::dmat4 mModelMat;  // modeling matrix&#xD;&#xA;&#x9;glm::dvec4 mColor;     // entity color&#xD;&#xA;&#xD;&#xA;&#x9;// transfers modelViewMat to the GPU&#xD;&#xA;&#x9;virtual void upload(glm::dmat4 const&amp; mModelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class EjesRGB : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit EjesRGB(GLdouble l);&#xD;&#xA;&#x9;~EjesRGB();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class PoligonoRegular : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit PoligonoRegular(GLuint num, GLdouble r,bool rellenar);&#xD;&#xA;&#x9;~PoligonoRegular();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Rectangulo : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit Rectangulo(GLdouble w, GLdouble h, bool rellenar);&#xD;&#xA;&#x9;~Rectangulo();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;private:&#xD;&#xA;    bool rellenar;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Circulo : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit Circulo(GLdouble r,bool rellenar);&#xD;&#xA;&#x9;~Circulo();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class QuadricEntity : public Abs_Entity {&#xD;&#xA;public:&#xD;&#xA;&#x9;QuadricEntity();&#xD;&#xA;&#x9;virtual ~QuadricEntity() { gluDeleteQuadric(q); };&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLUquadricObj* q;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Sphere : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Sphere(GLdouble r); // r es el radio de la esfera&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble r;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Cylinder : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height); // r es el radio de la esfera&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble baseRadius;&#xD;&#xA;&#x9;GLdouble topRadius;&#xD;&#xA;&#x9;GLdouble height;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Disk : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Disk(GLdouble innerRadius, GLdouble outerRadius); // r es el radio de la esfera&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble innerRadius;&#xD;&#xA;&#x9;GLdouble outerRadius;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class PartialDisk : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;PartialDisk(GLdouble innerRadius, GLdouble outerRadius, GLdouble startAngle, GLdouble sweepAngle); // r es el radio de la esfera&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble innerRadius;&#xD;&#xA;&#x9;GLdouble outerRadius;&#xD;&#xA;&#x9;GLdouble startAngle;&#xD;&#xA;&#x9;GLdouble sweepAngle;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;#endif&#xD;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Entity.h">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
@@ -18,8 +17,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Entity.h&quot;&#xD;&#xA;&#xD;&#xA;#include &lt;glm/gtc/matrix_transform.hpp>&#xD;&#xA;#include &lt;glm/gtc/type_ptr.hpp>&#xD;&#xA;&#xD;&#xA;using namespace glm;&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Abs_Entity::upload(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;glMatrixMode(GL_MODELVIEW);&#xD;&#xA;&#x9;glLoadMatrixd(value_ptr(modelViewMat)); // transfers modelView matrix to the GPU&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;EjesRGB::EjesRGB(GLdouble l)&#xD;&#xA;  : Abs_Entity()&#xD;&#xA;{&#xD;&#xA;&#x9;mMesh = Mesh::createRGBAxes(l);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;EjesRGB::~EjesRGB()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;EjesRGB::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;&#x9;&#x9;dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;&#x9;upload(aMat);&#xD;&#xA;&#x9;&#x9;glLineWidth(2);&#xD;&#xA;&#x9;&#x9;mMesh->render();&#xD;&#xA;&#x9;&#x9;glLineWidth(1);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;"/>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="void Esfera::render(glm::dmat4 const&amp; modelViewMat) {&#xD;&#xA;    // Estilo de renderizado segun tu codigo de ejemplo&#xD;&#xA;    glPushMatrix();&#xD;&#xA;    // Aqui se podria añadir glColor o glTranslate segun el Nodo&#xD;&#xA;    glutWireSphere(mRadius, 20, 20);&#xD;&#xA;    glPopMatrix();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void Rectangulo::render(glm::dmat4 const&amp; modelViewMat) {&#xD;&#xA;    glBegin(GL_QUADS);&#xD;&#xA;        glVertex2f(-0.5f, -0.5f);&#xD;&#xA;        glVertex2f( 0.5f, -0.5f);&#xD;&#xA;        glVertex2f( 0.5f,  0.5f);&#xD;&#xA;        glVertex2f(-0.5f,  0.5f);&#xD;&#xA;    glEnd();&#xD;&#xA;}&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Entity.h&quot;&#xD;&#xA;&#xD;&#xA;#include &lt;glm/gtc/matrix_transform.hpp>&#xD;&#xA;#include &lt;glm/gtc/type_ptr.hpp>&#xD;&#xA;&#xD;&#xA;using namespace glm;&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Abs_Entity::upload(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;glMatrixMode(GL_MODELVIEW);&#xD;&#xA;&#x9;glLoadMatrixd(value_ptr(modelViewMat)); // transfers modelView matrix to the GPU&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;EjesRGB::EjesRGB(GLdouble l)&#xD;&#xA;  : Abs_Entity()&#xD;&#xA;{&#xD;&#xA;&#x9;mMesh = Mesh::createRGBAxes(l);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;EjesRGB::~EjesRGB()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;EjesRGB::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;&#x9;&#x9;dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;&#x9;upload(aMat);&#xD;&#xA;&#x9;&#x9;glLineWidth(2);&#xD;&#xA;&#x9;&#x9;mMesh->render();&#xD;&#xA;&#x9;&#x9;glLineWidth(1);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;PoligonoRegular::PoligonoRegular(GLuint num, GLdouble r,bool rellenar)&#xD;&#xA;&#x9;: Abs_Entity()&#xD;&#xA;{&#xD;&#xA;&#x9;if (rellenar) {&#xD;&#xA;&#x9;   mMesh = Mesh::generateRegularPolygon(num, r, GL_TRIANGLE_FAN);&#xD;&#xA;    }&#xD;&#xA;    else {&#xD;&#xA;&#x9;   mMesh = Mesh::generateRegularPolygon(num, r, GL_LINE_LOOP);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;PoligonoRegular::~PoligonoRegular()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;PoligonoRegular::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;&#x9;&#x9;dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;&#x9;upload(aMat);&#xD;&#xA;&#x9;&#x9;glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;&#x9;glLineWidth(2);&#xD;&#xA;&#x9;&#x9;mMesh->render();&#xD;&#xA;&#x9;&#x9;glLineWidth(1);&#xD;&#xA;&#x9;&#x9;glColor4d(1, 1, 1, 1);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Rectangulo::Rectangulo(GLdouble w, GLdouble h, bool rellenar)&#xD;&#xA;&#x9;: Abs_Entity(), rellenar(rellenar)&#xD;&#xA;{&#xD;&#xA;&#x9;mMesh = Mesh::generateRectangle(w, h);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Rectangulo::~Rectangulo()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Rectangulo::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;        if(rellenar){&#xD;&#xA;           glPolygonMode(GL_BACK, GL_FILL);&#xD;&#xA;&#x9;&#x9;   glPolygonMode(GL_FRONT, GL_FILL);&#xD;&#xA;        }&#xD;&#xA;        else{&#xD;&#xA;           glPolygonMode(GL_BACK, GL_LINE);&#xD;&#xA;&#x9;&#x9;   glPolygonMode(GL_FRONT, GL_LINE);&#xD;&#xA;        }&#xD;&#xA;&#x9;&#x9;dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;&#x9;upload(aMat);&#xD;&#xA;        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;&#x9;glLineWidth(2);&#xD;&#xA;&#x9;&#x9;mMesh->render();&#xD;&#xA;&#x9;&#x9;glLineWidth(1);&#xD;&#xA;        glColor4d(1, 1, 1, 1);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Circulo::Circulo(GLdouble r,bool rellenar)&#xD;&#xA;&#x9;: Abs_Entity()&#xD;&#xA;{&#xD;&#xA;    if (rellenar) {&#xD;&#xA;&#x9;   mMesh = Mesh::generateRegularPolygon(40, r, GL_TRIANGLE_FAN);&#xD;&#xA;    }&#xD;&#xA;    else {&#xD;&#xA;&#x9;   mMesh = Mesh::generateRegularPolygon(40, r, GL_LINE_LOOP);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Circulo::~Circulo()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Circulo::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;&#x9;&#x9;dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;&#x9;upload(aMat);&#xD;&#xA;&#x9;&#x9;glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;&#x9;glLineWidth(2);&#xD;&#xA;&#x9;&#x9;mMesh->render();&#xD;&#xA;&#x9;&#x9;glLineWidth(1);&#xD;&#xA;&#x9;&#x9;glColor4d(1, 1, 1, 1);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;QuadricEntity::QuadricEntity() {&#xD;&#xA;&#x9;q = gluNewQuadric();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Sphere::Sphere(GLdouble r)&#xD;&#xA;&#x9;: r(r)&#xD;&#xA;{}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Sphere::render(glm::dmat4 const&amp; modelViewMat) const {&#xD;&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xD;&#xA;&#x9;upload(aMat);&#xD;&#xA;&#x9;// Aquí se puede fijar el color de la esfera así:&#xD;&#xA;&#x9;glEnable ( GL_COLOR_MATERIAL );&#xD;&#xA;&#x9;glColor3f (mColor.r, mColor.g, mColor.b);&#xD;&#xA;&#x9;// Aquí se puede fijar el modo de dibujar la esfera :&#xD;&#xA;&#x9;gluQuadricDrawStyle (q, GLU_FILL);&#xD;&#xA;&#x9;gluSphere(q, r, 50, 50);&#xD;&#xA;&#x9;// Aquí se debe recuperar el color :&#xD;&#xA;&#x9;glColor3f (1.0 , 1.0 , 1.0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Cylinder::Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height)&#xD;&#xA;&#x9;: baseRadius(baseRadius), topRadius(topRadius), height(height)&#xD;&#xA;{}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Cylinder::render(glm::dmat4 const&amp; modelViewMat) const {&#xD;&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xD;&#xA;&#x9;upload(aMat);&#xD;&#xA;&#x9;// Aquí se puede fijar el color de la esfera así:&#xD;&#xA;&#x9;glEnable ( GL_COLOR_MATERIAL );&#xD;&#xA;&#x9;glColor3f (mColor.r, mColor.g, mColor.b);&#xD;&#xA;&#x9;// Aquí se puede fijar el modo de dibujar la esfera :&#xD;&#xA;&#x9;gluQuadricDrawStyle (q, GLU_FILL);&#xD;&#xA;&#x9;gluCylinder(q, baseRadius, topRadius, height, 50, 50);&#xD;&#xA;&#x9;// Aquí se debe recuperar el color :&#xD;&#xA;&#x9;glColor3f (1.0 , 1.0 , 1.0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Disk::Disk(GLdouble innerRadius, GLdouble outerRadius)&#xD;&#xA;&#x9;:innerRadius(innerRadius), outerRadius(outerRadius)&#xD;&#xA;{}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Disk::render(glm::dmat4 const&amp; modelViewMat) const {&#xD;&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xD;&#xA;&#x9;upload(aMat);&#xD;&#xA;&#x9;// Aquí se puede fijar el color de la esfera así:&#xD;&#xA;&#x9;glEnable ( GL_COLOR_MATERIAL );&#xD;&#xA;&#x9;glColor3f (mColor.r, mColor.g, mColor.b);&#xD;&#xA;&#x9;// Aquí se puede fijar el modo de dibujar la esfera :&#xD;&#xA;&#x9;gluQuadricDrawStyle (q, GLU_FILL);&#xD;&#xA;&#x9;gluDisk(q, innerRadius, outerRadius, 50, 50);&#xD;&#xA;&#x9;// Aquí se debe recuperar el color :&#xD;&#xA;&#x9;glColor3f (1.0 , 1.0 , 1.0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;PartialDisk::PartialDisk(GLdouble innerRadius, GLdouble outerRadius, GLdouble startAngle, GLdouble sweepAngle)&#xD;&#xA;&#x9;: innerRadius(innerRadius), outerRadius(outerRadius), startAngle(startAngle), sweepAngle(sweepAngle)&#xD;&#xA;{}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;PartialDisk::render(glm::dmat4 const&amp; modelViewMat) const {&#xD;&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xD;&#xA;&#x9;upload(aMat);&#xD;&#xA;&#x9;// Aquí se puede fijar el color de la esfera así:&#xD;&#xA;&#x9;glEnable ( GL_COLOR_MATERIAL );&#xD;&#xA;&#x9;glColor3f (mColor.r, mColor.g, mColor.b);&#xD;&#xA;&#x9;// Aquí se puede fijar el modo de dibujar la esfera :&#xD;&#xA;&#x9;gluQuadricDrawStyle (q, GLU_FILL);&#xD;&#xA;&#x9;gluPartialDisk(q, innerRadius, outerRadius, 50, 50,&#xD;&#xA;&#x9;&#x9;startAngle, sweepAngle);&#xD;&#xA;&#x9;// Aquí se debe recuperar el color :&#xD;&#xA;&#x9;glColor3f (1.0 , 1.0 , 1.0);&#xD;&#xA;}&#xD;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Entity.cpp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
@@ -30,7 +28,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    "/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="meshFile.emtl#/0/generateMesh"/>
+        <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/meshFile.emtl#/0/generateMesh"/>
         <argument xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
           <source xsi:type="ocl.ecore:VariableExp" name="anEntity" referredVariable="/0/generateEntity/anEntity">
@@ -80,7 +78,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="meshFile.emtl#/0/generateMesh"/>
+          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/meshFile.emtl#/0/generateMesh"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aMesh">
@@ -152,90 +150,80 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateEntity">
       <details key="start" value="141"/>
-      <details key="end" value="3272"/>
+      <details key="end" value="8771"/>
       <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateEntity/%">
       <details key="start" value="266"/>
-      <details key="end" value="1932"/>
+      <details key="end" value="3387"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateEntity/%/%">
       <details key="start" value="303"/>
-      <details key="end" value="1493"/>
+      <details key="end" value="3376"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateEntity/%/%.1">
-      <details key="start" value="1523"/>
-      <details key="end" value="1921"/>
-      <details key="line" value="53"/>
-    </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/generateEntity/%/%.2">
       <details key="start" value="273"/>
       <details key="end" value="283"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/generateEntity/%/%.3">
+    <eAnnotations source="positions.4" references="/0/generateEntity/%/%.2">
       <details key="start" value="292"/>
       <details key="end" value="299"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/generateEntity/%.1">
-      <details key="start" value="1934"/>
-      <details key="end" value="1936"/>
-      <details key="line" value="71"/>
+    <eAnnotations source="positions.5" references="/0/generateEntity/%.1">
+      <details key="start" value="3389"/>
+      <details key="end" value="3391"/>
+      <details key="line" value="128"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/generateEntity/%.2">
-      <details key="start" value="1940"/>
-      <details key="end" value="3220"/>
-      <details key="line" value="72"/>
-    </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/generateEntity/%.2/%">
-      <details key="start" value="1979"/>
-      <details key="end" value="2677"/>
-      <details key="line" value="73"/>
-    </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/generateEntity/%.2/%.1">
-      <details key="start" value="2707"/>
-      <details key="end" value="3209"/>
-      <details key="line" value="112"/>
-    </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/generateEntity/%.2/%.2">
-      <details key="start" value="1947"/>
-      <details key="end" value="1959"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/generateEntity/%.2/%.3">
-      <details key="start" value="1968"/>
-      <details key="end" value="1975"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/generateEntity/%.3">
-      <details key="start" value="3222"/>
-      <details key="end" value="3226"/>
+    <eAnnotations source="positions.6" references="/0/generateEntity/%.2">
+      <details key="start" value="3395"/>
+      <details key="end" value="8719"/>
       <details key="line" value="129"/>
     </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/generateEntity/%.4">
-      <details key="start" value="3227"/>
-      <details key="end" value="3255"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/generateEntity/%.4/%">
-      <details key="start" value="3227"/>
-      <details key="end" value="3240"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/generateEntity/%.4/%/anEntity">
-      <details key="start" value="3227"/>
-      <details key="end" value="3235"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/generateEntity/%.5">
-      <details key="start" value="3257"/>
-      <details key="end" value="3259"/>
+    <eAnnotations source="positions.7" references="/0/generateEntity/%.2/%">
+      <details key="start" value="3434"/>
+      <details key="end" value="8708"/>
       <details key="line" value="130"/>
     </eAnnotations>
-    <eAnnotations source="positions.17" references="/0/generateEntity/anEntity">
+    <eAnnotations source="positions.8" references="/0/generateEntity/%.2/%.1">
+      <details key="start" value="3402"/>
+      <details key="end" value="3414"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateEntity/%.2/%.2">
+      <details key="start" value="3423"/>
+      <details key="end" value="3430"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateEntity/%.3">
+      <details key="start" value="8721"/>
+      <details key="end" value="8725"/>
+      <details key="line" value="341"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateEntity/%.4">
+      <details key="start" value="8726"/>
+      <details key="end" value="8754"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateEntity/%.4/%">
+      <details key="start" value="8726"/>
+      <details key="end" value="8739"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateEntity/%.4/%/anEntity">
+      <details key="start" value="8726"/>
+      <details key="end" value="8734"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateEntity/%.5">
+      <details key="start" value="8756"/>
+      <details key="end" value="8758"/>
+      <details key="line" value="342"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateEntity/anEntity">
       <details key="start" value="173"/>
       <details key="end" value="194"/>
       <details key="line" value="6"/>

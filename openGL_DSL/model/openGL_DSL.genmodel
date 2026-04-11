@@ -82,8 +82,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/texture"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/material"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/mesh"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Abs_Entity/mModelMat"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Abs_Entity/mColor"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/Color"/>
       <genOperations ecoreOperation="openGL_DSL.ecore#//Abs_Entity/render">
         <genParameters ecoreParameter="openGL_DSL.ecore#//Abs_Entity/render/modelViewMat"/>
       </genOperations>
@@ -92,9 +91,6 @@
     <genClasses image="false" ecoreClass="openGL_DSL.ecore#//QuadricEntity">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//QuadricEntity/q"/>
     </genClasses>
-    <genClasses ecoreClass="openGL_DSL.ecore#//Esfera"/>
-    <genClasses ecoreClass="openGL_DSL.ecore#//Circulo"/>
-    <genClasses ecoreClass="openGL_DSL.ecore#//Rectangulo"/>
     <genClasses ecoreClass="openGL_DSL.ecore#//Material">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/ambient"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/difusse"/>
@@ -140,6 +136,44 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Vector3/X"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Vector3/Y"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Vector3/Z"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//PoligonoRegular">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//PoligonoRegular/NumVertices"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//PoligonoRegular/Radio"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//PoligonoRegular/Rellenar"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Vector4">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Vector4/R"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Vector4/G"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Vector4/B"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Vector4/A"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Rectangulo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Rectangulo/Ancho"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Rectangulo/Alto"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Rectangulo/Rellenar"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Circulo">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Circulo/Radio"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Circulo/Rellenar"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Esfera">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Esfera/Radio"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Cilindro">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Cilindro/RadioBase"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Cilindro/RadioTope"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Cilindro/Altura"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//Disco">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Disco/RadioInterno"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Disco/RadioExterno"/>
+    </genClasses>
+    <genClasses ecoreClass="openGL_DSL.ecore#//DiscoParcial">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//DiscoParcial/RadioInterno"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//DiscoParcial/RadioExterno"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//DiscoParcial/AnguloInicio"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//DiscoParcial/AmplitudAngulo"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

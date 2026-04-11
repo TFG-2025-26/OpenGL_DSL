@@ -112,18 +112,6 @@ public class OpenGL_DSLAdapterFactory extends AdapterFactoryImpl {
 				return createQuadricEntityAdapter();
 			}
 			@Override
-			public Adapter caseEsfera(Esfera object) {
-				return createEsferaAdapter();
-			}
-			@Override
-			public Adapter caseCirculo(Circulo object) {
-				return createCirculoAdapter();
-			}
-			@Override
-			public Adapter caseRectangulo(Rectangulo object) {
-				return createRectanguloAdapter();
-			}
-			@Override
 			public Adapter caseMaterial(Material object) {
 				return createMaterialAdapter();
 			}
@@ -150,6 +138,38 @@ public class OpenGL_DSLAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter caseVector3(Vector3 object) {
 				return createVector3Adapter();
+			}
+			@Override
+			public Adapter casePoligonoRegular(PoligonoRegular object) {
+				return createPoligonoRegularAdapter();
+			}
+			@Override
+			public Adapter caseVector4(Vector4 object) {
+				return createVector4Adapter();
+			}
+			@Override
+			public Adapter caseRectangulo(Rectangulo object) {
+				return createRectanguloAdapter();
+			}
+			@Override
+			public Adapter caseCirculo(Circulo object) {
+				return createCirculoAdapter();
+			}
+			@Override
+			public Adapter caseEsfera(Esfera object) {
+				return createEsferaAdapter();
+			}
+			@Override
+			public Adapter caseCilindro(Cilindro object) {
+				return createCilindroAdapter();
+			}
+			@Override
+			public Adapter caseDisco(Disco object) {
+				return createDiscoAdapter();
+			}
+			@Override
+			public Adapter caseDiscoParcial(DiscoParcial object) {
+				return createDiscoParcialAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -326,48 +346,6 @@ public class OpenGL_DSLAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link openGL_DSL.Esfera <em>Esfera</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see openGL_DSL.Esfera
-	 * @generated
-	 */
-	public Adapter createEsferaAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link openGL_DSL.Circulo <em>Circulo</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see openGL_DSL.Circulo
-	 * @generated
-	 */
-	public Adapter createCirculoAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link openGL_DSL.Rectangulo <em>Rectangulo</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see openGL_DSL.Rectangulo
-	 * @generated
-	 */
-	public Adapter createRectanguloAdapter() {
-		return null;
-	}
-
-	/**
 	 * Creates a new adapter for an object of class '{@link openGL_DSL.Material <em>Material</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
@@ -462,6 +440,118 @@ public class OpenGL_DSLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createVector3Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link openGL_DSL.PoligonoRegular <em>Poligono Regular</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see openGL_DSL.PoligonoRegular
+	 * @generated
+	 */
+	public Adapter createPoligonoRegularAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link openGL_DSL.Vector4 <em>Vector4</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see openGL_DSL.Vector4
+	 * @generated
+	 */
+	public Adapter createVector4Adapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link openGL_DSL.Rectangulo <em>Rectangulo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see openGL_DSL.Rectangulo
+	 * @generated
+	 */
+	public Adapter createRectanguloAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link openGL_DSL.Circulo <em>Circulo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see openGL_DSL.Circulo
+	 * @generated
+	 */
+	public Adapter createCirculoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link openGL_DSL.Esfera <em>Esfera</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see openGL_DSL.Esfera
+	 * @generated
+	 */
+	public Adapter createEsferaAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link openGL_DSL.Cilindro <em>Cilindro</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see openGL_DSL.Cilindro
+	 * @generated
+	 */
+	public Adapter createCilindroAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link openGL_DSL.Disco <em>Disco</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see openGL_DSL.Disco
+	 * @generated
+	 */
+	public Adapter createDiscoAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link openGL_DSL.DiscoParcial <em>Disco Parcial</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see openGL_DSL.DiscoParcial
+	 * @generated
+	 */
+	public Adapter createDiscoParcialAdapter() {
 		return null;
 	}
 

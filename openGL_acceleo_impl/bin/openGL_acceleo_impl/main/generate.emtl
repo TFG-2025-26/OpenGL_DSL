@@ -4,19 +4,19 @@
     <input>
       <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
     </input>
-    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/viewportFile.emtl#/0"/>
-    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/cameraFile.emtl#/0"/>
-    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/entityFile.emtl#/0"/>
-    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/sceneFile.emtl#/0"/>
-    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/nodeFile.emtl#/0"/>
-    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/common/sceneElements.emtl#/0"/>
+    <imports href="../files/viewportFile.emtl#/0"/>
+    <imports href="../files/cameraFile.emtl#/0"/>
+    <imports href="../files/entityFile.emtl#/0"/>
+    <imports href="../files/sceneFile.emtl#/0"/>
+    <imports href="../files/nodeFile.emtl#/0"/>
+    <imports href="../common/sceneElements.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateElement" visibility="Public" main="true">
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
       <body xsi:type="mtl:IfBlock">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    "/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/viewportFile.emtl#/0/generateViewport"/>
+          <definition href="../files/viewportFile.emtl#/0/generateViewport"/>
           <argument xsi:type="ocl.ecore:PropertyCallExp">
             <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
             <source xsi:type="ocl.ecore:VariableExp" name="aSM" referredVariable="/0/generateElement/aSM">
@@ -46,7 +46,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    "/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/cameraFile.emtl#/0/generateCamera"/>
+          <definition href="../files/cameraFile.emtl#/0/generateCamera"/>
           <argument xsi:type="ocl.ecore:PropertyCallExp">
             <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
             <source xsi:type="ocl.ecore:VariableExp" name="aSM" referredVariable="/0/generateElement/aSM">
@@ -77,7 +77,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    "/>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/sceneFile.emtl#/0/generateScene"/>
+          <definition href="../files/sceneFile.emtl#/0/generateScene"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="s" referredVariable="/0/generateElement/%.4/s">
             <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
           </argument>
@@ -87,7 +87,7 @@
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="        "/>
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/nodeFile.emtl#/0/generateNode"/>
+            <definition href="../files/nodeFile.emtl#/0/generateNode"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="n" referredVariable="/0/generateElement/%.4/%.3/n">
               <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
             </argument>
@@ -97,7 +97,7 @@
             <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="            "/>
             <body xsi:type="mtl:TemplateInvocation">
               <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-              <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/entityFile.emtl#/0/generateEntity"/>
+              <definition href="../files/entityFile.emtl#/0/generateEntity"/>
               <argument xsi:type="ocl.ecore:VariableExp" name="ent" referredVariable="/0/generateElement/%.4/%.3/%.3/ent">
                 <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
               </argument>
@@ -135,11 +135,11 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &lt;GL/freeglut.h>&#xD;&#xA;#include &lt;glm/glm.hpp>   // OpenGL Mathematics&#xD;&#xA;#include &lt;iostream>&#xD;&#xA;&#xD;&#xA;#include &quot;Viewport.h&quot;&#xD;&#xA;#include &quot;Camera.h&quot;&#xD;&#xA;#include &quot;Scene.h&quot;&#xD;&#xA;#include &lt;vector>&#xD;&#xA;&#xD;&#xA;using namespace std;&#xD;&#xA;&#xD;&#xA;// Variables globales&#xD;&#xA;Viewport* viewport = nullptr;&#xD;&#xA;Camera* camera = nullptr;&#xD;&#xA;vector&lt;Scene*> scenes;&#xD;&#xA;&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &lt;GL/freeglut.h>&#xD;&#xA;#include &lt;glm/glm.hpp>   // OpenGL Mathematics&#xD;&#xA;#include &lt;iostream>&#xD;&#xA;&#xD;&#xA;#include &quot;Viewport.h&quot;&#xD;&#xA;#include &quot;Camera.h&quot;&#xD;&#xA;#include &quot;Scene.h&quot;&#xD;&#xA;#include &lt;vector>&#xD;&#xA;&#xD;&#xA;using namespace std;&#xD;&#xA;&#xD;&#xA;// Variables globales&#xD;&#xA;Viewport* viewport = nullptr;&#xD;&#xA;Camera* camera = nullptr;&#xD;&#xA;vector&lt;Scene*> scenes;&#xD;&#xA;&#xD;&#xA;glm::dvec2 mMouseCoord;&#xD;&#xA;int mMouseButt;&#xD;&#xA;&#xD;&#xA;"/>
         <body xsi:type="mtl:ForBlock">
           <body xsi:type="mtl:TemplateInvocation">
             <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-            <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/common/sceneElements.emtl#/0/generateSceneLogic"/>
+            <definition href="../common/sceneElements.emtl#/0/generateSceneLogic"/>
             <argument xsi:type="ocl.ecore:VariableExp" name="s" referredVariable="/0/generateElement/%.6/%.1/s">
               <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
             </argument>
@@ -155,7 +155,7 @@
             <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/openGL_DSL#//SceneManager/scenes"/>
           </iterSet>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;void display() {&#xD;&#xA;    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);&#xD;&#xA;    &#xD;&#xA;    for (Scene* sc : scenes) {&#xD;&#xA;&#x9;&#x9;sc->render(*camera);&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;    glutSwapBuffers();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void iniWinOpenGL() { // Initialization&#xD;&#xA;&#x9;cout &lt;&lt; &quot;Starting glut...\n&quot;;&#xD;&#xA;&#x9;int argc = 0;&#xD;&#xA;&#x9;glutInit(&amp;argc, nullptr);&#xD;&#xA;&#xD;&#xA;&#x9;glutInitContextVersion(3, 3);&#xD;&#xA;&#x9;glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE); // GLUT_CORE_PROFILE&#xD;&#xA;&#x9;glutInitContextFlags(GLUT_DEBUG);                   // GLUT_FORWARD_COMPATIBLE&#xD;&#xA;&#xD;&#xA;&#x9;glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);&#xD;&#xA;&#xD;&#xA;&#x9;glutInitWindowSize("/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;void display() {&#xD;&#xA;    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);&#xD;&#xA;    &#xD;&#xA;    for (Scene* sc : scenes) {&#xD;&#xA;&#x9;&#x9;sc->render(*camera);&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;    glutSwapBuffers();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void resize(int newWidth, int newHeight){&#xD;&#xA;&#xD;&#xA;    // Resize Viewport to the new window size&#xD;&#xA;    viewport->setSize(newWidth, newHeight);&#xD;&#xA;&#xD;&#xA;    // Resize Scene Visible Area such that the scale is not modified&#xD;&#xA;    camera->setSize(viewport->width(), viewport->height());&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void mouse(int button, int state, int x, int y) {&#xD;&#xA;    mMouseButt = button;&#xD;&#xA;    y = glutGet(GLUT_WINDOW_HEIGHT) - y;&#xD;&#xA;    mMouseCoord = glm::dvec2(x, y);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void motion(int x, int y) {&#xD;&#xA;    y = glutGet(GLUT_WINDOW_HEIGHT) - y;&#xD;&#xA;    glm::dvec2 mp = mMouseCoord - glm::dvec2(x, y);&#xD;&#xA;    mMouseCoord = glm::dvec2(x, y);&#xD;&#xA;    if (mMouseButt == 0) {&#xD;&#xA;        camera->orbit(mp.x * 0.05, mp.y);&#xD;&#xA;    }&#xD;&#xA;    else if (mMouseButt == 2) {&#xD;&#xA;        camera->moveLR(mp.x);&#xD;&#xA;        camera->moveUD(mp.y);&#xD;&#xA;    }&#xD;&#xA;    glutPostRedisplay();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void mouseWheel(int wheelButtonNumber, int direction, int x, int y) {&#xD;&#xA;    int mdf = glutGetModifiers();&#xD;&#xA;    if (mdf == GLUT_ACTIVE_CTRL) {&#xD;&#xA;        camera->setScale(direction);&#xD;&#xA;    }&#xD;&#xA;    else {&#xD;&#xA;        camera->moveFB(direction);&#xD;&#xA;    }&#xD;&#xA;    glutPostRedisplay();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void key(unsigned char key, int x, int y)&#xD;&#xA;{&#xD;&#xA;    bool need_redisplay = true;&#xD;&#xA;&#xD;&#xA;    switch (key) {&#xD;&#xA;    case 27:                     // Escape key&#xD;&#xA;        glutLeaveMainLoop(); // stops main loop and destroy the OpenGL context&#xD;&#xA;        break;&#xD;&#xA;    case '+':&#xD;&#xA;        camera->setScale(+0.01); // zoom in  (increases the scale)&#xD;&#xA;        break;&#xD;&#xA;    case '-':&#xD;&#xA;        camera->setScale(-0.01); // zoom out (decreases the scale)&#xD;&#xA;        break;&#xD;&#xA;    default:&#xD;&#xA;        need_redisplay = false;&#xD;&#xA;        break;&#xD;&#xA;    } // switch&#xD;&#xA;&#xD;&#xA;    if (need_redisplay)&#xD;&#xA;        glutPostRedisplay(); // marks the window as needing to be redisplayed -> calls to&#xD;&#xA;    // display()&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void specialKey(int key, int x, int y)&#xD;&#xA;{&#xD;&#xA;    bool need_redisplay = true;&#xD;&#xA;    int mdf = glutGetModifiers(); // returns the modifiers (Shift, Ctrl, Alt)&#xD;&#xA;&#xD;&#xA;    switch (key) {&#xD;&#xA;    case GLUT_KEY_RIGHT:&#xD;&#xA;        if (mdf == GLUT_ACTIVE_CTRL)&#xD;&#xA;            //mCamera->pitch(-1); // rotates -1 on the X axis&#xD;&#xA;            //mCamera->moveLR(-1);&#xD;&#xA;            camera->pitchReal(1);&#xD;&#xA;        else&#xD;&#xA;            //mCamera->pitch(1); // rotates 1 on the X axis&#xD;&#xA;            //mCamera->moveLR(1);&#xD;&#xA;            camera->pitchReal(-1);&#xD;&#xA;        break;&#xD;&#xA;    case GLUT_KEY_LEFT:&#xD;&#xA;        if (mdf == GLUT_ACTIVE_CTRL)&#xD;&#xA;            //mCamera->yaw(1); // rotates 1 on the Y axis&#xD;&#xA;            //mCamera->moveUD(-1);&#xD;&#xA;            camera->yawReal(-1);&#xD;&#xA;        else&#xD;&#xA;            //mCamera->yaw(-1); // rotate -1 on the Y axis&#xD;&#xA;            //mCamera->moveUD(1);&#xD;&#xA;            camera->yawReal(1);&#xD;&#xA;        break;&#xD;&#xA;    case GLUT_KEY_UP:&#xD;&#xA;        //mCamera->roll(1); // rotates 1 on the Z axis&#xD;&#xA;        //mCamera->moveFB(1);&#xD;&#xA;        camera->rollReal(1);&#xD;&#xA;        break;&#xD;&#xA;    case GLUT_KEY_DOWN:&#xD;&#xA;        //mCamera->roll(-1); // rotates -1 on the Z axis&#xD;&#xA;        //mCamera->moveFB(-1);&#xD;&#xA;        camera->rollReal(-1);&#xD;&#xA;        break;&#xD;&#xA;    default:&#xD;&#xA;        need_redisplay = false;&#xD;&#xA;        break;&#xD;&#xA;    } // switch&#xD;&#xA;&#xD;&#xA;    if (need_redisplay)&#xD;&#xA;        glutPostRedisplay(); // marks the window as needing to be redisplayed -> calls to&#xD;&#xA;    // display()&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void iniWinOpenGL() { // Initialization&#xD;&#xA;&#x9;cout &lt;&lt; &quot;Starting glut...\n&quot;;&#xD;&#xA;&#x9;int argc = 0;&#xD;&#xA;&#x9;glutInit(&amp;argc, nullptr);&#xD;&#xA;&#xD;&#xA;&#x9;glutInitContextVersion(3, 3);&#xD;&#xA;&#x9;glutInitContextProfile(GLUT_COMPATIBILITY_PROFILE); // GLUT_CORE_PROFILE&#xD;&#xA;&#x9;glutInitContextFlags(GLUT_DEBUG);                   // GLUT_FORWARD_COMPATIBLE&#xD;&#xA;&#xD;&#xA;&#x9;glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);&#xD;&#xA;&#xD;&#xA;&#x9;glutInitWindowSize("/>
         <body xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
           <source xsi:type="ocl.ecore:VariableExp" name="aSM" referredVariable="/0/generateElement/aSM">
@@ -171,7 +171,7 @@
           </source>
           <referredProperty xsi:type="ecore:EAttribute" href="http://www.example.org/openGL_DSL#//SceneManager/WinH"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="); // window size&#xD;&#xA;&#x9;// glutInitWindowPosition (140, 140);&#xD;&#xA;&#xD;&#xA;&#x9;glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE |&#xD;&#xA;&#x9;                    GLUT_DEPTH /*| GLUT_STENCIL*/); // RGBA colors, double buffer, depth&#xD;&#xA;&#x9;                                                    // buffer and stencil buffer&#xD;&#xA;&#xD;&#xA;&#x9;glutCreateWindow(&#xD;&#xA;&#x9;  &quot;OpenGL Engine - MDE Generated&quot;); // with its associated OpenGL context, return window's identifier&#xD;&#xA;&#xD;&#xA;&#x9;glutDisplayFunc(display);&#xD;&#xA;&#xD;&#xA;&#x9;cout &lt;&lt; glGetString(GL_VERSION) &lt;&lt; '\n';&#xD;&#xA;&#x9;cout &lt;&lt; glGetString(GL_VENDOR) &lt;&lt; '\n';&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void init() {&#xD;&#xA;    // create an OpenGL Context&#xD;&#xA;    iniWinOpenGL();&#xD;&#xA;&#xD;&#xA;    // create the scene after creating the context&#xD;&#xA;    // allocate memory and resources&#xD;&#xA;     // Inicialización de Viewport y Cámara&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="); // window size&#xD;&#xA;&#x9;// glutInitWindowPosition (140, 140);&#xD;&#xA;&#xD;&#xA;&#x9;glutInitDisplayMode(GLUT_RGBA | GLUT_DOUBLE |&#xD;&#xA;&#x9;                    GLUT_DEPTH /*| GLUT_STENCIL*/); // RGBA colors, double buffer, depth&#xD;&#xA;&#x9;                                                    // buffer and stencil buffer&#xD;&#xA;&#xD;&#xA;&#x9;glutCreateWindow(&#xD;&#xA;&#x9;  &quot;OpenGL Engine - MDE Generated&quot;); // with its associated OpenGL context, return window's identifier&#xD;&#xA;&#xD;&#xA;&#x9;glutDisplayFunc(display);&#xD;&#xA;    glutReshapeFunc(resize);&#xD;&#xA;    glutMouseFunc(mouse);&#xD;&#xA;    glutMotionFunc(motion);&#xD;&#xA;    glutMouseWheelFunc(mouseWheel);&#xD;&#xA;    glutKeyboardFunc(key);&#xD;&#xA;    glutSpecialFunc(specialKey);&#xD;&#xA;&#xD;&#xA;&#x9;cout &lt;&lt; glGetString(GL_VERSION) &lt;&lt; '\n';&#xD;&#xA;&#x9;cout &lt;&lt; glGetString(GL_VENDOR) &lt;&lt; '\n';&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;void init() {&#xD;&#xA;    // create an OpenGL Context&#xD;&#xA;    iniWinOpenGL();&#xD;&#xA;&#xD;&#xA;    // create the scene after creating the context&#xD;&#xA;    // allocate memory and resources&#xD;&#xA;     // Inicialización de Viewport y Cámara&#xD;&#xA;"/>
         <body xsi:type="mtl:IfBlock">
           <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    viewport = new Viewport("/>
           <body xsi:type="ocl.ecore:PropertyCallExp">
@@ -293,7 +293,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/viewportFile.emtl#/0/generateViewport"/>
+          <references href="../files/viewportFile.emtl#/0/generateViewport"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aVP">
@@ -305,7 +305,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/cameraFile.emtl#/0/generateCamera"/>
+          <references href="../files/cameraFile.emtl#/0/generateCamera"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aCam">
@@ -317,7 +317,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/entityFile.emtl#/0/generateEntity"/>
+          <references href="../files/entityFile.emtl#/0/generateEntity"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="anEntity">
@@ -329,7 +329,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/sceneFile.emtl#/0/generateScene"/>
+          <references href="../files/sceneFile.emtl#/0/generateScene"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aScene">
@@ -341,7 +341,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/nodeFile.emtl#/0/generateNode"/>
+          <references href="../files/nodeFile.emtl#/0/generateNode"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aNode">
@@ -353,7 +353,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/common/sceneElements.emtl#/0/generateSceneLogic"/>
+          <references href="../common/sceneElements.emtl#/0/generateSceneLogic"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aScene">
@@ -552,7 +552,7 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateElement">
       <details key="start" value="399"/>
-      <details key="end" value="3523"/>
+      <details key="end" value="6923"/>
       <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateElement/%">
@@ -792,223 +792,223 @@
     </eAnnotations>
     <eAnnotations source="positions.48" references="/0/generateElement/%.6">
       <details key="start" value="1114"/>
-      <details key="end" value="3510"/>
+      <details key="end" value="6910"/>
       <details key="line" value="35"/>
     </eAnnotations>
     <eAnnotations source="positions.49" references="/0/generateElement/%.6/%">
       <details key="start" value="1151"/>
-      <details key="end" value="1464"/>
+      <details key="end" value="1508"/>
       <details key="line" value="36"/>
     </eAnnotations>
     <eAnnotations source="positions.50" references="/0/generateElement/%.6/%.1">
-      <details key="start" value="1464"/>
-      <details key="end" value="1529"/>
-      <details key="line" value="52"/>
+      <details key="start" value="1508"/>
+      <details key="end" value="1573"/>
+      <details key="line" value="55"/>
     </eAnnotations>
     <eAnnotations source="positions.51" references="/0/generateElement/%.6/%.1/%">
-      <details key="start" value="1497"/>
-      <details key="end" value="1519"/>
+      <details key="start" value="1541"/>
+      <details key="end" value="1563"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.52" references="/0/generateElement/%.6/%.1/%/s">
-      <details key="start" value="1497"/>
-      <details key="end" value="1498"/>
+      <details key="start" value="1541"/>
+      <details key="end" value="1542"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.53" references="/0/generateElement/%.6/%.1/%.1">
-      <details key="start" value="1521"/>
-      <details key="end" value="1523"/>
-      <details key="line" value="54"/>
+      <details key="start" value="1565"/>
+      <details key="end" value="1567"/>
+      <details key="line" value="57"/>
     </eAnnotations>
     <eAnnotations source="positions.54" references="/0/generateElement/%.6/%.1/s">
-      <details key="start" value="1470"/>
-      <details key="end" value="1479"/>
-      <details key="line" value="52"/>
+      <details key="start" value="1514"/>
+      <details key="end" value="1523"/>
+      <details key="line" value="55"/>
     </eAnnotations>
     <eAnnotations source="positions.55" references="/0/generateElement/%.6/%.1/%.2">
-      <details key="start" value="1482"/>
-      <details key="end" value="1492"/>
+      <details key="start" value="1526"/>
+      <details key="end" value="1536"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.56" references="/0/generateElement/%.6/%.1/%.2/aSM">
-      <details key="start" value="1482"/>
-      <details key="end" value="1485"/>
+      <details key="start" value="1526"/>
+      <details key="end" value="1529"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.57" references="/0/generateElement/%.6/%.2">
-      <details key="start" value="1531"/>
-      <details key="end" value="2116"/>
-      <details key="line" value="55"/>
+      <details key="start" value="1575"/>
+      <details key="end" value="5331"/>
+      <details key="line" value="58"/>
     </eAnnotations>
     <eAnnotations source="positions.58" references="/0/generateElement/%.6/%.3">
-      <details key="start" value="2117"/>
-      <details key="end" value="2125"/>
+      <details key="start" value="5332"/>
+      <details key="end" value="5340"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.59" references="/0/generateElement/%.6/%.3/aSM">
-      <details key="start" value="2117"/>
-      <details key="end" value="2120"/>
+      <details key="start" value="5332"/>
+      <details key="end" value="5335"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.60" references="/0/generateElement/%.6/%.4">
-      <details key="start" value="2127"/>
-      <details key="end" value="2129"/>
-      <details key="line" value="77"/>
+      <details key="start" value="5342"/>
+      <details key="end" value="5344"/>
+      <details key="line" value="190"/>
     </eAnnotations>
     <eAnnotations source="positions.61" references="/0/generateElement/%.6/%.5">
-      <details key="start" value="2130"/>
-      <details key="end" value="2138"/>
+      <details key="start" value="5345"/>
+      <details key="end" value="5353"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.62" references="/0/generateElement/%.6/%.5/aSM">
-      <details key="start" value="2130"/>
-      <details key="end" value="2133"/>
+      <details key="start" value="5345"/>
+      <details key="end" value="5348"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.63" references="/0/generateElement/%.6/%.6">
-      <details key="start" value="2140"/>
-      <details key="end" value="2877"/>
-      <details key="line" value="77"/>
+      <details key="start" value="5355"/>
+      <details key="end" value="6277"/>
+      <details key="line" value="190"/>
     </eAnnotations>
     <eAnnotations source="positions.64" references="/0/generateElement/%.6/%.7">
-      <details key="start" value="2881"/>
-      <details key="end" value="2988"/>
-      <details key="line" value="100"/>
+      <details key="start" value="6281"/>
+      <details key="end" value="6388"/>
+      <details key="line" value="219"/>
     </eAnnotations>
     <eAnnotations source="positions.65" references="/0/generateElement/%.6/%.7/%">
-      <details key="start" value="2923"/>
-      <details key="end" value="2951"/>
-      <details key="line" value="101"/>
+      <details key="start" value="6323"/>
+      <details key="end" value="6351"/>
+      <details key="line" value="220"/>
     </eAnnotations>
     <eAnnotations source="positions.66" references="/0/generateElement/%.6/%.7/%.1">
-      <details key="start" value="2952"/>
-      <details key="end" value="2960"/>
+      <details key="start" value="6352"/>
+      <details key="end" value="6360"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.67" references="/0/generateElement/%.6/%.7/%.1/aSM">
-      <details key="start" value="2952"/>
-      <details key="end" value="2955"/>
+      <details key="start" value="6352"/>
+      <details key="end" value="6355"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.68" references="/0/generateElement/%.6/%.7/%.2">
-      <details key="start" value="2962"/>
-      <details key="end" value="2964"/>
-      <details key="line" value="101"/>
+      <details key="start" value="6362"/>
+      <details key="end" value="6364"/>
+      <details key="line" value="220"/>
     </eAnnotations>
     <eAnnotations source="positions.69" references="/0/generateElement/%.6/%.7/%.3">
-      <details key="start" value="2965"/>
-      <details key="end" value="2973"/>
+      <details key="start" value="6365"/>
+      <details key="end" value="6373"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.70" references="/0/generateElement/%.6/%.7/%.3/aSM">
-      <details key="start" value="2965"/>
-      <details key="end" value="2968"/>
+      <details key="start" value="6365"/>
+      <details key="end" value="6368"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.71" references="/0/generateElement/%.6/%.7/%.4">
-      <details key="start" value="2975"/>
-      <details key="end" value="2979"/>
-      <details key="line" value="101"/>
+      <details key="start" value="6375"/>
+      <details key="end" value="6379"/>
+      <details key="line" value="220"/>
     </eAnnotations>
     <eAnnotations source="positions.72" references="/0/generateElement/%.6/%.7/%.5">
-      <details key="start" value="2885"/>
-      <details key="end" value="2920"/>
+      <details key="start" value="6285"/>
+      <details key="end" value="6320"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.73" references="/0/generateElement/%.6/%.7/%.5/%">
-      <details key="start" value="2890"/>
-      <details key="end" value="2919"/>
+      <details key="start" value="6290"/>
+      <details key="end" value="6319"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.74" references="/0/generateElement/%.6/%.7/%.5/%/%">
-      <details key="start" value="2890"/>
-      <details key="end" value="2902"/>
+      <details key="start" value="6290"/>
+      <details key="end" value="6302"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.75" references="/0/generateElement/%.6/%.7/%.5/%/%/aSM">
-      <details key="start" value="2890"/>
-      <details key="end" value="2893"/>
+      <details key="start" value="6290"/>
+      <details key="end" value="6293"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.76" references="/0/generateElement/%.6/%.8">
-      <details key="start" value="2994"/>
-      <details key="end" value="3079"/>
-      <details key="line" value="103"/>
+      <details key="start" value="6394"/>
+      <details key="end" value="6479"/>
+      <details key="line" value="222"/>
     </eAnnotations>
     <eAnnotations source="positions.77" references="/0/generateElement/%.6/%.8/%">
-      <details key="start" value="3034"/>
-      <details key="end" value="3070"/>
-      <details key="line" value="104"/>
+      <details key="start" value="6434"/>
+      <details key="end" value="6470"/>
+      <details key="line" value="223"/>
     </eAnnotations>
     <eAnnotations source="positions.78" references="/0/generateElement/%.6/%.8/%.1">
-      <details key="start" value="2998"/>
-      <details key="end" value="3031"/>
+      <details key="start" value="6398"/>
+      <details key="end" value="6431"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.79" references="/0/generateElement/%.6/%.8/%.1/%">
-      <details key="start" value="3003"/>
-      <details key="end" value="3030"/>
+      <details key="start" value="6403"/>
+      <details key="end" value="6430"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.80" references="/0/generateElement/%.6/%.8/%.1/%/%">
-      <details key="start" value="3003"/>
-      <details key="end" value="3013"/>
+      <details key="start" value="6403"/>
+      <details key="end" value="6413"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.81" references="/0/generateElement/%.6/%.8/%.1/%/%/aSM">
-      <details key="start" value="3003"/>
-      <details key="end" value="3006"/>
+      <details key="start" value="6403"/>
+      <details key="end" value="6406"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.82" references="/0/generateElement/%.6/%.9">
-      <details key="start" value="3081"/>
-      <details key="end" value="3146"/>
-      <details key="line" value="106"/>
+      <details key="start" value="6481"/>
+      <details key="end" value="6546"/>
+      <details key="line" value="225"/>
     </eAnnotations>
     <eAnnotations source="positions.83" references="/0/generateElement/%.6/%.10">
-      <details key="start" value="3150"/>
-      <details key="end" value="3265"/>
-      <details key="line" value="109"/>
+      <details key="start" value="6550"/>
+      <details key="end" value="6665"/>
+      <details key="line" value="228"/>
     </eAnnotations>
     <eAnnotations source="positions.84" references="/0/generateElement/%.6/%.10/%">
-      <details key="start" value="3182"/>
-      <details key="end" value="3197"/>
-      <details key="line" value="110"/>
+      <details key="start" value="6582"/>
+      <details key="end" value="6597"/>
+      <details key="line" value="229"/>
     </eAnnotations>
     <eAnnotations source="positions.85" references="/0/generateElement/%.6/%.10/%.1">
-      <details key="start" value="3198"/>
-      <details key="end" value="3204"/>
+      <details key="start" value="6598"/>
+      <details key="end" value="6604"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.86" references="/0/generateElement/%.6/%.10/%.1/s">
-      <details key="start" value="3198"/>
-      <details key="end" value="3199"/>
+      <details key="start" value="6598"/>
+      <details key="end" value="6599"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.87" references="/0/generateElement/%.6/%.10/%.2">
-      <details key="start" value="3206"/>
-      <details key="end" value="3255"/>
-      <details key="line" value="110"/>
+      <details key="start" value="6606"/>
+      <details key="end" value="6655"/>
+      <details key="line" value="229"/>
     </eAnnotations>
     <eAnnotations source="positions.88" references="/0/generateElement/%.6/%.10/s">
-      <details key="start" value="3156"/>
-      <details key="end" value="3165"/>
-      <details key="line" value="109"/>
+      <details key="start" value="6556"/>
+      <details key="end" value="6565"/>
+      <details key="line" value="228"/>
     </eAnnotations>
     <eAnnotations source="positions.89" references="/0/generateElement/%.6/%.10/%.3">
-      <details key="start" value="3168"/>
-      <details key="end" value="3178"/>
+      <details key="start" value="6568"/>
+      <details key="end" value="6578"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.90" references="/0/generateElement/%.6/%.10/%.3/aSM">
-      <details key="start" value="3168"/>
-      <details key="end" value="3171"/>
+      <details key="start" value="6568"/>
+      <details key="end" value="6571"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.91" references="/0/generateElement/%.6/%.11">
-      <details key="start" value="3267"/>
-      <details key="end" value="3503"/>
-      <details key="line" value="114"/>
+      <details key="start" value="6667"/>
+      <details key="end" value="6903"/>
+      <details key="line" value="233"/>
     </eAnnotations>
     <eAnnotations source="positions.92" references="/0/generateElement/%.6/%.12">
       <details key="start" value="1121"/>

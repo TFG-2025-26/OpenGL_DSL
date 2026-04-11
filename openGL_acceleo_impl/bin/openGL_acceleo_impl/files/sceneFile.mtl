@@ -34,6 +34,7 @@ public:
 	void render(Camera const& cam) const;
 
     void addNode(Node* n);
+    void setVisible(bool v);
 
 
 protected:
@@ -42,6 +43,7 @@ protected:
 	void resetGL();
 
 	std::vector<Node*> nodes; // Entities (graphic objects) of the scene
+    bool visible;
 	
 };
 
@@ -61,7 +63,6 @@ void
 Scene::init()
 {
 	setGL(); // OpenGL settings
-	
 }
 
 void
@@ -102,18 +103,26 @@ Scene::resetGL()
 void
 Scene::render(Camera const& cam) const
 {
-	
-	cam.upload();
+	if(visible){
+       cam.upload();
 
-	for (Node* n : nodes) {
-		n->render(cam.viewMat());
-	}
+	   for (Node* n : nodes) {
+		   n->render(cam.viewMat());
+	   }
+    }
+	
 }
 
 void
 Scene::addNode(Node* n)
 {
 	nodes.push_back(n);
+}
+
+void
+Scene::setVisible(bool v)
+{
+	visible=v;
 }
 
 [/file]

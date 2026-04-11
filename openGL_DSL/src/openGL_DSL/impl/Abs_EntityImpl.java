@@ -11,6 +11,7 @@ import openGL_DSL.Material;
 import openGL_DSL.Mesh;
 import openGL_DSL.OpenGL_DSLPackage;
 import openGL_DSL.Texture;
+import openGL_DSL.Vector4;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -37,8 +38,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link openGL_DSL.impl.Abs_EntityImpl#getTexture <em>Texture</em>}</li>
  *   <li>{@link openGL_DSL.impl.Abs_EntityImpl#getMaterial <em>Material</em>}</li>
  *   <li>{@link openGL_DSL.impl.Abs_EntityImpl#getMesh <em>Mesh</em>}</li>
- *   <li>{@link openGL_DSL.impl.Abs_EntityImpl#getMModelMat <em>MModel Mat</em>}</li>
- *   <li>{@link openGL_DSL.impl.Abs_EntityImpl#getMColor <em>MColor</em>}</li>
+ *   <li>{@link openGL_DSL.impl.Abs_EntityImpl#getColor <em>Color</em>}</li>
  * </ul>
  *
  * @generated
@@ -75,44 +75,14 @@ public abstract class Abs_EntityImpl extends MinimalEObjectImpl.Container implem
 	protected Mesh mesh;
 
 	/**
-	 * The default value of the '{@link #getMModelMat() <em>MModel Mat</em>}' attribute.
+	 * The cached value of the '{@link #getColor() <em>Color</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMModelMat()
+	 * @see #getColor()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object MMODEL_MAT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMModelMat() <em>MModel Mat</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMModelMat()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object mModelMat = MMODEL_MAT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMColor() <em>MColor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMColor()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Object MCOLOR_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMColor() <em>MColor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMColor()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object mColor = MCOLOR_EDEFAULT;
+	protected Vector4 color;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -242,8 +212,23 @@ public abstract class Abs_EntityImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	@Override
-	public Object getMModelMat() {
-		return mModelMat;
+	public Vector4 getColor() {
+		return color;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetColor(Vector4 newColor, NotificationChain msgs) {
+		Vector4 oldColor = color;
+		color = newColor;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.ABS_ENTITY__COLOR, oldColor, newColor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -252,34 +237,18 @@ public abstract class Abs_EntityImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	@Override
-	public void setMModelMat(Object newMModelMat) {
-		Object oldMModelMat = mModelMat;
-		mModelMat = newMModelMat;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.ABS_ENTITY__MMODEL_MAT, oldMModelMat, mModelMat));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getMColor() {
-		return mColor;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMColor(Object newMColor) {
-		Object oldMColor = mColor;
-		mColor = newMColor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.ABS_ENTITY__MCOLOR, oldMColor, mColor));
+	public void setColor(Vector4 newColor) {
+		if (newColor != color) {
+			NotificationChain msgs = null;
+			if (color != null)
+				msgs = ((InternalEObject)color).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.ABS_ENTITY__COLOR, null, msgs);
+			if (newColor != null)
+				msgs = ((InternalEObject)newColor).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.ABS_ENTITY__COLOR, null, msgs);
+			msgs = basicSetColor(newColor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.ABS_ENTITY__COLOR, newColor, newColor));
 	}
 
 	/**
@@ -320,6 +289,8 @@ public abstract class Abs_EntityImpl extends MinimalEObjectImpl.Container implem
 				return basicSetMaterial(null, msgs);
 			case OpenGL_DSLPackage.ABS_ENTITY__MESH:
 				return basicSetMesh(null, msgs);
+			case OpenGL_DSLPackage.ABS_ENTITY__COLOR:
+				return basicSetColor(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -338,10 +309,8 @@ public abstract class Abs_EntityImpl extends MinimalEObjectImpl.Container implem
 				return getMaterial();
 			case OpenGL_DSLPackage.ABS_ENTITY__MESH:
 				return getMesh();
-			case OpenGL_DSLPackage.ABS_ENTITY__MMODEL_MAT:
-				return getMModelMat();
-			case OpenGL_DSLPackage.ABS_ENTITY__MCOLOR:
-				return getMColor();
+			case OpenGL_DSLPackage.ABS_ENTITY__COLOR:
+				return getColor();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -365,11 +334,8 @@ public abstract class Abs_EntityImpl extends MinimalEObjectImpl.Container implem
 			case OpenGL_DSLPackage.ABS_ENTITY__MESH:
 				setMesh((Mesh)newValue);
 				return;
-			case OpenGL_DSLPackage.ABS_ENTITY__MMODEL_MAT:
-				setMModelMat(newValue);
-				return;
-			case OpenGL_DSLPackage.ABS_ENTITY__MCOLOR:
-				setMColor(newValue);
+			case OpenGL_DSLPackage.ABS_ENTITY__COLOR:
+				setColor((Vector4)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -392,11 +358,8 @@ public abstract class Abs_EntityImpl extends MinimalEObjectImpl.Container implem
 			case OpenGL_DSLPackage.ABS_ENTITY__MESH:
 				setMesh((Mesh)null);
 				return;
-			case OpenGL_DSLPackage.ABS_ENTITY__MMODEL_MAT:
-				setMModelMat(MMODEL_MAT_EDEFAULT);
-				return;
-			case OpenGL_DSLPackage.ABS_ENTITY__MCOLOR:
-				setMColor(MCOLOR_EDEFAULT);
+			case OpenGL_DSLPackage.ABS_ENTITY__COLOR:
+				setColor((Vector4)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -416,10 +379,8 @@ public abstract class Abs_EntityImpl extends MinimalEObjectImpl.Container implem
 				return material != null;
 			case OpenGL_DSLPackage.ABS_ENTITY__MESH:
 				return mesh != null;
-			case OpenGL_DSLPackage.ABS_ENTITY__MMODEL_MAT:
-				return MMODEL_MAT_EDEFAULT == null ? mModelMat != null : !MMODEL_MAT_EDEFAULT.equals(mModelMat);
-			case OpenGL_DSLPackage.ABS_ENTITY__MCOLOR:
-				return MCOLOR_EDEFAULT == null ? mColor != null : !MCOLOR_EDEFAULT.equals(mColor);
+			case OpenGL_DSLPackage.ABS_ENTITY__COLOR:
+				return color != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -440,24 +401,6 @@ public abstract class Abs_EntityImpl extends MinimalEObjectImpl.Container implem
 				return null;
 		}
 		return super.eInvoke(operationID, arguments);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public String toString() {
-		if (eIsProxy()) return super.toString();
-
-		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (mModelMat: ");
-		result.append(mModelMat);
-		result.append(", mColor: ");
-		result.append(mColor);
-		result.append(')');
-		return result.toString();
 	}
 
 } //Abs_EntityImpl

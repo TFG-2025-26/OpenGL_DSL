@@ -10,7 +10,8 @@ class Abs_Entity // abstract class
 {
 public:
 	Abs_Entity()
-	  : mModelMat(1.0), mColor(1){}; // 4x4 identity matrix
+		: mModelMat(1.0), mColor(1) {
+	}; // 4x4 identity matrix
 	virtual ~Abs_Entity() = default;
 
 	Abs_Entity(const Abs_Entity& e) = delete;            // no copy constructor
@@ -41,20 +42,77 @@ public:
 	~EjesRGB();
 	virtual void render(glm::dmat4 const& modelViewMat) const;
 };
-class Esfera : public Abs_Entity {
+
+class PoligonoRegular : public Abs_Entity
+{
 public:
-    Esfera(double r = 1.0) : mRadius(r) {}
-    virtual ~Esfera() = default;
-    virtual void render(glm::dmat4 const& modelViewMat);
-private:
-    double mRadius;
+	explicit PoligonoRegular(GLuint num, GLdouble r,bool rellenar);
+	~PoligonoRegular();
+	virtual void render(glm::dmat4 const& modelViewMat) const;
 };
 
-class Rectangulo : public Abs_Entity {
+class Rectangulo : public Abs_Entity
+{
 public:
-    Rectangulo() {}
-    virtual ~Rectangulo() = default;
-    virtual void render(glm::dmat4 const& modelViewMat);
+	explicit Rectangulo(GLdouble w, GLdouble h, bool rellenar);
+	~Rectangulo();
+	virtual void render(glm::dmat4 const& modelViewMat) const;
+private:
+    bool rellenar;
+};
+
+class Circulo : public Abs_Entity
+{
+public:
+	explicit Circulo(GLdouble r,bool rellenar);
+	~Circulo();
+	virtual void render(glm::dmat4 const& modelViewMat) const;
+};
+
+class QuadricEntity : public Abs_Entity {
+public:
+	QuadricEntity();
+	virtual ~QuadricEntity() { gluDeleteQuadric(q); };
+protected:
+	GLUquadricObj* q;
+};
+
+class Sphere : public QuadricEntity {
+public:
+	Sphere(GLdouble r); // r es el radio de la esfera
+	virtual void render(glm::dmat4 const& modelViewMat) const;
+protected:
+	GLdouble r;
+};
+
+class Cylinder : public QuadricEntity {
+public:
+	Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height); // r es el radio de la esfera
+	virtual void render(glm::dmat4 const& modelViewMat) const;
+protected:
+	GLdouble baseRadius;
+	GLdouble topRadius;
+	GLdouble height;
+};
+
+class Disk : public QuadricEntity {
+public:
+	Disk(GLdouble innerRadius, GLdouble outerRadius); // r es el radio de la esfera
+	virtual void render(glm::dmat4 const& modelViewMat) const;
+protected:
+	GLdouble innerRadius;
+	GLdouble outerRadius;
+};
+
+class PartialDisk : public QuadricEntity {
+public:
+	PartialDisk(GLdouble innerRadius, GLdouble outerRadius, GLdouble startAngle, GLdouble sweepAngle); // r es el radio de la esfera
+	virtual void render(glm::dmat4 const& modelViewMat) const;
+protected:
+	GLdouble innerRadius;
+	GLdouble outerRadius;
+	GLdouble startAngle;
+	GLdouble sweepAngle;
 };
 
 #endif

@@ -18,8 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link openGL_DSL.Abs_Entity#getTexture <em>Texture</em>}</li>
  *   <li>{@link openGL_DSL.Abs_Entity#getMaterial <em>Material</em>}</li>
  *   <li>{@link openGL_DSL.Abs_Entity#getMesh <em>Mesh</em>}</li>
- *   <li>{@link openGL_DSL.Abs_Entity#getMModelMat <em>MModel Mat</em>}</li>
- *   <li>{@link openGL_DSL.Abs_Entity#getMColor <em>MColor</em>}</li>
+ *   <li>{@link openGL_DSL.Abs_Entity#getColor <em>Color</em>}</li>
  * </ul>
  *
  * @see openGL_DSL.OpenGL_DSLPackage#getAbs_Entity()
@@ -84,48 +83,26 @@ public interface Abs_Entity extends EObject {
 	void setMesh(Mesh value);
 
 	/**
-	 * Returns the value of the '<em><b>MModel Mat</b></em>' attribute.
+	 * Returns the value of the '<em><b>Color</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>MModel Mat</em>' attribute.
-	 * @see #setMModelMat(Object)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getAbs_Entity_MModelMat()
-	 * @model dataType="openGL_DSL.mat4"
+	 * @return the value of the '<em>Color</em>' containment reference.
+	 * @see #setColor(Vector4)
+	 * @see openGL_DSL.OpenGL_DSLPackage#getAbs_Entity_Color()
+	 * @model containment="true"
 	 * @generated
 	 */
-	Object getMModelMat();
+	Vector4 getColor();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.Abs_Entity#getMModelMat <em>MModel Mat</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.Abs_Entity#getColor <em>Color</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>MModel Mat</em>' attribute.
-	 * @see #getMModelMat()
+	 * @param value the new value of the '<em>Color</em>' containment reference.
+	 * @see #getColor()
 	 * @generated
 	 */
-	void setMModelMat(Object value);
-
-	/**
-	 * Returns the value of the '<em><b>MColor</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>MColor</em>' attribute.
-	 * @see #setMColor(Object)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getAbs_Entity_MColor()
-	 * @model dataType="openGL_DSL.vec4"
-	 * @generated
-	 */
-	Object getMColor();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.Abs_Entity#getMColor <em>MColor</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>MColor</em>' attribute.
-	 * @see #getMColor()
-	 * @generated
-	 */
-	void setMColor(Object value);
+	void setColor(Vector4 value);
 
 	/**
 	 * <!-- begin-user-doc -->

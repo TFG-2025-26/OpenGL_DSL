@@ -65,9 +65,6 @@ public class OpenGL_DSLFactoryImpl extends EFactoryImpl implements OpenGL_DSLFac
 			case OpenGL_DSLPackage.POS_LIGHT: return createPosLight();
 			case OpenGL_DSLPackage.SPOT_LIGHT: return createSpotLight();
 			case OpenGL_DSLPackage.NODE: return createNode();
-			case OpenGL_DSLPackage.ESFERA: return createEsfera();
-			case OpenGL_DSLPackage.CIRCULO: return createCirculo();
-			case OpenGL_DSLPackage.RECTANGULO: return createRectangulo();
 			case OpenGL_DSLPackage.MATERIAL: return createMaterial();
 			case OpenGL_DSLPackage.MESH: return createMesh();
 			case OpenGL_DSLPackage.MB_R: return createMbR();
@@ -75,6 +72,14 @@ public class OpenGL_DSLFactoryImpl extends EFactoryImpl implements OpenGL_DSLFac
 			case OpenGL_DSLPackage.INDEX_MESH: return createIndexMesh();
 			case OpenGL_DSLPackage.EJES_RGB: return createEjesRGB();
 			case OpenGL_DSLPackage.VECTOR3: return createVector3();
+			case OpenGL_DSLPackage.POLIGONO_REGULAR: return createPoligonoRegular();
+			case OpenGL_DSLPackage.VECTOR4: return createVector4();
+			case OpenGL_DSLPackage.RECTANGULO: return createRectangulo();
+			case OpenGL_DSLPackage.CIRCULO: return createCirculo();
+			case OpenGL_DSLPackage.ESFERA: return createEsfera();
+			case OpenGL_DSLPackage.CILINDRO: return createCilindro();
+			case OpenGL_DSLPackage.DISCO: return createDisco();
+			case OpenGL_DSLPackage.DISCO_PARCIAL: return createDiscoParcial();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -228,39 +233,6 @@ public class OpenGL_DSLFactoryImpl extends EFactoryImpl implements OpenGL_DSLFac
 	 * @generated
 	 */
 	@Override
-	public Esfera createEsfera() {
-		EsferaImpl esfera = new EsferaImpl();
-		return esfera;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Circulo createCirculo() {
-		CirculoImpl circulo = new CirculoImpl();
-		return circulo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Rectangulo createRectangulo() {
-		RectanguloImpl rectangulo = new RectanguloImpl();
-		return rectangulo;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public Material createMaterial() {
 		MaterialImpl material = new MaterialImpl();
 		return material;
@@ -330,6 +302,94 @@ public class OpenGL_DSLFactoryImpl extends EFactoryImpl implements OpenGL_DSLFac
 	public Vector3 createVector3() {
 		Vector3Impl vector3 = new Vector3Impl();
 		return vector3;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public PoligonoRegular createPoligonoRegular() {
+		PoligonoRegularImpl poligonoRegular = new PoligonoRegularImpl();
+		return poligonoRegular;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Vector4 createVector4() {
+		Vector4Impl vector4 = new Vector4Impl();
+		return vector4;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Rectangulo createRectangulo() {
+		RectanguloImpl rectangulo = new RectanguloImpl();
+		return rectangulo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Circulo createCirculo() {
+		CirculoImpl circulo = new CirculoImpl();
+		return circulo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Esfera createEsfera() {
+		EsferaImpl esfera = new EsferaImpl();
+		return esfera;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Cilindro createCilindro() {
+		CilindroImpl cilindro = new CilindroImpl();
+		return cilindro;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Disco createDisco() {
+		DiscoImpl disco = new DiscoImpl();
+		return disco;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public DiscoParcial createDiscoParcial() {
+		DiscoParcialImpl discoParcial = new DiscoParcialImpl();
+		return discoParcial;
 	}
 
 	/**
