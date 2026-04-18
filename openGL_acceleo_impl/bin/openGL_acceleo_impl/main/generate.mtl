@@ -6,6 +6,7 @@
 [import openGL_acceleo_impl::files::entityFile /]
 [import openGL_acceleo_impl::files::sceneFile /]
 [import openGL_acceleo_impl::files::nodeFile /]
+[import openGL_acceleo_impl::files::lightFile /]
 [import openGL_acceleo_impl::common::sceneElements /]
 
 [template public generateElement(aSM : SceneManager)]
@@ -25,6 +26,9 @@
     [s.generateScene()/]
     [for (n : Node | s.nodo)]
         [n.generateNode()/]
+        [for (lig : Light | n.light)]
+            [lig.generateLight() /]
+        [/for]
         [for (ent : Abs_Entity | n.abs_entity)]
             [ent.generateEntity() /]
         [/for]

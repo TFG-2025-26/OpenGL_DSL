@@ -43,6 +43,66 @@ Node* Node_[n.Name/]() {
 [/if]
     );
 
+[for (lig : Light | n.light)]
+[if (lig.oclIsKindOf(DirLight))]
+[let l : DirLight = lig.oclAsType(DirLight)]
+    auto e[n.light->indexOf(lig)/] = new DirLight();
+    node->addLight(e[n.light->indexOf(lig)/]);
+[if (lig.ambient <> null)]
+    e[n.light->indexOf(lig)/]->setAmb(fvec4([lig.ambient.R/],[lig.ambient.G/],[lig.ambient.B/],[lig.ambient.A/]));
+[/if]
+[if (lig.difusse <> null)]
+    e[n.light->indexOf(lig)/]->setDiff(fvec4([lig.difusse.R/],[lig.difusse.G/],[lig.difusse.B/],[lig.difusse.A/]));
+[/if]
+[if (lig.specular <> null)]
+    e[n.light->indexOf(lig)/]->setSpec(fvec4([lig.specular.R/],[lig.specular.G/],[lig.specular.B/],[lig.specular.A/]));
+[/if]
+[if (l.direccion <> null)]
+    e[n.light->indexOf(lig)/]->setPosDir(fvec3([l.direccion.X/],[l.direccion.Y/],[l.direccion.Z/]));
+[/if]
+[/let]
+[elseif (lig.oclIsKindOf(SpotLight))]
+[let l : SpotLight = lig.oclAsType(SpotLight)]
+    auto e[n.light->indexOf(lig)/] = new SpotLight();
+    node->addLight(e[n.light->indexOf(lig)/]);
+[if (lig.ambient <> null)]
+    e[n.light->indexOf(lig)/]->setAmb(fvec4([lig.ambient.R/],[lig.ambient.G/],[lig.ambient.B/],[lig.ambient.A/]));
+[/if]
+[if (lig.difusse <> null)]
+    e[n.light->indexOf(lig)/]->setDiff(fvec4([lig.difusse.R/],[lig.difusse.G/],[lig.difusse.B/],[lig.difusse.A/]));
+[/if]
+[if (lig.specular <> null)]
+    e[n.light->indexOf(lig)/]->setSpec(fvec4([lig.specular.R/],[lig.specular.G/],[lig.specular.B/],[lig.specular.A/]));
+[/if]
+[if (lig.direccion <> null)]
+    e[n.light->indexOf(lig)/]->setSpot(fvec3([lig.direccion.X/],[lig.direccion.Y/],[lig.direccion.Z/]),[l.cutoff/],[l.exp/]);
+[else]
+    e[n.light->indexOf(lig)/]->setSpot(fvec3(0,0,-1),[l.cutoff/],[l.exp/]);
+[/if]
+    e[n.light->indexOf(lig)/]->setAtte([l.kc/],[l.kl/],[l.kq/]);
+[/let]
+[elseif (lig.oclIsKindOf(PosLight))]
+[let l : PosLight = lig.oclAsType(PosLight)]
+    auto e[n.light->indexOf(lig)/] = new PosLight();
+    node->addLight(e[n.light->indexOf(lig)/]);
+[if (lig.ambient <> null)]
+    e[n.light->indexOf(lig)/]->setAmb(fvec4([lig.ambient.R/],[lig.ambient.G/],[lig.ambient.B/],[lig.ambient.A/]));
+[/if]
+[if (lig.difusse <> null)]
+    e[n.light->indexOf(lig)/]->setDiff(fvec4([lig.difusse.R/],[lig.difusse.G/],[lig.difusse.B/],[lig.difusse.A/]));
+[/if]
+[if (lig.specular <> null)]
+    e[n.light->indexOf(lig)/]->setSpec(fvec4([lig.specular.R/],[lig.specular.G/],[lig.specular.B/],[lig.specular.A/]));
+[/if]
+[if (lig.direccion <> null)]
+    e[n.light->indexOf(lig)/]->setPosDir(fvec3([lig.direccion.X/],[lig.direccion.Y/],[lig.direccion.Z/]));
+[/if]
+    e[n.light->indexOf(lig)/]->setAtte([l.kc/],[l.kl/],[l.kq/]);
+
+[/let]
+[/if]
+[/for]
+
 [for (ent : Abs_Entity | n.abs_entity)]
 [if (ent.oclIsKindOf(EjesRGB))]
 [let e : EjesRGB = ent.oclAsType(EjesRGB)]
@@ -99,6 +159,22 @@ Node* Node_[n.Name/]() {
 [elseif (ent.oclIsKindOf(DiscoParcial))]
     [let e : DiscoParcial = ent.oclAsType(DiscoParcial)]
     auto e[n.abs_entity->indexOf(ent)/] = new PartialDisk([e.RadioInterno/],[e.RadioExterno/],[e.AnguloInicio/],[e.AmplitudAngulo/]);
+    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
+[if (ent.Color <> null)]
+    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
+[/if]
+[/let]
+[elseif (ent.oclIsKindOf(Cubo))]
+    [let e : Cubo = ent.oclAsType(Cubo)]
+    auto e[n.abs_entity->indexOf(ent)/] = new IndexedBox([e.Lenght/]);
+    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
+[if (ent.Color <> null)]
+    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
+[/if]
+[/let]
+[elseif (ent.oclIsKindOf(Toroide))]
+    [let e : Toroide = ent.oclAsType(Toroide)]
+    auto e[n.abs_entity->indexOf(ent)/] = new Toroid([e.RadioAnillo/],[e.RadioCentro/]);
     node->addEntity(e[n.abs_entity->indexOf(ent)/]);
 [if (ent.Color <> null)]
     e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));

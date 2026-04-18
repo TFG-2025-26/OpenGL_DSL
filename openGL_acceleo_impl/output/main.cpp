@@ -26,6 +26,7 @@ Node* Node_eje() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
+
     node->addEntity(new EjesRGB(400.0));
     // Generar hijos recursivamente
 
@@ -48,6 +49,7 @@ Node* Node_triangulo() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
+
     auto e1 = new PoligonoRegular(3,100.0,false);
     node->addEntity(e1);
     e1->setColor(dvec4(1.0,0.0,0.0,1.0));
@@ -63,6 +65,7 @@ Node* Node_cuadrado() {
         dvec3(0.0, 0.0, 0.0),//rot
         dvec3(1.0, 1.0, 1.0)//esc
     );
+
 
     auto e1 = new PoligonoRegular(4,200.0,true);
     node->addEntity(e1);
@@ -80,6 +83,7 @@ Node* Node_pentagono() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
+
     auto e1 = new PoligonoRegular(5,300.0,false);
     node->addEntity(e1);
     e1->setColor(dvec4(0.0,0.0,1.0,1.0));
@@ -96,6 +100,7 @@ Node* Node_hexagono() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
+
     auto e1 = new PoligonoRegular(6,400.0,true);
     node->addEntity(e1);
     e1->setColor(dvec4(1.0,1.0,0.0,1.0));
@@ -110,6 +115,7 @@ Node* Node_poligonos() {
         dvec3(0.0, 0.0, 0.0),//rot
         dvec3(1.0, 1.0, 1.0)//esc
     );
+
 
     // Generar hijos recursivamente
     node->addNode(Node_triangulo());
@@ -134,6 +140,7 @@ Node* Node_rectangulos() {
         dvec3(0.0, 0.0, 0.0),//rot
         dvec3(1.0, 1.0, 1.0)//esc
     );
+
 
     auto e1 = new Rectangulo(100.0,50.0,false);
     node->addEntity(e1);
@@ -163,6 +170,7 @@ Node* Node_circulos() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
+
     auto e1 = new Circulo(100.0,false);
     node->addEntity(e1);
     auto e2 = new Circulo(200.0,true);
@@ -189,6 +197,7 @@ Node* Node_esfera1() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
+
     auto e1 = new Sphere(200.0);
     node->addEntity(e1);
     // Generar hijos recursivamente
@@ -204,6 +213,7 @@ Node* Node_esfera2() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
+
     auto e1 = new Sphere(100.0);
     node->addEntity(e1);
     e1->setColor(dvec4(0.6,0.6,0.6,1.0));
@@ -218,6 +228,7 @@ Node* Node_esferas() {
         dvec3(0.0, 0.0, 0.0),//rot
         dvec3(1.0, 1.0, 1.0)//esc
     );
+
 
     // Generar hijos recursivamente
     node->addNode(Node_esfera1());
@@ -242,6 +253,7 @@ Node* Node_cilindro1() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
+
     auto e1 = new Cylinder(50.0,50.0,100.0);
     node->addEntity(e1);
     // Generar hijos recursivamente
@@ -257,6 +269,7 @@ Node* Node_cilindro2() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
+
     auto e1 = new Cylinder(100.0,100.0,200.0);
     node->addEntity(e1);
     e1->setColor(dvec4(0.0,1.0,1.0,1.0));
@@ -271,6 +284,7 @@ Node* Node_cilindros() {
         dvec3(-90.0, 0.0, 0.0),//rot
         dvec3(1.0, 1.0, 1.0)//esc
     );
+
 
     // Generar hijos recursivamente
     node->addNode(Node_cilindro1());
@@ -295,6 +309,7 @@ Node* Node_disco1() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
+
     auto e1 = new Disk(50.0,100.0);
     node->addEntity(e1);
     // Generar hijos recursivamente
@@ -310,6 +325,7 @@ Node* Node_disco2() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
+
     auto e1 = new Disk(100.0,200.0);
     node->addEntity(e1);
     e1->setColor(dvec4(1.0,0.0,1.0,1.0));
@@ -324,6 +340,7 @@ Node* Node_discos() {
         dvec3(0.0, 0.0, 0.0),//rot
         dvec3(1.0, 1.0, 1.0)//esc
     );
+
 
     // Generar hijos recursivamente
     node->addNode(Node_disco1());
@@ -348,6 +365,7 @@ Node* Node_discoParcial1() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
+
     auto e1 = new PartialDisk(50.0,100.0,0.0,90.0);
     node->addEntity(e1);
     // Generar hijos recursivamente
@@ -362,6 +380,7 @@ Node* Node_discoParcial2() {
         dvec3(0.0, 0.0, 0.0),//rot
         dvec3(1.0, 1.0, 1.0)//esc
     );
+
 
     auto e1 = new PartialDisk(100.0,200.0,180.0,45.0);
     node->addEntity(e1);
@@ -378,6 +397,7 @@ Node* Node_discosParciales() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
+
     // Generar hijos recursivamente
     node->addNode(Node_discoParcial1());
     node->addNode(Node_discoParcial2());
@@ -388,6 +408,234 @@ Node* Node_discosParciales() {
 Scene* Scene_discosParciales(){
     Scene* scene= new Scene();
     scene->addNode(Node_discosParciales());
+    scene->setVisible(false);
+    return scene;
+}
+
+
+
+Node* Node_cubo1() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cubo2() {
+    Node* node = new Node(
+        dvec3(200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 45.0),//rot
+        dvec3(2.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(200.0);
+    node->addEntity(e1);
+    e1->setColor(dvec4(0.0,0.0,1.0,1.0));
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cubos() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cubo1());
+    node->addNode(Node_cubo2());
+
+    return node;
+}
+
+Scene* Scene_cubos(){
+    Scene* scene= new Scene();
+    scene->addNode(Node_cubos());
+    scene->setVisible(false);
+    return scene;
+}
+
+
+
+Node* Node_toroide1() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Toroid(10.0,100.0);
+    node->addEntity(e1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_toroide2() {
+    Node* node = new Node(
+        dvec3(300.0, 0.0, 0.0),//pos
+        dvec3(0.0, 90.0, 90.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Toroid(5.0,200.0);
+    node->addEntity(e1);
+    e1->setColor(dvec4(0.0,1.0,0.0,1.0));
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_toroides() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_toroide1());
+    node->addNode(Node_toroide2());
+
+    return node;
+}
+
+Scene* Scene_toroides(){
+    Scene* scene= new Scene();
+    scene->addNode(Node_toroides());
+    scene->setVisible(false);
+    return scene;
+}
+
+
+
+Node* Node_esferaLuces1() {
+    Node* node = new Node(
+        dvec3(-300.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Sphere(100.0);
+    node->addEntity(e1);
+    e1->setColor(dvec4(1.0,0.0,0.0,1.0));
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_esferaLuces2() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Sphere(100.0);
+    node->addEntity(e1);
+    e1->setColor(dvec4(0.0,1.0,0.0,1.0));
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_esferaLuces3() {
+    Node* node = new Node(
+        dvec3(300.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Sphere(100.0);
+    node->addEntity(e1);
+    e1->setColor(dvec4(0.0,0.0,1.0,1.0));
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_posLight() {
+    Node* node = new Node(
+        dvec3(-200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+    auto e1 = new PosLight();
+    node->addLight(e1);
+    e1->setAtte(1.0,0.0,0.0);
+
+
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_spotLight() {
+    Node* node = new Node(
+        dvec3(200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+    auto e1 = new SpotLight();
+    node->addLight(e1);
+    e1->setSpot(fvec3(-1.0,0.0,0.0),180.0,0.0);
+    e1->setAtte(1.0,0.0,0.0);
+
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_luces() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+    auto e1 = new DirLight();
+    node->addLight(e1);
+    e1->setPosDir(fvec3(1.0,1.0,0.0));
+
+    // Generar hijos recursivamente
+    node->addNode(Node_esferaLuces1());
+    node->addNode(Node_esferaLuces2());
+    node->addNode(Node_esferaLuces3());
+    node->addNode(Node_posLight());
+    node->addNode(Node_spotLight());
+
+    return node;
+}
+
+Scene* Scene_luces(){
+    Scene* scene= new Scene();
+    scene->addNode(Node_luces());
     scene->setVisible(true);
     return scene;
 }
@@ -579,6 +827,15 @@ void init() {
     scenes.push_back(sc);
     sc->init();
     sc = Scene_discosParciales();
+    scenes.push_back(sc);
+    sc->init();
+    sc = Scene_cubos();
+    scenes.push_back(sc);
+    sc->init();
+    sc = Scene_toroides();
+    scenes.push_back(sc);
+    sc->init();
+    sc = Scene_luces();
     scenes.push_back(sc);
     sc->init();
 

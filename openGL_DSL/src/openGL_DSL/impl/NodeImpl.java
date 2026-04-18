@@ -65,14 +65,14 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	protected String name = NAME_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getLight() <em>Light</em>}' containment reference.
+	 * The cached value of the '{@link #getLight() <em>Light</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLight()
 	 * @generated
 	 * @ordered
 	 */
-	protected Light light;
+	protected EList<Light> light;
 
 	/**
 	 * The cached value of the '{@link #getNodo() <em>Nodo</em>}' containment reference list.
@@ -172,43 +172,11 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	 * @generated
 	 */
 	@Override
-	public Light getLight() {
+	public EList<Light> getLight() {
+		if (light == null) {
+			light = new EObjectContainmentEList<Light>(Light.class, this, OpenGL_DSLPackage.NODE__LIGHT);
+		}
 		return light;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NotificationChain basicSetLight(Light newLight, NotificationChain msgs) {
-		Light oldLight = light;
-		light = newLight;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.NODE__LIGHT, oldLight, newLight);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setLight(Light newLight) {
-		if (newLight != light) {
-			NotificationChain msgs = null;
-			if (light != null)
-				msgs = ((InternalEObject)light).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.NODE__LIGHT, null, msgs);
-			if (newLight != null)
-				msgs = ((InternalEObject)newLight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.NODE__LIGHT, null, msgs);
-			msgs = basicSetLight(newLight, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.NODE__LIGHT, newLight, newLight));
 	}
 
 	/**
@@ -381,7 +349,7 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case OpenGL_DSLPackage.NODE__LIGHT:
-				return basicSetLight(null, msgs);
+				return ((InternalEList<?>)getLight()).basicRemove(otherEnd, msgs);
 			case OpenGL_DSLPackage.NODE__NODO:
 				return ((InternalEList<?>)getNodo()).basicRemove(otherEnd, msgs);
 			case OpenGL_DSLPackage.NODE__ABS_ENTITY:
@@ -435,7 +403,8 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 				setName((String)newValue);
 				return;
 			case OpenGL_DSLPackage.NODE__LIGHT:
-				setLight((Light)newValue);
+				getLight().clear();
+				getLight().addAll((Collection<? extends Light>)newValue);
 				return;
 			case OpenGL_DSLPackage.NODE__NODO:
 				getNodo().clear();
@@ -470,7 +439,7 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 				setName(NAME_EDEFAULT);
 				return;
 			case OpenGL_DSLPackage.NODE__LIGHT:
-				setLight((Light)null);
+				getLight().clear();
 				return;
 			case OpenGL_DSLPackage.NODE__NODO:
 				getNodo().clear();
@@ -502,7 +471,7 @@ public class NodeImpl extends MinimalEObjectImpl.Container implements Node {
 			case OpenGL_DSLPackage.NODE__NAME:
 				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 			case OpenGL_DSLPackage.NODE__LIGHT:
-				return light != null;
+				return light != null && !light.isEmpty();
 			case OpenGL_DSLPackage.NODE__NODO:
 				return nodo != null && !nodo.isEmpty();
 			case OpenGL_DSLPackage.NODE__ABS_ENTITY:

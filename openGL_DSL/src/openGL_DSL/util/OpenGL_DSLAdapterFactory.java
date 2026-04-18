@@ -172,6 +172,14 @@ public class OpenGL_DSLAdapterFactory extends AdapterFactoryImpl {
 				return createDiscoParcialAdapter();
 			}
 			@Override
+			public Adapter caseCubo(Cubo object) {
+				return createCuboAdapter();
+			}
+			@Override
+			public Adapter caseToroide(Toroide object) {
+				return createToroideAdapter();
+			}
+			@Override
 			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
@@ -552,6 +560,34 @@ public class OpenGL_DSLAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createDiscoParcialAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link openGL_DSL.Cubo <em>Cubo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see openGL_DSL.Cubo
+	 * @generated
+	 */
+	public Adapter createCuboAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link openGL_DSL.Toroide <em>Toroide</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see openGL_DSL.Toroide
+	 * @generated
+	 */
+	public Adapter createToroideAdapter() {
 		return null;
 	}
 

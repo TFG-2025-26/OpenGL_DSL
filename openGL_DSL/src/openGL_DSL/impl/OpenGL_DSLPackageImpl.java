@@ -6,6 +6,7 @@ import openGL_DSL.Abs_Entity;
 import openGL_DSL.Camera;
 import openGL_DSL.Cilindro;
 import openGL_DSL.Circulo;
+import openGL_DSL.Cubo;
 import openGL_DSL.DirLight;
 import openGL_DSL.Disco;
 import openGL_DSL.DiscoParcial;
@@ -27,6 +28,7 @@ import openGL_DSL.Scene;
 import openGL_DSL.SceneManager;
 import openGL_DSL.SpotLight;
 import openGL_DSL.Texture;
+import openGL_DSL.Toroide;
 import openGL_DSL.Vector3;
 import openGL_DSL.Vector4;
 import openGL_DSL.ViewPort;
@@ -228,6 +230,20 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	private EClass discoParcialEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass cuboEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass toroideEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -664,7 +680,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLight_Ambient() {
+	public EAttribute getLight_PosDIr() {
 		return (EAttribute)lightEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -674,8 +690,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLight_Difusse() {
-		return (EAttribute)lightEClass.getEStructuralFeatures().get(3);
+	public EReference getLight_Ambient() {
+		return (EReference)lightEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -684,8 +700,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLight_Specular() {
-		return (EAttribute)lightEClass.getEStructuralFeatures().get(4);
+	public EReference getLight_Difusse() {
+		return (EReference)lightEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -694,8 +710,18 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLight_PosDIr() {
-		return (EAttribute)lightEClass.getEStructuralFeatures().get(5);
+	public EReference getLight_Specular() {
+		return (EReference)lightEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getLight_Direccion() {
+		return (EReference)lightEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -794,7 +820,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSpotLight_Direction() {
+	public EAttribute getSpotLight_Cutoff() {
 		return (EAttribute)spotLightEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -804,18 +830,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSpotLight_Cutoff() {
-		return (EAttribute)spotLightEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EAttribute getSpotLight_Exp() {
-		return (EAttribute)spotLightEClass.getEStructuralFeatures().get(2);
+		return (EAttribute)spotLightEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1644,6 +1660,56 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
+	public EClass getCubo() {
+		return cuboEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCubo_Lenght() {
+		return (EAttribute)cuboEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EClass getToroide() {
+		return toroideEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getToroide_RadioCentro() {
+		return (EAttribute)toroideEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getToroide_RadioAnillo() {
+		return (EAttribute)toroideEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EDataType getGLsizei() {
 		return gLsizeiEDataType;
 	}
@@ -1773,10 +1839,11 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		lightEClass = createEClass(LIGHT);
 		createEAttribute(lightEClass, LIGHT__CONT);
 		createEAttribute(lightEClass, LIGHT__ID);
-		createEAttribute(lightEClass, LIGHT__AMBIENT);
-		createEAttribute(lightEClass, LIGHT__DIFUSSE);
-		createEAttribute(lightEClass, LIGHT__SPECULAR);
 		createEAttribute(lightEClass, LIGHT__POS_DIR);
+		createEReference(lightEClass, LIGHT__AMBIENT);
+		createEReference(lightEClass, LIGHT__DIFUSSE);
+		createEReference(lightEClass, LIGHT__SPECULAR);
+		createEReference(lightEClass, LIGHT__DIRECCION);
 		createEOperation(lightEClass, LIGHT___UPLOAD_L__OBJECT);
 		createEOperation(lightEClass, LIGHT___DISABLE);
 		createEOperation(lightEClass, LIGHT___ENABLE);
@@ -1789,7 +1856,6 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		createEAttribute(posLightEClass, POS_LIGHT__KQ);
 
 		spotLightEClass = createEClass(SPOT_LIGHT);
-		createEAttribute(spotLightEClass, SPOT_LIGHT__DIRECTION);
 		createEAttribute(spotLightEClass, SPOT_LIGHT__CUTOFF);
 		createEAttribute(spotLightEClass, SPOT_LIGHT__EXP);
 
@@ -1893,6 +1959,13 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		createEAttribute(discoParcialEClass, DISCO_PARCIAL__ANGULO_INICIO);
 		createEAttribute(discoParcialEClass, DISCO_PARCIAL__AMPLITUD_ANGULO);
 
+		cuboEClass = createEClass(CUBO);
+		createEAttribute(cuboEClass, CUBO__LENGHT);
+
+		toroideEClass = createEClass(TOROIDE);
+		createEAttribute(toroideEClass, TOROIDE__RADIO_CENTRO);
+		createEAttribute(toroideEClass, TOROIDE__RADIO_ANILLO);
+
 		// Create data types
 		gLsizeiEDataType = createEDataType(GLSIZEI);
 		gLuintEDataType = createEDataType(GLUINT);
@@ -1945,6 +2018,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		cilindroEClass.getESuperTypes().add(this.getQuadricEntity());
 		discoEClass.getESuperTypes().add(this.getQuadricEntity());
 		discoParcialEClass.getESuperTypes().add(this.getQuadricEntity());
+		cuboEClass.getESuperTypes().add(this.getAbs_Entity());
+		toroideEClass.getESuperTypes().add(this.getAbs_Entity());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sceneManagerEClass, SceneManager.class, "SceneManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1987,10 +2062,11 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		initEClass(lightEClass, Light.class, "Light", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getLight_Cont(), this.getGLuint(), "cont", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLight_Id(), this.getGLuint(), "id", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLight_Ambient(), this.getvec4(), "ambient", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLight_Difusse(), this.getvec4(), "difusse", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLight_Specular(), this.getvec4(), "specular", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getLight_PosDIr(), this.getvec4(), "posDIr", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLight_Ambient(), this.getVector4(), null, "ambient", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLight_Difusse(), this.getVector4(), null, "difusse", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLight_Specular(), this.getVector4(), null, "specular", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getLight_Direccion(), this.getVector3(), null, "direccion", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getLight__UploadL__Object(), null, "uploadL", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getmat4(), "modelViewMat", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2007,13 +2083,12 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		initEAttribute(getPosLight_Kq(), ecorePackage.getEFloat(), "kq", "0", 0, 1, PosLight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(spotLightEClass, SpotLight.class, "SpotLight", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSpotLight_Direction(), this.getvec4(), "direction", null, 0, 1, SpotLight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSpotLight_Cutoff(), ecorePackage.getEFloat(), "cutoff", "180", 0, 1, SpotLight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSpotLight_Exp(), ecorePackage.getEFloat(), "exp", "10", 0, 1, SpotLight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getSpotLight_Exp(), ecorePackage.getEFloat(), "exp", "0", 0, 1, SpotLight.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getNode_Name(), ecorePackage.getEString(), "Name", null, 1, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getNode_Light(), this.getLight(), null, "light", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getNode_Light(), this.getLight(), null, "light", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_Nodo(), this.getNode(), null, "nodo", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_Abs_entity(), this.getAbs_Entity(), null, "abs_entity", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getNode_Posicion(), this.getVector3(), null, "posicion", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2120,6 +2195,13 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		initEAttribute(getDiscoParcial_RadioExterno(), ecorePackage.getEDouble(), "RadioExterno", null, 0, 1, DiscoParcial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiscoParcial_AnguloInicio(), ecorePackage.getEDouble(), "AnguloInicio", null, 0, 1, DiscoParcial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getDiscoParcial_AmplitudAngulo(), ecorePackage.getEDouble(), "AmplitudAngulo", null, 0, 1, DiscoParcial.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(cuboEClass, Cubo.class, "Cubo", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getCubo_Lenght(), ecorePackage.getEDouble(), "Lenght", null, 0, 1, Cubo.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(toroideEClass, Toroide.class, "Toroide", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getToroide_RadioCentro(), ecorePackage.getEDouble(), "RadioCentro", null, 0, 1, Toroide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getToroide_RadioAnillo(), ecorePackage.getEDouble(), "RadioAnillo", null, 0, 1, Toroide.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize data types
 		initEDataType(gLsizeiEDataType, Object.class, "GLsizei", IS_SERIALIZABLE, !IS_GENERATED_INSTANCE_CLASS);

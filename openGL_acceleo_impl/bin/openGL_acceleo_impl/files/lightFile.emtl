@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="lightFile" nsURI="openGL_acceleo_impl::files::lightFile" startHeaderPosition="29" endHeaderPosition="160">
+    <input>
+      <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateLight" visibility="Public">
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Light_H_&#xA;#define _H_Light_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;glm/glm.hpp>&#xA;#include &lt;glm/gtc/type_ptr.hpp>&#xA;&#xA;class Light&#xA;{&#xA;protected:&#xA;&#x9;static GLuint cont; // Atributo para poder generar un nuevo id cada vez&#xA;&#x9;GLuint id = GL_LIGHT0 + GL_MAX_LIGHTS; // Primer id no válido&#xA;&#x9;// Atributos lumínicos y geométrico de la fuente de luz&#xA;&#x9;glm::fvec4 ambient = { 0.1 , 0.1 , 0.1 , 1 };&#xA;&#x9;glm::fvec4 diffuse = { 0.5 , 0.5 , 0.5 , 1 };&#xA;&#x9;glm::fvec4 specular = { 0.5 , 0.5 , 0.5 , 1 };&#xA;&#x9;glm::fvec4 posDir = { 0 , 0 , 1 , 0 };&#xA;&#x9;// Añade setters para cambiar el valor de los atributos lumínicos&#xA;public:&#xA;&#x9;Light();&#xA;&#x9;virtual ~Light() { disable(); }&#xA;&#x9;void uploadL() const;&#xA;&#x9;// Método abstracto&#xA;&#x9;virtual void upload(glm::dmat4 const&amp; modelViewMat) const = 0;&#xA;&#x9;void disable();&#xA;&#x9;void enable();&#xA;&#x9;void setAmb(glm::fvec4 amb);&#xA;&#x9;void setDiff(glm::fvec4 diff);&#xA;    void setSpec(glm::fvec4 spec);&#xA;&#xA;};&#xA;&#xA;class DirLight : public Light {&#xA;public:&#xA;&#x9;virtual void upload(glm::dmat4 const&amp; modelViewMat) const;&#xA;&#x9;void setPosDir(glm::fvec3 dir);&#xA;};&#xA;&#xA;class PosLight : public Light {&#xA;protected:&#xA;&#x9;// Factores de atenuación&#xA;&#x9;GLfloat kc = 1, kl = 0, kq = 0;&#xA;public:&#xA;&#x9;virtual void upload(glm::dmat4 const&amp; modelViewMat) const;&#xA;&#x9;void setPosDir(glm::fvec3 dir);&#xA;&#x9;void setAtte(GLfloat c, GLfloat l, GLfloat q);&#xA;};&#xA;&#xA;class SpotLight : public PosLight {&#xA;protected:&#xA;&#x9;// Atributos del foco&#xA;&#x9;glm::fvec4 direction = { 0 , 0 , -1 , 0 };&#xA;&#x9;GLfloat cutoff = 180;&#xA;&#x9;GLfloat exp = 0;&#xA;public:&#xA;&#x9;SpotLight(glm::fvec3 pos = { 0 , 0 , 0 }) : PosLight() {&#xA;&#x9;&#x9;posDir = glm::fvec4(pos, 1.0);&#xA;&#x9;};&#xA;&#x9;virtual void upload(glm::dmat4 const&amp; modelViewMat) const;&#xA;&#x9;void setSpot(glm::fvec3 dir, GLfloat cf, GLfloat e);&#xA;};&#xA;#endif&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Light.h">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Light.h&quot;&#xA;&#xA;GLuint Light::cont = 0;&#xA;&#xA;Light::Light() {&#xA;&#x9;if (cont &lt; GL_MAX_LIGHTS) {&#xA;&#x9;&#x9;id = GL_LIGHT0 + cont;&#xA;&#x9;&#x9;++cont;&#xA;&#x9;&#x9;glEnable(id);&#xA;&#x9;}&#xA;};&#xA;&#xA;void Light::uploadL() const{&#xA;&#x9;// Transfiere las características de la luz a la GPU&#xA;&#x9;glLightfv(id, GL_AMBIENT, value_ptr(ambient));&#xA;&#x9;glLightfv(id, GL_DIFFUSE, value_ptr(diffuse));&#xA;&#x9;glLightfv(id, GL_SPECULAR, value_ptr(specular));&#xA;}&#xA;&#xA;void Light::disable() { if (id &lt; GL_LIGHT0 + GL_MAX_LIGHTS)  glDisable(id); };&#xA;&#xA;void Light::enable() { if (id &lt; GL_LIGHT0 + GL_MAX_LIGHTS) glEnable(id); };&#xA;&#xA;void Light::setAmb(glm::fvec4 amb) {&#xA;&#x9;ambient = amb; uploadL();&#xA;}; &#xA;&#xA;void Light::setDiff(glm::fvec4 diff) {&#xA;&#x9;diffuse = diff; uploadL();&#xA;}; &#xA;&#xA;void Light::setSpec(glm::fvec4 spec) {&#xA;&#x9;specular = spec; uploadL();&#xA;}; &#xA;&#xA;void DirLight::upload(glm::dmat4 const&amp; modelViewMat) const {&#xA;&#x9;glMatrixMode(GL_MODELVIEW);&#xA;&#x9;glLoadMatrixd(value_ptr(modelViewMat));&#xA;&#x9;glLightfv(id, GL_POSITION, value_ptr(posDir));&#xA;&#x9;uploadL();&#xA;}&#xA;&#xA;// Ojo al 0.0 que determina que la luz sea remota&#xA;void DirLight::setPosDir(glm::fvec3 dir) {&#xA;&#x9;posDir = glm::fvec4(dir, 0.0);&#xA;}&#xA;&#xA;void PosLight::upload(glm::dmat4 const&amp; modelViewMat) const {&#xA;&#x9;glMatrixMode(GL_MODELVIEW);&#xA;&#x9;glLoadMatrixd(value_ptr(modelViewMat));&#xA;&#x9;glLightfv(id, GL_POSITION, value_ptr(posDir));&#xA;&#x9;glLightf(id, GL_CONSTANT_ATTENUATION, kc);&#xA;&#x9;glLightf(id, GL_LINEAR_ATTENUATION, kl);&#xA;&#x9;glLightf(id, GL_QUADRATIC_ATTENUATION, kq);&#xA;&#x9;uploadL();&#xA;}&#xA;&#xA;// Ojo al 1.0 que determina que la luz sea local&#xA;void PosLight::setPosDir(glm::fvec3 dir) {&#xA;&#x9;posDir = glm::fvec4(dir, 1.0);&#xA;}&#xA;&#xA;void PosLight::setAtte(GLfloat c, GLfloat l, GLfloat q) {&#xA;&#x9;kc = c; kl = l; kq = q;&#xA;}&#xA;&#xA;void SpotLight::upload(glm::dmat4 const&amp; modelViewMat) const {&#xA;&#x9;PosLight::upload(modelViewMat);&#xA;&#x9;glLightfv(id, GL_SPOT_DIRECTION, value_ptr(direction));&#xA;&#x9;glLightf(id, GL_SPOT_CUTOFF, cutoff);&#xA;&#x9;glLightf(id, GL_SPOT_EXPONENT, exp);&#xA;}&#xA;&#xA;// Ojo al 0.0: la dirección de emisión del foco es vector&#xA;void SpotLight::setSpot(glm::fvec3 dir, GLfloat cf, GLfloat e) {&#xA;&#x9;direction = glm::fvec4(dir, 0.0); cutoff = cf;&#xA;&#x9;exp = e;&#xA;}&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Light.cpp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aLight">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="generateLight">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateLight"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aLight">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Light_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/openGL_DSL#//Light"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/generateLight">
+      <details key="start" value="87"/>
+      <details key="end" value="3980"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateLight/%">
+      <details key="start" value="163"/>
+      <details key="end" value="1863"/>
+      <details key="line" value="7"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateLight/%/%">
+      <details key="start" value="198"/>
+      <details key="end" value="1856"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateLight/%/%.1">
+      <details key="start" value="170"/>
+      <details key="end" value="179"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateLight/%/%.2">
+      <details key="start" value="188"/>
+      <details key="end" value="195"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateLight/%.1">
+      <details key="start" value="1894"/>
+      <details key="end" value="3968"/>
+      <details key="line" value="72"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateLight/%.1/%">
+      <details key="start" value="1931"/>
+      <details key="end" value="3961"/>
+      <details key="line" value="73"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateLight/%.1/%.1">
+      <details key="start" value="1901"/>
+      <details key="end" value="1912"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateLight/%.1/%.2">
+      <details key="start" value="1921"/>
+      <details key="end" value="1928"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateLight/aLight">
+      <details key="start" value="118"/>
+      <details key="end" value="132"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

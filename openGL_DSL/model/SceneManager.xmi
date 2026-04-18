@@ -189,7 +189,8 @@
       </nodo>
     </nodo>
   </scenes>
-  <scenes Name="discosParciales">
+  <scenes Name="discosParciales"
+      Visible="false">
     <nodo Name="discosParciales">
       <nodo
           Name="discoParcial1">
@@ -212,6 +213,124 @@
         </abs_entity>
         <posicion
             X="300.0"/>
+      </nodo>
+    </nodo>
+  </scenes>
+  <scenes Name="cubos"
+      Visible="false">
+    <nodo Name="cubos">
+      <nodo
+          Name="cubo1">
+        <abs_entity
+            xsi:type="openGL_DSL:Cubo"
+            Lenght="100.0"/>
+      </nodo>
+      <nodo
+          Name="cubo2">
+        <abs_entity
+            xsi:type="openGL_DSL:Cubo"
+            Lenght="200.0">
+          <Color
+              B="1.0"
+              A="1.0"/>
+        </abs_entity>
+        <posicion
+            X="200.0"/>
+        <rotacion
+            Z="45.0"/>
+        <escala
+            X="2.0"
+            Y="1.0"
+            Z="1.0"/>
+      </nodo>
+    </nodo>
+  </scenes>
+  <scenes Name="toroides"
+      Visible="false">
+    <nodo Name="toroides">
+      <nodo
+          Name="toroide1">
+        <abs_entity
+            xsi:type="openGL_DSL:Toroide"
+            RadioCentro="100.0"
+            RadioAnillo="10.0"/>
+      </nodo>
+      <nodo
+          Name="toroide2">
+        <abs_entity
+            xsi:type="openGL_DSL:Toroide"
+            RadioCentro="200.0"
+            RadioAnillo="5.0">
+          <Color
+              G="1.0"
+              A="1.0"/>
+        </abs_entity>
+        <posicion
+            X="300.0"/>
+        <rotacion
+            Y="90.0"
+            Z="90.0"/>
+      </nodo>
+    </nodo>
+  </scenes>
+  <scenes Name="luces">
+    <nodo Name="luces">
+      <light
+          xsi:type="openGL_DSL:DirLight">
+        <direccion
+            X="1.0"
+            Y="1.0"/>
+      </light>
+      <nodo
+          Name="esferaLuces1">
+        <abs_entity
+            xsi:type="openGL_DSL:Esfera"
+            Radio="100.0">
+          <Color
+              R="1.0"
+              A="1.0"/>
+        </abs_entity>
+        <posicion
+            X="-300.0"/>
+      </nodo>
+      <nodo
+          Name="esferaLuces2">
+        <abs_entity
+            xsi:type="openGL_DSL:Esfera"
+            Radio="100.0">
+          <Color
+              G="1.0"
+              A="1.0"/>
+        </abs_entity>
+      </nodo>
+      <nodo
+          Name="esferaLuces3">
+        <abs_entity
+            xsi:type="openGL_DSL:Esfera"
+            Radio="100.0">
+          <Color
+              B="1.0"
+              A="1.0"/>
+        </abs_entity>
+        <posicion
+            X="300.0"/>
+      </nodo>
+      <nodo
+          Name="posLight">
+        <light
+            xsi:type="openGL_DSL:PosLight"/>
+        <posicion
+            X="-200.0"/>
+      </nodo>
+      <nodo
+          Name="spotLight">
+        <light
+            xsi:type="openGL_DSL:SpotLight">
+          <direccion
+              X="-1.0"/>
+        </light>
+        <posicion
+            X="200.0"/>
       </nodo>
     </nodo>
   </scenes>

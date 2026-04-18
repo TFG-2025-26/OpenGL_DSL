@@ -229,6 +229,24 @@ public interface OpenGL_DSLFactory extends EFactory {
 	DiscoParcial createDiscoParcial();
 
 	/**
+	 * Returns a new object of class '<em>Cubo</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Cubo</em>'.
+	 * @generated
+	 */
+	Cubo createCubo();
+
+	/**
+	 * Returns a new object of class '<em>Toroide</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Toroide</em>'.
+	 * @generated
+	 */
+	Toroide createToroide();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

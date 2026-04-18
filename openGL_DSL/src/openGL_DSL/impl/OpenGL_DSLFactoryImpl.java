@@ -80,6 +80,8 @@ public class OpenGL_DSLFactoryImpl extends EFactoryImpl implements OpenGL_DSLFac
 			case OpenGL_DSLPackage.CILINDRO: return createCilindro();
 			case OpenGL_DSLPackage.DISCO: return createDisco();
 			case OpenGL_DSLPackage.DISCO_PARCIAL: return createDiscoParcial();
+			case OpenGL_DSLPackage.CUBO: return createCubo();
+			case OpenGL_DSLPackage.TOROIDE: return createToroide();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -390,6 +392,28 @@ public class OpenGL_DSLFactoryImpl extends EFactoryImpl implements OpenGL_DSLFac
 	public DiscoParcial createDiscoParcial() {
 		DiscoParcialImpl discoParcial = new DiscoParcialImpl();
 		return discoParcial;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Cubo createCubo() {
+		CuboImpl cubo = new CuboImpl();
+		return cubo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Toroide createToroide() {
+		ToroideImpl toroide = new ToroideImpl();
+		return toroide;
 	}
 
 	/**

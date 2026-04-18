@@ -85,7 +85,7 @@ Scene::setGL()
 	glEnable(GL_BLEND);
 	glEnable(GL_NORMALIZE);
 	glEnable(GL_COLOR_MATERIAL);
-	//glEnable(GL_LIGHTING);
+	glEnable(GL_LIGHTING);
 }
 
 void
@@ -97,7 +97,7 @@ Scene::resetGL()
 	glDisable(GL_BLEND);
 	glDisable(GL_NORMALIZE);
 	glDisable(GL_COLOR_MATERIAL);
-	//glDisable(GL_LIGHTING);
+	glDisable(GL_LIGHTING);
 }
 
 void

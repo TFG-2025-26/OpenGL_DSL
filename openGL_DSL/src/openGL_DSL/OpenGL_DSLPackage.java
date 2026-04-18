@@ -424,40 +424,49 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int LIGHT__ID = 1;
 
 	/**
-	 * The feature id for the '<em><b>Ambient</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIGHT__AMBIENT = 2;
-
-	/**
-	 * The feature id for the '<em><b>Difusse</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIGHT__DIFUSSE = 3;
-
-	/**
-	 * The feature id for the '<em><b>Specular</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIGHT__SPECULAR = 4;
-
-	/**
 	 * The feature id for the '<em><b>Pos DIr</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIGHT__POS_DIR = 5;
+	int LIGHT__POS_DIR = 2;
+
+	/**
+	 * The feature id for the '<em><b>Ambient</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIGHT__AMBIENT = 3;
+
+	/**
+	 * The feature id for the '<em><b>Difusse</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIGHT__DIFUSSE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Specular</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIGHT__SPECULAR = 5;
+
+	/**
+	 * The feature id for the '<em><b>Direccion</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int LIGHT__DIRECCION = 6;
 
 	/**
 	 * The number of structural features of the '<em>Light</em>' class.
@@ -466,7 +475,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIGHT_FEATURE_COUNT = 6;
+	int LIGHT_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Upload L</em>' operation.
@@ -533,7 +542,16 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int DIR_LIGHT__ID = LIGHT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ambient</b></em>' attribute.
+	 * The feature id for the '<em><b>Pos DIr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DIR_LIGHT__POS_DIR = LIGHT__POS_DIR;
+
+	/**
+	 * The feature id for the '<em><b>Ambient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -542,7 +560,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int DIR_LIGHT__AMBIENT = LIGHT__AMBIENT;
 
 	/**
-	 * The feature id for the '<em><b>Difusse</b></em>' attribute.
+	 * The feature id for the '<em><b>Difusse</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -551,7 +569,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int DIR_LIGHT__DIFUSSE = LIGHT__DIFUSSE;
 
 	/**
-	 * The feature id for the '<em><b>Specular</b></em>' attribute.
+	 * The feature id for the '<em><b>Specular</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -560,13 +578,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int DIR_LIGHT__SPECULAR = LIGHT__SPECULAR;
 
 	/**
-	 * The feature id for the '<em><b>Pos DIr</b></em>' attribute.
+	 * The feature id for the '<em><b>Direccion</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int DIR_LIGHT__POS_DIR = LIGHT__POS_DIR;
+	int DIR_LIGHT__DIRECCION = LIGHT__DIRECCION;
 
 	/**
 	 * The number of structural features of the '<em>Dir Light</em>' class.
@@ -642,7 +660,16 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int POS_LIGHT__ID = LIGHT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ambient</b></em>' attribute.
+	 * The feature id for the '<em><b>Pos DIr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POS_LIGHT__POS_DIR = LIGHT__POS_DIR;
+
+	/**
+	 * The feature id for the '<em><b>Ambient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -651,7 +678,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int POS_LIGHT__AMBIENT = LIGHT__AMBIENT;
 
 	/**
-	 * The feature id for the '<em><b>Difusse</b></em>' attribute.
+	 * The feature id for the '<em><b>Difusse</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -660,7 +687,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int POS_LIGHT__DIFUSSE = LIGHT__DIFUSSE;
 
 	/**
-	 * The feature id for the '<em><b>Specular</b></em>' attribute.
+	 * The feature id for the '<em><b>Specular</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -669,13 +696,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int POS_LIGHT__SPECULAR = LIGHT__SPECULAR;
 
 	/**
-	 * The feature id for the '<em><b>Pos DIr</b></em>' attribute.
+	 * The feature id for the '<em><b>Direccion</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int POS_LIGHT__POS_DIR = LIGHT__POS_DIR;
+	int POS_LIGHT__DIRECCION = LIGHT__DIRECCION;
 
 	/**
 	 * The feature id for the '<em><b>Kc</b></em>' attribute.
@@ -778,7 +805,16 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int SPOT_LIGHT__ID = POS_LIGHT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Ambient</b></em>' attribute.
+	 * The feature id for the '<em><b>Pos DIr</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SPOT_LIGHT__POS_DIR = POS_LIGHT__POS_DIR;
+
+	/**
+	 * The feature id for the '<em><b>Ambient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -787,7 +823,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int SPOT_LIGHT__AMBIENT = POS_LIGHT__AMBIENT;
 
 	/**
-	 * The feature id for the '<em><b>Difusse</b></em>' attribute.
+	 * The feature id for the '<em><b>Difusse</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -796,7 +832,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int SPOT_LIGHT__DIFUSSE = POS_LIGHT__DIFUSSE;
 
 	/**
-	 * The feature id for the '<em><b>Specular</b></em>' attribute.
+	 * The feature id for the '<em><b>Specular</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -805,13 +841,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int SPOT_LIGHT__SPECULAR = POS_LIGHT__SPECULAR;
 
 	/**
-	 * The feature id for the '<em><b>Pos DIr</b></em>' attribute.
+	 * The feature id for the '<em><b>Direccion</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPOT_LIGHT__POS_DIR = POS_LIGHT__POS_DIR;
+	int SPOT_LIGHT__DIRECCION = POS_LIGHT__DIRECCION;
 
 	/**
 	 * The feature id for the '<em><b>Kc</b></em>' attribute.
@@ -841,22 +877,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int SPOT_LIGHT__KQ = POS_LIGHT__KQ;
 
 	/**
-	 * The feature id for the '<em><b>Direction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPOT_LIGHT__DIRECTION = POS_LIGHT_FEATURE_COUNT + 0;
-
-	/**
 	 * The feature id for the '<em><b>Cutoff</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SPOT_LIGHT__CUTOFF = POS_LIGHT_FEATURE_COUNT + 1;
+	int SPOT_LIGHT__CUTOFF = POS_LIGHT_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Exp</b></em>' attribute.
@@ -865,7 +892,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPOT_LIGHT__EXP = POS_LIGHT_FEATURE_COUNT + 2;
+	int SPOT_LIGHT__EXP = POS_LIGHT_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Spot Light</em>' class.
@@ -874,7 +901,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SPOT_LIGHT_FEATURE_COUNT = POS_LIGHT_FEATURE_COUNT + 3;
+	int SPOT_LIGHT_FEATURE_COUNT = POS_LIGHT_FEATURE_COUNT + 2;
 
 	/**
 	 * The operation id for the '<em>Upload L</em>' operation.
@@ -932,7 +959,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int NODE__NAME = 0;
 
 	/**
-	 * The feature id for the '<em><b>Light</b></em>' containment reference.
+	 * The feature id for the '<em><b>Light</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -2686,6 +2713,197 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int DISCO_PARCIAL_OPERATION_COUNT = QUADRIC_ENTITY_OPERATION_COUNT + 0;
 
 	/**
+	 * The meta object id for the '{@link openGL_DSL.impl.CuboImpl <em>Cubo</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see openGL_DSL.impl.CuboImpl
+	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getCubo()
+	 * @generated
+	 */
+	int CUBO = 26;
+
+	/**
+	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUBO__TEXTURE = ABS_ENTITY__TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Material</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUBO__MATERIAL = ABS_ENTITY__MATERIAL;
+
+	/**
+	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUBO__MESH = ABS_ENTITY__MESH;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUBO__COLOR = ABS_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Lenght</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUBO__LENGHT = ABS_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Cubo</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUBO_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The operation id for the '<em>Render</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUBO___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Upload</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUBO___UPLOAD = ABS_ENTITY___UPLOAD;
+
+	/**
+	 * The number of operations of the '<em>Cubo</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUBO_OPERATION_COUNT = ABS_ENTITY_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link openGL_DSL.impl.ToroideImpl <em>Toroide</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see openGL_DSL.impl.ToroideImpl
+	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getToroide()
+	 * @generated
+	 */
+	int TOROIDE = 27;
+
+	/**
+	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE__TEXTURE = ABS_ENTITY__TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Material</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE__MATERIAL = ABS_ENTITY__MATERIAL;
+
+	/**
+	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE__MESH = ABS_ENTITY__MESH;
+
+	/**
+	 * The feature id for the '<em><b>Color</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE__COLOR = ABS_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Radio Centro</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE__RADIO_CENTRO = ABS_ENTITY_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Radio Anillo</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE__RADIO_ANILLO = ABS_ENTITY_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of structural features of the '<em>Toroide</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 2;
+
+	/**
+	 * The operation id for the '<em>Render</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
+
+	/**
+	 * The operation id for the '<em>Upload</em>' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE___UPLOAD = ABS_ENTITY___UPLOAD;
+
+	/**
+	 * The number of operations of the '<em>Toroide</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE_OPERATION_COUNT = ABS_ENTITY_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '<em>GLsizei</em>' data type.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2693,7 +2911,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getGLsizei()
 	 * @generated
 	 */
-	int GLSIZEI = 26;
+	int GLSIZEI = 28;
 
 	/**
 	 * The meta object id for the '<em>GLuint</em>' data type.
@@ -2703,7 +2921,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getGLuint()
 	 * @generated
 	 */
-	int GLUINT = 27;
+	int GLUINT = 29;
 
 	/**
 	 * The meta object id for the '<em>vec2</em>' data type.
@@ -2713,7 +2931,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getvec2()
 	 * @generated
 	 */
-	int VEC2 = 28;
+	int VEC2 = 30;
 
 	/**
 	 * The meta object id for the '<em>vec3</em>' data type.
@@ -2723,7 +2941,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getvec3()
 	 * @generated
 	 */
-	int VEC3 = 29;
+	int VEC3 = 31;
 
 	/**
 	 * The meta object id for the '<em>vec4</em>' data type.
@@ -2733,7 +2951,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getvec4()
 	 * @generated
 	 */
-	int VEC4 = 30;
+	int VEC4 = 32;
 
 	/**
 	 * The meta object id for the '<em>mat4</em>' data type.
@@ -2743,7 +2961,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getmat4()
 	 * @generated
 	 */
-	int MAT4 = 31;
+	int MAT4 = 33;
 
 	/**
 	 * The meta object id for the '<em>GLquadric Obj</em>' data type.
@@ -2753,7 +2971,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getGLquadricObj()
 	 * @generated
 	 */
-	int GLQUADRIC_OBJ = 32;
+	int GLQUADRIC_OBJ = 34;
 
 
 	/**
@@ -3100,39 +3318,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EAttribute getLight_Id();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Light#getAmbient <em>Ambient</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ambient</em>'.
-	 * @see openGL_DSL.Light#getAmbient()
-	 * @see #getLight()
-	 * @generated
-	 */
-	EAttribute getLight_Ambient();
-
-	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Light#getDifusse <em>Difusse</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Difusse</em>'.
-	 * @see openGL_DSL.Light#getDifusse()
-	 * @see #getLight()
-	 * @generated
-	 */
-	EAttribute getLight_Difusse();
-
-	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Light#getSpecular <em>Specular</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Specular</em>'.
-	 * @see openGL_DSL.Light#getSpecular()
-	 * @see #getLight()
-	 * @generated
-	 */
-	EAttribute getLight_Specular();
-
-	/**
 	 * Returns the meta object for the attribute '{@link openGL_DSL.Light#getPosDIr <em>Pos DIr</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3142,6 +3327,50 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getLight_PosDIr();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Light#getAmbient <em>Ambient</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Ambient</em>'.
+	 * @see openGL_DSL.Light#getAmbient()
+	 * @see #getLight()
+	 * @generated
+	 */
+	EReference getLight_Ambient();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Light#getDifusse <em>Difusse</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Difusse</em>'.
+	 * @see openGL_DSL.Light#getDifusse()
+	 * @see #getLight()
+	 * @generated
+	 */
+	EReference getLight_Difusse();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Light#getSpecular <em>Specular</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Specular</em>'.
+	 * @see openGL_DSL.Light#getSpecular()
+	 * @see #getLight()
+	 * @generated
+	 */
+	EReference getLight_Specular();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Light#getDireccion <em>Direccion</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Direccion</em>'.
+	 * @see openGL_DSL.Light#getDireccion()
+	 * @see #getLight()
+	 * @generated
+	 */
+	EReference getLight_Direccion();
 
 	/**
 	 * Returns the meta object for the '{@link openGL_DSL.Light#uploadL(java.lang.Object) <em>Upload L</em>}' operation.
@@ -3237,17 +3466,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EClass getSpotLight();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.SpotLight#getDirection <em>Direction</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Direction</em>'.
-	 * @see openGL_DSL.SpotLight#getDirection()
-	 * @see #getSpotLight()
-	 * @generated
-	 */
-	EAttribute getSpotLight_Direction();
-
-	/**
 	 * Returns the meta object for the attribute '{@link openGL_DSL.SpotLight#getCutoff <em>Cutoff</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3291,10 +3509,10 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EAttribute getNode_Name();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link openGL_DSL.Node#getLight <em>Light</em>}'.
+	 * Returns the meta object for the containment reference list '{@link openGL_DSL.Node#getLight <em>Light</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Light</em>'.
+	 * @return the meta object for the containment reference list '<em>Light</em>'.
 	 * @see openGL_DSL.Node#getLight()
 	 * @see #getNode()
 	 * @generated
@@ -4148,6 +4366,59 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EAttribute getDiscoParcial_AmplitudAngulo();
 
 	/**
+	 * Returns the meta object for class '{@link openGL_DSL.Cubo <em>Cubo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Cubo</em>'.
+	 * @see openGL_DSL.Cubo
+	 * @generated
+	 */
+	EClass getCubo();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Cubo#getLenght <em>Lenght</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Lenght</em>'.
+	 * @see openGL_DSL.Cubo#getLenght()
+	 * @see #getCubo()
+	 * @generated
+	 */
+	EAttribute getCubo_Lenght();
+
+	/**
+	 * Returns the meta object for class '{@link openGL_DSL.Toroide <em>Toroide</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Toroide</em>'.
+	 * @see openGL_DSL.Toroide
+	 * @generated
+	 */
+	EClass getToroide();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Toroide#getRadioCentro <em>Radio Centro</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radio Centro</em>'.
+	 * @see openGL_DSL.Toroide#getRadioCentro()
+	 * @see #getToroide()
+	 * @generated
+	 */
+	EAttribute getToroide_RadioCentro();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Toroide#getRadioAnillo <em>Radio Anillo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radio Anillo</em>'.
+	 * @see openGL_DSL.Toroide#getRadioAnillo()
+	 * @see #getToroide()
+	 * @generated
+	 */
+	EAttribute getToroide_RadioAnillo();
+
+	/**
 	 * Returns the meta object for data type '{@link java.lang.Object <em>GLsizei</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -4514,36 +4785,44 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EAttribute LIGHT__ID = eINSTANCE.getLight_Id();
 
 		/**
-		 * The meta object literal for the '<em><b>Ambient</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LIGHT__AMBIENT = eINSTANCE.getLight_Ambient();
-
-		/**
-		 * The meta object literal for the '<em><b>Difusse</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LIGHT__DIFUSSE = eINSTANCE.getLight_Difusse();
-
-		/**
-		 * The meta object literal for the '<em><b>Specular</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LIGHT__SPECULAR = eINSTANCE.getLight_Specular();
-
-		/**
 		 * The meta object literal for the '<em><b>Pos DIr</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EAttribute LIGHT__POS_DIR = eINSTANCE.getLight_PosDIr();
+
+		/**
+		 * The meta object literal for the '<em><b>Ambient</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIGHT__AMBIENT = eINSTANCE.getLight_Ambient();
+
+		/**
+		 * The meta object literal for the '<em><b>Difusse</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIGHT__DIFUSSE = eINSTANCE.getLight_Difusse();
+
+		/**
+		 * The meta object literal for the '<em><b>Specular</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIGHT__SPECULAR = eINSTANCE.getLight_Specular();
+
+		/**
+		 * The meta object literal for the '<em><b>Direccion</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference LIGHT__DIRECCION = eINSTANCE.getLight_Direccion();
 
 		/**
 		 * The meta object literal for the '<em><b>Upload L</b></em>' operation.
@@ -4624,14 +4903,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EClass SPOT_LIGHT = eINSTANCE.getSpotLight();
 
 		/**
-		 * The meta object literal for the '<em><b>Direction</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SPOT_LIGHT__DIRECTION = eINSTANCE.getSpotLight_Direction();
-
-		/**
 		 * The meta object literal for the '<em><b>Cutoff</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4666,7 +4937,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EAttribute NODE__NAME = eINSTANCE.getNode_Name();
 
 		/**
-		 * The meta object literal for the '<em><b>Light</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Light</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -5338,6 +5609,50 @@ public interface OpenGL_DSLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute DISCO_PARCIAL__AMPLITUD_ANGULO = eINSTANCE.getDiscoParcial_AmplitudAngulo();
+
+		/**
+		 * The meta object literal for the '{@link openGL_DSL.impl.CuboImpl <em>Cubo</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see openGL_DSL.impl.CuboImpl
+		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getCubo()
+		 * @generated
+		 */
+		EClass CUBO = eINSTANCE.getCubo();
+
+		/**
+		 * The meta object literal for the '<em><b>Lenght</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CUBO__LENGHT = eINSTANCE.getCubo_Lenght();
+
+		/**
+		 * The meta object literal for the '{@link openGL_DSL.impl.ToroideImpl <em>Toroide</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see openGL_DSL.impl.ToroideImpl
+		 * @see openGL_DSL.impl.OpenGL_DSLPackageImpl#getToroide()
+		 * @generated
+		 */
+		EClass TOROIDE = eINSTANCE.getToroide();
+
+		/**
+		 * The meta object literal for the '<em><b>Radio Centro</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOROIDE__RADIO_CENTRO = eINSTANCE.getToroide_RadioCentro();
+
+		/**
+		 * The meta object literal for the '<em><b>Radio Anillo</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute TOROIDE__RADIO_ANILLO = eINSTANCE.getToroide_RadioAnillo();
 
 		/**
 		 * The meta object literal for the '<em>GLsizei</em>' data type.

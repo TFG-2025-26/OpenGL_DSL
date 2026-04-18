@@ -53,10 +53,15 @@
     <eOperations name="enable"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cont" eType="#//GLuint"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="#//GLuint" iD="true"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ambient" eType="#//vec4"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="difusse" eType="#//vec4"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="specular" eType="#//vec4"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="posDIr" eType="#//vec4"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ambient" eType="#//Vector4"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="difusse" eType="#//Vector4"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specular" eType="#//Vector4"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="direccion" eType="#//Vector3"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="DirLight" eSuperTypes="#//Light"/>
   <eClassifiers xsi:type="ecore:EClass" name="PosLight" eSuperTypes="#//Light">
@@ -68,16 +73,15 @@
         defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpotLight" eSuperTypes="#//PosLight">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//vec4"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="cutoff" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
         defaultValueLiteral="180"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="exp" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"
-        defaultValueLiteral="10"/>
+        defaultValueLiteral="0"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Node">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="light" eType="#//Light"
-        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="light" upperBound="-1"
+        eType="#//Light" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nodo" upperBound="-1" eType="#//Node"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="abs_entity" upperBound="-1"
@@ -197,5 +201,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="RadioExterno" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AnguloInicio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="AmplitudAngulo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cubo" eSuperTypes="#//Abs_Entity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Lenght" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Toroide" eSuperTypes="#//Abs_Entity">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RadioCentro" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RadioAnillo" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
   </eClassifiers>
 </ecore:EPackage>

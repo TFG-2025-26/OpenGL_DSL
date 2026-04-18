@@ -16,7 +16,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Scene.h&quot;&#xA;&#xA;#include &lt;glm/gtc/matrix_transform.hpp>&#xA;#include &lt;glm/gtc/type_ptr.hpp>&#xA;&#xA;using namespace glm;&#xA;&#xA;void&#xA;Scene::init()&#xA;{&#xA;&#x9;setGL(); // OpenGL settings&#xA;}&#xA;&#xA;void&#xA;Scene::free()&#xA;{ // release memory and resources&#xA;&#xA;&#x9;for (Node* el : nodes) {&#xA;&#x9;&#x9;delete el;&#xA;&#x9;&#x9;el = nullptr;&#xA;&#x9;}&#xA;}&#xA;&#xA;void&#xA;Scene::setGL()&#xA;{&#xA;&#x9;// OpenGL basic setting&#xA;&#x9;glClearColor(0.6, 0.7, 0.8, 1.0); // background color (alpha=1 -> opaque)&#xA;&#x9;glEnable(GL_DEPTH_TEST);          // enable Depth test&#xA;&#x9;glEnable(GL_TEXTURE_2D);&#xA;&#x9;glEnable(GL_BLEND);&#xA;&#x9;glEnable(GL_NORMALIZE);&#xA;&#x9;glEnable(GL_COLOR_MATERIAL);&#xA;&#x9;//glEnable(GL_LIGHTING);&#xA;}&#xA;&#xA;void&#xA;Scene::resetGL()&#xA;{&#xA;&#x9;glClearColor(.0, .0, .0, .0); // background color (alpha=1 -> opaque)&#xA;&#x9;glDisable(GL_DEPTH_TEST);     // disable Depth test&#xA;&#x9;glDisable(GL_TEXTURE_2D);&#xA;&#x9;glDisable(GL_BLEND);&#xA;&#x9;glDisable(GL_NORMALIZE);&#xA;&#x9;glDisable(GL_COLOR_MATERIAL);&#xA;&#x9;//glDisable(GL_LIGHTING);&#xA;}&#xA;&#xA;void&#xA;Scene::render(Camera const&amp; cam) const&#xA;{&#xA;&#x9;if(visible){&#xA;       cam.upload();&#xA;&#xA;&#x9;   for (Node* n : nodes) {&#xA;&#x9;&#x9;   n->render(cam.viewMat());&#xA;&#x9;   }&#xA;    }&#xA;&#x9;&#xA;}&#xA;&#xA;void&#xA;Scene::addNode(Node* n)&#xA;{&#xA;&#x9;nodes.push_back(n);&#xA;}&#xA;&#xA;void&#xA;Scene::setVisible(bool v)&#xA;{&#xA;&#x9;visible=v;&#xA;}&#xA;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Scene.h&quot;&#xA;&#xA;#include &lt;glm/gtc/matrix_transform.hpp>&#xA;#include &lt;glm/gtc/type_ptr.hpp>&#xA;&#xA;using namespace glm;&#xA;&#xA;void&#xA;Scene::init()&#xA;{&#xA;&#x9;setGL(); // OpenGL settings&#xA;}&#xA;&#xA;void&#xA;Scene::free()&#xA;{ // release memory and resources&#xA;&#xA;&#x9;for (Node* el : nodes) {&#xA;&#x9;&#x9;delete el;&#xA;&#x9;&#x9;el = nullptr;&#xA;&#x9;}&#xA;}&#xA;&#xA;void&#xA;Scene::setGL()&#xA;{&#xA;&#x9;// OpenGL basic setting&#xA;&#x9;glClearColor(0.6, 0.7, 0.8, 1.0); // background color (alpha=1 -> opaque)&#xA;&#x9;glEnable(GL_DEPTH_TEST);          // enable Depth test&#xA;&#x9;glEnable(GL_TEXTURE_2D);&#xA;&#x9;glEnable(GL_BLEND);&#xA;&#x9;glEnable(GL_NORMALIZE);&#xA;&#x9;glEnable(GL_COLOR_MATERIAL);&#xA;&#x9;glEnable(GL_LIGHTING);&#xA;}&#xA;&#xA;void&#xA;Scene::resetGL()&#xA;{&#xA;&#x9;glClearColor(.0, .0, .0, .0); // background color (alpha=1 -> opaque)&#xA;&#x9;glDisable(GL_DEPTH_TEST);     // disable Depth test&#xA;&#x9;glDisable(GL_TEXTURE_2D);&#xA;&#x9;glDisable(GL_BLEND);&#xA;&#x9;glDisable(GL_NORMALIZE);&#xA;&#x9;glDisable(GL_COLOR_MATERIAL);&#xA;&#x9;glDisable(GL_LIGHTING);&#xA;}&#xA;&#xA;void&#xA;Scene::render(Camera const&amp; cam) const&#xA;{&#xA;&#x9;if(visible){&#xA;       cam.upload();&#xA;&#xA;&#x9;   for (Node* n : nodes) {&#xA;&#x9;&#x9;   n->render(cam.viewMat());&#xA;&#x9;   }&#xA;    }&#xA;&#x9;&#xA;}&#xA;&#xA;void&#xA;Scene::addNode(Node* n)&#xA;{&#xA;&#x9;nodes.push_back(n);&#xA;}&#xA;&#xA;void&#xA;Scene::setVisible(bool v)&#xA;{&#xA;&#x9;visible=v;&#xA;}&#xA;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Scene.cpp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
@@ -116,7 +116,7 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateScene">
       <details key="start" value="87"/>
-      <details key="end" value="2109"/>
+      <details key="end" value="2105"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateScene/%">
@@ -146,12 +146,12 @@
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/generateScene/%.2">
       <details key="start" value="916"/>
-      <details key="end" value="2097"/>
+      <details key="end" value="2093"/>
       <details key="line" value="54"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/generateScene/%.2/%">
       <details key="start" value="953"/>
-      <details key="end" value="2090"/>
+      <details key="end" value="2086"/>
       <details key="line" value="55"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/generateScene/%.2/%.1">

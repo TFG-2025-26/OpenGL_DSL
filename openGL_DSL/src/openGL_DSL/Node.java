@@ -52,26 +52,16 @@ public interface Node extends EObject {
 	void setName(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Light</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Light</b></em>' containment reference list.
+	 * The list contents are of type {@link openGL_DSL.Light}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Light</em>' containment reference.
-	 * @see #setLight(Light)
+	 * @return the value of the '<em>Light</em>' containment reference list.
 	 * @see openGL_DSL.OpenGL_DSLPackage#getNode_Light()
 	 * @model containment="true"
 	 * @generated
 	 */
-	Light getLight();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.Node#getLight <em>Light</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Light</em>' containment reference.
-	 * @see #getLight()
-	 * @generated
-	 */
-	void setLight(Light value);
+	EList<Light> getLight();
 
 	/**
 	 * Returns the value of the '<em><b>Nodo</b></em>' containment reference list.

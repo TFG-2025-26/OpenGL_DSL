@@ -6,7 +6,7 @@
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="generateNode" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Node_H_&#xA;#define _H_Node_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;glm/glm.hpp>&#xA;&#xA;#include &quot;Entity.h&quot;&#xA;&#xA;#include &lt;vector>&#xA;&#xA;using namespace glm;&#xA;&#xA;class Node&#xA;{&#xA;public:&#xA;&#x9;Node(dvec3 pos, dvec3 rot, dvec3 esc);&#xA;&#x9;~Node();&#xA;&#xA;&#x9;void render(glm::dmat4 const&amp; modelViewMat) const;&#xA;&#xA;&#x9;void addEntity(Abs_Entity* ent);&#xA;&#x9;void addNode(Node* n);&#xA;&#xA;&#xA;protected:&#xA;&#xA;&#x9;std::vector&lt;Abs_Entity*> gObjects;&#xA;&#x9;std::vector&lt;Node*> nodes;&#xA;&#x9;dvec3 pos;&#xA;&#x9;dvec3 rot;&#xA;&#x9;dvec3 esc;&#xA;dmat4 mModelMat;&#xA;};&#xA;#endif&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Node_H_&#xA;#define _H_Node_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;glm/glm.hpp>&#xA;&#xA;#include &quot;Entity.h&quot;&#xA;#include &quot;Light.h&quot;&#xA;&#xA;#include &lt;vector>&#xA;&#xA;using namespace glm;&#xA;&#xA;class Node&#xA;{&#xA;public:&#xA;&#x9;Node(dvec3 pos, dvec3 rot, dvec3 esc);&#xA;&#x9;~Node();&#xA;&#xA;&#x9;void render(glm::dmat4 const&amp; modelViewMat) const;&#xA;&#xA;&#x9;void addEntity(Abs_Entity* ent);&#xA;&#x9;void addNode(Node* n);&#xA;    void addLight(Light* n);&#xA;&#xA;&#xA;protected:&#xA;&#xA;&#x9;std::vector&lt;Abs_Entity*> gObjects;&#xA;&#x9;std::vector&lt;Node*> nodes;&#xA;    std::vector&lt;Light*> lights;&#xA;&#x9;dvec3 pos;&#xA;&#x9;dvec3 rot;&#xA;&#x9;dvec3 esc;&#xA;dmat4 mModelMat;&#xA;};&#xA;#endif&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Node.h">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
@@ -16,7 +16,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Node.h&quot;&#xA;#include &lt;glm/gtc/matrix_transform.hpp>&#xA;#include &lt;glm/gtc/type_ptr.hpp>&#xA;&#xA;Node::Node(dvec3 pos, dvec3 rot, dvec3 esc)&#xA;&#x9;:pos(pos), rot(rot),esc(esc)&#xA;{&#xA;&#x9;mModelMat = dmat4(1);&#xA;&#x9;mModelMat = mModelMat * glm::translate(dmat4(1), pos);&#xA;&#x9;mModelMat = mModelMat * glm::rotate(dmat4(1), radians(rot.x), dvec3(1, 0, 0));&#xA;&#x9;mModelMat = mModelMat * glm::rotate(dmat4(1), radians(rot.y), dvec3(0, 1, 0));&#xA;&#x9;mModelMat = mModelMat * glm::rotate(dmat4(1), radians(rot.z), dvec3(0, 0, 1));&#xA;&#x9;mModelMat = mModelMat * glm::scale(dmat4(1), esc);&#xA;}&#xA;&#xA;Node::~Node() {&#xA;&#x9;for (Abs_Entity* el : gObjects) {&#xA;&#x9;&#x9;delete el;&#xA;&#x9;&#x9;el = nullptr;&#xA;&#x9;}&#xA;&#x9;for (Node* el : nodes) {&#xA;&#x9;&#x9;delete el;&#xA;&#x9;&#x9;el = nullptr;&#xA;&#x9;}&#xA;}&#xA;&#xA;void Node::addEntity(Abs_Entity* ent) {&#xA;&#x9;gObjects.push_back(ent);&#xA;}&#xA;&#xA;void Node::addNode(Node* n) {&#xA;&#x9;nodes.push_back(n);&#xA;}&#xA;&#xA;void Node::render(dmat4 const&amp; modelViewMat) const&#xA;{&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xA;&#x9;for (Abs_Entity* el : gObjects) {&#xA;&#x9;&#x9;el->render(aMat);&#xA;&#x9;}&#xA;&#xA;&#x9;glMatrixMode(GL_MODELVIEW);&#xA;&#x9;glLoadMatrixd(value_ptr(aMat));&#xA;&#xA;&#x9;for (Node* n : nodes) {&#xA;&#x9;&#x9;n->render(aMat);&#xA;&#x9;}&#xA;}&#xA;&#xA;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Node.h&quot;&#xA;#include &lt;glm/gtc/matrix_transform.hpp>&#xA;#include &lt;glm/gtc/type_ptr.hpp>&#xA;&#xA;Node::Node(dvec3 pos, dvec3 rot, dvec3 esc)&#xA;&#x9;:pos(pos), rot(rot),esc(esc)&#xA;{&#xA;&#x9;mModelMat = dmat4(1);&#xA;&#x9;mModelMat = mModelMat * glm::translate(dmat4(1), pos);&#xA;&#x9;mModelMat = mModelMat * glm::rotate(dmat4(1), radians(rot.x), dvec3(1, 0, 0));&#xA;&#x9;mModelMat = mModelMat * glm::rotate(dmat4(1), radians(rot.y), dvec3(0, 1, 0));&#xA;&#x9;mModelMat = mModelMat * glm::rotate(dmat4(1), radians(rot.z), dvec3(0, 0, 1));&#xA;&#x9;mModelMat = mModelMat * glm::scale(dmat4(1), esc);&#xA;}&#xA;&#xA;Node::~Node() {&#xA;&#x9;for (Abs_Entity* el : gObjects) {&#xA;&#x9;&#x9;delete el;&#xA;&#x9;&#x9;el = nullptr;&#xA;&#x9;}&#xA;    for (Light* lig : lights) {&#xA;&#x9;&#x9;delete lig;&#xA;&#x9;&#x9;lig = nullptr;&#xA;&#x9;}&#xA;&#x9;for (Node* el : nodes) {&#xA;&#x9;&#x9;delete el;&#xA;&#x9;&#x9;el = nullptr;&#xA;&#x9;}&#xA;}&#xA;&#xA;void Node::addEntity(Abs_Entity* ent) {&#xA;&#x9;gObjects.push_back(ent);&#xA;}&#xA;&#xA;void Node::addNode(Node* n) {&#xA;&#x9;nodes.push_back(n);&#xA;}&#xA;&#xA;void Node::addLight(Light* l) {&#xA;&#x9;lights.push_back(l);&#xA;}&#xA;&#xA;void Node::render(dmat4 const&amp; modelViewMat) const&#xA;{&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xA;    for (Light* lig : lights) {&#xA;&#x9;&#x9;lig->upload(aMat);&#xA;&#x9;}&#xA;&#xA;&#x9;for (Abs_Entity* el : gObjects) {&#xA;&#x9;&#x9;el->render(aMat);&#xA;&#x9;}&#xA;&#xA;&#x9;glMatrixMode(GL_MODELVIEW);&#xA;&#x9;glLoadMatrixd(value_ptr(aMat));&#xA;&#xA;&#x9;for (Node* n : nodes) {&#xA;&#x9;&#x9;n->render(aMat);&#xA;&#x9;}&#xA;}&#xA;&#xA;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Node.cpp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
@@ -116,17 +116,17 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateNode">
       <details key="start" value="86"/>
-      <details key="end" value="1860"/>
+      <details key="end" value="2120"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateNode/%">
       <details key="start" value="172"/>
-      <details key="end" value="686"/>
+      <details key="end" value="766"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateNode/%/%">
       <details key="start" value="206"/>
-      <details key="end" value="679"/>
+      <details key="end" value="759"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateNode/%/%.1">
@@ -140,28 +140,28 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/generateNode/%.1">
-      <details key="start" value="687"/>
-      <details key="end" value="688"/>
-      <details key="line" value="43"/>
-    </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/generateNode/%.2">
-      <details key="start" value="731"/>
-      <details key="end" value="1848"/>
-      <details key="line" value="45"/>
-    </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/generateNode/%.2/%">
       <details key="start" value="767"/>
-      <details key="end" value="1841"/>
+      <details key="end" value="768"/>
       <details key="line" value="46"/>
     </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateNode/%.2">
+      <details key="start" value="811"/>
+      <details key="end" value="2108"/>
+      <details key="line" value="48"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateNode/%.2/%">
+      <details key="start" value="847"/>
+      <details key="end" value="2101"/>
+      <details key="line" value="49"/>
+    </eAnnotations>
     <eAnnotations source="positions.8" references="/0/generateNode/%.2/%.1">
-      <details key="start" value="738"/>
-      <details key="end" value="748"/>
+      <details key="start" value="818"/>
+      <details key="end" value="828"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/generateNode/%.2/%.2">
-      <details key="start" value="757"/>
-      <details key="end" value="764"/>
+      <details key="start" value="837"/>
+      <details key="end" value="844"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/generateNode/aNode">

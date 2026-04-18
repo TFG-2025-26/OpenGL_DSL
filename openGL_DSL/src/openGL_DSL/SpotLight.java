@@ -12,7 +12,6 @@ package openGL_DSL;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link openGL_DSL.SpotLight#getDirection <em>Direction</em>}</li>
  *   <li>{@link openGL_DSL.SpotLight#getCutoff <em>Cutoff</em>}</li>
  *   <li>{@link openGL_DSL.SpotLight#getExp <em>Exp</em>}</li>
  * </ul>
@@ -22,28 +21,6 @@ package openGL_DSL;
  * @generated
  */
 public interface SpotLight extends PosLight {
-	/**
-	 * Returns the value of the '<em><b>Direction</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Direction</em>' attribute.
-	 * @see #setDirection(Object)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getSpotLight_Direction()
-	 * @model dataType="openGL_DSL.vec4"
-	 * @generated
-	 */
-	Object getDirection();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.SpotLight#getDirection <em>Direction</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Direction</em>' attribute.
-	 * @see #getDirection()
-	 * @generated
-	 */
-	void setDirection(Object value);
-
 	/**
 	 * Returns the value of the '<em><b>Cutoff</b></em>' attribute.
 	 * The default value is <code>"180"</code>.
@@ -69,13 +46,13 @@ public interface SpotLight extends PosLight {
 
 	/**
 	 * Returns the value of the '<em><b>Exp</b></em>' attribute.
-	 * The default value is <code>"10"</code>.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Exp</em>' attribute.
 	 * @see #setExp(float)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getSpotLight_Exp()
-	 * @model default="10"
+	 * @model default="0"
 	 * @generated
 	 */
 	float getExp();

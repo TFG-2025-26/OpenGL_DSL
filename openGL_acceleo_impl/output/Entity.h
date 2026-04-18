@@ -115,4 +115,18 @@ protected:
 	GLdouble sweepAngle;
 };
 
+class IndexedBox : public Abs_Entity {
+public:
+	IndexedBox(GLdouble l);
+	~IndexedBox();
+	virtual void render(glm::dmat4 const& modelViewMat) const;
+};
+
+class Toroid : public Abs_Entity {
+public:
+	Toroid(GLdouble r, GLdouble R);
+	~Toroid();
+	virtual void render(glm::dmat4 const& modelViewMat) const;
+};
+
 #endif

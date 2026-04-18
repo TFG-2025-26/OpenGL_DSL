@@ -19,7 +19,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link openGL_DSL.impl.SpotLightImpl#getDirection <em>Direction</em>}</li>
  *   <li>{@link openGL_DSL.impl.SpotLightImpl#getCutoff <em>Cutoff</em>}</li>
  *   <li>{@link openGL_DSL.impl.SpotLightImpl#getExp <em>Exp</em>}</li>
  * </ul>
@@ -27,26 +26,6 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * @generated
  */
 public class SpotLightImpl extends PosLightImpl implements SpotLight {
-	/**
-	 * The default value of the '{@link #getDirection() <em>Direction</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDirection()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Object DIRECTION_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getDirection() <em>Direction</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDirection()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object direction = DIRECTION_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getCutoff() <em>Cutoff</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -75,7 +54,7 @@ public class SpotLightImpl extends PosLightImpl implements SpotLight {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final float EXP_EDEFAULT = 10.0F;
+	protected static final float EXP_EDEFAULT = 0.0F;
 
 	/**
 	 * The cached value of the '{@link #getExp() <em>Exp</em>}' attribute.
@@ -104,29 +83,6 @@ public class SpotLightImpl extends PosLightImpl implements SpotLight {
 	@Override
 	protected EClass eStaticClass() {
 		return OpenGL_DSLPackage.Literals.SPOT_LIGHT;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getDirection() {
-		return direction;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setDirection(Object newDirection) {
-		Object oldDirection = direction;
-		direction = newDirection;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.SPOT_LIGHT__DIRECTION, oldDirection, direction));
 	}
 
 	/**
@@ -183,8 +139,6 @@ public class SpotLightImpl extends PosLightImpl implements SpotLight {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.SPOT_LIGHT__DIRECTION:
-				return getDirection();
 			case OpenGL_DSLPackage.SPOT_LIGHT__CUTOFF:
 				return getCutoff();
 			case OpenGL_DSLPackage.SPOT_LIGHT__EXP:
@@ -201,9 +155,6 @@ public class SpotLightImpl extends PosLightImpl implements SpotLight {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.SPOT_LIGHT__DIRECTION:
-				setDirection(newValue);
-				return;
 			case OpenGL_DSLPackage.SPOT_LIGHT__CUTOFF:
 				setCutoff((Float)newValue);
 				return;
@@ -222,9 +173,6 @@ public class SpotLightImpl extends PosLightImpl implements SpotLight {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.SPOT_LIGHT__DIRECTION:
-				setDirection(DIRECTION_EDEFAULT);
-				return;
 			case OpenGL_DSLPackage.SPOT_LIGHT__CUTOFF:
 				setCutoff(CUTOFF_EDEFAULT);
 				return;
@@ -243,8 +191,6 @@ public class SpotLightImpl extends PosLightImpl implements SpotLight {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.SPOT_LIGHT__DIRECTION:
-				return DIRECTION_EDEFAULT == null ? direction != null : !DIRECTION_EDEFAULT.equals(direction);
 			case OpenGL_DSLPackage.SPOT_LIGHT__CUTOFF:
 				return cutoff != CUTOFF_EDEFAULT;
 			case OpenGL_DSLPackage.SPOT_LIGHT__EXP:
@@ -263,9 +209,7 @@ public class SpotLightImpl extends PosLightImpl implements SpotLight {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (direction: ");
-		result.append(direction);
-		result.append(", cutoff: ");
+		result.append(" (cutoff: ");
 		result.append(cutoff);
 		result.append(", exp: ");
 		result.append(exp);

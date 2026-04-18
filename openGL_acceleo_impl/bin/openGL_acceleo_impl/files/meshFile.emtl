@@ -6,7 +6,21 @@
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="generateMesh" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Mesh_H_&#xA;#define _H_Mesh_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;glm/glm.hpp>&#xA;&#xA;#include &lt;vector>&#xA;&#xA;class Mesh&#xA;{&#xA;public:&#xA;&#x9;static Mesh* createRGBAxes(GLdouble l); // creates a new 3D-RGB axes mesh&#xA;&#xA;&#x9;Mesh() = default;&#xA;&#x9;virtual ~Mesh() = default;&#xA;&#xA;&#x9;Mesh(const Mesh&amp; m) = delete;            // no copy constructor&#xA;&#x9;Mesh&amp; operator=(const Mesh&amp; m) = delete; // no copy assignment&#xA;&#xA;&#x9;virtual void render() const;&#xA;&#xA;&#x9;GLuint size() const { return mNumVertices; }; // number of elements&#xA;&#x9;std::vector&lt;glm::dvec3> const&amp; vertices() const { return vVertices; };&#xA;&#x9;std::vector&lt;glm::dvec4> const&amp; colors() const { return vColors; };&#xA;&#xA;&#x9;void addColorVertice(double r, double g, double b, double a);&#xA;&#xA;    static Mesh* generateRegularPolygon(GLuint num, GLdouble r, GLuint primitive);&#xA;&#xA;    static Mesh* generateRectangle(GLdouble w, GLdouble h);&#xA;&#xA;protected:&#xA;&#x9;GLuint mPrimitive =&#xA;&#x9;  GL_TRIANGLES;          // graphic primitive: GL_POINTS, GL_LINES, GL_TRIANGLES, ...&#xA;&#x9;GLuint mNumVertices = 0; // number of elements ( = vVertices.size())&#xA;&#x9;std::vector&lt;glm::dvec3> vVertices; // vertex array&#xA;&#x9;std::vector&lt;glm::dvec4> vColors;   // color array&#xA;&#x9;std::vector&lt;glm::dvec2> vTexCoords; //vector de coordenadas de textura&#xA;&#x9;std::vector&lt;glm::dvec3> vNormals; // vector de normales&#xA;&#x9;virtual void draw() const;&#xA;};&#xA;&#xA;#endif //_H_Scene_H_&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Mesh_H_&#xA;#define _H_Mesh_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;glm/glm.hpp>&#xA;&#xA;#include &lt;vector>&#xA;&#xA;class Mesh&#xA;{&#xA;public:&#xA;&#x9;static Mesh* createRGBAxes(GLdouble l); // creates a new 3D-RGB axes mesh&#xA;&#xA;&#x9;Mesh() = default;&#xA;&#x9;virtual ~Mesh() = default;&#xA;&#xA;&#x9;Mesh(const Mesh&amp; m) = delete;            // no copy constructor&#xA;&#x9;Mesh&amp; operator=(const Mesh&amp; m) = delete; // no copy assignment&#xA;&#xA;&#x9;virtual void render() const;&#xA;&#xA;&#x9;GLuint size() const { return mNumVertices; }; // number of elements&#xA;&#x9;std::vector&lt;glm::dvec3> const&amp; vertices() const { return vVertices; };&#xA;&#x9;std::vector&lt;glm::dvec4> const&amp; colors() const { return vColors; };&#xA;&#xA;&#x9;void addColorVertice(double r, double g, double b, double a);&#xA;&#xA;    static Mesh* generateRegularPolygon(GLuint num, GLdouble r, GLuint primitive);&#xA;&#xA;    static Mesh* generateRectangle(GLdouble w, GLdouble h);&#xA;&#xA;protected:&#xA;&#x9;GLuint mPrimitive =&#xA;&#x9;  GL_TRIANGLES;          // graphic primitive: GL_POINTS, GL_LINES, GL_TRIANGLES, ...&#xA;&#x9;GLuint mNumVertices = 0; // number of elements ( = vVertices.size())&#xA;&#x9;std::vector&lt;glm::dvec3> vVertices; // vertex array&#xA;&#x9;std::vector&lt;glm::dvec4> vColors;   // color array&#xA;&#x9;std::vector&lt;glm::dvec2> vTexCoords; //vector de coordenadas de textura&#xA;&#x9;std::vector&lt;glm::dvec3> vNormals; // vector de normales&#xA;&#x9;virtual void draw() const;&#xA;};&#xA;&#xA;class IndexMesh : public Mesh {&#xA;protected:&#xA;&#x9;GLuint* vIndices = nullptr; // tabla de índices&#xA;&#x9;GLuint nNumIndices = 0;&#xA;public:&#xA;&#x9;IndexMesh() { mPrimitive = GL_TRIANGLES; }&#xA;&#x9;virtual ~IndexMesh() { delete"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" vIndices; }&#xA;&#x9;virtual void render() const;&#xA;&#x9;virtual void draw() const;&#xA;&#x9;void buildNormalVectors();&#xA;&#xA;&#x9;static IndexMesh* generateIndexedBox(GLdouble l);&#xA;};&#xA;&#xA;class MbR : public IndexMesh {&#xA;protected:&#xA;&#x9;int n;&#xA;&#x9;glm::dvec3* perfil = nullptr;&#xA;&#x9;int m;&#xA;public:&#xA;&#x9;MbR(int n, glm::dvec3* perfil, int m):n(n), perfil(perfil), m(m) {};&#xA;&#x9;virtual ~MbR() { delete"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" perfil; }&#xA;&#xA;&#x9;static MbR* generateIndexMbR(int mm, int nn, glm::dvec3* perfil);&#xA;};&#xA;&#xA;#endif //_H_Scene_H_&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mesh.h">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
@@ -16,7 +30,256 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Mesh.h&quot;&#xA;&#xA;#include &lt;fstream>&#xA;using namespace std;&#xA;using namespace glm;&#xA;&#xA;void&#xA;Mesh::draw() const&#xA;{&#xA;&#x9;glDrawArrays(&#xA;&#x9;  mPrimitive,&#xA;&#x9;  0,&#xA;&#x9;  size()); // primitive graphic, first index and number of elements to be rendered&#xA;}&#xA;&#xA;void&#xA;Mesh::render() const&#xA;{&#xA;&#x9;if (vVertices.size() > 0) { // transfer data&#xA;&#x9;&#x9;// transfer the coordinates of the vertices&#xA;&#x9;&#x9;glEnableClientState(GL_VERTEX_ARRAY);&#xA;&#x9;&#x9;glVertexPointer(&#xA;&#x9;&#x9;  3, GL_DOUBLE, 0, vVertices.data()); // number of coordinates per vertex, type of&#xA;&#x9;&#x9;                                      // each coordinate, stride, pointer&#xA;&#x9;&#x9;if (vColors.size() > 0) {             // transfer colors&#xA;&#x9;&#x9;&#x9;glEnableClientState(GL_COLOR_ARRAY);&#xA;&#x9;&#x9;&#x9;glColorPointer(&#xA;&#x9;&#x9;&#x9;  4, GL_DOUBLE, 0, vColors.data()); // components number (rgba=4), type of&#xA;&#x9;&#x9;&#x9;                                    // each component, stride, pointer&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;if (vTexCoords.size() > 0) {&#xA;&#x9;&#x9;&#x9;glEnableClientState(GL_TEXTURE_COORD_ARRAY);&#xA;&#x9;&#x9;&#x9;glTexCoordPointer(2, GL_DOUBLE, 0, vTexCoords.data());&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;if (vNormals.size() > 0) {&#xA;&#x9;&#x9;&#x9;glEnableClientState(GL_NORMAL_ARRAY);&#xA;&#x9;&#x9;&#x9;glNormalPointer(GL_DOUBLE, 0, vNormals.data());&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;draw();&#xA;&#xA;&#x9;&#x9;glDisableClientState(GL_NORMAL_ARRAY);&#xA;&#x9;&#x9;glDisableClientState(GL_TEXTURE_COORD_ARRAY);&#xA;&#x9;&#x9;glDisableClientState(GL_COLOR_ARRAY);&#xA;&#x9;&#x9;glDisableClientState(GL_VERTEX_ARRAY);&#xA;&#x9;}&#xA;}&#xA;&#xA;void Mesh::addColorVertice(double r, double g, double b, double a) {&#xA;&#x9;vColors.emplace_back(r, g, b, a);&#xA;}&#xA;&#xA;Mesh*&#xA;Mesh::createRGBAxes(GLdouble l)&#xA;{&#xA;&#x9;Mesh* mesh = new Mesh();&#xA;&#xA;&#x9;mesh->mPrimitive = GL_LINES;&#xA;&#xA;&#x9;mesh->mNumVertices = 6;&#xA;&#x9;mesh->vVertices.reserve(mesh->mNumVertices);&#xA;&#xA;&#x9;// X axis vertices&#xA;&#x9;mesh->vVertices.emplace_back(0.0, 0.0, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back(l, 0.0, 0.0);&#xA;&#x9;// Y axis vertices&#xA;&#x9;mesh->vVertices.emplace_back(0.0, 0.0, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back(0.0, l, 0.0);&#xA;&#x9;// Z axis vertices&#xA;&#x9;mesh->vVertices.emplace_back(0.0, 0.0, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back(0.0, 0.0, l);&#xA;&#xA;&#x9;mesh->vColors.reserve(mesh->mNumVertices);&#xA;&#x9;// X axis color: red  (Alpha = 1 : fully opaque)&#xA;&#x9;mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);&#xA;&#x9;mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);&#xA;&#x9;// Y axis color: green&#xA;&#x9;mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);&#xA;&#x9;mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);&#xA;&#x9;// Z axis color: blue&#xA;&#x9;mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);&#xA;&#x9;mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);&#xA;&#xA;&#x9;return mesh;&#xA;}&#xA;&#xA;Mesh*&#xA;Mesh::generateRegularPolygon(GLuint num, GLdouble r, GLuint primitive)&#xA;{&#xA;&#x9;// variables&#xA;&#x9;int auxnum = num;&#xA;&#x9;float alfa = 90.0, angsep = 360 / num;&#xA;&#xA;&#x9;Mesh* mesh = new Mesh();&#xA;&#xA;&#x9;mesh->mPrimitive = primitive;&#xA;&#xA;&#x9;mesh->mNumVertices = num;&#xA;&#x9;mesh->vVertices.reserve(mesh->mNumVertices);&#xA;&#xA;&#x9;for (int i = 0; i &lt; auxnum; i++)&#xA;&#x9;{&#xA;&#x9;&#x9;auto alfaAux = glm::radians(alfa);&#xA;&#xA;&#x9;&#x9;auto x = r * glm::cos(alfaAux);&#xA;&#x9;&#x9;auto y = r * glm::sin(alfaAux);&#xA;&#xA;&#x9;&#x9;mesh->vVertices.emplace_back(x, y, 0.0);&#xA;&#xA;&#x9;&#x9;alfa += angsep;&#xA;&#x9;}&#xA;&#xA;&#x9;mesh->vColors.reserve(mesh->mNumVertices);&#xA;&#xA;&#x9;return mesh;&#xA;}&#xA;&#xA;Mesh*&#xA;Mesh::generateRectangle(GLdouble w, GLdouble h) {&#xA;&#xA;&#x9;Mesh* mesh = new Mesh();&#xA;&#xA;&#x9;mesh->mPrimitive = GL_TRIANGLE_STRIP;&#xA;&#xA;&#x9;mesh->mNumVertices = 4;&#xA;&#x9;mesh->vVertices.reserve(mesh->mNumVertices);&#xA;&#xA;&#x9;mesh->vVertices.emplace_back((w / 2) * -1, h / 2, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back((w / 2) * -1, (h / 2) * -1, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back(w/2, h/2, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back(w / 2, (h / 2) * -1, 0.0);&#xA;&#xA;&#x9;mesh->vColors.reserve(mesh->mNumVertices);&#xA;&#xA;&#x9;return mesh;&#xA;}&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Mesh.h&quot;&#xA;&#xA;#include &lt;fstream>&#xA;using namespace std;&#xA;using namespace glm;&#xA;&#xA;void&#xA;Mesh::draw() const&#xA;{&#xA;&#x9;glDrawArrays(&#xA;&#x9;  mPrimitive,&#xA;&#x9;  0,&#xA;&#x9;  size()); // primitive graphic, first index and number of elements to be rendered&#xA;}&#xA;&#xA;void&#xA;Mesh::render() const&#xA;{&#xA;&#x9;if (vVertices.size() > 0) { // transfer data&#xA;&#x9;&#x9;// transfer the coordinates of the vertices&#xA;&#x9;&#x9;glEnableClientState(GL_VERTEX_ARRAY);&#xA;&#x9;&#x9;glVertexPointer(&#xA;&#x9;&#x9;  3, GL_DOUBLE, 0, vVertices.data()); // number of coordinates per vertex, type of&#xA;&#x9;&#x9;                                      // each coordinate, stride, pointer&#xA;&#x9;&#x9;if (vColors.size() > 0) {             // transfer colors&#xA;&#x9;&#x9;&#x9;glEnableClientState(GL_COLOR_ARRAY);&#xA;&#x9;&#x9;&#x9;glColorPointer(&#xA;&#x9;&#x9;&#x9;  4, GL_DOUBLE, 0, vColors.data()); // components number (rgba=4), type of&#xA;&#x9;&#x9;&#x9;                                    // each component, stride, pointer&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;if (vTexCoords.size() > 0) {&#xA;&#x9;&#x9;&#x9;glEnableClientState(GL_TEXTURE_COORD_ARRAY);&#xA;&#x9;&#x9;&#x9;glTexCoordPointer(2, GL_DOUBLE, 0, vTexCoords.data());&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;if (vNormals.size() > 0) {&#xA;&#x9;&#x9;&#x9;glEnableClientState(GL_NORMAL_ARRAY);&#xA;&#x9;&#x9;&#x9;glNormalPointer(GL_DOUBLE, 0, vNormals.data());&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;draw();&#xA;&#xA;&#x9;&#x9;glDisableClientState(GL_NORMAL_ARRAY);&#xA;&#x9;&#x9;glDisableClientState(GL_TEXTURE_COORD_ARRAY);&#xA;&#x9;&#x9;glDisableClientState(GL_COLOR_ARRAY);&#xA;&#x9;&#x9;glDisableClientState(GL_VERTEX_ARRAY);&#xA;&#x9;}&#xA;}&#xA;&#xA;void Mesh::addColorVertice(double r, double g, double b, double a) {&#xA;&#x9;vColors.emplace_back(r, g, b, a);&#xA;}&#xA;&#xA;Mesh*&#xA;Mesh::createRGBAxes(GLdouble l)&#xA;{&#xA;&#x9;Mesh* mesh = new Mesh();&#xA;&#xA;&#x9;mesh->mPrimitive = GL_LINES;&#xA;&#xA;&#x9;mesh->mNumVertices = 6;&#xA;&#x9;mesh->vVertices.reserve(mesh->mNumVertices);&#xA;&#xA;&#x9;// X axis vertices&#xA;&#x9;mesh->vVertices.emplace_back(0.0, 0.0, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back(l, 0.0, 0.0);&#xA;&#x9;// Y axis vertices&#xA;&#x9;mesh->vVertices.emplace_back(0.0, 0.0, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back(0.0, l, 0.0);&#xA;&#x9;// Z axis vertices&#xA;&#x9;mesh->vVertices.emplace_back(0.0, 0.0, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back(0.0, 0.0, l);&#xA;&#xA;&#x9;mesh->vColors.reserve(mesh->mNumVertices);&#xA;&#x9;// X axis color: red  (Alpha = 1 : fully opaque)&#xA;&#x9;mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);&#xA;&#x9;mesh->vColors.emplace_back(1.0, 0.0, 0.0, 1.0);&#xA;&#x9;// Y axis color: green&#xA;&#x9;mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);&#xA;&#x9;mesh->vColors.emplace_back(0.0, 1.0, 0.0, 1.0);&#xA;&#x9;// Z axis color: blue&#xA;&#x9;mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);&#xA;&#x9;mesh->vColors.emplace_back(0.0, 0.0, 1.0, 1.0);&#xA;&#xA;&#x9;return mesh;&#xA;}&#xA;&#xA;Mesh*&#xA;Mesh::generateRegularPolygon(GLuint num, GLdouble r, GLuint primitive)&#xA;{&#xA;&#x9;// variables&#xA;&#x9;int auxnum = num;&#xA;&#x9;float alfa = 90.0, angsep = 360 / num;&#xA;&#xA;&#x9;Mesh* mesh = new Mesh();&#xA;&#xA;&#x9;mesh->mPrimitive = primitive;&#xA;&#xA;&#x9;mesh->mNumVertices = num;&#xA;&#x9;mesh->vVertices.reserve(mesh->mNumVertices);&#xA;&#xA;&#x9;for (int i = 0; i &lt; auxnum; i++)&#xA;&#x9;{&#xA;&#x9;&#x9;auto alfaAux = glm::radians(alfa);&#xA;&#xA;&#x9;&#x9;auto x = r * glm::cos(alfaAux);&#xA;&#x9;&#x9;auto y = r * glm::sin(alfaAux);&#xA;&#xA;&#x9;&#x9;mesh->vVertices.emplace_back(x, y, 0.0);&#xA;&#xA;&#x9;&#x9;alfa += angsep;&#xA;&#x9;}&#xA;&#xA;&#x9;mesh->vColors.reserve(mesh->mNumVertices);&#xA;&#xA;&#x9;return mesh;&#xA;}&#xA;&#xA;Mesh*&#xA;Mesh::generateRectangle(GLdouble w, GLdouble h) {&#xA;&#xA;&#x9;Mesh* mesh = new Mesh();&#xA;&#xA;&#x9;mesh->mPrimitive = GL_TRIANGLE_STRIP;&#xA;&#xA;&#x9;mesh->mNumVertices = 4;&#xA;&#x9;mesh->vVertices.reserve(mesh->mNumVertices);&#xA;&#xA;&#x9;mesh->vVertices.emplace_back((w / 2) * -1, h / 2, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back((w / 2) * -1, (h / 2) * -1, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back(w/2, h/2, 0.0);&#xA;&#x9;mesh->vVertices.emplace_back(w / 2, (h / 2) * -1, 0.0);&#xA;&#xA;&#x9;mesh->vColors.reserve(mesh->mNumVertices);&#xA;&#xA;&#x9;return mesh;&#xA;}&#xA;&#xA;void IndexMesh::render() const {&#xA;&#x9; // Comandos OpenGL para enviar datos de arrays a GPU&#xA;&#x9;if (vVertices.size() > 0) { // transfer data&#xA;&#x9;&#x9;// transfer the coordinates of the vertices&#xA;&#x9;&#x9;glEnableClientState(GL_VERTEX_ARRAY);&#xA;&#x9;&#x9;glVertexPointer(&#xA;&#x9;&#x9;&#x9;3, GL_DOUBLE, 0, vVertices.data()); // number of coordinates per vertex, type of&#xA;&#x9;&#x9;// each coordinate, stride, pointer&#xA;&#x9;&#x9;if (vColors.size() > 0) {             // transfer colors&#xA;&#x9;&#x9;&#x9;glEnableClientState(GL_COLOR_ARRAY);&#xA;&#x9;&#x9;&#x9;glColorPointer(&#xA;&#x9;&#x9;&#x9;&#x9;4, GL_DOUBLE, 0, vColors.data()); // components number (rgba=4), type of&#xA;&#x9;&#x9;&#x9;// each component, stride, pointer&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;if (vTexCoords.size() > 0) {&#xA;&#x9;&#x9;&#x9;glEnableClientState(GL_TEXTURE_COORD_ARRAY);&#xA;&#x9;&#x9;&#x9;glTexCoordPointer(2, GL_DOUBLE, 0, vTexCoords.data());&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;if (vNormals.size() > 0) {&#xA;&#x9;&#x9;&#x9;glEnableClientState(GL_NORMAL_ARRAY);&#xA;&#x9;&#x9;&#x9;glNormalPointer(GL_DOUBLE, 0, vNormals.data());&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;// Nuevos comandos para la tabla de índices&#xA;&#x9;&#x9;if (vIndices != nullptr) {&#xA;&#x9;&#x9;&#x9;glEnableClientState(GL_INDEX_ARRAY);&#xA;&#x9;&#x9;&#x9;glIndexPointer(GL_UNSIGNED_INT, 0, vIndices);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;draw();&#xA;&#x9;&#x9;// Comandos OpenGL para deshabilitar datos enviados&#xA;&#x9;&#x9;glDisableClientState(GL_NORMAL_ARRAY);&#xA;&#x9;&#x9;glDisableClientState(GL_TEXTURE_COORD_ARRAY);&#xA;&#x9;&#x9;glDisableClientState(GL_COLOR_ARRAY);&#xA;&#x9;&#x9;glDisableClientState(GL_VERTEX_ARRAY);&#xA;&#x9;&#x9;// Nuevo comando para la tabla de índices :&#xA;&#x9;&#x9;glDisableClientState(GL_INDEX_ARRAY);&#xA;&#x9;}&#xA;}&#xA;// Comando para renderizar la malla indexada enviada&#xA;void IndexMesh::draw() const {&#xA;&#x9;glDrawElements(mPrimitive, nNumIndices,&#xA;&#x9;&#x9;GL_UNSIGNED_INT, vIndices);&#xA;}&#xA;&#xA;void IndexMesh::buildNormalVectors() {&#xA;&#x9;vNormals.reserve(mNumVertices);&#xA;&#x9;for (int i = 0; i &lt; mNumVertices; i++) {&#xA;&#x9;&#x9;vNormals.emplace_back(0,0,0);&#xA;&#x9;}&#xA;&#xA;&#x9;for (int i = 0; i &lt; nNumIndices/3; i++) {&#xA;&#x9;&#x9;GLuint cara"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="{ vIndices"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i*3"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=",vIndices"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i*3+1"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=",vIndices"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i*3+2"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" };&#xA;&#xA;&#x9;&#x9;auto n = dvec3(0, 0, 0);&#xA;&#x9;&#x9;for (int j = 0; j &lt; 3; j++) {&#xA;&#x9;&#x9;&#x9;auto verticeActual = vVertices"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="cara"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="j"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;&#x9;&#x9;&#x9;auto verticeSiguiente = vVertices"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="cara"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="(j + 1) % 3"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;&#xA;&#x9;&#x9;&#x9;n.x += (verticeActual.y - verticeSiguiente.y) * (verticeActual.z + verticeSiguiente.z);&#xA;&#x9;&#x9;&#x9;n.y += (verticeActual.z - verticeSiguiente.z) * (verticeActual.x + verticeSiguiente.x);&#xA;&#x9;&#x9;&#x9;n.z += (verticeActual.x - verticeSiguiente.x) * (verticeActual.y + verticeSiguiente.y);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;vNormals"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="cara"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="0"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" += n;&#xA;&#x9;&#x9;vNormals"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="cara"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="1"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" += n;&#xA;&#x9;&#x9;vNormals"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="cara"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="2"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" += n;&#xA;&#x9;}&#xA;&#xA;&#x9;for (int i = 0; i &lt; mNumVertices; i++) {&#xA;&#x9;&#x9;vNormals"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = glm::normalize(vNormals"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xA;&#x9;}&#xA;}&#xA;&#xA;IndexMesh*&#xA;IndexMesh::generateIndexedBox(GLdouble l) {&#xA;&#x9;IndexMesh* indexMesh = new IndexMesh();&#xA;&#xA;&#x9;indexMesh->mNumVertices = 8;&#xA;&#xA;&#x9;indexMesh->vVertices.reserve(indexMesh->mNumVertices);&#xA;&#x9;indexMesh->vVertices.emplace_back(dvec3(-l / 2, l / 2, l / 2));&#xA;&#x9;indexMesh->vVertices.emplace_back(dvec3(-l / 2, -l / 2, l / 2));&#xA;&#x9;indexMesh->vVertices.emplace_back(dvec3(l / 2, l / 2, l / 2));&#xA;&#x9;indexMesh->vVertices.emplace_back(dvec3(l / 2, -l / 2, l / 2));&#xA;&#x9;indexMesh->vVertices.emplace_back(dvec3(l / 2, l / 2, -l / 2));&#xA;&#x9;indexMesh->vVertices.emplace_back(dvec3(l / 2, -l / 2, -l / 2));&#xA;&#x9;indexMesh->vVertices.emplace_back(dvec3(-l / 2, l / 2, -l / 2));&#xA;&#x9;indexMesh->vVertices.emplace_back(dvec3(-l / 2, -l / 2, -l / 2));&#xA;&#xA;&#x9;indexMesh->vColors.reserve(indexMesh->mNumVertices);&#xA;&#x9;for (int i = 0; i &lt; 8; i++) {&#xA;&#x9;&#x9;indexMesh->vColors.emplace_back(0, 1, 0, 1);&#xA;&#x9;}&#xA;&#xA;&#x9;indexMesh->nNumIndices = 36;&#xA;&#x9;&#xA;&#x9;indexMesh->vIndices = new GLuint "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="{ 0,1,2, 1,3,2, 2,3,4, 3,5,4, 4,5,6, 5,7,6, 0,6,1, 6,7,1, 0,2,4, 4,6,0, 1,5,3, 1,7,5 };&#xA;&#xA;&#x9;indexMesh->buildNormalVectors();&#xA;&#xA;&#x9;return indexMesh;&#xA;}&#xA;&#xA;MbR*&#xA;MbR::generateIndexMbR(int mm, int nn, glm::dvec3* perfil) {&#xA;&#x9;MbR* mesh = new MbR(nn, perfil, mm);&#xA;&#x9;// Definir la primitiva como GL_TRIANGLES&#xA;&#x9;mesh->mPrimitive = GL_TRIANGLES;&#xA;&#x9;// Definir el número de vértices como nn*mm&#xA;&#x9;mesh->mNumVertices = nn * mm;&#xA;&#x9;// Usar un vector auxiliar de vértices&#xA;&#x9;glm::dvec3* vs = new glm::dvec3"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="mesh->mNumVertices"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;&#xA;&#x9;int aux = 0;&#xA;&#xA;&#x9;for (int i = 0; i &lt; nn; i++) {&#xA;&#x9;&#x9;// Generar la muestra i- ésima de vértices&#xA;&#x9;&#x9;GLdouble theta = i * 360 / nn;&#xA;&#x9;&#x9;GLdouble c = cos(radians(theta));&#xA;&#x9;&#x9;GLdouble s = sin(radians(theta));&#xA;&#x9;&#x9;for (int j = 0; j &lt; mm; j++) {&#xA;&#x9;&#x9;&#x9;GLdouble z = -s * perfil"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="j"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".x + c * perfil"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="j"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".z;&#xA;&#x9;&#x9;&#x9;GLdouble x = c * perfil"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="j"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".x + s * perfil"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="j"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".z;&#xA;&#x9;&#x9;&#x9;vs"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="aux"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = glm::dvec3(x, perfil"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="j"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".y, z);&#xA;&#x9;&#x9;&#x9;aux++;&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#xA;&#x9;mesh->vVertices.reserve(mesh->mNumVertices);&#xA;&#xA;&#x9;for (int i = 0; i &lt; mesh->mNumVertices; i++) {&#xA;&#x9;&#x9;mesh->vVertices.emplace_back(vs"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=");&#xA;&#x9;}&#xA;&#xA;&#x9;mesh->nNumIndices = (mm-1) * nn * 6;&#xA;&#x9;mesh->vIndices = new GLuint"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="mesh->nNumIndices"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;&#xA;&#x9;int indiceMayor = 0;&#xA;&#x9;// El contador i recorre las muestras alrededor del eje Y&#xA;&#x9;for (int i = 0; i &lt; nn; i++) {&#xA;&#x9;&#x9;// El contador j recorre los vértices del perfil ,&#xA;&#x9;&#x9;// de abajo arriba . Las caras cuadrangulares resultan&#xA;&#x9;&#x9;// al unir la muestra i- ésima con la (i +1)% nn - ésima&#xA;&#x9;&#x9;for (int j = 0; j &lt; mm - 1; j++) {&#xA;&#x9;&#x9;&#x9;// El contador indice sirve para llevar cuenta&#xA;&#x9;&#x9;&#x9;// de los índices generados hasta ahora . Se recorre&#xA;&#x9;&#x9;&#x9;// la cara desde la esquina inferior izquierda&#xA;&#x9;&#x9;&#x9;int indice = i * mm + j;&#xA;&#xA;&#x9;&#x9;&#x9;mesh->vIndices"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="indiceMayor"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = indice;&#xA;&#x9;&#x9;&#x9;indiceMayor++;&#xA;&#x9;&#x9;&#x9;mesh->vIndices"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="indiceMayor"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = (indice + mm) % (nn * mm);&#xA;&#x9;&#x9;&#x9;indiceMayor++;&#xA;&#x9;&#x9;&#x9;mesh->vIndices"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="indiceMayor"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = (indice + mm + 1) % (nn * mm);&#xA;&#x9;&#x9;&#x9;indiceMayor++;&#xA;&#xA;&#x9;&#x9;&#x9;mesh->vIndices"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="indiceMayor"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = (indice + mm + 1) % (nn * mm);&#xA;&#x9;&#x9;&#x9;indiceMayor++;&#xA;&#x9;&#x9;&#x9;mesh->vIndices"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="indiceMayor"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = indice + 1;&#xA;&#x9;&#x9;&#x9;indiceMayor++;&#xA;&#x9;&#x9;&#x9;mesh->vIndices"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="indiceMayor"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = indice;&#xA;&#x9;&#x9;&#x9;indiceMayor++;&#xA;&#x9;&#x9;}&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;// Y análogamente se añaden los otros tres índices&#xA;&#xA;&#x9;mesh -> buildNormalVectors();&#xA;&#x9;return mesh;&#xA;}&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Mesh.cpp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
@@ -111,60 +374,899 @@
     <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateMesh">
       <details key="start" value="86"/>
-      <details key="end" value="4989"/>
+      <details key="end" value="11554"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateMesh/%">
       <details key="start" value="158"/>
-      <details key="end" value="1505"/>
+      <details key="end" value="2165"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateMesh/%/%">
       <details key="start" value="192"/>
-      <details key="end" value="1498"/>
+      <details key="end" value="1676"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateMesh/%/%.1">
+      <details key="start" value="1678"/>
+      <details key="end" value="1681"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateMesh/%/%.2">
+      <details key="start" value="1686"/>
+      <details key="end" value="1689"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateMesh/%/%.3">
+      <details key="start" value="1692"/>
+      <details key="end" value="2038"/>
+      <details key="line" value="56"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateMesh/%/%.4">
+      <details key="start" value="2040"/>
+      <details key="end" value="2043"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateMesh/%/%.5">
+      <details key="start" value="2048"/>
+      <details key="end" value="2051"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateMesh/%/%.6">
+      <details key="start" value="2054"/>
+      <details key="end" value="2158"/>
+      <details key="line" value="71"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateMesh/%/%.7">
       <details key="start" value="165"/>
       <details key="end" value="173"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.4" references="/0/generateMesh/%/%.2">
+    <eAnnotations source="positions.10" references="/0/generateMesh/%/%.8">
       <details key="start" value="182"/>
       <details key="end" value="189"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.5" references="/0/generateMesh/%.1">
-      <details key="start" value="1506"/>
-      <details key="end" value="1507"/>
-      <details key="line" value="52"/>
+    <eAnnotations source="positions.11" references="/0/generateMesh/%.1">
+      <details key="start" value="2166"/>
+      <details key="end" value="2167"/>
+      <details key="line" value="78"/>
     </eAnnotations>
-    <eAnnotations source="positions.6" references="/0/generateMesh/%.2">
-      <details key="start" value="1536"/>
-      <details key="end" value="4977"/>
-      <details key="line" value="54"/>
+    <eAnnotations source="positions.12" references="/0/generateMesh/%.2">
+      <details key="start" value="2196"/>
+      <details key="end" value="11542"/>
+      <details key="line" value="80"/>
     </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/generateMesh/%.2/%">
-      <details key="start" value="1572"/>
-      <details key="end" value="4970"/>
-      <details key="line" value="55"/>
+    <eAnnotations source="positions.13" references="/0/generateMesh/%.2/%">
+      <details key="start" value="2232"/>
+      <details key="end" value="7352"/>
+      <details key="line" value="81"/>
     </eAnnotations>
-    <eAnnotations source="positions.8" references="/0/generateMesh/%.2/%.1">
-      <details key="start" value="1543"/>
-      <details key="end" value="1553"/>
+    <eAnnotations source="positions.14" references="/0/generateMesh/%.2/%.1">
+      <details key="start" value="7354"/>
+      <details key="end" value="7357"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/generateMesh/%.2/%.2">
-      <details key="start" value="1562"/>
-      <details key="end" value="1569"/>
+    <eAnnotations source="positions.15" references="/0/generateMesh/%.2/%.2">
+      <details key="start" value="7362"/>
+      <details key="end" value="7365"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/generateMesh/aMesh">
+    <eAnnotations source="positions.16" references="/0/generateMesh/%.2/%.3">
+      <details key="start" value="7368"/>
+      <details key="end" value="7378"/>
+      <details key="line" value="267"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateMesh/%.2/%.4">
+      <details key="start" value="7380"/>
+      <details key="end" value="7383"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateMesh/%.2/%.5">
+      <details key="start" value="7386"/>
+      <details key="end" value="7389"/>
+      <details key="line" value="267"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateMesh/%.2/%.6">
+      <details key="start" value="7391"/>
+      <details key="end" value="7394"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateMesh/%.2/%.7">
+      <details key="start" value="7397"/>
+      <details key="end" value="7406"/>
+      <details key="line" value="267"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateMesh/%.2/%.8">
+      <details key="start" value="7408"/>
+      <details key="end" value="7411"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateMesh/%.2/%.9">
+      <details key="start" value="7414"/>
+      <details key="end" value="7419"/>
+      <details key="line" value="267"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateMesh/%.2/%.10">
+      <details key="start" value="7421"/>
+      <details key="end" value="7424"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateMesh/%.2/%.11">
+      <details key="start" value="7427"/>
+      <details key="end" value="7436"/>
+      <details key="line" value="267"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateMesh/%.2/%.12">
+      <details key="start" value="7438"/>
+      <details key="end" value="7441"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateMesh/%.2/%.13">
+      <details key="start" value="7444"/>
+      <details key="end" value="7449"/>
+      <details key="line" value="267"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateMesh/%.2/%.14">
+      <details key="start" value="7451"/>
+      <details key="end" value="7454"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateMesh/%.2/%.15">
+      <details key="start" value="7457"/>
+      <details key="end" value="7554"/>
+      <details key="line" value="267"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateMesh/%.2/%.16">
+      <details key="start" value="7556"/>
+      <details key="end" value="7559"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateMesh/%.2/%.17">
+      <details key="start" value="7562"/>
+      <details key="end" value="7566"/>
+      <details key="line" value="271"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateMesh/%.2/%.18">
+      <details key="start" value="7568"/>
+      <details key="end" value="7571"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateMesh/%.2/%.19">
+      <details key="start" value="7574"/>
+      <details key="end" value="7575"/>
+      <details key="line" value="271"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateMesh/%.2/%.20">
+      <details key="start" value="7577"/>
+      <details key="end" value="7580"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateMesh/%.2/%.21">
+      <details key="start" value="7585"/>
+      <details key="end" value="7588"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateMesh/%.2/%.22">
+      <details key="start" value="7591"/>
+      <details key="end" value="7629"/>
+      <details key="line" value="271"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/generateMesh/%.2/%.23">
+      <details key="start" value="7631"/>
+      <details key="end" value="7634"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/generateMesh/%.2/%.24">
+      <details key="start" value="7637"/>
+      <details key="end" value="7641"/>
+      <details key="line" value="272"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/generateMesh/%.2/%.25">
+      <details key="start" value="7643"/>
+      <details key="end" value="7646"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/generateMesh/%.2/%.26">
+      <details key="start" value="7649"/>
+      <details key="end" value="7660"/>
+      <details key="line" value="272"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/generateMesh/%.2/%.27">
+      <details key="start" value="7662"/>
+      <details key="end" value="7665"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateMesh/%.2/%.28">
+      <details key="start" value="7670"/>
+      <details key="end" value="7673"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateMesh/%.2/%.29">
+      <details key="start" value="7676"/>
+      <details key="end" value="7966"/>
+      <details key="line" value="272"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateMesh/%.2/%.30">
+      <details key="start" value="7968"/>
+      <details key="end" value="7971"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateMesh/%.2/%.31">
+      <details key="start" value="7974"/>
+      <details key="end" value="7978"/>
+      <details key="line" value="278"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateMesh/%.2/%.32">
+      <details key="start" value="7980"/>
+      <details key="end" value="7983"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateMesh/%.2/%.33">
+      <details key="start" value="7986"/>
+      <details key="end" value="7987"/>
+      <details key="line" value="278"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateMesh/%.2/%.34">
+      <details key="start" value="7989"/>
+      <details key="end" value="7992"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateMesh/%.2/%.35">
+      <details key="start" value="7997"/>
+      <details key="end" value="8000"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateMesh/%.2/%.36">
+      <details key="start" value="8003"/>
+      <details key="end" value="8020"/>
+      <details key="line" value="278"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateMesh/%.2/%.37">
+      <details key="start" value="8022"/>
+      <details key="end" value="8025"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateMesh/%.2/%.38">
+      <details key="start" value="8028"/>
+      <details key="end" value="8032"/>
+      <details key="line" value="279"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateMesh/%.2/%.39">
+      <details key="start" value="8034"/>
+      <details key="end" value="8037"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateMesh/%.2/%.40">
+      <details key="start" value="8040"/>
+      <details key="end" value="8041"/>
+      <details key="line" value="279"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateMesh/%.2/%.41">
+      <details key="start" value="8043"/>
+      <details key="end" value="8046"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateMesh/%.2/%.42">
+      <details key="start" value="8051"/>
+      <details key="end" value="8054"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateMesh/%.2/%.43">
+      <details key="start" value="8057"/>
+      <details key="end" value="8074"/>
+      <details key="line" value="279"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateMesh/%.2/%.44">
+      <details key="start" value="8076"/>
+      <details key="end" value="8079"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateMesh/%.2/%.45">
+      <details key="start" value="8082"/>
+      <details key="end" value="8086"/>
+      <details key="line" value="280"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateMesh/%.2/%.46">
+      <details key="start" value="8088"/>
+      <details key="end" value="8091"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateMesh/%.2/%.47">
+      <details key="start" value="8094"/>
+      <details key="end" value="8095"/>
+      <details key="line" value="280"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateMesh/%.2/%.48">
+      <details key="start" value="8097"/>
+      <details key="end" value="8100"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateMesh/%.2/%.49">
+      <details key="start" value="8105"/>
+      <details key="end" value="8108"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateMesh/%.2/%.50">
+      <details key="start" value="8111"/>
+      <details key="end" value="8174"/>
+      <details key="line" value="280"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/generateMesh/%.2/%.51">
+      <details key="start" value="8176"/>
+      <details key="end" value="8179"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/generateMesh/%.2/%.52">
+      <details key="start" value="8182"/>
+      <details key="end" value="8183"/>
+      <details key="line" value="284"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/generateMesh/%.2/%.53">
+      <details key="start" value="8185"/>
+      <details key="end" value="8188"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/generateMesh/%.2/%.54">
+      <details key="start" value="8191"/>
+      <details key="end" value="8217"/>
+      <details key="line" value="284"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/generateMesh/%.2/%.55">
+      <details key="start" value="8219"/>
+      <details key="end" value="8222"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/generateMesh/%.2/%.56">
+      <details key="start" value="8225"/>
+      <details key="end" value="8226"/>
+      <details key="line" value="284"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/generateMesh/%.2/%.57">
+      <details key="start" value="8228"/>
+      <details key="end" value="8231"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/generateMesh/%.2/%.58">
+      <details key="start" value="8234"/>
+      <details key="end" value="9154"/>
+      <details key="line" value="284"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/generateMesh/%.2/%.59">
+      <details key="start" value="9156"/>
+      <details key="end" value="9159"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/generateMesh/%.2/%.60">
+      <details key="start" value="9164"/>
+      <details key="end" value="9167"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/generateMesh/%.2/%.61">
+      <details key="start" value="9170"/>
+      <details key="end" value="9644"/>
+      <details key="line" value="311"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/generateMesh/%.2/%.62">
+      <details key="start" value="9646"/>
+      <details key="end" value="9649"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/generateMesh/%.2/%.63">
+      <details key="start" value="9652"/>
+      <details key="end" value="9670"/>
+      <details key="line" value="326"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/generateMesh/%.2/%.64">
+      <details key="start" value="9672"/>
+      <details key="end" value="9675"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/generateMesh/%.2/%.65">
+      <details key="start" value="9678"/>
+      <details key="end" value="9938"/>
+      <details key="line" value="326"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/generateMesh/%.2/%.66">
+      <details key="start" value="9940"/>
+      <details key="end" value="9943"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/generateMesh/%.2/%.67">
+      <details key="start" value="9946"/>
+      <details key="end" value="9947"/>
+      <details key="line" value="336"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/generateMesh/%.2/%.68">
+      <details key="start" value="9949"/>
+      <details key="end" value="9952"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/generateMesh/%.2/%.69">
+      <details key="start" value="9955"/>
+      <details key="end" value="9970"/>
+      <details key="line" value="336"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/generateMesh/%.2/%.70">
+      <details key="start" value="9972"/>
+      <details key="end" value="9975"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateMesh/%.2/%.71">
+      <details key="start" value="9978"/>
+      <details key="end" value="9979"/>
+      <details key="line" value="336"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateMesh/%.2/%.72">
+      <details key="start" value="9981"/>
+      <details key="end" value="9984"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/generateMesh/%.2/%.73">
+      <details key="start" value="9987"/>
+      <details key="end" value="10017"/>
+      <details key="line" value="336"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/generateMesh/%.2/%.74">
+      <details key="start" value="10019"/>
+      <details key="end" value="10022"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/generateMesh/%.2/%.75">
+      <details key="start" value="10025"/>
+      <details key="end" value="10026"/>
+      <details key="line" value="337"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/generateMesh/%.2/%.76">
+      <details key="start" value="10028"/>
+      <details key="end" value="10031"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/generateMesh/%.2/%.77">
+      <details key="start" value="10034"/>
+      <details key="end" value="10049"/>
+      <details key="line" value="337"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/generateMesh/%.2/%.78">
+      <details key="start" value="10051"/>
+      <details key="end" value="10054"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/generateMesh/%.2/%.79">
+      <details key="start" value="10057"/>
+      <details key="end" value="10058"/>
+      <details key="line" value="337"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/generateMesh/%.2/%.80">
+      <details key="start" value="10060"/>
+      <details key="end" value="10063"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/generateMesh/%.2/%.81">
+      <details key="start" value="10066"/>
+      <details key="end" value="10075"/>
+      <details key="line" value="337"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/generateMesh/%.2/%.82">
+      <details key="start" value="10077"/>
+      <details key="end" value="10080"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/generateMesh/%.2/%.83">
+      <details key="start" value="10083"/>
+      <details key="end" value="10086"/>
+      <details key="line" value="338"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/generateMesh/%.2/%.84">
+      <details key="start" value="10088"/>
+      <details key="end" value="10091"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/generateMesh/%.2/%.85">
+      <details key="start" value="10094"/>
+      <details key="end" value="10117"/>
+      <details key="line" value="338"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/generateMesh/%.2/%.86">
+      <details key="start" value="10119"/>
+      <details key="end" value="10122"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/generateMesh/%.2/%.87">
+      <details key="start" value="10125"/>
+      <details key="end" value="10126"/>
+      <details key="line" value="338"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/generateMesh/%.2/%.88">
+      <details key="start" value="10128"/>
+      <details key="end" value="10131"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/generateMesh/%.2/%.89">
+      <details key="start" value="10134"/>
+      <details key="end" value="10288"/>
+      <details key="line" value="338"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/generateMesh/%.2/%.90">
+      <details key="start" value="10290"/>
+      <details key="end" value="10293"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/generateMesh/%.2/%.91">
+      <details key="start" value="10296"/>
+      <details key="end" value="10297"/>
+      <details key="line" value="346"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/generateMesh/%.2/%.92">
+      <details key="start" value="10299"/>
+      <details key="end" value="10302"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/generateMesh/%.2/%.93">
+      <details key="start" value="10305"/>
+      <details key="end" value="10378"/>
+      <details key="line" value="346"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/generateMesh/%.2/%.94">
+      <details key="start" value="10380"/>
+      <details key="end" value="10383"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/generateMesh/%.2/%.95">
+      <details key="start" value="10386"/>
+      <details key="end" value="10403"/>
+      <details key="line" value="350"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/generateMesh/%.2/%.96">
+      <details key="start" value="10405"/>
+      <details key="end" value="10408"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/generateMesh/%.2/%.97">
+      <details key="start" value="10411"/>
+      <details key="end" value="10935"/>
+      <details key="line" value="350"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/generateMesh/%.2/%.98">
+      <details key="start" value="10937"/>
+      <details key="end" value="10940"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/generateMesh/%.2/%.99">
+      <details key="start" value="10943"/>
+      <details key="end" value="10954"/>
+      <details key="line" value="364"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/generateMesh/%.2/%.100">
+      <details key="start" value="10956"/>
+      <details key="end" value="10959"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/generateMesh/%.2/%.101">
+      <details key="start" value="10962"/>
+      <details key="end" value="11008"/>
+      <details key="line" value="364"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/generateMesh/%.2/%.102">
+      <details key="start" value="11010"/>
+      <details key="end" value="11013"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/generateMesh/%.2/%.103">
+      <details key="start" value="11016"/>
+      <details key="end" value="11027"/>
+      <details key="line" value="366"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/generateMesh/%.2/%.104">
+      <details key="start" value="11029"/>
+      <details key="end" value="11032"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/generateMesh/%.2/%.105">
+      <details key="start" value="11035"/>
+      <details key="end" value="11100"/>
+      <details key="line" value="366"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/generateMesh/%.2/%.106">
+      <details key="start" value="11102"/>
+      <details key="end" value="11105"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/generateMesh/%.2/%.107">
+      <details key="start" value="11108"/>
+      <details key="end" value="11119"/>
+      <details key="line" value="368"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/generateMesh/%.2/%.108">
+      <details key="start" value="11121"/>
+      <details key="end" value="11124"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/generateMesh/%.2/%.109">
+      <details key="start" value="11127"/>
+      <details key="end" value="11197"/>
+      <details key="line" value="368"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/generateMesh/%.2/%.110">
+      <details key="start" value="11199"/>
+      <details key="end" value="11202"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/generateMesh/%.2/%.111">
+      <details key="start" value="11205"/>
+      <details key="end" value="11216"/>
+      <details key="line" value="371"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/generateMesh/%.2/%.112">
+      <details key="start" value="11218"/>
+      <details key="end" value="11221"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/generateMesh/%.2/%.113">
+      <details key="start" value="11224"/>
+      <details key="end" value="11293"/>
+      <details key="line" value="371"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/generateMesh/%.2/%.114">
+      <details key="start" value="11295"/>
+      <details key="end" value="11298"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/generateMesh/%.2/%.115">
+      <details key="start" value="11301"/>
+      <details key="end" value="11312"/>
+      <details key="line" value="373"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/generateMesh/%.2/%.116">
+      <details key="start" value="11314"/>
+      <details key="end" value="11317"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/generateMesh/%.2/%.117">
+      <details key="start" value="11320"/>
+      <details key="end" value="11370"/>
+      <details key="line" value="373"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/generateMesh/%.2/%.118">
+      <details key="start" value="11372"/>
+      <details key="end" value="11375"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/generateMesh/%.2/%.119">
+      <details key="start" value="11378"/>
+      <details key="end" value="11389"/>
+      <details key="line" value="375"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/generateMesh/%.2/%.120">
+      <details key="start" value="11391"/>
+      <details key="end" value="11394"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/generateMesh/%.2/%.121">
+      <details key="start" value="11397"/>
+      <details key="end" value="11535"/>
+      <details key="line" value="375"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/generateMesh/%.2/%.122">
+      <details key="start" value="2203"/>
+      <details key="end" value="2213"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/generateMesh/%.2/%.123">
+      <details key="start" value="2222"/>
+      <details key="end" value="2229"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/generateMesh/aMesh">
       <details key="start" value="116"/>
       <details key="end" value="128"/>
       <details key="line" value="5"/>
