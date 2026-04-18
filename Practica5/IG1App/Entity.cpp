@@ -208,3 +208,73 @@ PartialDisk::render(glm::dmat4 const& modelViewMat) const {
 	// Aquí se debe recuperar el color :
 	glColor3f (1.0 , 1.0 , 1.0);
 }
+
+IndexedBox::IndexedBox(GLdouble l)
+	: Abs_Entity()
+{
+	mMesh = IndexMesh::generateIndexedBox(l);
+}
+
+IndexedBox::~IndexedBox()
+{
+	delete mMesh;
+	mMesh = nullptr;
+};
+
+void
+IndexedBox::render(dmat4 const& modelViewMat) const
+{
+	if (mMesh != nullptr) {
+		dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
+		upload(aMat);
+		glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);
+		glLineWidth(2);
+		mMesh->render();
+		glLineWidth(1);
+		glColor4d(1, 1, 1, 1);
+	}
+}
+
+Toroid::Toroid(GLdouble r, GLdouble R)
+	: Abs_Entity()
+{
+	int auxnum = 40*2 + 3;
+	float alfa = 270.0, angsep = 360.0 / (auxnum-1);
+
+	glm::dvec3* perfil = new glm::dvec3[auxnum];
+
+	for (int i = 0; i < auxnum; i++)
+	{
+		auto alfaAux = glm::radians(alfa);
+
+		auto x = r * glm::cos(alfaAux);
+		auto y = r * glm::sin(alfaAux);
+
+		perfil[i] = glm::dvec3(x+ R, y, 0);
+
+		alfa += angsep;
+	}
+
+
+	mMesh = MbR::generateIndexMbR(auxnum, 40, perfil);
+}
+
+Toroid::~Toroid()
+{
+	delete mMesh;
+	mMesh = nullptr;
+};
+
+void
+Toroid::render(dmat4 const& modelViewMat) const
+{
+	if (mMesh != nullptr) {
+		dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
+		upload(aMat);
+		glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);
+		glLineWidth(2);
+		mMesh->render();
+		glLineWidth(1);
+		glColor4d(1, 1, 1, 1);
+	}
+}

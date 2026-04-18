@@ -5,6 +5,7 @@
 #include <glm/glm.hpp>
 
 #include "Entity.h"
+#include "Light.h"
 
 #include <vector>
 
@@ -20,12 +21,14 @@ public:
 
 	void addEntity(Abs_Entity* ent);
 	void addNode(Node* n);
+    void addLight(Light* n);
 
 
 protected:
 
 	std::vector<Abs_Entity*> gObjects;
 	std::vector<Node*> nodes;
+    std::vector<Light*> lights;
 	dvec3 pos;
 	dvec3 rot;
 	dvec3 esc;

@@ -40,4 +40,30 @@ protected:
 	virtual void draw() const;
 };
 
+class IndexMesh : public Mesh {
+protected:
+	GLuint* vIndices = nullptr; // tabla de índices
+	GLuint nNumIndices = 0;
+public:
+	IndexMesh() { mPrimitive = GL_TRIANGLES; }
+	virtual ~IndexMesh() { delete[] vIndices; }
+	virtual void render() const;
+	virtual void draw() const;
+	void buildNormalVectors();
+
+	static IndexMesh* generateIndexedBox(GLdouble l);
+};
+
+class MbR : public IndexMesh {
+protected:
+	int n;
+	glm::dvec3* perfil = nullptr;
+	int m;
+public:
+	MbR(int n, glm::dvec3* perfil, int m):n(n), perfil(perfil), m(m) {};
+	virtual ~MbR() { delete[] perfil; }
+
+	static MbR* generateIndexMbR(int mm, int nn, glm::dvec3* perfil);
+};
+
 #endif //_H_Scene_H_

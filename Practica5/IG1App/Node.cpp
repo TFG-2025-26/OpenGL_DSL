@@ -18,6 +18,10 @@ Node::~Node() {
 		delete el;
 		el = nullptr;
 	}
+    for (Light* lig : lights) {
+		delete lig;
+		lig = nullptr;
+	}
 	for (Node* el : nodes) {
 		delete el;
 		el = nullptr;
@@ -32,9 +36,17 @@ void Node::addNode(Node* n) {
 	nodes.push_back(n);
 }
 
+void Node::addLight(Light* l) {
+	lights.push_back(l);
+}
+
 void Node::render(dmat4 const& modelViewMat) const
 {
 	dmat4 aMat = modelViewMat * mModelMat;
+    for (Light* lig : lights) {
+		lig->upload(aMat);
+	}
+
 	for (Abs_Entity* el : gObjects) {
 		el->render(aMat);
 	}
