@@ -36,14 +36,14 @@ EjesRGB::render(dmat4 const& modelViewMat) const
 	}
 }
 
-PoligonoRegular::PoligonoRegular(GLuint num, GLdouble r,bool rellenar)
+PoligonoRegular::PoligonoRegular(GLuint num, GLdouble r, bool rellenar, GLuint rw, GLuint rh)
 	: Abs_Entity()
 {
 	if (rellenar) {
-	   mMesh = Mesh::generateRegularPolygon(num, r, GL_TRIANGLE_FAN);
+	   mMesh = Mesh::generateRegularPolygon(num, r, GL_TRIANGLE_FAN, rw, rh);
     }
     else {
-	   mMesh = Mesh::generateRegularPolygon(num, r, GL_LINE_LOOP);
+	   mMesh = Mesh::generateRegularPolygon(num, r, GL_LINE_LOOP, rw, rh);
     }
 }
 
@@ -56,21 +56,53 @@ PoligonoRegular::~PoligonoRegular()
 void
 PoligonoRegular::render(dmat4 const& modelViewMat) const
 {
-	if (mMesh != nullptr) {
-		dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
-		upload(aMat);
-		glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);
-		glLineWidth(2);
-		mMesh->render();
-		glLineWidth(1);
-		glColor4d(1, 1, 1, 1);
-	}
+    if (mMesh != nullptr) {
+	    glEnable(GL_CULL_FACE);
+
+        if (mTexture != nullptr) {
+            mTexture->setWrap(GL_REPEAT);
+	        mTexture->bind(GL_MODULATE);
+        }
+	    glCullFace(GL_BACK);
+	    dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
+	    upload(aMat);
+        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);
+	    glLineWidth(2);
+        if (mTexture != nullptr) {
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        }
+	    mMesh->render();
+	    glLineWidth(1);
+        if (mTexture != nullptr) {
+            mTexture->unbind();
+        }
+
+        if (mBackTexture != nullptr) {
+            mBackTexture->setWrap(GL_REPEAT);
+	        mBackTexture->bind(GL_MODULATE);
+        }
+	    glCullFace(GL_FRONT);
+	    aMat = modelViewMat * mModelMat; // glm matrix multiplication
+	    upload(aMat);
+        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);
+	    glLineWidth(2);
+        if (mBackTexture != nullptr) {
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        }
+	    mMesh->render();
+	    glLineWidth(1);
+        if (mBackTexture != nullptr) {
+            mBackTexture->unbind();
+        }
+
+	    glDisable(GL_CULL_FACE);
+    }
 }
 
-Rectangulo::Rectangulo(GLdouble w, GLdouble h, bool rellenar)
+Rectangulo::Rectangulo(GLdouble w, GLdouble h, bool rellenar, GLuint rw, GLuint rh)
 	: Abs_Entity(), rellenar(rellenar)
 {
-	mMesh = Mesh::generateRectangle(w, h);
+	mMesh = Mesh::generateRectangle(w, h, rw, rh);
 }
 
 Rectangulo::~Rectangulo()
@@ -91,24 +123,62 @@ Rectangulo::render(dmat4 const& modelViewMat) const
            glPolygonMode(GL_BACK, GL_LINE);
 		   glPolygonMode(GL_FRONT, GL_LINE);
         }
-		dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
-		upload(aMat);
+
+		glEnable(GL_CULL_FACE);
+
+        if (mTexture != nullptr) {
+            mTexture->setWrap(GL_REPEAT);
+	        mTexture->bind(GL_MODULATE);
+        }
+	    glCullFace(GL_BACK);
+	    dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
+	    upload(aMat);
         glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);
-		glLineWidth(2);
-		mMesh->render();
-		glLineWidth(1);
-        glColor4d(1, 1, 1, 1);
+	    glLineWidth(2);
+        if (mTexture != nullptr) {
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        }
+	    mMesh->render();
+	    glLineWidth(1);
+        if (mTexture != nullptr) {
+            mTexture->unbind();
+        }
+
+        if (mBackTexture != nullptr) {
+            mBackTexture->setWrap(GL_REPEAT);
+	        mBackTexture->bind(GL_MODULATE);
+        }
+	    glCullFace(GL_FRONT);
+	    aMat = modelViewMat * mModelMat; // glm matrix multiplication
+	    upload(aMat);
+        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);
+	    glLineWidth(2);
+        if (mBackTexture != nullptr) {
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        }
+	    mMesh->render();
+	    glLineWidth(1);
+        if (mBackTexture != nullptr) {
+            mBackTexture->unbind();
+        }
+
+	    glDisable(GL_CULL_FACE);
+
+        if(!rellenar){
+           glPolygonMode(GL_BACK, GL_FILL);
+		   glPolygonMode(GL_FRONT, GL_FILL);
+        }
 	}
 }
 
-Circulo::Circulo(GLdouble r,bool rellenar)
+Circulo::Circulo(GLdouble r, bool rellenar, GLuint rw, GLuint rh)
 	: Abs_Entity()
 {
     if (rellenar) {
-	   mMesh = Mesh::generateRegularPolygon(40, r, GL_TRIANGLE_FAN);
+	   mMesh = Mesh::generateRegularPolygon(40, r, GL_TRIANGLE_FAN, rw, rh);
     }
     else {
-	   mMesh = Mesh::generateRegularPolygon(40, r, GL_LINE_LOOP);
+	   mMesh = Mesh::generateRegularPolygon(40, r, GL_LINE_LOOP, rw, rh);
     }
 }
 
@@ -122,14 +192,46 @@ void
 Circulo::render(dmat4 const& modelViewMat) const
 {
 	if (mMesh != nullptr) {
-		dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
-		upload(aMat);
-		glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);
-		glLineWidth(2);
-		mMesh->render();
-		glLineWidth(1);
-		glColor4d(1, 1, 1, 1);
-	}
+	    glEnable(GL_CULL_FACE);
+
+        if (mTexture != nullptr) {
+            mTexture->setWrap(GL_REPEAT);
+	        mTexture->bind(GL_MODULATE);
+        }
+	    glCullFace(GL_BACK);
+	    dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication
+	    upload(aMat);
+        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);
+	    glLineWidth(2);
+        if (mTexture != nullptr) {
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        }
+	    mMesh->render();
+	    glLineWidth(1);
+        if (mTexture != nullptr) {
+            mTexture->unbind();
+        }
+
+        if (mBackTexture != nullptr) {
+            mBackTexture->setWrap(GL_REPEAT);
+	        mBackTexture->bind(GL_MODULATE);
+        }
+	    glCullFace(GL_FRONT);
+	    aMat = modelViewMat * mModelMat; // glm matrix multiplication
+	    upload(aMat);
+        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);
+	    glLineWidth(2);
+        if (mBackTexture != nullptr) {
+            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        }
+	    mMesh->render();
+	    glLineWidth(1);
+        if (mBackTexture != nullptr) {
+            mBackTexture->unbind();
+        }
+
+	    glDisable(GL_CULL_FACE);
+    }
 }
 
 QuadricEntity::QuadricEntity() {

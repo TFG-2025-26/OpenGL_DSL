@@ -32,6 +32,6 @@ protected:
 	dvec3 pos;
 	dvec3 rot;
 	dvec3 esc;
-dmat4 mModelMat;
+    dmat4 mModelMat;
 };
 #endif

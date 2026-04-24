@@ -13,9 +13,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link openGL_DSL.Texture#getMWidth <em>MWidth</em>}</li>
- *   <li>{@link openGL_DSL.Texture#getMHeight <em>MHeight</em>}</li>
- *   <li>{@link openGL_DSL.Texture#getMId <em>MId</em>}</li>
+ *   <li>{@link openGL_DSL.Texture#getTextura <em>Textura</em>}</li>
+ *   <li>{@link openGL_DSL.Texture#getAlfa <em>Alfa</em>}</li>
  * </ul>
  *
  * @see openGL_DSL.OpenGL_DSLPackage#getTexture()
@@ -24,69 +23,48 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Texture extends EObject {
 	/**
-	 * Returns the value of the '<em><b>MWidth</b></em>' attribute.
+	 * Returns the value of the '<em><b>Textura</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>MWidth</em>' attribute.
-	 * @see #setMWidth(int)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getTexture_MWidth()
+	 * @return the value of the '<em>Textura</em>' attribute.
+	 * @see #setTextura(String)
+	 * @see openGL_DSL.OpenGL_DSLPackage#getTexture_Textura()
 	 * @model
 	 * @generated
 	 */
-	int getMWidth();
+	String getTextura();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.Texture#getMWidth <em>MWidth</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.Texture#getTextura <em>Textura</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>MWidth</em>' attribute.
-	 * @see #getMWidth()
+	 * @param value the new value of the '<em>Textura</em>' attribute.
+	 * @see #getTextura()
 	 * @generated
 	 */
-	void setMWidth(int value);
+	void setTextura(String value);
 
 	/**
-	 * Returns the value of the '<em><b>MHeight</b></em>' attribute.
+	 * Returns the value of the '<em><b>Alfa</b></em>' attribute.
+	 * The default value is <code>"255"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>MHeight</em>' attribute.
-	 * @see #setMHeight(int)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getTexture_MHeight()
-	 * @model
+	 * @return the value of the '<em>Alfa</em>' attribute.
+	 * @see #setAlfa(int)
+	 * @see openGL_DSL.OpenGL_DSLPackage#getTexture_Alfa()
+	 * @model default="255"
 	 * @generated
 	 */
-	int getMHeight();
+	int getAlfa();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.Texture#getMHeight <em>MHeight</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.Texture#getAlfa <em>Alfa</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>MHeight</em>' attribute.
-	 * @see #getMHeight()
+	 * @param value the new value of the '<em>Alfa</em>' attribute.
+	 * @see #getAlfa()
 	 * @generated
 	 */
-	void setMHeight(int value);
-
-	/**
-	 * Returns the value of the '<em><b>MId</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>MId</em>' attribute.
-	 * @see #setMId(int)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getTexture_MId()
-	 * @model id="true"
-	 * @generated
-	 */
-	int getMId();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.Texture#getMId <em>MId</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>MId</em>' attribute.
-	 * @see #getMId()
-	 * @generated
-	 */
-	void setMId(int value);
+	void setAlfa(int value);
 
 } // Texture

@@ -39,23 +39,6 @@
       <parameter name="e">
         <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
       </parameter>
-      <expression xsi:type="ocl.ecore:OperationCallExp">
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
-        <source xsi:type="ocl.ecore:OperationCallExp">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-          <source xsi:type="ocl.ecore:PropertyCallExp" eType="/7/OrderedSet(Texture)">
-            <source xsi:type="ocl.ecore:VariableExp" name="e" referredVariable="/0/hasTextures/e">
-              <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
-            </source>
-            <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/openGL_DSL#//Abs_Entity/texture"/>
-          </source>
-          <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)_Class/size"/>
-        </source>
-        <argument xsi:type="ocl.ecore:IntegerLiteralExp" integerSymbol="0">
-          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
-        </argument>
-        <referredOperation xsi:type="ecore:EOperation" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer_Class/%3E"/>
-      </expression>
       <type xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Boolean"/>
     </ownedModuleElement>
   </mtl:Module>
@@ -146,13 +129,19 @@
     <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
   </ocl.ecore:Variable>
   <ecore:EPackage name="collections">
-    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Texture)" instanceClassName="java.util.LinkedHashSet">
-      <elementType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ocl.ecore:SetType" instanceClassName="java.util.Set">
-      <elementType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+    <eClassifiers xsi:type="ocl.ecore:SetType" name="Set(OclInvalid)" instanceClassName="java.util.Set">
+      <elementType xsi:type="ocl.ecore:InvalidType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclInvalid"/>
     </eClassifiers>
   </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
   </ocl.ecore:Variable>
@@ -219,31 +208,6 @@
       <details key="start" value="439"/>
       <details key="end" value="453"/>
       <details key="line" value="14"/>
-    </eAnnotations>
-    <eAnnotations source="positions.12" references="/0/hasTextures/%">
-      <details key="start" value="473"/>
-      <details key="end" value="494"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.13" references="/0/hasTextures/%/%">
-      <details key="start" value="473"/>
-      <details key="end" value="490"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.14" references="/0/hasTextures/%/%/%">
-      <details key="start" value="473"/>
-      <details key="end" value="482"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.15" references="/0/hasTextures/%/%/%/e">
-      <details key="start" value="473"/>
-      <details key="end" value="474"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.16" references="/0/hasTextures/%/%.1">
-      <details key="start" value="493"/>
-      <details key="end" value="494"/>
-      <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

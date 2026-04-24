@@ -930,7 +930,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EReference getAbs_Entity_Texture() {
+	public EReference getAbs_Entity_Material() {
 		return (EReference)abs_EntityEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -940,7 +940,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EReference getAbs_Entity_Material() {
+	public EReference getAbs_Entity_Mesh() {
 		return (EReference)abs_EntityEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -950,7 +950,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EReference getAbs_Entity_Mesh() {
+	public EReference getAbs_Entity_Color() {
 		return (EReference)abs_EntityEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -960,8 +960,38 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EReference getAbs_Entity_Color() {
+	public EReference getAbs_Entity_FrontTexture() {
 		return (EReference)abs_EntityEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getAbs_Entity_BackTexture() {
+		return (EReference)abs_EntityEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbs_Entity_TexturaRepeticionAncho() {
+		return (EAttribute)abs_EntityEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getAbs_Entity_TexturaRepeticionAlto() {
+		return (EAttribute)abs_EntityEClass.getEStructuralFeatures().get(6);
 	}
 
 	/**
@@ -1230,7 +1260,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTexture_MWidth() {
+	public EAttribute getTexture_Textura() {
 		return (EAttribute)textureEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1240,18 +1270,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getTexture_MHeight() {
+	public EAttribute getTexture_Alfa() {
 		return (EAttribute)textureEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getTexture_MId() {
-		return (EAttribute)textureEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1869,10 +1889,13 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		createEReference(nodeEClass, NODE__ESCALA);
 
 		abs_EntityEClass = createEClass(ABS_ENTITY);
-		createEReference(abs_EntityEClass, ABS_ENTITY__TEXTURE);
 		createEReference(abs_EntityEClass, ABS_ENTITY__MATERIAL);
 		createEReference(abs_EntityEClass, ABS_ENTITY__MESH);
 		createEReference(abs_EntityEClass, ABS_ENTITY__COLOR);
+		createEReference(abs_EntityEClass, ABS_ENTITY__FRONT_TEXTURE);
+		createEReference(abs_EntityEClass, ABS_ENTITY__BACK_TEXTURE);
+		createEAttribute(abs_EntityEClass, ABS_ENTITY__TEXTURA_REPETICION_ANCHO);
+		createEAttribute(abs_EntityEClass, ABS_ENTITY__TEXTURA_REPETICION_ALTO);
 		createEOperation(abs_EntityEClass, ABS_ENTITY___RENDER__OBJECT);
 		createEOperation(abs_EntityEClass, ABS_ENTITY___UPLOAD);
 
@@ -1904,9 +1927,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		createEOperation(mbREClass, MB_R___GENERATE_INDEX_MB_R__INT_INT_OBJECT);
 
 		textureEClass = createEClass(TEXTURE);
-		createEAttribute(textureEClass, TEXTURE__MWIDTH);
-		createEAttribute(textureEClass, TEXTURE__MHEIGHT);
-		createEAttribute(textureEClass, TEXTURE__MID);
+		createEAttribute(textureEClass, TEXTURE__TEXTURA);
+		createEAttribute(textureEClass, TEXTURE__ALFA);
 
 		indexMeshEClass = createEClass(INDEX_MESH);
 		createEAttribute(indexMeshEClass, INDEX_MESH__VINDICES);
@@ -2096,10 +2118,13 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		initEReference(getNode_Escala(), this.getVector3(), null, "escala", null, 0, 1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(abs_EntityEClass, Abs_Entity.class, "Abs_Entity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getAbs_Entity_Texture(), this.getTexture(), null, "texture", null, 0, 2, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbs_Entity_Material(), this.getMaterial(), null, "material", null, 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbs_Entity_Mesh(), this.getMesh(), null, "mesh", null, 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getAbs_Entity_Color(), this.getVector4(), null, "Color", null, 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbs_Entity_FrontTexture(), this.getTexture(), null, "FrontTexture", null, 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getAbs_Entity_BackTexture(), this.getTexture(), null, "BackTexture", null, 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbs_Entity_TexturaRepeticionAncho(), ecorePackage.getEInt(), "TexturaRepeticionAncho", "1", 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbs_Entity_TexturaRepeticionAlto(), ecorePackage.getEInt(), "TexturaRepeticionAlto", "1", 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getAbs_Entity__Render__Object(), null, "render", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getmat4(), "modelViewMat", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2140,9 +2165,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		addEParameter(op, this.getvec3(), "perfil", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(textureEClass, Texture.class, "Texture", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getTexture_MWidth(), ecorePackage.getEInt(), "mWidth", null, 0, 1, Texture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTexture_MHeight(), ecorePackage.getEInt(), "mHeight", null, 0, 1, Texture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getTexture_MId(), ecorePackage.getEInt(), "mId", null, 0, 1, Texture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTexture_Textura(), ecorePackage.getEString(), "Textura", null, 0, 1, Texture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getTexture_Alfa(), ecorePackage.getEInt(), "Alfa", "255", 0, 1, Texture.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(indexMeshEClass, IndexMesh.class, "IndexMesh", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getIndexMesh_VIndices(), this.getGLuint(), "vIndices", null, 0, 1, IndexMesh.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

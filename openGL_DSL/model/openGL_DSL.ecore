@@ -98,13 +98,19 @@
       <eParameters name="modelViewMat" eType="#//mat4"/>
     </eOperations>
     <eOperations name="upload"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="texture" upperBound="2"
-        eType="#//Texture" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="material" eType="#//Material"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="mesh" eType="#//Mesh" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Color" eType="#//Vector4"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="FrontTexture" eType="#//Texture"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="BackTexture" eType="#//Texture"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TexturaRepeticionAncho"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="TexturaRepeticionAlto"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt" defaultValueLiteral="1"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="QuadricEntity" abstract="true" eSuperTypes="#//Abs_Entity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="q" eType="#//GLquadricObj"/>
@@ -138,10 +144,9 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="perfil" eType="#//vec3"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Texture">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mWidth" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mHeight" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mId" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
-        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Textura" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Alfa" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral="255"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="IndexMesh" eSuperTypes="#//Mesh">
     <eOperations name="buildNormalVectors"/>

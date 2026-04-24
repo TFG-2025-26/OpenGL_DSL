@@ -1,0 +1,139 @@
+[comment encoding = UTF-8 /]
+[module textureFile('http://www.example.org/openGL_DSL')]
+
+
+[template public generateTexture(aTexture : Texture)]
+
+[comment --- Texture.h --- /]
+[file ('Texture.h', false, 'UTF-8')]
+#ifndef _H_Texture_H_
+#define _H_Texture_H_
+
+#include <GL/freeglut.h>
+#include <glm/glm.hpp>
+#include "Pixmap32RGBA.h"
+#include <string>
+
+//-------------------------------------------------------------------------
+
+class Texture
+{
+public:
+  Texture(){};
+  ~Texture();
+
+  Texture(const Texture & tex) = delete;  // no copy constructor
+  Texture & operator=(const Texture & tex) = delete;  // no copy assignment
+
+  void load(const std::string & BMP_Name, GLubyte alpha = 255); // load from file and upload to GPU
+  
+  void bind(GLuint mixMode);   // GL_REPLACE, GL_MODULATE, GL_ADD, ...
+  void unbind() const { glBindTexture(GL_TEXTURE_2D, 0); };
+
+  GLuint width() const { return mWidth; };
+  GLuint height() const { return mHeight; };
+  
+  void setWrap(GLuint wp);  // GL_REPEAT, GL_CLAMP
+
+  void loadColorBuffer(GLsizei width, GLsizei height, GLuint buffer = GL_FRONT);
+
+protected:
+
+  void init();
+  
+  GLuint mWidth = 0;
+  GLuint mHeight = 0;
+  GLuint mId = 0;
+};
+
+//-------------------------------------------------------------------------
+
+#endif //_H_Texture_H_
+[/file]
+
+[comment --- Texture.cpp --- /]
+[file ('Texture.cpp', false, 'UTF-8')]
+#include "Texture.h"
+
+//-------------------------------------------------------------------------
+
+Texture::~Texture() 
+{
+	if(mId!=0)
+    glDeleteTextures(1, &mId);
+}
+//-------------------------------------------------------------------------
+
+void Texture::init()
+{
+  glGenTextures(1, &mId);
+  glBindTexture(GL_TEXTURE_2D, mId);
+ 
+  //Filters and clamping
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // GL_NEAREST
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // GL_NEAREST
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);     // GL_CLAMP
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);     // GL_CLAMP
+   
+}
+//-------------------------------------------------------------------------
+
+void Texture::bind(GLuint mixMode) // GL_REPLACE, GL_MODULATE, GL_ADD
+{
+  glBindTexture(GL_TEXTURE_2D, mId);
+  glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, mixMode);  
+}
+//-------------------------------------------------------------------------
+
+void Texture::load(const std::string & BMP_Name, GLubyte alpha)
+{
+	if (mId == 0) init();
+	
+	PixMap32RGBA pixMap;
+  
+    pixMap.load_bmp24BGR(BMP_Name);
+
+    if (alpha != 255)
+       pixMap.set_alpha(alpha);
+
+	mWidth = pixMap.width();
+	mHeight = pixMap.height();
+
+    GLint level = 0;   //Base image level
+	GLint border = 0;  //No border
+	
+	glBindTexture(GL_TEXTURE_2D, mId);
+    glTexImage2D(GL_TEXTURE_2D, level, GL_RGBA, mWidth, mHeight, border, GL_RGBA, GL_UNSIGNED_BYTE, pixMap.data());
+		
+    glBindTexture(GL_TEXTURE_2D, 0); 
+}
+//-------------------------------------------------------------------------
+
+void Texture::setWrap(GLuint wp) // GL_REPEAT, GL_CLAMP
+{
+  glBindTexture(GL_TEXTURE_2D, mId);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wp);  
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wp);  
+  glBindTexture(GL_TEXTURE_2D, 0); 
+}
+//-------------------------------------------------------------------------
+
+void Texture::loadColorBuffer(GLsizei width, GLsizei height, GLuint buffer) {
+	if (mId == 0) init();
+
+	glReadBuffer(buffer); // por defecto GL_BACK
+	
+	mWidth = width;
+	mHeight = height;
+	
+	GLint level = 0;   //Base image level
+	GLint border = 0;  //No border
+
+	glBindTexture(GL_TEXTURE_2D, mId);
+	
+	glCopyTexImage2D(GL_TEXTURE_2D, level, GL_RGBA, 0, 0, mWidth, mHeight, border); // en coordenadas de pantalla ( como el puerto de vista )
+	
+	glBindTexture(GL_TEXTURE_2D, 0);
+}
+[/file]
+[/template]

@@ -27,7 +27,8 @@ Node* Node_eje() {
     );
 
 
-    node->addEntity(new EjesRGB(400.0));
+    auto e1 = new EjesRGB(400.0);
+    node->addEntity(e1);
     // Generar hijos recursivamente
 
     return node;
@@ -50,7 +51,7 @@ Node* Node_triangulo() {
     );
 
 
-    auto e1 = new PoligonoRegular(3,100.0,false);
+    auto e1 = new PoligonoRegular(3,100.0,false,1,1);
     node->addEntity(e1);
     e1->setColor(dvec4(1.0,0.0,0.0,1.0));
     // Generar hijos recursivamente
@@ -67,7 +68,7 @@ Node* Node_cuadrado() {
     );
 
 
-    auto e1 = new PoligonoRegular(4,200.0,true);
+    auto e1 = new PoligonoRegular(4,200.0,true,1,1);
     node->addEntity(e1);
     e1->setColor(dvec4(0.0,1.0,0.0,1.0));
     // Generar hijos recursivamente
@@ -84,7 +85,7 @@ Node* Node_pentagono() {
     );
 
 
-    auto e1 = new PoligonoRegular(5,300.0,false);
+    auto e1 = new PoligonoRegular(5,300.0,false,1,1);
     node->addEntity(e1);
     e1->setColor(dvec4(0.0,0.0,1.0,1.0));
     // Generar hijos recursivamente
@@ -101,7 +102,7 @@ Node* Node_hexagono() {
     );
 
 
-    auto e1 = new PoligonoRegular(6,400.0,true);
+    auto e1 = new PoligonoRegular(6,400.0,true,1,1);
     node->addEntity(e1);
     e1->setColor(dvec4(1.0,1.0,0.0,1.0));
     // Generar hijos recursivamente
@@ -142,12 +143,12 @@ Node* Node_rectangulos() {
     );
 
 
-    auto e1 = new Rectangulo(100.0,50.0,false);
+    auto e1 = new Rectangulo(100.0,50.0,false,1,1);
     node->addEntity(e1);
     e1->setColor(dvec4(0.0,0.0,0.0,1.0));
-    auto e2 = new Rectangulo(200.0,100.0,true);
+    auto e2 = new Rectangulo(200.0,100.0,true,1,1);
     node->addEntity(e2);
-    auto e3 = new Rectangulo(300.0,200.0,false);
+    auto e3 = new Rectangulo(300.0,200.0,false,1,1);
     node->addEntity(e3);
     e3->setColor(dvec4(1.0,0.0,0.0,1.0));
     // Generar hijos recursivamente
@@ -171,9 +172,9 @@ Node* Node_circulos() {
     );
 
 
-    auto e1 = new Circulo(100.0,false);
+    auto e1 = new Circulo(100.0,false,1,1);
     node->addEntity(e1);
-    auto e2 = new Circulo(200.0,true);
+    auto e2 = new Circulo(200.0,true,1,1);
     node->addEntity(e2);
     e2->setColor(dvec4(1.0,0.0,0.0,1.0));
     // Generar hijos recursivamente
@@ -584,10 +585,10 @@ Node* Node_posLight() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
-    auto e1 = new PosLight();
-    node->addLight(e1);
-    e1->setAtte(1.0,0.0,0.0);
+    auto l1 = new PosLight();
+    l1->setAtte(1.0,0.0,0.0);
 
+    node->addLight(l1);
 
     // Generar hijos recursivamente
 
@@ -602,10 +603,10 @@ Node* Node_spotLight() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
-    auto e1 = new SpotLight();
-    node->addLight(e1);
-    e1->setSpot(fvec3(-1.0,0.0,0.0),180.0,0.0);
-    e1->setAtte(1.0,0.0,0.0);
+    auto l1 = new SpotLight();
+    l1->setSpot(fvec3(-1.0,0.0,0.0),180.0,0.0);
+    l1->setAtte(1.0,0.0,0.0);
+    node->addLight(l1);
 
     // Generar hijos recursivamente
 
@@ -619,9 +620,9 @@ Node* Node_luces() {
         dvec3(1.0, 1.0, 1.0)//esc
     );
 
-    auto e1 = new DirLight();
-    node->addLight(e1);
-    e1->setPosDir(fvec3(1.0,1.0,0.0));
+    auto l1 = new DirLight();
+    l1->setPosDir(fvec3(1.0,1.0,0.0));
+    node->addLight(l1);
 
     // Generar hijos recursivamente
     node->addNode(Node_esferaLuces1());
@@ -636,6 +637,1112 @@ Node* Node_luces() {
 Scene* Scene_luces(){
     Scene* scene= new Scene();
     scene->addNode(Node_luces());
+    scene->setVisible(false);
+    return scene;
+}
+
+
+
+Node* Node_fondo() {
+    Node* node = new Node(
+        dvec3(1000.0, 0.0, -500.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Rectangulo(3000.0,1000.0,true,50,50);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+
+
+Node* Node_cuadradoDoble() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuadradoFrente() {
+    Node* node = new Node(
+        dvec3(200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuadradoEspalda() {
+    Node* node = new Node(
+        dvec3(-200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cuadradosRellenos() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuadradoDoble());
+    node->addNode(Node_cuadradoFrente());
+    node->addNode(Node_cuadradoEspalda());
+
+    return node;
+}
+
+
+
+Node* Node_cuadradoDobleSin() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,false,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuadradoFrenteSin() {
+    Node* node = new Node(
+        dvec3(200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,false,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuadradoEspaldaSin() {
+    Node* node = new Node(
+        dvec3(-200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,false,1,1);
+    node->addEntity(e1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cuadradosSinRellenos() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuadradoDobleSin());
+    node->addNode(Node_cuadradoFrenteSin());
+    node->addNode(Node_cuadradoEspaldaSin());
+
+    return node;
+}
+
+
+
+Node* Node_cuadradoDobleMenosAlfa() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 150);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 150);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuadradoFrenteMenosAlfa() {
+    Node* node = new Node(
+        dvec3(200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 150);
+    e1->setFrontTexture(frontTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuadradoEspaldaMenosAlfa() {
+    Node* node = new Node(
+        dvec3(-200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 150);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cuadradosRellenosMenosAlfa() {
+    Node* node = new Node(
+        dvec3(0.0, -200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuadradoDobleMenosAlfa());
+    node->addNode(Node_cuadradoFrenteMenosAlfa());
+    node->addNode(Node_cuadradoEspaldaMenosAlfa());
+
+    return node;
+}
+
+
+
+Node* Node_cuadradoDobleMulti() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,true,5,5);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuadradoFrenteMulti() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,true,5,5);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuadradoEspaldaMulti() {
+    Node* node = new Node(
+        dvec3(0.0, -200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,true,5,5);
+    node->addEntity(e1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cuadradosMulti() {
+    Node* node = new Node(
+        dvec3(-400.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuadradoDobleMulti());
+    node->addNode(Node_cuadradoFrenteMulti());
+    node->addNode(Node_cuadradoEspaldaMulti());
+
+    return node;
+}
+
+
+
+Node* Node_trianguloT() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(3,100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_pentagonoT() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(5,100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_hexagonoT() {
+    Node* node = new Node(
+        dvec3(0.0, -200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(6,100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_otrosPoligonos() {
+    Node* node = new Node(
+        dvec3(400.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_trianguloT());
+    node->addNode(Node_pentagonoT());
+    node->addNode(Node_hexagonoT());
+
+    return node;
+}
+
+
+
+Node* Node_trianguloTMulti() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(3,100.0,true,3,3);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_pentagonoTMulti() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(5,100.0,true,5,5);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_hexagonoTMulti() {
+    Node* node = new Node(
+        dvec3(0.0, -200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(6,100.0,true,6,6);
+    node->addEntity(e1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_otrosPoligonosMulti() {
+    Node* node = new Node(
+        dvec3(600.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_trianguloTMulti());
+    node->addNode(Node_pentagonoTMulti());
+    node->addNode(Node_hexagonoTMulti());
+
+    return node;
+}
+
+
+
+Node* Node_cuadradoDobleColor() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,true,1,1);
+    node->addEntity(e1);
+    e1->setColor(dvec4(1.0,0.0,0.0,1.0));
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuadradoFrenteColor() {
+    Node* node = new Node(
+        dvec3(200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,true,1,1);
+    node->addEntity(e1);
+    e1->setColor(dvec4(1.0,0.0,0.0,1.0));
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuadradoEspaldaColor() {
+    Node* node = new Node(
+        dvec3(-200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new PoligonoRegular(4,100.0,true,1,1);
+    node->addEntity(e1);
+    e1->setColor(dvec4(1.0,0.0,0.0,1.0));
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cuadradosRellenosColor() {
+    Node* node = new Node(
+        dvec3(0.0, 500.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuadradoDobleColor());
+    node->addNode(Node_cuadradoFrenteColor());
+    node->addNode(Node_cuadradoEspaldaColor());
+
+    return node;
+}
+
+Node* Node_poligonosT() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuadradosRellenos());
+    node->addNode(Node_cuadradosSinRellenos());
+    node->addNode(Node_cuadradosRellenosMenosAlfa());
+    node->addNode(Node_cuadradosMulti());
+    node->addNode(Node_otrosPoligonos());
+    node->addNode(Node_otrosPoligonosMulti());
+    node->addNode(Node_cuadradosRellenosColor());
+
+    return node;
+}
+
+
+
+
+Node* Node_circuloDoble() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Circulo(100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_circuloFrente() {
+    Node* node = new Node(
+        dvec3(200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Circulo(100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_circuloEspalda() {
+    Node* node = new Node(
+        dvec3(-200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Circulo(100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_circulosRellenos() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_circuloDoble());
+    node->addNode(Node_circuloFrente());
+    node->addNode(Node_circuloEspalda());
+
+    return node;
+}
+
+
+
+Node* Node_circuloDobleSin() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Circulo(100.0,false,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_circuloFrenteSin() {
+    Node* node = new Node(
+        dvec3(200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Circulo(100.0,false,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_circuloEspaldaSIn() {
+    Node* node = new Node(
+        dvec3(-200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Circulo(100.0,false,1,1);
+    node->addEntity(e1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_circulosSinRellenos() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_circuloDobleSin());
+    node->addNode(Node_circuloFrenteSin());
+    node->addNode(Node_circuloEspaldaSIn());
+
+    return node;
+}
+
+
+
+Node* Node_circuloDobleMenosAlfa() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Circulo(100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 150);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 150);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_circuloFrenteMenosAlfa() {
+    Node* node = new Node(
+        dvec3(200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Circulo(100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 150);
+    e1->setFrontTexture(frontTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_circuloEspaldaMenosAlfa() {
+    Node* node = new Node(
+        dvec3(-200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Circulo(100.0,true,1,1);
+    node->addEntity(e1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 150);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_circulosRellenosMenosAlfa() {
+    Node* node = new Node(
+        dvec3(0.0, -200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_circuloDobleMenosAlfa());
+    node->addNode(Node_circuloFrenteMenosAlfa());
+    node->addNode(Node_circuloEspaldaMenosAlfa());
+
+    return node;
+}
+
+Node* Node_circulosT() {
+    Node* node = new Node(
+        dvec3(1000.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_circulosRellenos());
+    node->addNode(Node_circulosSinRellenos());
+    node->addNode(Node_circulosRellenosMenosAlfa());
+
+    return node;
+}
+
+
+
+
+Node* Node_rectanguloDoble() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Rectangulo(200.0,200.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_rectanguloFrente() {
+    Node* node = new Node(
+        dvec3(-200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Rectangulo(200.0,200.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_rectanguloEspalda() {
+    Node* node = new Node(
+        dvec3(200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Rectangulo(200.0,200.0,true,1,1);
+    node->addEntity(e1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_rectangulosRellenos() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_rectanguloDoble());
+    node->addNode(Node_rectanguloFrente());
+    node->addNode(Node_rectanguloEspalda());
+
+    return node;
+}
+
+
+
+Node* Node_rectanguloSDoble() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Rectangulo(200.0,200.0,false,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_rectanguloSFrente() {
+    Node* node = new Node(
+        dvec3(-200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Rectangulo(200.0,200.0,false,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setFrontTexture(frontTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_rectanguloSEspalda() {
+    Node* node = new Node(
+        dvec3(200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Rectangulo(200.0,200.0,false,1,1);
+    node->addEntity(e1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 255);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_rectangulosSinRellenos() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_rectanguloSDoble());
+    node->addNode(Node_rectanguloSFrente());
+    node->addNode(Node_rectanguloSEspalda());
+
+    return node;
+}
+
+
+
+Node* Node_rectanguloDobleMenosAlfa() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Rectangulo(200.0,200.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 150);
+    e1->setFrontTexture(frontTexture1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 150);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_rectanguloFrenteMenosAlfa() {
+    Node* node = new Node(
+        dvec3(-200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Rectangulo(200.0,200.0,true,1,1);
+    node->addEntity(e1);
+    Texture* frontTexture1 = new Texture();
+	frontTexture1->load("../bmps/baldosaC.bmp", 150);
+    e1->setFrontTexture(frontTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_rectanguloEspaldaMenosAlfa() {
+    Node* node = new Node(
+        dvec3(200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Rectangulo(200.0,200.0,true,1,1);
+    node->addEntity(e1);
+    Texture* backTexture1 = new Texture();
+	backTexture1->load("../bmps/baldosaC.bmp", 150);
+    e1->setBackTexture(backTexture1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_rectangulosRellenosMenosAlfa() {
+    Node* node = new Node(
+        dvec3(0.0, -200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_rectanguloDobleMenosAlfa());
+    node->addNode(Node_rectanguloFrenteMenosAlfa());
+    node->addNode(Node_rectanguloEspaldaMenosAlfa());
+
+    return node;
+}
+
+Node* Node_rectangulosT() {
+    Node* node = new Node(
+        dvec3(1600.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_rectangulosRellenos());
+    node->addNode(Node_rectangulosSinRellenos());
+    node->addNode(Node_rectangulosRellenosMenosAlfa());
+
+    return node;
+}
+
+Node* Node_texturas() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_fondo());
+    node->addNode(Node_poligonosT());
+    node->addNode(Node_circulosT());
+    node->addNode(Node_rectangulosT());
+
+    return node;
+}
+
+Scene* Scene_texturas(){
+    Scene* scene= new Scene();
+    scene->addNode(Node_texturas());
     scene->setVisible(true);
     return scene;
 }
@@ -836,6 +1943,9 @@ void init() {
     scenes.push_back(sc);
     sc->init();
     sc = Scene_luces();
+    scenes.push_back(sc);
+    sc->init();
+    sc = Scene_texturas();
     scenes.push_back(sc);
     sc->init();
 

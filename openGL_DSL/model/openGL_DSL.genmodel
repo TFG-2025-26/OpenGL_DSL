@@ -79,10 +79,13 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Node/escala"/>
     </genClasses>
     <genClasses image="false" ecoreClass="openGL_DSL.ecore#//Abs_Entity">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/texture"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/material"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/mesh"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/Color"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/FrontTexture"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Abs_Entity/BackTexture"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Abs_Entity/TexturaRepeticionAncho"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Abs_Entity/TexturaRepeticionAlto"/>
       <genOperations ecoreOperation="openGL_DSL.ecore#//Abs_Entity/render">
         <genParameters ecoreParameter="openGL_DSL.ecore#//Abs_Entity/render/modelViewMat"/>
       </genOperations>
@@ -120,9 +123,8 @@
       </genOperations>
     </genClasses>
     <genClasses ecoreClass="openGL_DSL.ecore#//Texture">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Texture/mWidth"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Texture/mHeight"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Texture/mId"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Texture/Textura"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Texture/Alfa"/>
     </genClasses>
     <genClasses ecoreClass="openGL_DSL.ecore#//IndexMesh">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//IndexMesh/vIndices"/>

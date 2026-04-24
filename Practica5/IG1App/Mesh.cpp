@@ -84,7 +84,7 @@ Mesh::createRGBAxes(GLdouble l)
 }
 
 Mesh*
-Mesh::generateRegularPolygon(GLuint num, GLdouble r, GLuint primitive)
+Mesh::generateRegularPolygon(GLuint num, GLdouble r, GLuint primitive, GLuint rw, GLuint rh)
 {
 	// variables
 	int auxnum = num;
@@ -97,6 +97,8 @@ Mesh::generateRegularPolygon(GLuint num, GLdouble r, GLuint primitive)
 	mesh->mNumVertices = num;
 	mesh->vVertices.reserve(mesh->mNumVertices);
 
+    mesh->vTexCoords.reserve(mesh->mNumVertices);
+
 	for (int i = 0; i < auxnum; i++)
 	{
 		auto alfaAux = glm::radians(alfa);
@@ -105,6 +107,8 @@ Mesh::generateRegularPolygon(GLuint num, GLdouble r, GLuint primitive)
 		auto y = r * glm::sin(alfaAux);
 
 		mesh->vVertices.emplace_back(x, y, 0.0);
+
+        mesh->vTexCoords.emplace_back(rw*glm::cos(alfaAux) * 0.5 + 0.5, rh*glm::sin(alfaAux) * 0.5 + 0.5);
 
 		alfa += angsep;
 	}
@@ -115,7 +119,7 @@ Mesh::generateRegularPolygon(GLuint num, GLdouble r, GLuint primitive)
 }
 
 Mesh*
-Mesh::generateRectangle(GLdouble w, GLdouble h) {
+Mesh::generateRectangle(GLdouble w, GLdouble h, GLuint rw, GLuint rh) {
 
 	Mesh* mesh = new Mesh();
 
@@ -130,6 +134,12 @@ Mesh::generateRectangle(GLdouble w, GLdouble h) {
 	mesh->vVertices.emplace_back(w / 2, (h / 2) * -1, 0.0);
 
 	mesh->vColors.reserve(mesh->mNumVertices);
+
+    mesh->vTexCoords.reserve(mesh->mNumVertices);
+    mesh->vTexCoords.emplace_back(0, rh);
+    mesh->vTexCoords.emplace_back(0, 0);
+    mesh->vTexCoords.emplace_back(rw, rh);
+    mesh->vTexCoords.emplace_back(rw, 0);
 
 	return mesh;
 }

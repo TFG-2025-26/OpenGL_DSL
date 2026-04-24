@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
+  <mtl:Module name="textureFile" nsURI="openGL_acceleo_impl::files::textureFile" startHeaderPosition="29" endHeaderPosition="171">
+    <input>
+      <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
+    </input>
+    <ownedModuleElement xsi:type="mtl:Template" name="generateTexture" visibility="Public">
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Texture_H_&#xA;#define _H_Texture_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;glm/glm.hpp>&#xA;#include &quot;Pixmap32RGBA.h&quot;&#xA;#include &lt;string>&#xA;&#xA;//-------------------------------------------------------------------------&#xA;&#xA;class Texture&#xA;{&#xA;public:&#xA;  Texture(){};&#xA;  ~Texture();&#xA;&#xA;  Texture(const Texture &amp; tex) = delete;  // no copy constructor&#xA;  Texture &amp; operator=(const Texture &amp; tex) = delete;  // no copy assignment&#xA;&#xA;  void load(const std::string &amp; BMP_Name, GLubyte alpha = 255); // load from file and upload to GPU&#xA;  &#xA;  void bind(GLuint mixMode);   // GL_REPLACE, GL_MODULATE, GL_ADD, ...&#xA;  void unbind() const { glBindTexture(GL_TEXTURE_2D, 0); };&#xA;&#xA;  GLuint width() const { return mWidth; };&#xA;  GLuint height() const { return mHeight; };&#xA;  &#xA;  void setWrap(GLuint wp);  // GL_REPEAT, GL_CLAMP&#xA;&#xA;  void loadColorBuffer(GLsizei width, GLsizei height, GLuint buffer = GL_FRONT);&#xA;&#xA;protected:&#xA;&#xA;  void init();&#xA;  &#xA;  GLuint mWidth = 0;&#xA;  GLuint mHeight = 0;&#xA;  GLuint mId = 0;&#xA;};&#xA;&#xA;//-------------------------------------------------------------------------&#xA;&#xA;#endif //_H_Texture_H_&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Texture.h">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Texture.h&quot;&#xA;&#xA;//-------------------------------------------------------------------------&#xA;&#xA;Texture::~Texture() &#xA;{&#xA;&#x9;if(mId!=0)&#xA;    glDeleteTextures(1, &amp;mId);&#xA;}&#xA;//-------------------------------------------------------------------------&#xA;&#xA;void Texture::init()&#xA;{&#xA;  glGenTextures(1, &amp;mId);&#xA;  glBindTexture(GL_TEXTURE_2D, mId);&#xA; &#xA;  //Filters and clamping&#xA;  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR); // GL_NEAREST&#xA;  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR); // GL_NEAREST&#xA;  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);     // GL_CLAMP&#xA;  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);     // GL_CLAMP&#xA;   &#xA;}&#xA;//-------------------------------------------------------------------------&#xA;&#xA;void Texture::bind(GLuint mixMode) // GL_REPLACE, GL_MODULATE, GL_ADD&#xA;{&#xA;  glBindTexture(GL_TEXTURE_2D, mId);&#xA;  glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, mixMode);  &#xA;}&#xA;//-------------------------------------------------------------------------&#xA;&#xA;void Texture::load(const std::string &amp; BMP_Name, GLubyte alpha)&#xA;{&#xA;&#x9;if (mId == 0) init();&#xA;&#x9;&#xA;&#x9;PixMap32RGBA pixMap;&#xA;  &#xA;    pixMap.load_bmp24BGR(BMP_Name);&#xA;&#xA;    if (alpha != 255)&#xA;       pixMap.set_alpha(alpha);&#xA;&#xA;&#x9;mWidth = pixMap.width();&#xA;&#x9;mHeight = pixMap.height();&#xA;&#xA;    GLint level = 0;   //Base image level&#xA;&#x9;GLint border = 0;  //No border&#xA;&#x9;&#xA;&#x9;glBindTexture(GL_TEXTURE_2D, mId);&#xA;    glTexImage2D(GL_TEXTURE_2D, level, GL_RGBA, mWidth, mHeight, border, GL_RGBA, GL_UNSIGNED_BYTE, pixMap.data());&#xA;&#x9;&#x9;&#xA;    glBindTexture(GL_TEXTURE_2D, 0); &#xA;}&#xA;//-------------------------------------------------------------------------&#xA;&#xA;void Texture::setWrap(GLuint wp) // GL_REPEAT, GL_CLAMP&#xA;{&#xA;  glBindTexture(GL_TEXTURE_2D, mId);&#xA;  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, wp);  &#xA;  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, wp);  &#xA;  glBindTexture(GL_TEXTURE_2D, 0); &#xA;}&#xA;//-------------------------------------------------------------------------&#xA;&#xA;void Texture::loadColorBuffer(GLsizei width, GLsizei height, GLuint buffer) {&#xA;&#x9;if (mId == 0) init();&#xA;&#xA;&#x9;glReadBuffer(buffer); // por defecto GL_BACK&#xA;&#x9;&#xA;&#x9;mWidth = width;&#xA;&#x9;mHeight = height;&#xA;&#x9;&#xA;&#x9;GLint level = 0;   //Base image level&#xA;&#x9;GLint border = 0;  //No border&#xA;&#xA;&#x9;glBindTexture(GL_TEXTURE_2D, mId);&#xA;&#x9;&#xA;&#x9;glCopyTexImage2D(GL_TEXTURE_2D, level, GL_RGBA, 0, 0, mWidth, mHeight, border); // en coordenadas de pantalla ( como el puerto de vista )&#xA;&#x9;&#xA;&#x9;glBindTexture(GL_TEXTURE_2D, 0);&#xA;}&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Texture.cpp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <parameter name="aTexture">
+        <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+      </parameter>
+    </ownedModuleElement>
+  </mtl:Module>
+  <ecore:EPackage name="additions">
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_String_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Integer_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Integer"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Real_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Real"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ecore_EObject_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+      </eAnnotations>
+      <eOperations name="generateTexture">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL" references="/0/generateTexture"/>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aTexture">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OclAny"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Collection(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Collection(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_Sequence(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/Sequence(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OrderedSet(T)_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Texture_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/openGL_DSL#//Texture"/>
+      </eAnnotations>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
+  </ocl.ecore:Variable>
+  <ecore:EAnnotation source="positions">
+    <eAnnotations source="positions.0" references="/0/generateTexture">
+      <details key="start" value="89"/>
+      <details key="end" value="3803"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+    <eAnnotations source="positions.1" references="/0/generateTexture/%">
+      <details key="start" value="143"/>
+      <details key="end" value="144"/>
+      <details key="line" value="6"/>
+    </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateTexture/%.1">
+      <details key="start" value="174"/>
+      <details key="end" value="1284"/>
+      <details key="line" value="8"/>
+    </eAnnotations>
+    <eAnnotations source="positions.3" references="/0/generateTexture/%.1/%">
+      <details key="start" value="211"/>
+      <details key="end" value="1277"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
+    <eAnnotations source="positions.4" references="/0/generateTexture/%.1/%.1">
+      <details key="start" value="181"/>
+      <details key="end" value="192"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.5" references="/0/generateTexture/%.1/%.2">
+      <details key="start" value="201"/>
+      <details key="end" value="208"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.6" references="/0/generateTexture/%.2">
+      <details key="start" value="1285"/>
+      <details key="end" value="1286"/>
+      <details key="line" value="53"/>
+    </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateTexture/%.3">
+      <details key="start" value="1318"/>
+      <details key="end" value="3791"/>
+      <details key="line" value="55"/>
+    </eAnnotations>
+    <eAnnotations source="positions.8" references="/0/generateTexture/%.3/%">
+      <details key="start" value="1357"/>
+      <details key="end" value="3784"/>
+      <details key="line" value="56"/>
+    </eAnnotations>
+    <eAnnotations source="positions.9" references="/0/generateTexture/%.3/%.1">
+      <details key="start" value="1325"/>
+      <details key="end" value="1338"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.10" references="/0/generateTexture/%.3/%.2">
+      <details key="start" value="1347"/>
+      <details key="end" value="1354"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateTexture/aTexture">
+      <details key="start" value="122"/>
+      <details key="end" value="140"/>
+      <details key="line" value="5"/>
+    </eAnnotations>
+  </ecore:EAnnotation>
+</xmi:XMI>

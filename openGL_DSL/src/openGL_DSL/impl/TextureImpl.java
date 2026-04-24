@@ -20,73 +20,52 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link openGL_DSL.impl.TextureImpl#getMWidth <em>MWidth</em>}</li>
- *   <li>{@link openGL_DSL.impl.TextureImpl#getMHeight <em>MHeight</em>}</li>
- *   <li>{@link openGL_DSL.impl.TextureImpl#getMId <em>MId</em>}</li>
+ *   <li>{@link openGL_DSL.impl.TextureImpl#getTextura <em>Textura</em>}</li>
+ *   <li>{@link openGL_DSL.impl.TextureImpl#getAlfa <em>Alfa</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class TextureImpl extends MinimalEObjectImpl.Container implements Texture {
 	/**
-	 * The default value of the '{@link #getMWidth() <em>MWidth</em>}' attribute.
+	 * The default value of the '{@link #getTextura() <em>Textura</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMWidth()
+	 * @see #getTextura()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MWIDTH_EDEFAULT = 0;
+	protected static final String TEXTURA_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getMWidth() <em>MWidth</em>}' attribute.
+	 * The cached value of the '{@link #getTextura() <em>Textura</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMWidth()
+	 * @see #getTextura()
 	 * @generated
 	 * @ordered
 	 */
-	protected int mWidth = MWIDTH_EDEFAULT;
+	protected String textura = TEXTURA_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getMHeight() <em>MHeight</em>}' attribute.
+	 * The default value of the '{@link #getAlfa() <em>Alfa</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMHeight()
+	 * @see #getAlfa()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int MHEIGHT_EDEFAULT = 0;
+	protected static final int ALFA_EDEFAULT = 255;
 
 	/**
-	 * The cached value of the '{@link #getMHeight() <em>MHeight</em>}' attribute.
+	 * The cached value of the '{@link #getAlfa() <em>Alfa</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMHeight()
+	 * @see #getAlfa()
 	 * @generated
 	 * @ordered
 	 */
-	protected int mHeight = MHEIGHT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMId() <em>MId</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int MID_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getMId() <em>MId</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMId()
-	 * @generated
-	 * @ordered
-	 */
-	protected int mId = MID_EDEFAULT;
+	protected int alfa = ALFA_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -113,8 +92,8 @@ public class TextureImpl extends MinimalEObjectImpl.Container implements Texture
 	 * @generated
 	 */
 	@Override
-	public int getMWidth() {
-		return mWidth;
+	public String getTextura() {
+		return textura;
 	}
 
 	/**
@@ -123,11 +102,11 @@ public class TextureImpl extends MinimalEObjectImpl.Container implements Texture
 	 * @generated
 	 */
 	@Override
-	public void setMWidth(int newMWidth) {
-		int oldMWidth = mWidth;
-		mWidth = newMWidth;
+	public void setTextura(String newTextura) {
+		String oldTextura = textura;
+		textura = newTextura;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.TEXTURE__MWIDTH, oldMWidth, mWidth));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.TEXTURE__TEXTURA, oldTextura, textura));
 	}
 
 	/**
@@ -136,8 +115,8 @@ public class TextureImpl extends MinimalEObjectImpl.Container implements Texture
 	 * @generated
 	 */
 	@Override
-	public int getMHeight() {
-		return mHeight;
+	public int getAlfa() {
+		return alfa;
 	}
 
 	/**
@@ -146,34 +125,11 @@ public class TextureImpl extends MinimalEObjectImpl.Container implements Texture
 	 * @generated
 	 */
 	@Override
-	public void setMHeight(int newMHeight) {
-		int oldMHeight = mHeight;
-		mHeight = newMHeight;
+	public void setAlfa(int newAlfa) {
+		int oldAlfa = alfa;
+		alfa = newAlfa;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.TEXTURE__MHEIGHT, oldMHeight, mHeight));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int getMId() {
-		return mId;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMId(int newMId) {
-		int oldMId = mId;
-		mId = newMId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.TEXTURE__MID, oldMId, mId));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.TEXTURE__ALFA, oldAlfa, alfa));
 	}
 
 	/**
@@ -184,12 +140,10 @@ public class TextureImpl extends MinimalEObjectImpl.Container implements Texture
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.TEXTURE__MWIDTH:
-				return getMWidth();
-			case OpenGL_DSLPackage.TEXTURE__MHEIGHT:
-				return getMHeight();
-			case OpenGL_DSLPackage.TEXTURE__MID:
-				return getMId();
+			case OpenGL_DSLPackage.TEXTURE__TEXTURA:
+				return getTextura();
+			case OpenGL_DSLPackage.TEXTURE__ALFA:
+				return getAlfa();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -202,14 +156,11 @@ public class TextureImpl extends MinimalEObjectImpl.Container implements Texture
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.TEXTURE__MWIDTH:
-				setMWidth((Integer)newValue);
+			case OpenGL_DSLPackage.TEXTURE__TEXTURA:
+				setTextura((String)newValue);
 				return;
-			case OpenGL_DSLPackage.TEXTURE__MHEIGHT:
-				setMHeight((Integer)newValue);
-				return;
-			case OpenGL_DSLPackage.TEXTURE__MID:
-				setMId((Integer)newValue);
+			case OpenGL_DSLPackage.TEXTURE__ALFA:
+				setAlfa((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -223,14 +174,11 @@ public class TextureImpl extends MinimalEObjectImpl.Container implements Texture
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.TEXTURE__MWIDTH:
-				setMWidth(MWIDTH_EDEFAULT);
+			case OpenGL_DSLPackage.TEXTURE__TEXTURA:
+				setTextura(TEXTURA_EDEFAULT);
 				return;
-			case OpenGL_DSLPackage.TEXTURE__MHEIGHT:
-				setMHeight(MHEIGHT_EDEFAULT);
-				return;
-			case OpenGL_DSLPackage.TEXTURE__MID:
-				setMId(MID_EDEFAULT);
+			case OpenGL_DSLPackage.TEXTURE__ALFA:
+				setAlfa(ALFA_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -244,12 +192,10 @@ public class TextureImpl extends MinimalEObjectImpl.Container implements Texture
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.TEXTURE__MWIDTH:
-				return mWidth != MWIDTH_EDEFAULT;
-			case OpenGL_DSLPackage.TEXTURE__MHEIGHT:
-				return mHeight != MHEIGHT_EDEFAULT;
-			case OpenGL_DSLPackage.TEXTURE__MID:
-				return mId != MID_EDEFAULT;
+			case OpenGL_DSLPackage.TEXTURE__TEXTURA:
+				return TEXTURA_EDEFAULT == null ? textura != null : !TEXTURA_EDEFAULT.equals(textura);
+			case OpenGL_DSLPackage.TEXTURE__ALFA:
+				return alfa != ALFA_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -264,12 +210,10 @@ public class TextureImpl extends MinimalEObjectImpl.Container implements Texture
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (mWidth: ");
-		result.append(mWidth);
-		result.append(", mHeight: ");
-		result.append(mHeight);
-		result.append(", mId: ");
-		result.append(mId);
+		result.append(" (Textura: ");
+		result.append(textura);
+		result.append(", Alfa: ");
+		result.append(alfa);
 		result.append(')');
 		return result.toString();
 	}

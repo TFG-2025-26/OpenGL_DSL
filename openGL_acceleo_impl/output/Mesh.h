@@ -25,9 +25,9 @@ public:
 
 	void addColorVertice(double r, double g, double b, double a);
 
-    static Mesh* generateRegularPolygon(GLuint num, GLdouble r, GLuint primitive);
+    static Mesh* generateRegularPolygon(GLuint num, GLdouble r, GLuint primitive, GLuint rw, GLuint rh);
 
-    static Mesh* generateRectangle(GLdouble w, GLdouble h);
+    static Mesh* generateRectangle(GLdouble w, GLdouble h, GLuint rw, GLuint rh);
 
 protected:
 	GLuint mPrimitive =

@@ -5,6 +5,7 @@
 #include <glm/glm.hpp>
 
 #include "Mesh.h"
+#include "Texture.h"
 
 class Abs_Entity // abstract class
 {
@@ -25,11 +26,15 @@ public:
 
 	glm::dvec4 const& color() const { return mColor; };
 	void setColor(glm::dvec4 const& aColor) { mColor = aColor; };
+    void setFrontTexture(Texture* aTexture) { mTexture = aTexture; };
+    void setBackTexture(Texture* aTexture) { mBackTexture = aTexture; };
 
 protected:
 	Mesh* mMesh = nullptr; // the mesh
 	glm::dmat4 mModelMat;  // modeling matrix
 	glm::dvec4 mColor;     // entity color
+    Texture* mTexture = nullptr;
+    Texture* mBackTexture = nullptr;
 
 	// transfers modelViewMat to the GPU
 	virtual void upload(glm::dmat4 const& mModelViewMat) const;
@@ -46,7 +51,7 @@ public:
 class PoligonoRegular : public Abs_Entity
 {
 public:
-	explicit PoligonoRegular(GLuint num, GLdouble r,bool rellenar);
+	explicit PoligonoRegular(GLuint num, GLdouble r,bool rellenar, GLuint rw, GLuint rh);
 	~PoligonoRegular();
 	virtual void render(glm::dmat4 const& modelViewMat) const;
 };
@@ -54,7 +59,7 @@ public:
 class Rectangulo : public Abs_Entity
 {
 public:
-	explicit Rectangulo(GLdouble w, GLdouble h, bool rellenar);
+	explicit Rectangulo(GLdouble w, GLdouble h, bool rellenar, GLuint rw, GLuint rh);
 	~Rectangulo();
 	virtual void render(glm::dmat4 const& modelViewMat) const;
 private:
@@ -64,7 +69,7 @@ private:
 class Circulo : public Abs_Entity
 {
 public:
-	explicit Circulo(GLdouble r,bool rellenar);
+	explicit Circulo(GLdouble r, bool rellenar, GLuint rw, GLuint rh);
 	~Circulo();
 	virtual void render(glm::dmat4 const& modelViewMat) const;
 };

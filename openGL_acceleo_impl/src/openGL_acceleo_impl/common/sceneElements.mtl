@@ -46,140 +46,98 @@ Node* Node_[n.Name/]() {
 [for (lig : Light | n.light)]
 [if (lig.oclIsKindOf(DirLight))]
 [let l : DirLight = lig.oclAsType(DirLight)]
-    auto e[n.light->indexOf(lig)/] = new DirLight();
-    node->addLight(e[n.light->indexOf(lig)/]);
-[if (lig.ambient <> null)]
-    e[n.light->indexOf(lig)/]->setAmb(fvec4([lig.ambient.R/],[lig.ambient.G/],[lig.ambient.B/],[lig.ambient.A/]));
-[/if]
-[if (lig.difusse <> null)]
-    e[n.light->indexOf(lig)/]->setDiff(fvec4([lig.difusse.R/],[lig.difusse.G/],[lig.difusse.B/],[lig.difusse.A/]));
-[/if]
-[if (lig.specular <> null)]
-    e[n.light->indexOf(lig)/]->setSpec(fvec4([lig.specular.R/],[lig.specular.G/],[lig.specular.B/],[lig.specular.A/]));
-[/if]
+    auto l[n.light->indexOf(lig)/] = new DirLight();
 [if (l.direccion <> null)]
-    e[n.light->indexOf(lig)/]->setPosDir(fvec3([l.direccion.X/],[l.direccion.Y/],[l.direccion.Z/]));
+    l[n.light->indexOf(lig)/]->setPosDir(fvec3([l.direccion.X/],[l.direccion.Y/],[l.direccion.Z/]));
 [/if]
 [/let]
 [elseif (lig.oclIsKindOf(SpotLight))]
 [let l : SpotLight = lig.oclAsType(SpotLight)]
-    auto e[n.light->indexOf(lig)/] = new SpotLight();
-    node->addLight(e[n.light->indexOf(lig)/]);
-[if (lig.ambient <> null)]
-    e[n.light->indexOf(lig)/]->setAmb(fvec4([lig.ambient.R/],[lig.ambient.G/],[lig.ambient.B/],[lig.ambient.A/]));
-[/if]
-[if (lig.difusse <> null)]
-    e[n.light->indexOf(lig)/]->setDiff(fvec4([lig.difusse.R/],[lig.difusse.G/],[lig.difusse.B/],[lig.difusse.A/]));
-[/if]
-[if (lig.specular <> null)]
-    e[n.light->indexOf(lig)/]->setSpec(fvec4([lig.specular.R/],[lig.specular.G/],[lig.specular.B/],[lig.specular.A/]));
-[/if]
+    auto l[n.light->indexOf(lig)/] = new SpotLight();
 [if (lig.direccion <> null)]
-    e[n.light->indexOf(lig)/]->setSpot(fvec3([lig.direccion.X/],[lig.direccion.Y/],[lig.direccion.Z/]),[l.cutoff/],[l.exp/]);
+    l[n.light->indexOf(lig)/]->setSpot(fvec3([lig.direccion.X/],[lig.direccion.Y/],[lig.direccion.Z/]),[l.cutoff/],[l.exp/]);
 [else]
-    e[n.light->indexOf(lig)/]->setSpot(fvec3(0,0,-1),[l.cutoff/],[l.exp/]);
+    l[n.light->indexOf(lig)/]->setSpot(fvec3(0,0,-1),[l.cutoff/],[l.exp/]);
 [/if]
-    e[n.light->indexOf(lig)/]->setAtte([l.kc/],[l.kl/],[l.kq/]);
+    l[n.light->indexOf(lig)/]->setAtte([l.kc/],[l.kl/],[l.kq/]);
 [/let]
 [elseif (lig.oclIsKindOf(PosLight))]
 [let l : PosLight = lig.oclAsType(PosLight)]
-    auto e[n.light->indexOf(lig)/] = new PosLight();
-    node->addLight(e[n.light->indexOf(lig)/]);
-[if (lig.ambient <> null)]
-    e[n.light->indexOf(lig)/]->setAmb(fvec4([lig.ambient.R/],[lig.ambient.G/],[lig.ambient.B/],[lig.ambient.A/]));
-[/if]
-[if (lig.difusse <> null)]
-    e[n.light->indexOf(lig)/]->setDiff(fvec4([lig.difusse.R/],[lig.difusse.G/],[lig.difusse.B/],[lig.difusse.A/]));
-[/if]
-[if (lig.specular <> null)]
-    e[n.light->indexOf(lig)/]->setSpec(fvec4([lig.specular.R/],[lig.specular.G/],[lig.specular.B/],[lig.specular.A/]));
-[/if]
+    auto l[n.light->indexOf(lig)/] = new PosLight();
 [if (lig.direccion <> null)]
-    e[n.light->indexOf(lig)/]->setPosDir(fvec3([lig.direccion.X/],[lig.direccion.Y/],[lig.direccion.Z/]));
+    l[n.light->indexOf(lig)/]->setPosDir(fvec3([lig.direccion.X/],[lig.direccion.Y/],[lig.direccion.Z/]));
 [/if]
-    e[n.light->indexOf(lig)/]->setAtte([l.kc/],[l.kl/],[l.kq/]);
+    l[n.light->indexOf(lig)/]->setAtte([l.kc/],[l.kl/],[l.kq/]);
 
 [/let]
+[/if]
+    node->addLight(l[n.light->indexOf(lig)/]);
+[if (lig.ambient <> null)]
+    l[n.light->indexOf(lig)/]->setAmb(fvec4([lig.ambient.R/],[lig.ambient.G/],[lig.ambient.B/],[lig.ambient.A/]));
+[/if]
+[if (lig.difusse <> null)]
+    l[n.light->indexOf(lig)/]->setDiff(fvec4([lig.difusse.R/],[lig.difusse.G/],[lig.difusse.B/],[lig.difusse.A/]));
+[/if]
+[if (lig.specular <> null)]
+    l[n.light->indexOf(lig)/]->setSpec(fvec4([lig.specular.R/],[lig.specular.G/],[lig.specular.B/],[lig.specular.A/]));
 [/if]
 [/for]
 
 [for (ent : Abs_Entity | n.abs_entity)]
 [if (ent.oclIsKindOf(EjesRGB))]
-[let e : EjesRGB = ent.oclAsType(EjesRGB)]
-    node->addEntity(new EjesRGB([e.Lenght/]));
+    [let e : EjesRGB = ent.oclAsType(EjesRGB)]
+    auto e[n.abs_entity->indexOf(ent)/] = new EjesRGB([e.Lenght/]);
 [/let] 
 [elseif (ent.oclIsKindOf(PoligonoRegular))]
-[let e : PoligonoRegular = ent.oclAsType(PoligonoRegular)]
-    auto e[n.abs_entity->indexOf(ent)/] = new PoligonoRegular([e.NumVertices/],[e.Radio/],[e.Rellenar/]);
-    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
-[if (ent.Color <> null)]
-    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
-[/if]
+    [let e : PoligonoRegular = ent.oclAsType(PoligonoRegular)]
+    auto e[n.abs_entity->indexOf(ent)/] = new PoligonoRegular([e.NumVertices/],[e.Radio/],[e.Rellenar/],[ent.TexturaRepeticionAncho/],[ent.TexturaRepeticionAlto/]);
 [/let]
 [elseif (ent.oclIsKindOf(Rectangulo))]
     [let e : Rectangulo = ent.oclAsType(Rectangulo)]
-    auto e[n.abs_entity->indexOf(ent)/] = new Rectangulo([e.Ancho/],[e.Alto/],[e.Rellenar/]);
-    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
-[if (ent.Color <> null)]
-    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
-[/if]
+    auto e[n.abs_entity->indexOf(ent)/] = new Rectangulo([e.Ancho/],[e.Alto/],[e.Rellenar/],[ent.TexturaRepeticionAncho/],[ent.TexturaRepeticionAlto/]);
 [/let]
 [elseif (ent.oclIsKindOf(Circulo))]
     [let e : Circulo = ent.oclAsType(Circulo)]
-    auto e[n.abs_entity->indexOf(ent)/] = new Circulo([e.Radio/],[e.Rellenar/]);
-    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
-[if (ent.Color <> null)]
-    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
-[/if]
+    auto e[n.abs_entity->indexOf(ent)/] = new Circulo([e.Radio/],[e.Rellenar/],[ent.TexturaRepeticionAncho/],[ent.TexturaRepeticionAlto/]);
 [/let]
 [elseif (ent.oclIsKindOf(Esfera))]
     [let e : Esfera = ent.oclAsType(Esfera)]
     auto e[n.abs_entity->indexOf(ent)/] = new Sphere([e.Radio/]);
-    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
-[if (ent.Color <> null)]
-    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
-[/if]
 [/let]
 [elseif (ent.oclIsKindOf(Cilindro))]
     [let e : Cilindro = ent.oclAsType(Cilindro)]
     auto e[n.abs_entity->indexOf(ent)/] = new Cylinder([e.RadioBase/],[e.RadioTope/],[e.Altura/]);
-    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
-[if (ent.Color <> null)]
-    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
-[/if]
 [/let]
 [elseif (ent.oclIsKindOf(Disco))]
     [let e : Disco = ent.oclAsType(Disco)]
     auto e[n.abs_entity->indexOf(ent)/] = new Disk([e.RadioInterno/],[e.RadioExterno/]);
-    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
-[if (ent.Color <> null)]
-    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
-[/if]
 [/let]
 [elseif (ent.oclIsKindOf(DiscoParcial))]
     [let e : DiscoParcial = ent.oclAsType(DiscoParcial)]
     auto e[n.abs_entity->indexOf(ent)/] = new PartialDisk([e.RadioInterno/],[e.RadioExterno/],[e.AnguloInicio/],[e.AmplitudAngulo/]);
-    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
-[if (ent.Color <> null)]
-    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
-[/if]
 [/let]
 [elseif (ent.oclIsKindOf(Cubo))]
     [let e : Cubo = ent.oclAsType(Cubo)]
     auto e[n.abs_entity->indexOf(ent)/] = new IndexedBox([e.Lenght/]);
-    node->addEntity(e[n.abs_entity->indexOf(ent)/]);
-[if (ent.Color <> null)]
-    e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
-[/if]
 [/let]
 [elseif (ent.oclIsKindOf(Toroide))]
     [let e : Toroide = ent.oclAsType(Toroide)]
     auto e[n.abs_entity->indexOf(ent)/] = new Toroid([e.RadioAnillo/],[e.RadioCentro/]);
+[/let]
+[/if]
     node->addEntity(e[n.abs_entity->indexOf(ent)/]);
 [if (ent.Color <> null)]
     e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
 [/if]
-[/let]
+[if (ent.FrontTexture <> null)]
+    Texture* frontTexture[n.abs_entity->indexOf(ent)/] = new Texture();
+	frontTexture[n.abs_entity->indexOf(ent)/]->load("[ent.FrontTexture.Textura/]", [ent.FrontTexture.Alfa/]);
+    e[n.abs_entity->indexOf(ent)/]->setFrontTexture(frontTexture[n.abs_entity->indexOf(ent)/]);
+[/if]
+[if (ent.BackTexture <> null)]
+    Texture* backTexture[n.abs_entity->indexOf(ent)/] = new Texture();
+	backTexture[n.abs_entity->indexOf(ent)/]->load("[ent.BackTexture.Textura/]", [ent.BackTexture.Alfa/]);
+    e[n.abs_entity->indexOf(ent)/]->setBackTexture(backTexture[n.abs_entity->indexOf(ent)/]);
 [/if]
 [/for]
     // Generar hijos recursivamente

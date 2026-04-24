@@ -6,7 +6,7 @@
     </input>
     <ownedModuleElement xsi:type="mtl:Template" name="generateNode" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Node_H_&#xA;#define _H_Node_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;glm/glm.hpp>&#xA;&#xA;#include &quot;Entity.h&quot;&#xA;#include &quot;Light.h&quot;&#xA;&#xA;#include &lt;vector>&#xA;&#xA;using namespace glm;&#xA;&#xA;class Node&#xA;{&#xA;public:&#xA;&#x9;Node(dvec3 pos, dvec3 rot, dvec3 esc);&#xA;&#x9;~Node();&#xA;&#xA;&#x9;void render(glm::dmat4 const&amp; modelViewMat) const;&#xA;&#xA;&#x9;void addEntity(Abs_Entity* ent);&#xA;&#x9;void addNode(Node* n);&#xA;    void addLight(Light* n);&#xA;&#xA;&#xA;protected:&#xA;&#xA;&#x9;std::vector&lt;Abs_Entity*> gObjects;&#xA;&#x9;std::vector&lt;Node*> nodes;&#xA;    std::vector&lt;Light*> lights;&#xA;&#x9;dvec3 pos;&#xA;&#x9;dvec3 rot;&#xA;&#x9;dvec3 esc;&#xA;dmat4 mModelMat;&#xA;};&#xA;#endif&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Node_H_&#xA;#define _H_Node_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;glm/glm.hpp>&#xA;&#xA;#include &quot;Entity.h&quot;&#xA;#include &quot;Light.h&quot;&#xA;&#xA;#include &lt;vector>&#xA;&#xA;using namespace glm;&#xA;&#xA;class Node&#xA;{&#xA;public:&#xA;&#x9;Node(dvec3 pos, dvec3 rot, dvec3 esc);&#xA;&#x9;~Node();&#xA;&#xA;&#x9;void render(glm::dmat4 const&amp; modelViewMat) const;&#xA;&#xA;&#x9;void addEntity(Abs_Entity* ent);&#xA;&#x9;void addNode(Node* n);&#xA;    void addLight(Light* n);&#xA;&#xA;&#xA;protected:&#xA;&#xA;&#x9;std::vector&lt;Abs_Entity*> gObjects;&#xA;&#x9;std::vector&lt;Node*> nodes;&#xA;    std::vector&lt;Light*> lights;&#xA;&#x9;dvec3 pos;&#xA;&#x9;dvec3 rot;&#xA;&#x9;dvec3 esc;&#xA;    dmat4 mModelMat;&#xA;};&#xA;#endif&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Node.h">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
@@ -116,17 +116,17 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateNode">
       <details key="start" value="86"/>
-      <details key="end" value="2120"/>
+      <details key="end" value="2124"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateNode/%">
       <details key="start" value="172"/>
-      <details key="end" value="766"/>
+      <details key="end" value="770"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateNode/%/%">
       <details key="start" value="206"/>
-      <details key="end" value="759"/>
+      <details key="end" value="763"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateNode/%/%.1">
@@ -140,28 +140,28 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/generateNode/%.1">
-      <details key="start" value="767"/>
-      <details key="end" value="768"/>
+      <details key="start" value="771"/>
+      <details key="end" value="772"/>
       <details key="line" value="46"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/generateNode/%.2">
-      <details key="start" value="811"/>
-      <details key="end" value="2108"/>
+      <details key="start" value="815"/>
+      <details key="end" value="2112"/>
       <details key="line" value="48"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/generateNode/%.2/%">
-      <details key="start" value="847"/>
-      <details key="end" value="2101"/>
+      <details key="start" value="851"/>
+      <details key="end" value="2105"/>
       <details key="line" value="49"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/generateNode/%.2/%.1">
-      <details key="start" value="818"/>
-      <details key="end" value="828"/>
+      <details key="start" value="822"/>
+      <details key="end" value="832"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/generateNode/%.2/%.2">
-      <details key="start" value="837"/>
-      <details key="end" value="844"/>
+      <details key="start" value="841"/>
+      <details key="end" value="848"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/generateNode/aNode">

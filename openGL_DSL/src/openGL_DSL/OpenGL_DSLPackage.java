@@ -1041,22 +1041,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int ABS_ENTITY = 9;
 
 	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABS_ENTITY__TEXTURE = 0;
-
-	/**
 	 * The feature id for the '<em><b>Material</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABS_ENTITY__MATERIAL = 1;
+	int ABS_ENTITY__MATERIAL = 0;
 
 	/**
 	 * The feature id for the '<em><b>Mesh</b></em>' containment reference.
@@ -1065,7 +1056,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABS_ENTITY__MESH = 2;
+	int ABS_ENTITY__MESH = 1;
 
 	/**
 	 * The feature id for the '<em><b>Color</b></em>' containment reference.
@@ -1074,7 +1065,43 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABS_ENTITY__COLOR = 3;
+	int ABS_ENTITY__COLOR = 2;
+
+	/**
+	 * The feature id for the '<em><b>Front Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABS_ENTITY__FRONT_TEXTURE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Back Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABS_ENTITY__BACK_TEXTURE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Ancho</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABS_ENTITY__TEXTURA_REPETICION_ANCHO = 5;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Alto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABS_ENTITY__TEXTURA_REPETICION_ALTO = 6;
 
 	/**
 	 * The number of structural features of the '<em>Abs Entity</em>' class.
@@ -1083,7 +1110,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int ABS_ENTITY_FEATURE_COUNT = 4;
+	int ABS_ENTITY_FEATURE_COUNT = 7;
 
 	/**
 	 * The operation id for the '<em>Render</em>' operation.
@@ -1123,15 +1150,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int QUADRIC_ENTITY = 10;
 
 	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUADRIC_ENTITY__TEXTURE = ABS_ENTITY__TEXTURE;
-
-	/**
 	 * The feature id for the '<em><b>Material</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1157,6 +1175,42 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int QUADRIC_ENTITY__COLOR = ABS_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Front Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUADRIC_ENTITY__FRONT_TEXTURE = ABS_ENTITY__FRONT_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Back Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUADRIC_ENTITY__BACK_TEXTURE = ABS_ENTITY__BACK_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Ancho</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUADRIC_ENTITY__TEXTURA_REPETICION_ANCHO = ABS_ENTITY__TEXTURA_REPETICION_ANCHO;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Alto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUADRIC_ENTITY__TEXTURA_REPETICION_ALTO = ABS_ENTITY__TEXTURA_REPETICION_ALTO;
 
 	/**
 	 * The feature id for the '<em><b>Q</b></em>' attribute.
@@ -1686,31 +1740,22 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int TEXTURE = 14;
 
 	/**
-	 * The feature id for the '<em><b>MWidth</b></em>' attribute.
+	 * The feature id for the '<em><b>Textura</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXTURE__MWIDTH = 0;
+	int TEXTURE__TEXTURA = 0;
 
 	/**
-	 * The feature id for the '<em><b>MHeight</b></em>' attribute.
+	 * The feature id for the '<em><b>Alfa</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int TEXTURE__MHEIGHT = 1;
-
-	/**
-	 * The feature id for the '<em><b>MId</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TEXTURE__MID = 2;
+	int TEXTURE__ALFA = 1;
 
 	/**
 	 * The number of structural features of the '<em>Texture</em>' class.
@@ -1719,7 +1764,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int TEXTURE_FEATURE_COUNT = 3;
+	int TEXTURE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Texture</em>' class.
@@ -1739,15 +1784,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	int EJES_RGB = 16;
-
-	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EJES_RGB__TEXTURE = ABS_ENTITY__TEXTURE;
 
 	/**
 	 * The feature id for the '<em><b>Material</b></em>' containment reference.
@@ -1775,6 +1811,42 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int EJES_RGB__COLOR = ABS_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Front Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB__FRONT_TEXTURE = ABS_ENTITY__FRONT_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Back Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB__BACK_TEXTURE = ABS_ENTITY__BACK_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Ancho</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB__TEXTURA_REPETICION_ANCHO = ABS_ENTITY__TEXTURA_REPETICION_ANCHO;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Alto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EJES_RGB__TEXTURA_REPETICION_ALTO = ABS_ENTITY__TEXTURA_REPETICION_ALTO;
 
 	/**
 	 * The feature id for the '<em><b>Lenght</b></em>' attribute.
@@ -1887,15 +1959,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int POLIGONO_REGULAR = 18;
 
 	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLIGONO_REGULAR__TEXTURE = ABS_ENTITY__TEXTURE;
-
-	/**
 	 * The feature id for the '<em><b>Material</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1921,6 +1984,42 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int POLIGONO_REGULAR__COLOR = ABS_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Front Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR__FRONT_TEXTURE = ABS_ENTITY__FRONT_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Back Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR__BACK_TEXTURE = ABS_ENTITY__BACK_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Ancho</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR__TEXTURA_REPETICION_ANCHO = ABS_ENTITY__TEXTURA_REPETICION_ANCHO;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Alto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int POLIGONO_REGULAR__TEXTURA_REPETICION_ALTO = ABS_ENTITY__TEXTURA_REPETICION_ALTO;
 
 	/**
 	 * The feature id for the '<em><b>Num Vertices</b></em>' attribute.
@@ -2060,15 +2159,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int RECTANGULO = 20;
 
 	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGULO__TEXTURE = ABS_ENTITY__TEXTURE;
-
-	/**
 	 * The feature id for the '<em><b>Material</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2094,6 +2184,42 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int RECTANGULO__COLOR = ABS_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Front Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO__FRONT_TEXTURE = ABS_ENTITY__FRONT_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Back Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO__BACK_TEXTURE = ABS_ENTITY__BACK_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Ancho</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO__TEXTURA_REPETICION_ANCHO = ABS_ENTITY__TEXTURA_REPETICION_ANCHO;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Alto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RECTANGULO__TEXTURA_REPETICION_ALTO = ABS_ENTITY__TEXTURA_REPETICION_ALTO;
 
 	/**
 	 * The feature id for the '<em><b>Ancho</b></em>' attribute.
@@ -2169,15 +2295,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int CIRCULO = 21;
 
 	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CIRCULO__TEXTURE = ABS_ENTITY__TEXTURE;
-
-	/**
 	 * The feature id for the '<em><b>Material</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2203,6 +2320,42 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int CIRCULO__COLOR = ABS_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Front Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO__FRONT_TEXTURE = ABS_ENTITY__FRONT_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Back Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO__BACK_TEXTURE = ABS_ENTITY__BACK_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Ancho</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO__TEXTURA_REPETICION_ANCHO = ABS_ENTITY__TEXTURA_REPETICION_ANCHO;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Alto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CIRCULO__TEXTURA_REPETICION_ALTO = ABS_ENTITY__TEXTURA_REPETICION_ALTO;
 
 	/**
 	 * The feature id for the '<em><b>Radio</b></em>' attribute.
@@ -2269,15 +2422,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int ESFERA = 22;
 
 	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESFERA__TEXTURE = QUADRIC_ENTITY__TEXTURE;
-
-	/**
 	 * The feature id for the '<em><b>Material</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2303,6 +2447,42 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int ESFERA__COLOR = QUADRIC_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Front Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA__FRONT_TEXTURE = QUADRIC_ENTITY__FRONT_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Back Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA__BACK_TEXTURE = QUADRIC_ENTITY__BACK_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Ancho</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA__TEXTURA_REPETICION_ANCHO = QUADRIC_ENTITY__TEXTURA_REPETICION_ANCHO;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Alto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ESFERA__TEXTURA_REPETICION_ALTO = QUADRIC_ENTITY__TEXTURA_REPETICION_ALTO;
 
 	/**
 	 * The feature id for the '<em><b>Q</b></em>' attribute.
@@ -2369,15 +2549,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int CILINDRO = 23;
 
 	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CILINDRO__TEXTURE = QUADRIC_ENTITY__TEXTURE;
-
-	/**
 	 * The feature id for the '<em><b>Material</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2403,6 +2574,42 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int CILINDRO__COLOR = QUADRIC_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Front Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO__FRONT_TEXTURE = QUADRIC_ENTITY__FRONT_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Back Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO__BACK_TEXTURE = QUADRIC_ENTITY__BACK_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Ancho</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO__TEXTURA_REPETICION_ANCHO = QUADRIC_ENTITY__TEXTURA_REPETICION_ANCHO;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Alto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CILINDRO__TEXTURA_REPETICION_ALTO = QUADRIC_ENTITY__TEXTURA_REPETICION_ALTO;
 
 	/**
 	 * The feature id for the '<em><b>Q</b></em>' attribute.
@@ -2487,15 +2694,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int DISCO = 24;
 
 	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISCO__TEXTURE = QUADRIC_ENTITY__TEXTURE;
-
-	/**
 	 * The feature id for the '<em><b>Material</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2521,6 +2719,42 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DISCO__COLOR = QUADRIC_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Front Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO__FRONT_TEXTURE = QUADRIC_ENTITY__FRONT_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Back Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO__BACK_TEXTURE = QUADRIC_ENTITY__BACK_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Ancho</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO__TEXTURA_REPETICION_ANCHO = QUADRIC_ENTITY__TEXTURA_REPETICION_ANCHO;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Alto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO__TEXTURA_REPETICION_ALTO = QUADRIC_ENTITY__TEXTURA_REPETICION_ALTO;
 
 	/**
 	 * The feature id for the '<em><b>Q</b></em>' attribute.
@@ -2596,15 +2830,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int DISCO_PARCIAL = 25;
 
 	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISCO_PARCIAL__TEXTURE = QUADRIC_ENTITY__TEXTURE;
-
-	/**
 	 * The feature id for the '<em><b>Material</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2630,6 +2855,42 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DISCO_PARCIAL__COLOR = QUADRIC_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Front Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL__FRONT_TEXTURE = QUADRIC_ENTITY__FRONT_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Back Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL__BACK_TEXTURE = QUADRIC_ENTITY__BACK_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Ancho</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL__TEXTURA_REPETICION_ANCHO = QUADRIC_ENTITY__TEXTURA_REPETICION_ANCHO;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Alto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int DISCO_PARCIAL__TEXTURA_REPETICION_ALTO = QUADRIC_ENTITY__TEXTURA_REPETICION_ALTO;
 
 	/**
 	 * The feature id for the '<em><b>Q</b></em>' attribute.
@@ -2723,15 +2984,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int CUBO = 26;
 
 	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CUBO__TEXTURE = ABS_ENTITY__TEXTURE;
-
-	/**
 	 * The feature id for the '<em><b>Material</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2757,6 +3009,42 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int CUBO__COLOR = ABS_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Front Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUBO__FRONT_TEXTURE = ABS_ENTITY__FRONT_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Back Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUBO__BACK_TEXTURE = ABS_ENTITY__BACK_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Ancho</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUBO__TEXTURA_REPETICION_ANCHO = ABS_ENTITY__TEXTURA_REPETICION_ANCHO;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Alto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CUBO__TEXTURA_REPETICION_ALTO = ABS_ENTITY__TEXTURA_REPETICION_ALTO;
 
 	/**
 	 * The feature id for the '<em><b>Lenght</b></em>' attribute.
@@ -2814,15 +3102,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int TOROIDE = 27;
 
 	/**
-	 * The feature id for the '<em><b>Texture</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOROIDE__TEXTURE = ABS_ENTITY__TEXTURE;
-
-	/**
 	 * The feature id for the '<em><b>Material</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2848,6 +3127,42 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int TOROIDE__COLOR = ABS_ENTITY__COLOR;
+
+	/**
+	 * The feature id for the '<em><b>Front Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE__FRONT_TEXTURE = ABS_ENTITY__FRONT_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Back Texture</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE__BACK_TEXTURE = ABS_ENTITY__BACK_TEXTURE;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Ancho</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE__TEXTURA_REPETICION_ANCHO = ABS_ENTITY__TEXTURA_REPETICION_ANCHO;
+
+	/**
+	 * The feature id for the '<em><b>Textura Repeticion Alto</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TOROIDE__TEXTURA_REPETICION_ALTO = ABS_ENTITY__TEXTURA_REPETICION_ALTO;
 
 	/**
 	 * The feature id for the '<em><b>Radio Centro</b></em>' attribute.
@@ -3585,17 +3900,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EClass getAbs_Entity();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link openGL_DSL.Abs_Entity#getTexture <em>Texture</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Texture</em>'.
-	 * @see openGL_DSL.Abs_Entity#getTexture()
-	 * @see #getAbs_Entity()
-	 * @generated
-	 */
-	EReference getAbs_Entity_Texture();
-
-	/**
 	 * Returns the meta object for the containment reference '{@link openGL_DSL.Abs_Entity#getMaterial <em>Material</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3627,6 +3931,50 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getAbs_Entity_Color();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Abs_Entity#getFrontTexture <em>Front Texture</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Front Texture</em>'.
+	 * @see openGL_DSL.Abs_Entity#getFrontTexture()
+	 * @see #getAbs_Entity()
+	 * @generated
+	 */
+	EReference getAbs_Entity_FrontTexture();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Abs_Entity#getBackTexture <em>Back Texture</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Back Texture</em>'.
+	 * @see openGL_DSL.Abs_Entity#getBackTexture()
+	 * @see #getAbs_Entity()
+	 * @generated
+	 */
+	EReference getAbs_Entity_BackTexture();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Abs_Entity#getTexturaRepeticionAncho <em>Textura Repeticion Ancho</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Textura Repeticion Ancho</em>'.
+	 * @see openGL_DSL.Abs_Entity#getTexturaRepeticionAncho()
+	 * @see #getAbs_Entity()
+	 * @generated
+	 */
+	EAttribute getAbs_Entity_TexturaRepeticionAncho();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Abs_Entity#getTexturaRepeticionAlto <em>Textura Repeticion Alto</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Textura Repeticion Alto</em>'.
+	 * @see openGL_DSL.Abs_Entity#getTexturaRepeticionAlto()
+	 * @see #getAbs_Entity()
+	 * @generated
+	 */
+	EAttribute getAbs_Entity_TexturaRepeticionAlto();
 
 	/**
 	 * Returns the meta object for the '{@link openGL_DSL.Abs_Entity#render(java.lang.Object) <em>Render</em>}' operation.
@@ -3905,37 +4253,26 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EClass getTexture();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Texture#getMWidth <em>MWidth</em>}'.
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Texture#getTextura <em>Textura</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>MWidth</em>'.
-	 * @see openGL_DSL.Texture#getMWidth()
+	 * @return the meta object for the attribute '<em>Textura</em>'.
+	 * @see openGL_DSL.Texture#getTextura()
 	 * @see #getTexture()
 	 * @generated
 	 */
-	EAttribute getTexture_MWidth();
+	EAttribute getTexture_Textura();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Texture#getMHeight <em>MHeight</em>}'.
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Texture#getAlfa <em>Alfa</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>MHeight</em>'.
-	 * @see openGL_DSL.Texture#getMHeight()
+	 * @return the meta object for the attribute '<em>Alfa</em>'.
+	 * @see openGL_DSL.Texture#getAlfa()
 	 * @see #getTexture()
 	 * @generated
 	 */
-	EAttribute getTexture_MHeight();
-
-	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Texture#getMId <em>MId</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>MId</em>'.
-	 * @see openGL_DSL.Texture#getMId()
-	 * @see #getTexture()
-	 * @generated
-	 */
-	EAttribute getTexture_MId();
+	EAttribute getTexture_Alfa();
 
 	/**
 	 * Returns the meta object for class '{@link openGL_DSL.IndexMesh <em>Index Mesh</em>}'.
@@ -4995,14 +5332,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EClass ABS_ENTITY = eINSTANCE.getAbs_Entity();
 
 		/**
-		 * The meta object literal for the '<em><b>Texture</b></em>' containment reference list feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference ABS_ENTITY__TEXTURE = eINSTANCE.getAbs_Entity_Texture();
-
-		/**
 		 * The meta object literal for the '<em><b>Material</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5025,6 +5354,38 @@ public interface OpenGL_DSLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ABS_ENTITY__COLOR = eINSTANCE.getAbs_Entity_Color();
+
+		/**
+		 * The meta object literal for the '<em><b>Front Texture</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABS_ENTITY__FRONT_TEXTURE = eINSTANCE.getAbs_Entity_FrontTexture();
+
+		/**
+		 * The meta object literal for the '<em><b>Back Texture</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ABS_ENTITY__BACK_TEXTURE = eINSTANCE.getAbs_Entity_BackTexture();
+
+		/**
+		 * The meta object literal for the '<em><b>Textura Repeticion Ancho</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABS_ENTITY__TEXTURA_REPETICION_ANCHO = eINSTANCE.getAbs_Entity_TexturaRepeticionAncho();
+
+		/**
+		 * The meta object literal for the '<em><b>Textura Repeticion Alto</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ABS_ENTITY__TEXTURA_REPETICION_ALTO = eINSTANCE.getAbs_Entity_TexturaRepeticionAlto();
 
 		/**
 		 * The meta object literal for the '<em><b>Render</b></em>' operation.
@@ -5245,28 +5606,20 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EClass TEXTURE = eINSTANCE.getTexture();
 
 		/**
-		 * The meta object literal for the '<em><b>MWidth</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Textura</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TEXTURE__MWIDTH = eINSTANCE.getTexture_MWidth();
+		EAttribute TEXTURE__TEXTURA = eINSTANCE.getTexture_Textura();
 
 		/**
-		 * The meta object literal for the '<em><b>MHeight</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Alfa</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute TEXTURE__MHEIGHT = eINSTANCE.getTexture_MHeight();
-
-		/**
-		 * The meta object literal for the '<em><b>MId</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute TEXTURE__MID = eINSTANCE.getTexture_MId();
+		EAttribute TEXTURE__ALFA = eINSTANCE.getTexture_Alfa();
 
 		/**
 		 * The meta object literal for the '{@link openGL_DSL.impl.IndexMeshImpl <em>Index Mesh</em>}' class.
