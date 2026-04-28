@@ -1748,6 +1748,26 @@ Scene* Scene_texturas(){
 }
 
 
+Node* Node_lucesM() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+    auto l1 = new DirLight();
+    l1->setPosDir(fvec3(0.0,0.0,-1.0));
+    node->addLight(l1);
+    auto l2 = new DirLight();
+    l2->setPosDir(fvec3(0.0,0.0,1.0));
+    node->addLight(l2);
+
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
 
 Node* Node_fondoM() {
     Node* node = new Node(
@@ -1884,6 +1904,12 @@ Node* Node_cuadradoDobleSinM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.135,0.2225,0.1575,1.0));
+    material1->setDiff(fvec4(0.54,0.89,0.63,1.0));
+    material1->setSpec(fvec4(0.316228,0.316228,0.316228,1.0));
+    material1->setExpF(12.8);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -1903,6 +1929,12 @@ Node* Node_cuadradoFrenteSinM() {
     Texture* frontTexture1 = new Texture();
 	frontTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setFrontTexture(frontTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.05375,0.05,0.06625,1.0));
+    material1->setDiff(fvec4(0.18275,0.17,0.22525,1.0));
+    material1->setSpec(fvec4(0.332741,0.328634,0.346435,1.0));
+    material1->setExpF(38.4);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -1922,6 +1954,12 @@ Node* Node_cuadradoEspaldaSinM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.20725,0.20725,1.0));
+    material1->setDiff(fvec4(1.0,0.829,0.829,1.0));
+    material1->setSpec(fvec4(0.296648,0.296648,0.296648,1.0));
+    material1->setExpF(11.264);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -1961,6 +1999,12 @@ Node* Node_cuadradoDobleMenosAlfaM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 150);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.1745,0.01175,0.01175,1.0));
+    material1->setDiff(fvec4(0.61424,0.04136,0.04136,1.0));
+    material1->setSpec(fvec4(0.727811,0.626959,0.626959,1.0));
+    material1->setExpF(76.8);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -1980,6 +2024,12 @@ Node* Node_cuadradoFrenteMenosAlfaM() {
     Texture* frontTexture1 = new Texture();
 	frontTexture1->load("../bmps/baldosaC.bmp", 150);
     e1->setFrontTexture(frontTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.1,0.18725,0.1745,1.0));
+    material1->setDiff(fvec4(0.396,0.74151,0.69102,1.0));
+    material1->setSpec(fvec4(0.297254,0.30829,0.306678,1.0));
+    material1->setExpF(12.8);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -1999,6 +2049,12 @@ Node* Node_cuadradoEspaldaMenosAlfaM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 150);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.329412,0.223529,0.027451,1.0));
+    material1->setDiff(fvec4(0.780392,0.568627,0.113725,1.0));
+    material1->setSpec(fvec4(0.992157,0.941176,0.807843,1.0));
+    material1->setExpF(27.897436);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2038,6 +2094,12 @@ Node* Node_cuadradoDobleMultiM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.25,0.25,1.0));
+    material1->setDiff(fvec4(0.4,0.4,0.4,1.0));
+    material1->setSpec(fvec4(0.774597,0.774597,0.774597,1.0));
+    material1->setExpF(76.8);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2057,6 +2119,12 @@ Node* Node_cuadradoFrenteMultiM() {
     Texture* frontTexture1 = new Texture();
 	frontTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setFrontTexture(frontTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.2125,0.1275,0.054,1.0));
+    material1->setDiff(fvec4(0.714,0.4284,0.18144,1.0));
+    material1->setSpec(fvec4(0.393548,0.271906,0.166721,1.0));
+    material1->setExpF(25.6);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2076,6 +2144,12 @@ Node* Node_cuadradoEspaldaMultiM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.19225,0.19225,0.19225,1.0));
+    material1->setDiff(fvec4(0.50754,0.50754,0.50754,1.0));
+    material1->setSpec(fvec4(0.508273,0.508273,0.508273,1.0));
+    material1->setExpF(51.2);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2115,6 +2189,12 @@ Node* Node_trianguloM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.0,0.0,1.0));
+    material1->setDiff(fvec4(0.01,0.01,0.01,1.0));
+    material1->setSpec(fvec4(0.5,0.5,0.5,1.0));
+    material1->setExpF(32.0);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2134,6 +2214,12 @@ Node* Node_pentagonoM() {
     Texture* frontTexture1 = new Texture();
 	frontTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setFrontTexture(frontTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.1,0.06,1.0));
+    material1->setDiff(fvec4(0.0,0.50980392,0.50980392,1.0));
+    material1->setSpec(fvec4(0.50196078,0.50196078,0.50196078,1.0));
+    material1->setExpF(32.0);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2153,6 +2239,12 @@ Node* Node_hexagonoM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.0,0.0,1.0));
+    material1->setDiff(fvec4(0.01,0.35,0.01,1.0));
+    material1->setSpec(fvec4(0.45,0.55,0.45,1.0));
+    material1->setExpF(32.0);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2192,6 +2284,12 @@ Node* Node_trianguloMMulti() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.0,0.0,1.0));
+    material1->setDiff(fvec4(0.5,0.0,0.0,1.0));
+    material1->setSpec(fvec4(0.7,0.6,0.6,1.0));
+    material1->setExpF(32.0);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2211,6 +2309,12 @@ Node* Node_pentagonoMMulti() {
     Texture* frontTexture1 = new Texture();
 	frontTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setFrontTexture(frontTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.0,0.0,1.0));
+    material1->setDiff(fvec4(0.5,0.5,0.0,1.0));
+    material1->setSpec(fvec4(0.6,0.6,0.5,1.0));
+    material1->setExpF(32.0);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2230,6 +2334,12 @@ Node* Node_hexagonoMMulti() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.02,0.02,0.02,1.0));
+    material1->setDiff(fvec4(0.01,0.01,0.01,1.0));
+    material1->setSpec(fvec4(0.4,0.4,0.4,1.0));
+    material1->setExpF(100.0);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2289,6 +2399,12 @@ Node* Node_circuloDobleM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.05,0.05,1.0));
+    material1->setDiff(fvec4(0.4,0.5,0.5,1.0));
+    material1->setSpec(fvec4(0.04,0.7,0.7,1.0));
+    material1->setExpF(100.0);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2308,6 +2424,12 @@ Node* Node_circuloFrenteM() {
     Texture* frontTexture1 = new Texture();
 	frontTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setFrontTexture(frontTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.05,0.0,1.0));
+    material1->setDiff(fvec4(0.4,0.5,0.4,1.0));
+    material1->setSpec(fvec4(0.04,0.7,0.04,1.0));
+    material1->setExpF(100.0);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2327,6 +2449,12 @@ Node* Node_circuloEspaldaM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.05,0.0,0.0,1.0));
+    material1->setDiff(fvec4(0.5,0.4,0.4,1.0));
+    material1->setSpec(fvec4(0.7,0.04,0.04,1.0));
+    material1->setExpF(100.0);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2366,6 +2494,12 @@ Node* Node_circuloDobleSinM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.05,0.05,0.05,1.0));
+    material1->setDiff(fvec4(0.5,0.5,0.5,1.0));
+    material1->setSpec(fvec4(0.7,0.7,0.7,1.0));
+    material1->setExpF(100.0);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2385,6 +2519,12 @@ Node* Node_circuloFrenteSinM() {
     Texture* frontTexture1 = new Texture();
 	frontTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setFrontTexture(frontTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.05,0.05,0.0,1.0));
+    material1->setDiff(fvec4(0.5,0.5,0.4,1.0));
+    material1->setSpec(fvec4(0.7,0.7,0.04,1.0));
+    material1->setExpF(100.0);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2404,6 +2544,12 @@ Node* Node_circuloEspaldaSInM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.02,0.02,0.02,1.0));
+    material1->setDiff(fvec4(0.01,0.01,0.01,1.0));
+    material1->setSpec(fvec4(0.4,0.4,0.4,1.0));
+    material1->setExpF(100.0);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2443,6 +2589,12 @@ Node* Node_circuloDobleMenosAlfaM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 150);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.135,0.2225,0.1575,1.0));
+    material1->setDiff(fvec4(0.54,0.89,0.63,1.0));
+    material1->setSpec(fvec4(0.316228,0.316228,0.316228,1.0));
+    material1->setExpF(12.8);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2462,6 +2614,12 @@ Node* Node_circuloFrenteMenosAlfaM() {
     Texture* frontTexture1 = new Texture();
 	frontTexture1->load("../bmps/baldosaC.bmp", 150);
     e1->setFrontTexture(frontTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.05375,0.05,0.06625,1.0));
+    material1->setDiff(fvec4(0.18275,0.17,0.22525,1.0));
+    material1->setSpec(fvec4(0.332741,0.328634,0.346435,1.0));
+    material1->setExpF(38.4);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2481,6 +2639,12 @@ Node* Node_circuloEspaldaMenosAlfaM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 150);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.20725,0.20725,1.0));
+    material1->setDiff(fvec4(1.0,0.829,0.829,1.0));
+    material1->setSpec(fvec4(0.296648,0.296648,0.296648,1.0));
+    material1->setExpF(11.264);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2537,6 +2701,12 @@ Node* Node_rectanguloDobleM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.20725,0.20725,1.0));
+    material1->setDiff(fvec4(1.0,0.829,0.829,1.0));
+    material1->setSpec(fvec4(0.296648,0.296648,0.296648,1.0));
+    material1->setExpF(11.264);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2556,6 +2726,12 @@ Node* Node_rectanguloFrenteM() {
     Texture* frontTexture1 = new Texture();
 	frontTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setFrontTexture(frontTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.20725,0.20725,1.0));
+    material1->setDiff(fvec4(1.0,0.829,0.829,1.0));
+    material1->setSpec(fvec4(0.296648,0.296648,0.296648,1.0));
+    material1->setExpF(11.264);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2575,6 +2751,12 @@ Node* Node_rectanguloEspaldaM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.20725,0.20725,1.0));
+    material1->setDiff(fvec4(1.0,0.829,0.829,1.0));
+    material1->setSpec(fvec4(0.296648,0.296648,0.296648,1.0));
+    material1->setExpF(11.264);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2614,6 +2796,12 @@ Node* Node_rectanguloSDobleM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.20725,0.20725,1.0));
+    material1->setDiff(fvec4(1.0,0.829,0.829,1.0));
+    material1->setSpec(fvec4(0.296648,0.296648,0.296648,1.0));
+    material1->setExpF(11.264);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2633,6 +2821,12 @@ Node* Node_rectanguloSFrenteM() {
     Texture* frontTexture1 = new Texture();
 	frontTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setFrontTexture(frontTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.20725,0.20725,1.0));
+    material1->setDiff(fvec4(1.0,0.829,0.829,1.0));
+    material1->setSpec(fvec4(0.296648,0.296648,0.296648,1.0));
+    material1->setExpF(11.264);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2652,6 +2846,12 @@ Node* Node_rectanguloSEspaldaM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 255);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.20725,0.20725,1.0));
+    material1->setDiff(fvec4(1.0,0.829,0.829,1.0));
+    material1->setSpec(fvec4(0.296648,0.296648,0.296648,1.0));
+    material1->setExpF(11.264);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2691,6 +2891,12 @@ Node* Node_rectanguloDobleMenosAlfaM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 150);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.20725,0.20725,1.0));
+    material1->setDiff(fvec4(1.0,0.829,0.829,1.0));
+    material1->setSpec(fvec4(0.296648,0.296648,0.296648,1.0));
+    material1->setExpF(11.264);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2710,6 +2916,12 @@ Node* Node_rectanguloFrenteMenosAlfaM() {
     Texture* frontTexture1 = new Texture();
 	frontTexture1->load("../bmps/baldosaC.bmp", 150);
     e1->setFrontTexture(frontTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.20725,0.20725,1.0));
+    material1->setDiff(fvec4(1.0,0.829,0.829,1.0));
+    material1->setSpec(fvec4(0.296648,0.296648,0.296648,1.0));
+    material1->setExpF(11.264);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2729,6 +2941,12 @@ Node* Node_rectanguloEspaldaMenosAlfaM() {
     Texture* backTexture1 = new Texture();
 	backTexture1->load("../bmps/baldosaC.bmp", 150);
     e1->setBackTexture(backTexture1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.20725,0.20725,1.0));
+    material1->setDiff(fvec4(1.0,0.829,0.829,1.0));
+    material1->setSpec(fvec4(0.296648,0.296648,0.296648,1.0));
+    material1->setExpF(11.264);
+    e1->setMaterial(material1);
     // Generar hijos recursivamente
 
     return node;
@@ -2766,6 +2984,691 @@ Node* Node_rectangulosM() {
     return node;
 }
 
+
+
+
+Node* Node_cuboM1() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.19125,0.0735,0.0225,1.0));
+    material1->setDiff(fvec4(0.7038,0.27048,0.0828,1.0));
+    material1->setSpec(fvec4(0.256777,0.137622,0.086014,1.0));
+    material1->setExpF(12.8);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM2() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0215,0.1745,0.0215,1.0));
+    material1->setDiff(fvec4(0.07568,0.61424,0.07568,1.0));
+    material1->setSpec(fvec4(0.633,0.727811,0.633,1.0));
+    material1->setExpF(76.8);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM3() {
+    Node* node = new Node(
+        dvec3(0.0, -200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.24725,0.1995,0.0745,1.0));
+    material1->setDiff(fvec4(0.75164,0.60642,0.22648,1.0));
+    material1->setSpec(fvec4(0.628281,0.555802,0.366065,1.0));
+    material1->setExpF(51.2);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cubosMC1() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuboM1());
+    node->addNode(Node_cuboM2());
+    node->addNode(Node_cuboM3());
+
+    return node;
+}
+
+
+
+Node* Node_cuboM4() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.135,0.2225,0.1575,1.0));
+    material1->setDiff(fvec4(0.54,0.89,0.63,1.0));
+    material1->setSpec(fvec4(0.316228,0.316228,0.316228,1.0));
+    material1->setExpF(12.8);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM5() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.05375,0.05,0.06625,1.0));
+    material1->setDiff(fvec4(0.18275,0.17,0.22525,1.0));
+    material1->setSpec(fvec4(0.332741,0.328634,0.346435,1.0));
+    material1->setExpF(38.4);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM6() {
+    Node* node = new Node(
+        dvec3(0.0, -200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.20725,0.20725,1.0));
+    material1->setDiff(fvec4(1.0,0.829,0.829,1.0));
+    material1->setSpec(fvec4(0.296648,0.296648,0.296648,1.0));
+    material1->setExpF(11.264);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cubosMC2() {
+    Node* node = new Node(
+        dvec3(200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuboM4());
+    node->addNode(Node_cuboM5());
+    node->addNode(Node_cuboM6());
+
+    return node;
+}
+
+
+
+Node* Node_cuboM7() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.1745,0.01175,0.01175,1.0));
+    material1->setDiff(fvec4(0.61424,0.04136,0.04136,1.0));
+    material1->setSpec(fvec4(0.727811,0.626959,0.626959,1.0));
+    material1->setExpF(76.8);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM8() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.1,0.18725,0.1745,1.0));
+    material1->setDiff(fvec4(0.396,0.74151,0.69102,1.0));
+    material1->setSpec(fvec4(0.297254,0.30829,0.306678,1.0));
+    material1->setExpF(12.8);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM9() {
+    Node* node = new Node(
+        dvec3(0.0, -200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.329412,0.223529,0.027451,1.0));
+    material1->setDiff(fvec4(0.780392,0.568627,0.113725,1.0));
+    material1->setSpec(fvec4(0.992157,0.941176,0.807843,1.0));
+    material1->setExpF(27.897436);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cubosMC3() {
+    Node* node = new Node(
+        dvec3(400.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuboM7());
+    node->addNode(Node_cuboM8());
+    node->addNode(Node_cuboM9());
+
+    return node;
+}
+
+
+
+Node* Node_cuboM10() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.25,0.25,1.0));
+    material1->setDiff(fvec4(0.4,0.4,0.4,1.0));
+    material1->setSpec(fvec4(0.774597,0.774597,0.774597,1.0));
+    material1->setExpF(76.8);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM11() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.2125,0.1275,0.054,1.0));
+    material1->setDiff(fvec4(0.714,0.4284,0.18144,1.0));
+    material1->setSpec(fvec4(0.393548,0.271906,0.166721,1.0));
+    material1->setExpF(25.6);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM12() {
+    Node* node = new Node(
+        dvec3(0.0, -200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.19225,0.19225,0.19225,1.0));
+    material1->setDiff(fvec4(0.50754,0.50754,0.50754,1.0));
+    material1->setSpec(fvec4(0.508273,0.508273,0.508273,1.0));
+    material1->setExpF(51.2);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cubosMC4() {
+    Node* node = new Node(
+        dvec3(600.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuboM10());
+    node->addNode(Node_cuboM11());
+    node->addNode(Node_cuboM12());
+
+    return node;
+}
+
+
+
+Node* Node_cuboM13() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.0,0.0,1.0));
+    material1->setDiff(fvec4(0.01,0.01,0.01,1.0));
+    material1->setSpec(fvec4(0.5,0.5,0.5,1.0));
+    material1->setExpF(32.0);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM14() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.1,0.06,1.0));
+    material1->setDiff(fvec4(0.0,0.50980392,0.50980392,1.0));
+    material1->setSpec(fvec4(0.50196078,0.50196078,0.50196078,1.0));
+    material1->setExpF(32.0);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM15() {
+    Node* node = new Node(
+        dvec3(0.0, -200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.0,0.0,1.0));
+    material1->setDiff(fvec4(0.01,0.35,0.01,1.0));
+    material1->setSpec(fvec4(0.45,0.55,0.45,1.0));
+    material1->setExpF(32.0);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cubosMC5() {
+    Node* node = new Node(
+        dvec3(800.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuboM13());
+    node->addNode(Node_cuboM14());
+    node->addNode(Node_cuboM15());
+
+    return node;
+}
+
+
+
+Node* Node_cuboM16() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.0,0.0,1.0));
+    material1->setDiff(fvec4(0.5,0.0,0.0,1.0));
+    material1->setSpec(fvec4(0.7,0.6,0.6,1.0));
+    material1->setExpF(32.0);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM17() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.0,0.0,1.0));
+    material1->setDiff(fvec4(0.5,0.5,0.0,1.0));
+    material1->setSpec(fvec4(0.6,0.6,0.5,1.0));
+    material1->setExpF(32.0);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM18() {
+    Node* node = new Node(
+        dvec3(0.0, -200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.02,0.02,0.02,1.0));
+    material1->setDiff(fvec4(0.01,0.01,0.01,1.0));
+    material1->setSpec(fvec4(0.4,0.4,0.4,1.0));
+    material1->setExpF(100.0);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cubosMC6() {
+    Node* node = new Node(
+        dvec3(1000.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuboM16());
+    node->addNode(Node_cuboM17());
+    node->addNode(Node_cuboM18());
+
+    return node;
+}
+
+
+
+Node* Node_cuboM19() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.05,0.05,1.0));
+    material1->setDiff(fvec4(0.4,0.5,0.5,1.0));
+    material1->setSpec(fvec4(0.04,0.7,0.7,1.0));
+    material1->setExpF(100.0);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM20() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.0,0.05,0.0,1.0));
+    material1->setDiff(fvec4(0.4,0.5,0.4,1.0));
+    material1->setSpec(fvec4(0.04,0.7,0.04,1.0));
+    material1->setExpF(100.0);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM21() {
+    Node* node = new Node(
+        dvec3(0.0, -200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.05,0.0,0.0,1.0));
+    material1->setDiff(fvec4(0.5,0.4,0.4,1.0));
+    material1->setSpec(fvec4(0.7,0.04,0.04,1.0));
+    material1->setExpF(100.0);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cubosMC7() {
+    Node* node = new Node(
+        dvec3(1200.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuboM19());
+    node->addNode(Node_cuboM20());
+    node->addNode(Node_cuboM21());
+
+    return node;
+}
+
+
+
+Node* Node_cuboM22() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.05,0.05,0.05,1.0));
+    material1->setDiff(fvec4(0.5,0.5,0.5,1.0));
+    material1->setSpec(fvec4(0.7,0.7,0.7,1.0));
+    material1->setExpF(100.0);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+
+Node* Node_cuboM23() {
+    Node* node = new Node(
+        dvec3(0.0, 200.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new IndexedBox(100.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.05,0.05,0.0,1.0));
+    material1->setDiff(fvec4(0.5,0.5,0.4,1.0));
+    material1->setSpec(fvec4(0.7,0.7,0.04,1.0));
+    material1->setExpF(100.0);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
+Node* Node_cubosMC8() {
+    Node* node = new Node(
+        dvec3(1400.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cuboM22());
+    node->addNode(Node_cuboM23());
+
+    return node;
+}
+
+Node* Node_cubosM() {
+    Node* node = new Node(
+        dvec3(0.0, 0.0, -200.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    // Generar hijos recursivamente
+    node->addNode(Node_cubosMC1());
+    node->addNode(Node_cubosMC2());
+    node->addNode(Node_cubosMC3());
+    node->addNode(Node_cubosMC4());
+    node->addNode(Node_cubosMC5());
+    node->addNode(Node_cubosMC6());
+    node->addNode(Node_cubosMC7());
+    node->addNode(Node_cubosMC8());
+
+    return node;
+}
+
+
+Node* Node_toroideM() {
+    Node* node = new Node(
+        dvec3(2000.0, 0.0, 0.0),//pos
+        dvec3(0.0, 0.0, 0.0),//rot
+        dvec3(1.0, 1.0, 1.0)//esc
+    );
+
+
+    auto e1 = new Toroid(25.0,50.0);
+    node->addEntity(e1);
+    Material* material1 = new Material();
+    material1->setAmb(fvec4(0.25,0.20725,0.20725,1.0));
+    material1->setDiff(fvec4(1.0,0.829,0.829,1.0));
+    material1->setSpec(fvec4(0.296648,0.296648,0.296648,1.0));
+    material1->setExpF(11.264);
+    e1->setMaterial(material1);
+    // Generar hijos recursivamente
+
+    return node;
+}
+
 Node* Node_materiales() {
     Node* node = new Node(
         dvec3(0.0, 0.0, 0.0),//pos
@@ -2779,12 +3682,15 @@ Node* Node_materiales() {
     node->addNode(Node_poligonosM());
     node->addNode(Node_circulosM());
     node->addNode(Node_rectangulosM());
+    node->addNode(Node_cubosM());
+    node->addNode(Node_toroideM());
 
     return node;
 }
 
 Scene* Scene_materiales(){
     Scene* scene= new Scene();
+    scene->addNode(Node_lucesM());
     scene->addNode(Node_materiales());
     scene->setVisible(true);
     return scene;

@@ -949,6 +949,18 @@
     </nodo>
   </scenes>
   <scenes Name="materiales">
+    <nodo Name="lucesM">
+      <light
+          xsi:type="openGL_DSL:DirLight">
+        <direccion
+            Z="-1.0"/>
+      </light>
+      <light
+          xsi:type="openGL_DSL:DirLight">
+        <direccion
+            Z="1.0"/>
+      </light>
+    </nodo>
     <nodo Name="materiales">
       <nodo
           Name="fondoM">
@@ -1073,6 +1085,24 @@
                 xsi:type="openGL_DSL:PoligonoRegular"
                 NumVertices="4"
                 Radio="100.0">
+              <material
+                  expF="12.8">
+                <ambient
+                    R="0.135"
+                    G="0.2225"
+                    B="0.1575"
+                    A="1.0"/>
+                <difusse
+                    R="0.54"
+                    G="0.89"
+                    B="0.63"
+                    A="1.0"/>
+                <specular
+                    R="0.316228"
+                    G="0.316228"
+                    B="0.316228"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
               <BackTexture
@@ -1085,6 +1115,24 @@
                 xsi:type="openGL_DSL:PoligonoRegular"
                 NumVertices="4"
                 Radio="100.0">
+              <material
+                  expF="38.4">
+                <ambient
+                    R="0.05375"
+                    G="0.05"
+                    B="0.06625"
+                    A="1.0"/>
+                <difusse
+                    R="0.18275"
+                    G="0.17"
+                    B="0.22525"
+                    A="1.0"/>
+                <specular
+                    R="0.332741"
+                    G="0.328634"
+                    B="0.346435"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1097,6 +1145,24 @@
                 xsi:type="openGL_DSL:PoligonoRegular"
                 NumVertices="4"
                 Radio="100.0">
+              <material
+                  expF="11.264">
+                <ambient
+                    R="0.25"
+                    G="0.20725"
+                    B="0.20725"
+                    A="1.0"/>
+                <difusse
+                    R="1.0"
+                    G="0.829"
+                    B="0.829"
+                    A="1.0"/>
+                <specular
+                    R="0.296648"
+                    G="0.296648"
+                    B="0.296648"
+                    A="1.0"/>
+              </material>
               <BackTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1115,6 +1181,24 @@
                 NumVertices="4"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="76.8">
+                <ambient
+                    R="0.1745"
+                    G="0.01175"
+                    B="0.01175"
+                    A="1.0"/>
+                <difusse
+                    R="0.61424"
+                    G="0.04136"
+                    B="0.04136"
+                    A="1.0"/>
+                <specular
+                    R="0.727811"
+                    G="0.626959"
+                    B="0.626959"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"
                   Alfa="150"/>
@@ -1130,6 +1214,24 @@
                 NumVertices="4"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="12.8">
+                <ambient
+                    R="0.1"
+                    G="0.18725"
+                    B="0.1745"
+                    A="1.0"/>
+                <difusse
+                    R="0.396"
+                    G="0.74151"
+                    B="0.69102"
+                    A="1.0"/>
+                <specular
+                    R="0.297254"
+                    G="0.30829"
+                    B="0.306678"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"
                   Alfa="150"/>
@@ -1144,6 +1246,24 @@
                 NumVertices="4"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="27.897436">
+                <ambient
+                    R="0.329412"
+                    G="0.223529"
+                    B="0.027451"
+                    A="1.0"/>
+                <difusse
+                    R="0.780392"
+                    G="0.568627"
+                    B="0.113725"
+                    A="1.0"/>
+                <specular
+                    R="0.992157"
+                    G="0.941176"
+                    B="0.807843"
+                    A="1.0"/>
+              </material>
               <BackTexture
                   Textura="../bmps/baldosaC.bmp"
                   Alfa="150"/>
@@ -1165,6 +1285,24 @@
                 NumVertices="4"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="76.8">
+                <ambient
+                    R="0.25"
+                    G="0.25"
+                    B="0.25"
+                    A="1.0"/>
+                <difusse
+                    R="0.4"
+                    G="0.4"
+                    B="0.4"
+                    A="1.0"/>
+                <specular
+                    R="0.774597"
+                    G="0.774597"
+                    B="0.774597"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
               <BackTexture
@@ -1180,6 +1318,24 @@
                 NumVertices="4"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="25.6">
+                <ambient
+                    R="0.2125"
+                    G="0.1275"
+                    B="0.054"
+                    A="1.0"/>
+                <difusse
+                    R="0.714"
+                    G="0.4284"
+                    B="0.18144"
+                    A="1.0"/>
+                <specular
+                    R="0.393548"
+                    G="0.271906"
+                    B="0.166721"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1195,6 +1351,24 @@
                 NumVertices="4"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="51.2">
+                <ambient
+                    R="0.19225"
+                    G="0.19225"
+                    B="0.19225"
+                    A="1.0"/>
+                <difusse
+                    R="0.50754"
+                    G="0.50754"
+                    B="0.50754"
+                    A="1.0"/>
+                <specular
+                    R="0.508273"
+                    G="0.508273"
+                    B="0.508273"
+                    A="1.0"/>
+              </material>
               <BackTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1213,6 +1387,21 @@
                 NumVertices="3"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="32.0">
+                <ambient
+                    A="1.0"/>
+                <difusse
+                    R="0.01"
+                    G="0.01"
+                    B="0.01"
+                    A="1.0"/>
+                <specular
+                    R="0.5"
+                    G="0.5"
+                    B="0.5"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
               <BackTexture
@@ -1226,6 +1415,22 @@
                 NumVertices="5"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="32.0">
+                <ambient
+                    G="0.1"
+                    B="0.06"
+                    A="1.0"/>
+                <difusse
+                    G="0.50980392"
+                    B="0.50980392"
+                    A="1.0"/>
+                <specular
+                    R="0.50196078"
+                    G="0.50196078"
+                    B="0.50196078"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1239,6 +1444,21 @@
                 NumVertices="6"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="32.0">
+                <ambient
+                    A="1.0"/>
+                <difusse
+                    R="0.01"
+                    G="0.35"
+                    B="0.01"
+                    A="1.0"/>
+                <specular
+                    R="0.45"
+                    G="0.55"
+                    B="0.45"
+                    A="1.0"/>
+              </material>
               <BackTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1259,6 +1479,19 @@
                 NumVertices="3"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="32.0">
+                <ambient
+                    A="1.0"/>
+                <difusse
+                    R="0.5"
+                    A="1.0"/>
+                <specular
+                    R="0.7"
+                    G="0.6"
+                    B="0.6"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
               <BackTexture
@@ -1274,6 +1507,20 @@
                 NumVertices="5"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="32.0">
+                <ambient
+                    A="1.0"/>
+                <difusse
+                    R="0.5"
+                    G="0.5"
+                    A="1.0"/>
+                <specular
+                    R="0.6"
+                    G="0.6"
+                    B="0.5"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1289,6 +1536,24 @@
                 NumVertices="6"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="100.0">
+                <ambient
+                    R="0.02"
+                    G="0.02"
+                    B="0.02"
+                    A="1.0"/>
+                <difusse
+                    R="0.01"
+                    G="0.01"
+                    B="0.01"
+                    A="1.0"/>
+                <specular
+                    R="0.4"
+                    G="0.4"
+                    B="0.4"
+                    A="1.0"/>
+              </material>
               <BackTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1309,6 +1574,23 @@
                 xsi:type="openGL_DSL:Circulo"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="100.0">
+                <ambient
+                    G="0.05"
+                    B="0.05"
+                    A="1.0"/>
+                <difusse
+                    R="0.4"
+                    G="0.5"
+                    B="0.5"
+                    A="1.0"/>
+                <specular
+                    R="0.04"
+                    G="0.7"
+                    B="0.7"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
               <BackTexture
@@ -1321,6 +1603,22 @@
                 xsi:type="openGL_DSL:Circulo"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="100.0">
+                <ambient
+                    G="0.05"
+                    A="1.0"/>
+                <difusse
+                    R="0.4"
+                    G="0.5"
+                    B="0.4"
+                    A="1.0"/>
+                <specular
+                    R="0.04"
+                    G="0.7"
+                    B="0.04"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1333,6 +1631,22 @@
                 xsi:type="openGL_DSL:Circulo"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="100.0">
+                <ambient
+                    R="0.05"
+                    A="1.0"/>
+                <difusse
+                    R="0.5"
+                    G="0.4"
+                    B="0.4"
+                    A="1.0"/>
+                <specular
+                    R="0.7"
+                    G="0.04"
+                    B="0.04"
+                    A="1.0"/>
+              </material>
               <BackTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1347,6 +1661,24 @@
             <abs_entity
                 xsi:type="openGL_DSL:Circulo"
                 Radio="100.0">
+              <material
+                  expF="100.0">
+                <ambient
+                    R="0.05"
+                    G="0.05"
+                    B="0.05"
+                    A="1.0"/>
+                <difusse
+                    R="0.5"
+                    G="0.5"
+                    B="0.5"
+                    A="1.0"/>
+                <specular
+                    R="0.7"
+                    G="0.7"
+                    B="0.7"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
               <BackTexture
@@ -1358,6 +1690,23 @@
             <abs_entity
                 xsi:type="openGL_DSL:Circulo"
                 Radio="100.0">
+              <material
+                  expF="100.0">
+                <ambient
+                    R="0.05"
+                    G="0.05"
+                    A="1.0"/>
+                <difusse
+                    R="0.5"
+                    G="0.5"
+                    B="0.4"
+                    A="1.0"/>
+                <specular
+                    R="0.7"
+                    G="0.7"
+                    B="0.04"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1369,6 +1718,24 @@
             <abs_entity
                 xsi:type="openGL_DSL:Circulo"
                 Radio="100.0">
+              <material
+                  expF="100.0">
+                <ambient
+                    R="0.02"
+                    G="0.02"
+                    B="0.02"
+                    A="1.0"/>
+                <difusse
+                    R="0.01"
+                    G="0.01"
+                    B="0.01"
+                    A="1.0"/>
+                <specular
+                    R="0.4"
+                    G="0.4"
+                    B="0.4"
+                    A="1.0"/>
+              </material>
               <BackTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1386,6 +1753,24 @@
                 xsi:type="openGL_DSL:Circulo"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="12.8">
+                <ambient
+                    R="0.135"
+                    G="0.2225"
+                    B="0.1575"
+                    A="1.0"/>
+                <difusse
+                    R="0.54"
+                    G="0.89"
+                    B="0.63"
+                    A="1.0"/>
+                <specular
+                    R="0.316228"
+                    G="0.316228"
+                    B="0.316228"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"
                   Alfa="150"/>
@@ -1400,6 +1785,24 @@
                 xsi:type="openGL_DSL:Circulo"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="38.4">
+                <ambient
+                    R="0.05375"
+                    G="0.05"
+                    B="0.06625"
+                    A="1.0"/>
+                <difusse
+                    R="0.18275"
+                    G="0.17"
+                    B="0.22525"
+                    A="1.0"/>
+                <specular
+                    R="0.332741"
+                    G="0.328634"
+                    B="0.346435"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"
                   Alfa="150"/>
@@ -1413,6 +1816,24 @@
                 xsi:type="openGL_DSL:Circulo"
                 Radio="100.0"
                 Rellenar="true">
+              <material
+                  expF="11.264">
+                <ambient
+                    R="0.25"
+                    G="0.20725"
+                    B="0.20725"
+                    A="1.0"/>
+                <difusse
+                    R="1.0"
+                    G="0.829"
+                    B="0.829"
+                    A="1.0"/>
+                <specular
+                    R="0.296648"
+                    G="0.296648"
+                    B="0.296648"
+                    A="1.0"/>
+              </material>
               <BackTexture
                   Textura="../bmps/baldosaC.bmp"
                   Alfa="150"/>
@@ -1436,6 +1857,24 @@
                 xsi:type="openGL_DSL:Rectangulo"
                 Ancho="200.0"
                 Alto="200.0">
+              <material
+                  expF="11.264">
+                <ambient
+                    R="0.25"
+                    G="0.20725"
+                    B="0.20725"
+                    A="1.0"/>
+                <difusse
+                    R="1.0"
+                    G="0.829"
+                    B="0.829"
+                    A="1.0"/>
+                <specular
+                    R="0.296648"
+                    G="0.296648"
+                    B="0.296648"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
               <BackTexture
@@ -1448,6 +1887,24 @@
                 xsi:type="openGL_DSL:Rectangulo"
                 Ancho="200.0"
                 Alto="200.0">
+              <material
+                  expF="11.264">
+                <ambient
+                    R="0.25"
+                    G="0.20725"
+                    B="0.20725"
+                    A="1.0"/>
+                <difusse
+                    R="1.0"
+                    G="0.829"
+                    B="0.829"
+                    A="1.0"/>
+                <specular
+                    R="0.296648"
+                    G="0.296648"
+                    B="0.296648"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1460,6 +1917,24 @@
                 xsi:type="openGL_DSL:Rectangulo"
                 Ancho="200.0"
                 Alto="200.0">
+              <material
+                  expF="11.264">
+                <ambient
+                    R="0.25"
+                    G="0.20725"
+                    B="0.20725"
+                    A="1.0"/>
+                <difusse
+                    R="1.0"
+                    G="0.829"
+                    B="0.829"
+                    A="1.0"/>
+                <specular
+                    R="0.296648"
+                    G="0.296648"
+                    B="0.296648"
+                    A="1.0"/>
+              </material>
               <BackTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1476,6 +1951,24 @@
                 Ancho="200.0"
                 Alto="200.0"
                 Rellenar="false">
+              <material
+                  expF="11.264">
+                <ambient
+                    R="0.25"
+                    G="0.20725"
+                    B="0.20725"
+                    A="1.0"/>
+                <difusse
+                    R="1.0"
+                    G="0.829"
+                    B="0.829"
+                    A="1.0"/>
+                <specular
+                    R="0.296648"
+                    G="0.296648"
+                    B="0.296648"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
               <BackTexture
@@ -1489,6 +1982,24 @@
                 Ancho="200.0"
                 Alto="200.0"
                 Rellenar="false">
+              <material
+                  expF="11.264">
+                <ambient
+                    R="0.25"
+                    G="0.20725"
+                    B="0.20725"
+                    A="1.0"/>
+                <difusse
+                    R="1.0"
+                    G="0.829"
+                    B="0.829"
+                    A="1.0"/>
+                <specular
+                    R="0.296648"
+                    G="0.296648"
+                    B="0.296648"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1502,6 +2013,24 @@
                 Ancho="200.0"
                 Alto="200.0"
                 Rellenar="false">
+              <material
+                  expF="11.264">
+                <ambient
+                    R="0.25"
+                    G="0.20725"
+                    B="0.20725"
+                    A="1.0"/>
+                <difusse
+                    R="1.0"
+                    G="0.829"
+                    B="0.829"
+                    A="1.0"/>
+                <specular
+                    R="0.296648"
+                    G="0.296648"
+                    B="0.296648"
+                    A="1.0"/>
+              </material>
               <BackTexture
                   Textura="../bmps/baldosaC.bmp"/>
             </abs_entity>
@@ -1519,6 +2048,24 @@
                 xsi:type="openGL_DSL:Rectangulo"
                 Ancho="200.0"
                 Alto="200.0">
+              <material
+                  expF="11.264">
+                <ambient
+                    R="0.25"
+                    G="0.20725"
+                    B="0.20725"
+                    A="1.0"/>
+                <difusse
+                    R="1.0"
+                    G="0.829"
+                    B="0.829"
+                    A="1.0"/>
+                <specular
+                    R="0.296648"
+                    G="0.296648"
+                    B="0.296648"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"
                   Alfa="150"/>
@@ -1533,6 +2080,24 @@
                 xsi:type="openGL_DSL:Rectangulo"
                 Ancho="200.0"
                 Alto="200.0">
+              <material
+                  expF="11.264">
+                <ambient
+                    R="0.25"
+                    G="0.20725"
+                    B="0.20725"
+                    A="1.0"/>
+                <difusse
+                    R="1.0"
+                    G="0.829"
+                    B="0.829"
+                    A="1.0"/>
+                <specular
+                    R="0.296648"
+                    G="0.296648"
+                    B="0.296648"
+                    A="1.0"/>
+              </material>
               <FrontTexture
                   Textura="../bmps/baldosaC.bmp"
                   Alfa="150"/>
@@ -1546,6 +2111,24 @@
                 xsi:type="openGL_DSL:Rectangulo"
                 Ancho="200.0"
                 Alto="200.0">
+              <material
+                  expF="11.264">
+                <ambient
+                    R="0.25"
+                    G="0.20725"
+                    B="0.20725"
+                    A="1.0"/>
+                <difusse
+                    R="1.0"
+                    G="0.829"
+                    B="0.829"
+                    A="1.0"/>
+                <specular
+                    R="0.296648"
+                    G="0.296648"
+                    B="0.296648"
+                    A="1.0"/>
+              </material>
               <BackTexture
                   Textura="../bmps/baldosaC.bmp"
                   Alfa="150"/>
@@ -1558,6 +2141,659 @@
         </nodo>
         <posicion
             X="1600.0"/>
+      </nodo>
+      <nodo
+          Name="cubosM">
+        <nodo
+            Name="cubosMC1">
+          <nodo
+              Name="cuboM1">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="12.8">
+                <ambient
+                    R="0.19125"
+                    G="0.0735"
+                    B="0.0225"
+                    A="1.0"/>
+                <difusse
+                    R="0.7038"
+                    G="0.27048"
+                    B="0.0828"
+                    A="1.0"/>
+                <specular
+                    R="0.256777"
+                    G="0.137622"
+                    B="0.086014"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+          </nodo>
+          <nodo
+              Name="cuboM2">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="76.8">
+                <ambient
+                    R="0.0215"
+                    G="0.1745"
+                    B="0.0215"
+                    A="1.0"/>
+                <difusse
+                    R="0.07568"
+                    G="0.61424"
+                    B="0.07568"
+                    A="1.0"/>
+                <specular
+                    R="0.633"
+                    G="0.727811"
+                    B="0.633"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="200.0"/>
+          </nodo>
+          <nodo
+              Name="cuboM3">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="51.2">
+                <ambient
+                    R="0.24725"
+                    G="0.1995"
+                    B="0.0745"
+                    A="1.0"/>
+                <difusse
+                    R="0.75164"
+                    G="0.60642"
+                    B="0.22648"
+                    A="1.0"/>
+                <specular
+                    R="0.628281"
+                    G="0.555802"
+                    B="0.366065"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="-200.0"/>
+          </nodo>
+        </nodo>
+        <nodo
+            Name="cubosMC2">
+          <nodo
+              Name="cuboM4">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="12.8">
+                <ambient
+                    R="0.135"
+                    G="0.2225"
+                    B="0.1575"
+                    A="1.0"/>
+                <difusse
+                    R="0.54"
+                    G="0.89"
+                    B="0.63"
+                    A="1.0"/>
+                <specular
+                    R="0.316228"
+                    G="0.316228"
+                    B="0.316228"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+          </nodo>
+          <nodo
+              Name="cuboM5">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="38.4">
+                <ambient
+                    R="0.05375"
+                    G="0.05"
+                    B="0.06625"
+                    A="1.0"/>
+                <difusse
+                    R="0.18275"
+                    G="0.17"
+                    B="0.22525"
+                    A="1.0"/>
+                <specular
+                    R="0.332741"
+                    G="0.328634"
+                    B="0.346435"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="200.0"/>
+          </nodo>
+          <nodo
+              Name="cuboM6">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="11.264">
+                <ambient
+                    R="0.25"
+                    G="0.20725"
+                    B="0.20725"
+                    A="1.0"/>
+                <difusse
+                    R="1.0"
+                    G="0.829"
+                    B="0.829"
+                    A="1.0"/>
+                <specular
+                    R="0.296648"
+                    G="0.296648"
+                    B="0.296648"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="-200.0"/>
+          </nodo>
+          <posicion
+              X="200.0"/>
+        </nodo>
+        <nodo
+            Name="cubosMC3">
+          <nodo
+              Name="cuboM7">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="76.8">
+                <ambient
+                    R="0.1745"
+                    G="0.01175"
+                    B="0.01175"
+                    A="1.0"/>
+                <difusse
+                    R="0.61424"
+                    G="0.04136"
+                    B="0.04136"
+                    A="1.0"/>
+                <specular
+                    R="0.727811"
+                    G="0.626959"
+                    B="0.626959"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+          </nodo>
+          <nodo
+              Name="cuboM8">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="12.8">
+                <ambient
+                    R="0.1"
+                    G="0.18725"
+                    B="0.1745"
+                    A="1.0"/>
+                <difusse
+                    R="0.396"
+                    G="0.74151"
+                    B="0.69102"
+                    A="1.0"/>
+                <specular
+                    R="0.297254"
+                    G="0.30829"
+                    B="0.306678"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="200.0"/>
+          </nodo>
+          <nodo
+              Name="cuboM9">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="27.897436">
+                <ambient
+                    R="0.329412"
+                    G="0.223529"
+                    B="0.027451"
+                    A="1.0"/>
+                <difusse
+                    R="0.780392"
+                    G="0.568627"
+                    B="0.113725"
+                    A="1.0"/>
+                <specular
+                    R="0.992157"
+                    G="0.941176"
+                    B="0.807843"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="-200.0"/>
+          </nodo>
+          <posicion
+              X="400.0"/>
+        </nodo>
+        <nodo
+            Name="cubosMC4">
+          <nodo
+              Name="cuboM10">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="76.8">
+                <ambient
+                    R="0.25"
+                    G="0.25"
+                    B="0.25"
+                    A="1.0"/>
+                <difusse
+                    R="0.4"
+                    G="0.4"
+                    B="0.4"
+                    A="1.0"/>
+                <specular
+                    R="0.774597"
+                    G="0.774597"
+                    B="0.774597"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+          </nodo>
+          <nodo
+              Name="cuboM11">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="25.6">
+                <ambient
+                    R="0.2125"
+                    G="0.1275"
+                    B="0.054"
+                    A="1.0"/>
+                <difusse
+                    R="0.714"
+                    G="0.4284"
+                    B="0.18144"
+                    A="1.0"/>
+                <specular
+                    R="0.393548"
+                    G="0.271906"
+                    B="0.166721"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="200.0"/>
+          </nodo>
+          <nodo
+              Name="cuboM12">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="51.2">
+                <ambient
+                    R="0.19225"
+                    G="0.19225"
+                    B="0.19225"
+                    A="1.0"/>
+                <difusse
+                    R="0.50754"
+                    G="0.50754"
+                    B="0.50754"
+                    A="1.0"/>
+                <specular
+                    R="0.508273"
+                    G="0.508273"
+                    B="0.508273"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="-200.0"/>
+          </nodo>
+          <posicion
+              X="600.0"/>
+        </nodo>
+        <nodo
+            Name="cubosMC5">
+          <nodo
+              Name="cuboM13">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="32.0">
+                <ambient
+                    A="1.0"/>
+                <difusse
+                    R="0.01"
+                    G="0.01"
+                    B="0.01"
+                    A="1.0"/>
+                <specular
+                    R="0.5"
+                    G="0.5"
+                    B="0.5"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+          </nodo>
+          <nodo
+              Name="cuboM14">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="32.0">
+                <ambient
+                    G="0.1"
+                    B="0.06"
+                    A="1.0"/>
+                <difusse
+                    G="0.50980392"
+                    B="0.50980392"
+                    A="1.0"/>
+                <specular
+                    R="0.50196078"
+                    G="0.50196078"
+                    B="0.50196078"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="200.0"/>
+          </nodo>
+          <nodo
+              Name="cuboM15">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="32.0">
+                <ambient
+                    A="1.0"/>
+                <difusse
+                    R="0.01"
+                    G="0.35"
+                    B="0.01"
+                    A="1.0"/>
+                <specular
+                    R="0.45"
+                    G="0.55"
+                    B="0.45"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="-200.0"/>
+          </nodo>
+          <posicion
+              X="800.0"/>
+        </nodo>
+        <nodo
+            Name="cubosMC6">
+          <nodo
+              Name="cuboM16">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="32.0">
+                <ambient
+                    A="1.0"/>
+                <difusse
+                    R="0.5"
+                    A="1.0"/>
+                <specular
+                    R="0.7"
+                    G="0.6"
+                    B="0.6"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+          </nodo>
+          <nodo
+              Name="cuboM17">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="32.0">
+                <ambient
+                    A="1.0"/>
+                <difusse
+                    R="0.5"
+                    G="0.5"
+                    A="1.0"/>
+                <specular
+                    R="0.6"
+                    G="0.6"
+                    B="0.5"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="200.0"/>
+          </nodo>
+          <nodo
+              Name="cuboM18">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="100.0">
+                <ambient
+                    R="0.02"
+                    G="0.02"
+                    B="0.02"
+                    A="1.0"/>
+                <difusse
+                    R="0.01"
+                    G="0.01"
+                    B="0.01"
+                    A="1.0"/>
+                <specular
+                    R="0.4"
+                    G="0.4"
+                    B="0.4"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="-200.0"/>
+          </nodo>
+          <posicion
+              X="1000.0"/>
+        </nodo>
+        <nodo
+            Name="cubosMC7">
+          <nodo
+              Name="cuboM19">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="100.0">
+                <ambient
+                    G="0.05"
+                    B="0.05"
+                    A="1.0"/>
+                <difusse
+                    R="0.4"
+                    G="0.5"
+                    B="0.5"
+                    A="1.0"/>
+                <specular
+                    R="0.04"
+                    G="0.7"
+                    B="0.7"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+          </nodo>
+          <nodo
+              Name="cuboM20">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="100.0">
+                <ambient
+                    G="0.05"
+                    A="1.0"/>
+                <difusse
+                    R="0.4"
+                    G="0.5"
+                    B="0.4"
+                    A="1.0"/>
+                <specular
+                    R="0.04"
+                    G="0.7"
+                    B="0.04"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="200.0"/>
+          </nodo>
+          <nodo
+              Name="cuboM21">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="100.0">
+                <ambient
+                    R="0.05"
+                    A="1.0"/>
+                <difusse
+                    R="0.5"
+                    G="0.4"
+                    B="0.4"
+                    A="1.0"/>
+                <specular
+                    R="0.7"
+                    G="0.04"
+                    B="0.04"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="-200.0"/>
+          </nodo>
+          <posicion
+              X="1200.0"/>
+        </nodo>
+        <nodo
+            Name="cubosMC8">
+          <nodo
+              Name="cuboM22">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="100.0">
+                <ambient
+                    R="0.05"
+                    G="0.05"
+                    B="0.05"
+                    A="1.0"/>
+                <difusse
+                    R="0.5"
+                    G="0.5"
+                    B="0.5"
+                    A="1.0"/>
+                <specular
+                    R="0.7"
+                    G="0.7"
+                    B="0.7"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+          </nodo>
+          <nodo
+              Name="cuboM23">
+            <abs_entity
+                xsi:type="openGL_DSL:Cubo"
+                Lenght="100.0">
+              <material
+                  expF="100.0">
+                <ambient
+                    R="0.05"
+                    G="0.05"
+                    A="1.0"/>
+                <difusse
+                    R="0.5"
+                    G="0.5"
+                    B="0.4"
+                    A="1.0"/>
+                <specular
+                    R="0.7"
+                    G="0.7"
+                    B="0.04"
+                    A="1.0"/>
+              </material>
+            </abs_entity>
+            <posicion
+                Y="200.0"/>
+          </nodo>
+          <posicion
+              X="1400.0"/>
+        </nodo>
+        <posicion
+            Z="-200.0"/>
+      </nodo>
+      <nodo
+          Name="toroideM">
+        <abs_entity
+            xsi:type="openGL_DSL:Toroide"
+            RadioCentro="50.0"
+            RadioAnillo="25.0">
+          <material
+              expF="11.264">
+            <ambient
+                R="0.25"
+                G="0.20725"
+                B="0.20725"
+                A="1.0"/>
+            <difusse
+                R="1.0"
+                G="0.829"
+                B="0.829"
+                A="1.0"/>
+            <specular
+                R="0.296648"
+                G="0.296648"
+                B="0.296648"
+                A="1.0"/>
+          </material>
+        </abs_entity>
+        <posicion
+            X="2000.0"/>
       </nodo>
     </nodo>
   </scenes>
