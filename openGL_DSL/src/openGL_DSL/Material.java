@@ -17,8 +17,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link openGL_DSL.Material#getDifusse <em>Difusse</em>}</li>
  *   <li>{@link openGL_DSL.Material#getSpecular <em>Specular</em>}</li>
  *   <li>{@link openGL_DSL.Material#getExpF <em>Exp F</em>}</li>
- *   <li>{@link openGL_DSL.Material#getFace <em>Face</em>}</li>
- *   <li>{@link openGL_DSL.Material#getSh <em>Sh</em>}</li>
  * </ul>
  *
  * @see openGL_DSL.OpenGL_DSLPackage#getMaterial()
@@ -27,70 +25,70 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Material extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Ambient</b></em>' attribute.
+	 * Returns the value of the '<em><b>Ambient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Ambient</em>' attribute.
-	 * @see #setAmbient(Object)
+	 * @return the value of the '<em>Ambient</em>' containment reference.
+	 * @see #setAmbient(Vector4)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getMaterial_Ambient()
-	 * @model dataType="openGL_DSL.vec4"
+	 * @model containment="true"
 	 * @generated
 	 */
-	Object getAmbient();
+	Vector4 getAmbient();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.Material#getAmbient <em>Ambient</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.Material#getAmbient <em>Ambient</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Ambient</em>' attribute.
+	 * @param value the new value of the '<em>Ambient</em>' containment reference.
 	 * @see #getAmbient()
 	 * @generated
 	 */
-	void setAmbient(Object value);
+	void setAmbient(Vector4 value);
 
 	/**
-	 * Returns the value of the '<em><b>Difusse</b></em>' attribute.
+	 * Returns the value of the '<em><b>Difusse</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Difusse</em>' attribute.
-	 * @see #setDifusse(Object)
+	 * @return the value of the '<em>Difusse</em>' containment reference.
+	 * @see #setDifusse(Vector4)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getMaterial_Difusse()
-	 * @model dataType="openGL_DSL.vec4"
+	 * @model containment="true"
 	 * @generated
 	 */
-	Object getDifusse();
+	Vector4 getDifusse();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.Material#getDifusse <em>Difusse</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.Material#getDifusse <em>Difusse</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Difusse</em>' attribute.
+	 * @param value the new value of the '<em>Difusse</em>' containment reference.
 	 * @see #getDifusse()
 	 * @generated
 	 */
-	void setDifusse(Object value);
+	void setDifusse(Vector4 value);
 
 	/**
-	 * Returns the value of the '<em><b>Specular</b></em>' attribute.
+	 * Returns the value of the '<em><b>Specular</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specular</em>' attribute.
-	 * @see #setSpecular(Object)
+	 * @return the value of the '<em>Specular</em>' containment reference.
+	 * @see #setSpecular(Vector4)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getMaterial_Specular()
-	 * @model dataType="openGL_DSL.vec4"
+	 * @model containment="true"
 	 * @generated
 	 */
-	Object getSpecular();
+	Vector4 getSpecular();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.Material#getSpecular <em>Specular</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.Material#getSpecular <em>Specular</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Specular</em>' attribute.
+	 * @param value the new value of the '<em>Specular</em>' containment reference.
 	 * @see #getSpecular()
 	 * @generated
 	 */
-	void setSpecular(Object value);
+	void setSpecular(Vector4 value);
 
 	/**
 	 * Returns the value of the '<em><b>Exp F</b></em>' attribute.
@@ -113,49 +111,5 @@ public interface Material extends EObject {
 	 * @generated
 	 */
 	void setExpF(float value);
-
-	/**
-	 * Returns the value of the '<em><b>Face</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Face</em>' attribute.
-	 * @see #setFace(Object)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getMaterial_Face()
-	 * @model dataType="openGL_DSL.GLuint"
-	 * @generated
-	 */
-	Object getFace();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.Material#getFace <em>Face</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Face</em>' attribute.
-	 * @see #getFace()
-	 * @generated
-	 */
-	void setFace(Object value);
-
-	/**
-	 * Returns the value of the '<em><b>Sh</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sh</em>' attribute.
-	 * @see #setSh(Object)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getMaterial_Sh()
-	 * @model dataType="openGL_DSL.GLuint"
-	 * @generated
-	 */
-	Object getSh();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.Material#getSh <em>Sh</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sh</em>' attribute.
-	 * @see #getSh()
-	 * @generated
-	 */
-	void setSh(Object value);
 
 } // Material

@@ -95,12 +95,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//QuadricEntity/q"/>
     </genClasses>
     <genClasses ecoreClass="openGL_DSL.ecore#//Material">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/ambient"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/difusse"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/specular"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Material/ambient"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Material/difusse"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Material/specular"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/expF"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/face"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Material/sh"/>
     </genClasses>
     <genClasses ecoreClass="openGL_DSL.ecore#//Mesh">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Mesh/mPrimitive"/>

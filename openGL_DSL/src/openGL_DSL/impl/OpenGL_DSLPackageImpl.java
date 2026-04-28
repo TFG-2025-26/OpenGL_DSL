@@ -1050,8 +1050,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMaterial_Ambient() {
-		return (EAttribute)materialEClass.getEStructuralFeatures().get(0);
+	public EReference getMaterial_Ambient() {
+		return (EReference)materialEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -1060,8 +1060,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMaterial_Difusse() {
-		return (EAttribute)materialEClass.getEStructuralFeatures().get(1);
+	public EReference getMaterial_Difusse() {
+		return (EReference)materialEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1070,8 +1070,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getMaterial_Specular() {
-		return (EAttribute)materialEClass.getEStructuralFeatures().get(2);
+	public EReference getMaterial_Specular() {
+		return (EReference)materialEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -1082,26 +1082,6 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	@Override
 	public EAttribute getMaterial_ExpF() {
 		return (EAttribute)materialEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getMaterial_Face() {
-		return (EAttribute)materialEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getMaterial_Sh() {
-		return (EAttribute)materialEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -1903,12 +1883,10 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		createEAttribute(quadricEntityEClass, QUADRIC_ENTITY__Q);
 
 		materialEClass = createEClass(MATERIAL);
-		createEAttribute(materialEClass, MATERIAL__AMBIENT);
-		createEAttribute(materialEClass, MATERIAL__DIFUSSE);
-		createEAttribute(materialEClass, MATERIAL__SPECULAR);
+		createEReference(materialEClass, MATERIAL__AMBIENT);
+		createEReference(materialEClass, MATERIAL__DIFUSSE);
+		createEReference(materialEClass, MATERIAL__SPECULAR);
 		createEAttribute(materialEClass, MATERIAL__EXP_F);
-		createEAttribute(materialEClass, MATERIAL__FACE);
-		createEAttribute(materialEClass, MATERIAL__SH);
 
 		meshEClass = createEClass(MESH);
 		createEAttribute(meshEClass, MESH__MPRIMITIVE);
@@ -2135,12 +2113,10 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		initEAttribute(getQuadricEntity_Q(), this.getGLquadricObj(), "q", null, 0, 1, QuadricEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(materialEClass, Material.class, "Material", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMaterial_Ambient(), this.getvec4(), "ambient", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMaterial_Difusse(), this.getvec4(), "difusse", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMaterial_Specular(), this.getvec4(), "specular", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMaterial_Ambient(), this.getVector4(), null, "ambient", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMaterial_Difusse(), this.getVector4(), null, "difusse", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getMaterial_Specular(), this.getVector4(), null, "specular", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMaterial_ExpF(), ecorePackage.getEFloat(), "expF", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMaterial_Face(), this.getGLuint(), "face", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getMaterial_Sh(), this.getGLuint(), "sh", null, 0, 1, Material.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(meshEClass, Mesh.class, "Mesh", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getMesh_MPrimitive(), this.getGLuint(), "mPrimitive", null, 0, 1, Mesh.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

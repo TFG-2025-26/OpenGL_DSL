@@ -1268,7 +1268,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int MATERIAL = 11;
 
 	/**
-	 * The feature id for the '<em><b>Ambient</b></em>' attribute.
+	 * The feature id for the '<em><b>Ambient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1277,7 +1277,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int MATERIAL__AMBIENT = 0;
 
 	/**
-	 * The feature id for the '<em><b>Difusse</b></em>' attribute.
+	 * The feature id for the '<em><b>Difusse</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1286,7 +1286,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int MATERIAL__DIFUSSE = 1;
 
 	/**
-	 * The feature id for the '<em><b>Specular</b></em>' attribute.
+	 * The feature id for the '<em><b>Specular</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -1304,31 +1304,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int MATERIAL__EXP_F = 3;
 
 	/**
-	 * The feature id for the '<em><b>Face</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATERIAL__FACE = 4;
-
-	/**
-	 * The feature id for the '<em><b>Sh</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int MATERIAL__SH = 5;
-
-	/**
 	 * The number of structural features of the '<em>Material</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MATERIAL_FEATURE_COUNT = 6;
+	int MATERIAL_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Material</em>' class.
@@ -4028,37 +4010,37 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EClass getMaterial();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Material#getAmbient <em>Ambient</em>}'.
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Material#getAmbient <em>Ambient</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Ambient</em>'.
+	 * @return the meta object for the containment reference '<em>Ambient</em>'.
 	 * @see openGL_DSL.Material#getAmbient()
 	 * @see #getMaterial()
 	 * @generated
 	 */
-	EAttribute getMaterial_Ambient();
+	EReference getMaterial_Ambient();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Material#getDifusse <em>Difusse</em>}'.
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Material#getDifusse <em>Difusse</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Difusse</em>'.
+	 * @return the meta object for the containment reference '<em>Difusse</em>'.
 	 * @see openGL_DSL.Material#getDifusse()
 	 * @see #getMaterial()
 	 * @generated
 	 */
-	EAttribute getMaterial_Difusse();
+	EReference getMaterial_Difusse();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Material#getSpecular <em>Specular</em>}'.
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Material#getSpecular <em>Specular</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Specular</em>'.
+	 * @return the meta object for the containment reference '<em>Specular</em>'.
 	 * @see openGL_DSL.Material#getSpecular()
 	 * @see #getMaterial()
 	 * @generated
 	 */
-	EAttribute getMaterial_Specular();
+	EReference getMaterial_Specular();
 
 	/**
 	 * Returns the meta object for the attribute '{@link openGL_DSL.Material#getExpF <em>Exp F</em>}'.
@@ -4070,28 +4052,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getMaterial_ExpF();
-
-	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Material#getFace <em>Face</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Face</em>'.
-	 * @see openGL_DSL.Material#getFace()
-	 * @see #getMaterial()
-	 * @generated
-	 */
-	EAttribute getMaterial_Face();
-
-	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Material#getSh <em>Sh</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Sh</em>'.
-	 * @see openGL_DSL.Material#getSh()
-	 * @see #getMaterial()
-	 * @generated
-	 */
-	EAttribute getMaterial_Sh();
 
 	/**
 	 * Returns the meta object for class '{@link openGL_DSL.Mesh <em>Mesh</em>}'.
@@ -5432,28 +5392,28 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EClass MATERIAL = eINSTANCE.getMaterial();
 
 		/**
-		 * The meta object literal for the '<em><b>Ambient</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Ambient</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MATERIAL__AMBIENT = eINSTANCE.getMaterial_Ambient();
+		EReference MATERIAL__AMBIENT = eINSTANCE.getMaterial_Ambient();
 
 		/**
-		 * The meta object literal for the '<em><b>Difusse</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Difusse</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MATERIAL__DIFUSSE = eINSTANCE.getMaterial_Difusse();
+		EReference MATERIAL__DIFUSSE = eINSTANCE.getMaterial_Difusse();
 
 		/**
-		 * The meta object literal for the '<em><b>Specular</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Specular</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute MATERIAL__SPECULAR = eINSTANCE.getMaterial_Specular();
+		EReference MATERIAL__SPECULAR = eINSTANCE.getMaterial_Specular();
 
 		/**
 		 * The meta object literal for the '<em><b>Exp F</b></em>' attribute feature.
@@ -5462,22 +5422,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute MATERIAL__EXP_F = eINSTANCE.getMaterial_ExpF();
-
-		/**
-		 * The meta object literal for the '<em><b>Face</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MATERIAL__FACE = eINSTANCE.getMaterial_Face();
-
-		/**
-		 * The meta object literal for the '<em><b>Sh</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute MATERIAL__SH = eINSTANCE.getMaterial_Sh();
 
 		/**
 		 * The meta object literal for the '{@link openGL_DSL.impl.MeshImpl <em>Mesh</em>}' class.

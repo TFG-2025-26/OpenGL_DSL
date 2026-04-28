@@ -6,9 +6,10 @@
     </input>
     <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/meshFile.emtl#/0"/>
     <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/textureFile.emtl#/0"/>
+    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/materialFile.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateEntity" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Entity_H_&#xD;&#xA;#define _H_Entity_H_&#xD;&#xA;&#xD;&#xA;#include &lt;GL/freeglut.h>&#xD;&#xA;#include &lt;glm/glm.hpp>&#xD;&#xA;&#xD;&#xA;#include &quot;Mesh.h&quot;&#xD;&#xA;#include &quot;Texture.h&quot;&#xD;&#xA;&#xD;&#xA;class Abs_Entity // abstract class&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;Abs_Entity()&#xD;&#xA;&#x9;&#x9;: mModelMat(1.0), mColor(1) {&#xD;&#xA;&#x9;}; // 4x4 identity matrix&#xD;&#xA;&#x9;virtual ~Abs_Entity() = default;&#xD;&#xA;&#xD;&#xA;&#x9;Abs_Entity(const Abs_Entity&amp; e) = delete;            // no copy constructor&#xD;&#xA;&#x9;Abs_Entity&amp; operator=(const Abs_Entity&amp; e) = delete; // no copy assignment&#xD;&#xA;&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const = 0; // abstract method&#xD;&#xA;&#xD;&#xA;&#x9;// modeling matrix&#xD;&#xA;&#x9;glm::dmat4 const&amp; modelMat() const { return mModelMat; };&#xD;&#xA;&#x9;void setModelMat(glm::dmat4 const&amp; aMat) { mModelMat = aMat; };&#xD;&#xA;&#xD;&#xA;&#x9;glm::dvec4 const&amp; color() const { return mColor; };&#xD;&#xA;&#x9;void setColor(glm::dvec4 const&amp; aColor) { mColor = aColor; };&#xD;&#xA;    void setFrontTexture(Texture* aTexture) { mTexture = aTexture; };&#xD;&#xA;    void setBackTexture(Texture* aTexture) { mBackTexture = aTexture; };&#xD;&#xA;&#xD;&#xA;protected:&#xD;&#xA;&#x9;Mesh* mMesh = nullptr; // the mesh&#xD;&#xA;&#x9;glm::dmat4 mModelMat;  // modeling matrix&#xD;&#xA;&#x9;glm::dvec4 mColor;     // entity color&#xD;&#xA;    Texture* mTexture = nullptr;&#xD;&#xA;    Texture* mBackTexture = nullptr;&#xD;&#xA;&#xD;&#xA;&#x9;// transfers modelViewMat to the GPU&#xD;&#xA;&#x9;virtual void upload(glm::dmat4 const&amp; mModelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class EjesRGB : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit EjesRGB(GLdouble l);&#xD;&#xA;&#x9;~EjesRGB();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class PoligonoRegular : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit PoligonoRegular(GLuint num, GLdouble r,bool rellenar, GLuint rw, GLuint rh);&#xD;&#xA;&#x9;~PoligonoRegular();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Rectangulo : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit Rectangulo(GLdouble w, GLdouble h, bool rellenar, GLuint rw, GLuint rh);&#xD;&#xA;&#x9;~Rectangulo();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;private:&#xD;&#xA;    bool rellenar;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Circulo : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit Circulo(GLdouble r, bool rellenar, GLuint rw, GLuint rh);&#xD;&#xA;&#x9;~Circulo();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class QuadricEntity : public Abs_Entity {&#xD;&#xA;public:&#xD;&#xA;&#x9;QuadricEntity();&#xD;&#xA;&#x9;virtual ~QuadricEntity() { gluDeleteQuadric(q); };&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLUquadricObj* q;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Sphere : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Sphere(GLdouble r); // r es el radio de la esfera&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble r;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Cylinder : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height); // r es el radio de la esfera&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble baseRadius;&#xD;&#xA;&#x9;GLdouble topRadius;&#xD;&#xA;&#x9;GLdouble height;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Disk : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Disk(GLdouble innerRadius, GLdouble outerRadius); // r es el radio de la esfera&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble innerRadius;&#xD;&#xA;&#x9;GLdouble outerRadius;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class PartialDisk : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;PartialDisk(GLdouble innerRadius, GLdouble outerRadius, GLdouble startAngle, GLdouble sweepAngle); // r es el radio de la esfera&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble innerRadius;&#xD;&#xA;&#x9;GLdouble outerRadius;&#xD;&#xA;&#x9;GLdouble startAngle;&#xD;&#xA;&#x9;GLdouble sweepAngle;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class IndexedBox : public Abs_Entity {&#xD;&#xA;public:&#xD;&#xA;&#x9;IndexedBox(GLdouble l);&#xD;&#xA;&#x9;~IndexedBox();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Toroid : public Abs_Entity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Toroid(GLdouble r, GLdouble R);&#xD;&#xA;&#x9;~Toroid();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;#endif&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Entity_H_&#xD;&#xA;#define _H_Entity_H_&#xD;&#xA;&#xD;&#xA;#include &lt;GL/freeglut.h>&#xD;&#xA;#include &lt;glm/glm.hpp>&#xD;&#xA;&#xD;&#xA;#include &quot;Mesh.h&quot;&#xD;&#xA;#include &quot;Texture.h&quot;&#xD;&#xA;#include &quot;Material.h&quot;&#xD;&#xA;&#xD;&#xA;class Abs_Entity // abstract class&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;Abs_Entity()&#xD;&#xA;&#x9;&#x9;: mModelMat(1.0), mColor(1) {&#xD;&#xA;&#x9;}; // 4x4 identity matrix&#xD;&#xA;&#x9;virtual ~Abs_Entity() = default;&#xD;&#xA;&#xD;&#xA;&#x9;Abs_Entity(const Abs_Entity&amp; e) = delete;            // no copy constructor&#xD;&#xA;&#x9;Abs_Entity&amp; operator=(const Abs_Entity&amp; e) = delete; // no copy assignment&#xD;&#xA;&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const = 0; // abstract method&#xD;&#xA;&#xD;&#xA;&#x9;// modeling matrix&#xD;&#xA;&#x9;glm::dmat4 const&amp; modelMat() const { return mModelMat; };&#xD;&#xA;&#x9;void setModelMat(glm::dmat4 const&amp; aMat) { mModelMat = aMat; };&#xD;&#xA;&#xD;&#xA;&#x9;glm::dvec4 const&amp; color() const { return mColor; };&#xD;&#xA;&#x9;void setColor(glm::dvec4 const&amp; aColor) { mColor = aColor; };&#xD;&#xA;    void setFrontTexture(Texture* aTexture) { mTexture = aTexture; };&#xD;&#xA;    void setBackTexture(Texture* aTexture) { mBackTexture = aTexture; };&#xD;&#xA;    void setMaterial(Material* matl) { material = matl; };&#xD;&#xA;&#xD;&#xA;protected:&#xD;&#xA;&#x9;Mesh* mMesh = nullptr; // the mesh&#xD;&#xA;&#x9;glm::dmat4 mModelMat;  // modeling matrix&#xD;&#xA;&#x9;glm::dvec4 mColor;     // entity color&#xD;&#xA;    Texture* mTexture = nullptr;&#xD;&#xA;    Texture* mBackTexture = nullptr;&#xD;&#xA;    Material* material = nullptr;&#xD;&#xA;&#xD;&#xA;&#x9;// transfers modelViewMat to the GPU&#xD;&#xA;&#x9;virtual void upload(glm::dmat4 const&amp; mModelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class EjesRGB : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit EjesRGB(GLdouble l);&#xD;&#xA;&#x9;~EjesRGB();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class PoligonoRegular : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit PoligonoRegular(GLuint num, GLdouble r,bool rellenar, GLuint rw, GLuint rh);&#xD;&#xA;&#x9;~PoligonoRegular();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Rectangulo : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit Rectangulo(GLdouble w, GLdouble h, bool rellenar, GLuint rw, GLuint rh);&#xD;&#xA;&#x9;~Rectangulo();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;private:&#xD;&#xA;    bool rellenar;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Circulo : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit Circulo(GLdouble r, bool rellenar, GLuint rw, GLuint rh);&#xD;&#xA;&#x9;~Circulo();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class QuadricEntity : public Abs_Entity {&#xD;&#xA;public:&#xD;&#xA;&#x9;QuadricEntity();&#xD;&#xA;&#x9;virtual ~QuadricEntity() { gluDeleteQuadric(q); };&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLUquadricObj* q;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Sphere : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Sphere(GLdouble r); // r es el radio de la esfera&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble r;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Cylinder : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height); // r es el radio de la esfera&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble baseRadius;&#xD;&#xA;&#x9;GLdouble topRadius;&#xD;&#xA;&#x9;GLdouble height;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Disk : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Disk(GLdouble innerRadius, GLdouble outerRadius); // r es el radio de la esfera&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble innerRadius;&#xD;&#xA;&#x9;GLdouble outerRadius;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class PartialDisk : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;PartialDisk(GLdouble innerRadius, GLdouble outerRadius, GLdouble startAngle, GLdouble sweepAngle); // r es el radio de la esfera&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble innerRadius;&#xD;&#xA;&#x9;GLdouble outerRadius;&#xD;&#xA;&#x9;GLdouble startAngle;&#xD;&#xA;&#x9;GLdouble sweepAngle;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class IndexedBox : public Abs_Entity {&#xD;&#xA;public:&#xD;&#xA;&#x9;IndexedBox(GLdouble l);&#xD;&#xA;&#x9;~IndexedBox();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Toroid : public Abs_Entity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Toroid(GLdouble r, GLdouble R);&#xD;&#xA;&#x9;~Toroid();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;#endif&#xD;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Entity.h">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
@@ -18,7 +19,7 @@
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Entity.h&quot;&#xD;&#xA;&#xD;&#xA;#include &lt;glm/gtc/matrix_transform.hpp>&#xD;&#xA;#include &lt;glm/gtc/type_ptr.hpp>&#xD;&#xA;&#xD;&#xA;using namespace glm;&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Abs_Entity::upload(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;glMatrixMode(GL_MODELVIEW);&#xD;&#xA;&#x9;glLoadMatrixd(value_ptr(modelViewMat)); // transfers modelView matrix to the GPU&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;EjesRGB::EjesRGB(GLdouble l)&#xD;&#xA;  : Abs_Entity()&#xD;&#xA;{&#xD;&#xA;&#x9;mMesh = Mesh::createRGBAxes(l);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;EjesRGB::~EjesRGB()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;EjesRGB::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;&#x9;&#x9;dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;&#x9;upload(aMat);&#xD;&#xA;&#x9;&#x9;glLineWidth(2);&#xD;&#xA;&#x9;&#x9;mMesh->render();&#xD;&#xA;&#x9;&#x9;glLineWidth(1);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;PoligonoRegular::PoligonoRegular(GLuint num, GLdouble r, bool rellenar, GLuint rw, GLuint rh)&#xD;&#xA;&#x9;: Abs_Entity()&#xD;&#xA;{&#xD;&#xA;&#x9;if (rellenar) {&#xD;&#xA;&#x9;   mMesh = Mesh::generateRegularPolygon(num, r, GL_TRIANGLE_FAN, rw, rh);&#xD;&#xA;    }&#xD;&#xA;    else {&#xD;&#xA;&#x9;   mMesh = Mesh::generateRegularPolygon(num, r, GL_LINE_LOOP, rw, rh);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;PoligonoRegular::~PoligonoRegular()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;PoligonoRegular::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;    if (mMesh != nullptr) {&#xD;&#xA;&#x9;    glEnable(GL_CULL_FACE);&#xD;&#xA;&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            mTexture->setWrap(GL_REPEAT);&#xD;&#xA;&#x9;        mTexture->bind(GL_MODULATE);&#xD;&#xA;        }&#xD;&#xA;&#x9;    glCullFace(GL_BACK);&#xD;&#xA;&#x9;    dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;    upload(aMat);&#xD;&#xA;        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;    glLineWidth(2);&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);&#xD;&#xA;        }&#xD;&#xA;&#x9;    mMesh->render();&#xD;&#xA;&#x9;    glLineWidth(1);&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            mTexture->unbind();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            mBackTexture->setWrap(GL_REPEAT);&#xD;&#xA;&#x9;        mBackTexture->bind(GL_MODULATE);&#xD;&#xA;        }&#xD;&#xA;&#x9;    glCullFace(GL_FRONT);&#xD;&#xA;&#x9;    aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;    upload(aMat);&#xD;&#xA;        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;    glLineWidth(2);&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);&#xD;&#xA;        }&#xD;&#xA;&#x9;    mMesh->render();&#xD;&#xA;&#x9;    glLineWidth(1);&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            mBackTexture->unbind();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;&#x9;    glDisable(GL_CULL_FACE);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Rectangulo::Rectangulo(GLdouble w, GLdouble h, bool rellenar, GLuint rw, GLuint rh)&#xD;&#xA;&#x9;: Abs_Entity(), rellenar(rellenar)&#xD;&#xA;{&#xD;&#xA;&#x9;mMesh = Mesh::generateRectangle(w, h, rw, rh);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Rectangulo::~Rectangulo()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Rectangulo::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;        if(rellenar){&#xD;&#xA;           glPolygonMode(GL_BACK, GL_FILL);&#xD;&#xA;&#x9;&#x9;   glPolygonMode(GL_FRONT, GL_FILL);&#xD;&#xA;        }&#xD;&#xA;        else{&#xD;&#xA;           glPolygonMode(GL_BACK, GL_LINE);&#xD;&#xA;&#x9;&#x9;   glPolygonMode(GL_FRONT, GL_LINE);&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;glEnable(GL_CULL_FACE);&#xD;&#xA;&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            mTexture->setWrap(GL_REPEAT);&#xD;&#xA;&#x9;        mTexture->bind(GL_MODULATE);&#xD;&#xA;        }&#xD;&#xA;&#x9;    glCullFace(GL_BACK);&#xD;&#xA;&#x9;    dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;    upload(aMat);&#xD;&#xA;        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;    glLineWidth(2);&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);&#xD;&#xA;        }&#xD;&#xA;&#x9;    mMesh->render();&#xD;&#xA;&#x9;    glLineWidth(1);&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            mTexture->unbind();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            mBackTexture->setWrap(GL_REPEAT);&#xD;&#xA;&#x9;        mBackTexture->bind(GL_MODULATE);&#xD;&#xA;        }&#xD;&#xA;&#x9;    glCullFace(GL_FRONT);&#xD;&#xA;&#x9;    aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;    upload(aMat);&#xD;&#xA;        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;    glLineWidth(2);&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);&#xD;&#xA;        }&#xD;&#xA;&#x9;    mMesh->render();&#xD;&#xA;&#x9;    glLineWidth(1);&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            mBackTexture->unbind();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;&#x9;    glDisable(GL_CULL_FACE);&#xD;&#xA;&#xD;&#xA;        if(!rellenar){&#xD;&#xA;           glPolygonMode(GL_BACK, GL_FILL);&#xD;&#xA;&#x9;&#x9;   glPolygonMode(GL_FRONT, GL_FILL);&#xD;&#xA;        }&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Circulo::Circulo(GLdouble r, bool rellenar, GLuint rw, GLuint rh)&#xD;&#xA;&#x9;: Abs_Entity()&#xD;&#xA;{&#xD;&#xA;    if (rellenar) {&#xD;&#xA;&#x9;   mMesh = Mesh::generateRegularPolygon(40, r, GL_TRIANGLE_FAN, rw, rh);&#xD;&#xA;    }&#xD;&#xA;    else {&#xD;&#xA;&#x9;   mMesh = Mesh::generateRegularPolygon(40, r, GL_LINE_LOOP, rw, rh);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Circulo::~Circulo()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Circulo::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;&#x9;    glEnable(GL_CULL_FACE);&#xD;&#xA;&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            mTexture->setWrap(GL_REPEAT);&#xD;&#xA;&#x9;        mTexture->bind(GL_MODULATE);&#xD;&#xA;        }&#xD;&#xA;&#x9;    glCullFace(GL_BACK);&#xD;&#xA;&#x9;    dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;    upload(aMat);&#xD;&#xA;        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;    glLineWidth(2);&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);&#xD;&#xA;        }&#xD;&#xA;&#x9;    mMesh->render();&#xD;&#xA;&#x9;    glLineWidth(1);&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            mTexture->unbind();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            mBackTexture->setWrap(GL_REPEAT);&#xD;&#xA;&#x9;        mBackTexture->bind(GL_MODULATE);&#xD;&#xA;        }&#xD;&#xA;&#x9;    glCullFace(GL_FRONT);&#xD;&#xA;&#x9;    aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;    upload(aMat);&#xD;&#xA;        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;    glLineWidth(2);&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);&#xD;&#xA;        }&#xD;&#xA;&#x9;    mMesh->render();&#xD;&#xA;&#x9;    glLineWidth(1);&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            mBackTexture->unbind();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;&#x9;    glDisable(GL_CULL_FACE);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;QuadricEntity::QuadricEntity() {&#xD;&#xA;&#x9;q = gluNewQuadric();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Sphere::Sphere(GLdouble r)&#xD;&#xA;&#x9;: r(r)&#xD;&#xA;{}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Sphere::render(glm::dmat4 const&amp; modelViewMat) const {&#xD;&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xD;&#xA;&#x9;upload(aMat);&#xD;&#xA;&#x9;// Aquí se puede fijar el color de la esfera así:&#xD;&#xA;&#x9;glEnable ( GL_COLOR_MATERIAL );&#xD;&#xA;&#x9;glColor3f (mColor.r, mColor.g, mColor.b);&#xD;&#xA;&#x9;// Aquí se puede fijar el modo de dibujar la esfera :&#xD;&#xA;&#x9;gluQuadricDrawStyle (q, GLU_FILL);&#xD;&#xA;&#x9;gluSphere(q, r, 50, 50);&#xD;&#xA;&#x9;// Aquí se debe recuperar el color :&#xD;&#xA;&#x9;glColor3f (1.0 , 1.0 , 1.0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Cylinder::Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height)&#xD;&#xA;&#x9;: baseRadius(baseRadius), topRadius(topRadius), height(height)&#xD;&#xA;{}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Cylinder::render(glm::dmat4 const&amp; modelViewMat) const {&#xD;&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xD;&#xA;&#x9;upload(aMat);&#xD;&#xA;&#x9;// Aquí se puede fijar el color de la esfera así:&#xD;&#xA;&#x9;glEnable ( GL_COLOR_MATERIAL );&#xD;&#xA;&#x9;glColor3f (mColor.r, mColor.g, mColor.b);&#xD;&#xA;&#x9;// Aquí se puede fijar el modo de dibujar la esfera :&#xD;&#xA;&#x9;gluQuadricDrawStyle (q, GLU_FILL);&#xD;&#xA;&#x9;gluCylinder(q, baseRadius, topRadius, height, 50, 50);&#xD;&#xA;&#x9;// Aquí se debe recuperar el color :&#xD;&#xA;&#x9;glColor3f (1.0 , 1.0 , 1.0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Disk::Disk(GLdouble innerRadius, GLdouble outerRadius)&#xD;&#xA;&#x9;:innerRadius(innerRadius), outerRadius(outerRadius)&#xD;&#xA;{}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Disk::render(glm::dmat4 const&amp; modelViewMat) const {&#xD;&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xD;&#xA;&#x9;upload(aMat);&#xD;&#xA;&#x9;// Aquí se puede fijar el color de la esfera así:&#xD;&#xA;&#x9;glEnable ( GL_COLOR_MATERIAL );&#xD;&#xA;&#x9;glColor3f (mColor.r, mColor.g, mColor.b);&#xD;&#xA;&#x9;// Aquí se puede fijar el modo de dibujar la esfera :&#xD;&#xA;&#x9;gluQuadricDrawStyle (q, GLU_FILL);&#xD;&#xA;&#x9;gluDisk(q, innerRadius, outerRadius, 50, 50);&#xD;&#xA;&#x9;// Aquí se debe recuperar el color :&#xD;&#xA;&#x9;glColor3f (1.0 , 1.0 , 1.0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;PartialDisk::PartialDisk(GLdouble innerRadius, GLdouble outerRadius, GLdouble startAngle, GLdouble sweepAngle)&#xD;&#xA;&#x9;: innerRadius(innerRadius), outerRadius(outerRadius), startAngle(startAngle), sweepAngle(sweepAngle)&#xD;&#xA;{}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;PartialDisk::render(glm::dmat4 const&amp; modelViewMat) const {&#xD;&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xD;&#xA;&#x9;upload(aMat);&#xD;&#xA;&#x9;// Aquí se puede fijar el color de la esfera así:&#xD;&#xA;&#x9;glEnable ( GL_COLOR_MATERIAL );&#xD;&#xA;&#x9;glColor3f (mColor.r, mColor.g, mColor.b);&#xD;&#xA;&#x9;// Aquí se puede fijar el modo de dibujar la esfera :&#xD;&#xA;&#x9;gluQuadricDrawStyle (q, GLU_FILL);&#xD;&#xA;&#x9;gluPartialDisk(q, innerRadius, outerRadius, 50, 50,&#xD;&#xA;&#x9;&#x9;startAngle, sweepAngle);&#xD;&#xA;&#x9;// Aquí se debe recuperar el color :&#xD;&#xA;&#x9;glColor3f (1.0 , 1.0 , 1.0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;IndexedBox::IndexedBox(GLdouble l)&#xD;&#xA;&#x9;: Abs_Entity()&#xD;&#xA;{&#xD;&#xA;&#x9;mMesh = IndexMesh::generateIndexedBox(l);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;IndexedBox::~IndexedBox()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;IndexedBox::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;&#x9;&#x9;dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;&#x9;upload(aMat);&#xD;&#xA;&#x9;&#x9;glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;&#x9;glLineWidth(2);&#xD;&#xA;&#x9;&#x9;mMesh->render();&#xD;&#xA;&#x9;&#x9;glLineWidth(1);&#xD;&#xA;&#x9;&#x9;glColor4d(1, 1, 1, 1);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Toroid::Toroid(GLdouble r, GLdouble R)&#xD;&#xA;&#x9;: Abs_Entity()&#xD;&#xA;{&#xD;&#xA;&#x9;int auxnum = 40*2 + 3;&#xD;&#xA;&#x9;float alfa = 270.0, angsep = 360.0 / (auxnum-1);&#xD;&#xA;&#xD;&#xA;&#x9;glm::dvec3* perfil = new glm::dvec3"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;Entity.h&quot;&#xD;&#xA;&#xD;&#xA;#include &lt;glm/gtc/matrix_transform.hpp>&#xD;&#xA;#include &lt;glm/gtc/type_ptr.hpp>&#xD;&#xA;&#xD;&#xA;using namespace glm;&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Abs_Entity::upload(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;glMatrixMode(GL_MODELVIEW);&#xD;&#xA;&#x9;glLoadMatrixd(value_ptr(modelViewMat)); // transfers modelView matrix to the GPU&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;EjesRGB::EjesRGB(GLdouble l)&#xD;&#xA;  : Abs_Entity()&#xD;&#xA;{&#xD;&#xA;&#x9;mMesh = Mesh::createRGBAxes(l);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;EjesRGB::~EjesRGB()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;EjesRGB::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;&#x9;&#x9;dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;&#x9;upload(aMat);&#xD;&#xA;&#x9;&#x9;glLineWidth(2);&#xD;&#xA;&#x9;&#x9;mMesh->render();&#xD;&#xA;&#x9;&#x9;glLineWidth(1);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;PoligonoRegular::PoligonoRegular(GLuint num, GLdouble r, bool rellenar, GLuint rw, GLuint rh)&#xD;&#xA;&#x9;: Abs_Entity()&#xD;&#xA;{&#xD;&#xA;&#x9;if (rellenar) {&#xD;&#xA;&#x9;   mMesh = Mesh::generateRegularPolygon(num, r, GL_TRIANGLE_FAN, rw, rh);&#xD;&#xA;    }&#xD;&#xA;    else {&#xD;&#xA;&#x9;   mMesh = Mesh::generateRegularPolygon(num, r, GL_LINE_LOOP, rw, rh);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;PoligonoRegular::~PoligonoRegular()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;PoligonoRegular::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;    if (mMesh != nullptr) {&#xD;&#xA;&#x9;    glEnable(GL_CULL_FACE);&#xD;&#xA;&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            mTexture->setWrap(GL_REPEAT);&#xD;&#xA;&#x9;        mTexture->bind(GL_MODULATE);&#xD;&#xA;        }&#xD;&#xA;&#x9;    glCullFace(GL_BACK);&#xD;&#xA;&#x9;    dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;    upload(aMat);&#xD;&#xA;        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;    glLineWidth(2);&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);&#xD;&#xA;        }&#xD;&#xA;&#x9;    if (material != nullptr) {&#xD;&#xA;&#x9;        glDisable(GL_COLOR_MATERIAL);&#xD;&#xA;&#x9;        material->upload();&#xD;&#xA;        }&#xD;&#xA;        mMesh->render();&#xD;&#xA;        glLineWidth(1);&#xD;&#xA;        if (material != nullptr) {&#xD;&#xA;&#x9;        glEnable(GL_COLOR_MATERIAL);&#xD;&#xA;        }&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            mTexture->unbind();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            mBackTexture->setWrap(GL_REPEAT);&#xD;&#xA;&#x9;        mBackTexture->bind(GL_MODULATE);&#xD;&#xA;        }&#xD;&#xA;&#x9;    glCullFace(GL_FRONT);&#xD;&#xA;&#x9;    aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;    upload(aMat);&#xD;&#xA;        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;    glLineWidth(2);&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);&#xD;&#xA;        }&#xD;&#xA;&#x9;    if (material != nullptr) {&#xD;&#xA;&#x9;        glDisable(GL_COLOR_MATERIAL);&#xD;&#xA;&#x9;        material->upload();&#xD;&#xA;        }&#xD;&#xA;        mMesh->render();&#xD;&#xA;        glLineWidth(1);&#xD;&#xA;        if (material != nullptr) {&#xD;&#xA;&#x9;        glEnable(GL_COLOR_MATERIAL);&#xD;&#xA;        }&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            mBackTexture->unbind();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;&#x9;    glDisable(GL_CULL_FACE);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Rectangulo::Rectangulo(GLdouble w, GLdouble h, bool rellenar, GLuint rw, GLuint rh)&#xD;&#xA;&#x9;: Abs_Entity(), rellenar(rellenar)&#xD;&#xA;{&#xD;&#xA;&#x9;mMesh = Mesh::generateRectangle(w, h, rw, rh);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Rectangulo::~Rectangulo()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Rectangulo::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;        if(rellenar){&#xD;&#xA;           glPolygonMode(GL_BACK, GL_FILL);&#xD;&#xA;&#x9;&#x9;   glPolygonMode(GL_FRONT, GL_FILL);&#xD;&#xA;        }&#xD;&#xA;        else{&#xD;&#xA;           glPolygonMode(GL_BACK, GL_LINE);&#xD;&#xA;&#x9;&#x9;   glPolygonMode(GL_FRONT, GL_LINE);&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;glEnable(GL_CULL_FACE);&#xD;&#xA;&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            mTexture->setWrap(GL_REPEAT);&#xD;&#xA;&#x9;        mTexture->bind(GL_MODULATE);&#xD;&#xA;        }&#xD;&#xA;&#x9;    glCullFace(GL_BACK);&#xD;&#xA;&#x9;    dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;    upload(aMat);&#xD;&#xA;        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;    glLineWidth(2);&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);&#xD;&#xA;        }&#xD;&#xA;&#x9;    if (material != nullptr) {&#xD;&#xA;&#x9;        glDisable(GL_COLOR_MATERIAL);&#xD;&#xA;&#x9;        material->upload();&#xD;&#xA;        }&#xD;&#xA;        mMesh->render();&#xD;&#xA;        glLineWidth(1);&#xD;&#xA;        if (material != nullptr) {&#xD;&#xA;&#x9;        glEnable(GL_COLOR_MATERIAL);&#xD;&#xA;        }&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            mTexture->unbind();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            mBackTexture->setWrap(GL_REPEAT);&#xD;&#xA;&#x9;        mBackTexture->bind(GL_MODULATE);&#xD;&#xA;        }&#xD;&#xA;&#x9;    glCullFace(GL_FRONT);&#xD;&#xA;&#x9;    aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;    upload(aMat);&#xD;&#xA;        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;    glLineWidth(2);&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);&#xD;&#xA;        }&#xD;&#xA;&#x9;    if (material != nullptr) {&#xD;&#xA;&#x9;        glDisable(GL_COLOR_MATERIAL);&#xD;&#xA;&#x9;        material->upload();&#xD;&#xA;        }&#xD;&#xA;        mMesh->render();&#xD;&#xA;        glLineWidth(1);&#xD;&#xA;        if (material != nullptr) {&#xD;&#xA;&#x9;        glEnable(GL_COLOR_MATERIAL);&#xD;&#xA;        }&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            mBackTexture->unbind();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;&#x9;    glDisable(GL_CULL_FACE);&#xD;&#xA;&#xD;&#xA;        if(!rellenar){&#xD;&#xA;           glPolygonMode(GL_BACK, GL_FILL);&#xD;&#xA;&#x9;&#x9;   glPolygonMode(GL_FRONT, GL_FILL);&#xD;&#xA;        }&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Circulo::Circulo(GLdouble r, bool rellenar, GLuint rw, GLuint rh)&#xD;&#xA;&#x9;: Abs_Entity()&#xD;&#xA;{&#xD;&#xA;    if (rellenar) {&#xD;&#xA;&#x9;   mMesh = Mesh::generateRegularPolygon(40, r, GL_TRIANGLE_FAN, rw, rh);&#xD;&#xA;    }&#xD;&#xA;    else {&#xD;&#xA;&#x9;   mMesh = Mesh::generateRegularPolygon(40, r, GL_LINE_LOOP, rw, rh);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Circulo::~Circulo()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Circulo::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;&#x9;    glEnable(GL_CULL_FACE);&#xD;&#xA;&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            mTexture->setWrap(GL_REPEAT);&#xD;&#xA;&#x9;        mTexture->bind(GL_MODULATE);&#xD;&#xA;        }&#xD;&#xA;&#x9;    glCullFace(GL_BACK);&#xD;&#xA;&#x9;    dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;    upload(aMat);&#xD;&#xA;        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;    glLineWidth(2);&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);&#xD;&#xA;        }&#xD;&#xA;&#x9;    if (material != nullptr) {&#xD;&#xA;&#x9;        glDisable(GL_COLOR_MATERIAL);&#xD;&#xA;&#x9;        material->upload();&#xD;&#xA;        }&#xD;&#xA;        mMesh->render();&#xD;&#xA;        glLineWidth(1);&#xD;&#xA;        if (material != nullptr) {&#xD;&#xA;&#x9;        glEnable(GL_COLOR_MATERIAL);&#xD;&#xA;        }&#xD;&#xA;        if (mTexture != nullptr) {&#xD;&#xA;            mTexture->unbind();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            mBackTexture->setWrap(GL_REPEAT);&#xD;&#xA;&#x9;        mBackTexture->bind(GL_MODULATE);&#xD;&#xA;        }&#xD;&#xA;&#x9;    glCullFace(GL_FRONT);&#xD;&#xA;&#x9;    aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;    upload(aMat);&#xD;&#xA;        glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;    glLineWidth(2);&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);&#xD;&#xA;        }&#xD;&#xA;&#x9;    if (material != nullptr) {&#xD;&#xA;&#x9;        glDisable(GL_COLOR_MATERIAL);&#xD;&#xA;&#x9;        material->upload();&#xD;&#xA;        }&#xD;&#xA;        mMesh->render();&#xD;&#xA;        glLineWidth(1);&#xD;&#xA;        if (material != nullptr) {&#xD;&#xA;&#x9;        glEnable(GL_COLOR_MATERIAL);&#xD;&#xA;        }&#xD;&#xA;        if (mBackTexture != nullptr) {&#xD;&#xA;            mBackTexture->unbind();&#xD;&#xA;        }&#xD;&#xA;&#xD;&#xA;&#x9;    glDisable(GL_CULL_FACE);&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;QuadricEntity::QuadricEntity() {&#xD;&#xA;&#x9;q = gluNewQuadric();&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Sphere::Sphere(GLdouble r)&#xD;&#xA;&#x9;: r(r)&#xD;&#xA;{}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Sphere::render(glm::dmat4 const&amp; modelViewMat) const {&#xD;&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xD;&#xA;&#x9;upload(aMat);&#xD;&#xA;&#x9;// Aquí se puede fijar el color de la esfera así:&#xD;&#xA;&#x9;glEnable ( GL_COLOR_MATERIAL );&#xD;&#xA;&#x9;glColor3f (mColor.r, mColor.g, mColor.b);&#xD;&#xA;&#x9;// Aquí se puede fijar el modo de dibujar la esfera :&#xD;&#xA;&#x9;gluQuadricDrawStyle (q, GLU_FILL);&#xD;&#xA;&#x9;gluSphere(q, r, 50, 50);&#xD;&#xA;&#x9;// Aquí se debe recuperar el color :&#xD;&#xA;&#x9;glColor3f (1.0 , 1.0 , 1.0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Cylinder::Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height)&#xD;&#xA;&#x9;: baseRadius(baseRadius), topRadius(topRadius), height(height)&#xD;&#xA;{}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Cylinder::render(glm::dmat4 const&amp; modelViewMat) const {&#xD;&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xD;&#xA;&#x9;upload(aMat);&#xD;&#xA;&#x9;// Aquí se puede fijar el color de la esfera así:&#xD;&#xA;&#x9;glEnable ( GL_COLOR_MATERIAL );&#xD;&#xA;&#x9;glColor3f (mColor.r, mColor.g, mColor.b);&#xD;&#xA;&#x9;// Aquí se puede fijar el modo de dibujar la esfera :&#xD;&#xA;&#x9;gluQuadricDrawStyle (q, GLU_FILL);&#xD;&#xA;&#x9;gluCylinder(q, baseRadius, topRadius, height, 50, 50);&#xD;&#xA;&#x9;// Aquí se debe recuperar el color :&#xD;&#xA;&#x9;glColor3f (1.0 , 1.0 , 1.0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Disk::Disk(GLdouble innerRadius, GLdouble outerRadius)&#xD;&#xA;&#x9;:innerRadius(innerRadius), outerRadius(outerRadius)&#xD;&#xA;{}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Disk::render(glm::dmat4 const&amp; modelViewMat) const {&#xD;&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xD;&#xA;&#x9;upload(aMat);&#xD;&#xA;&#x9;// Aquí se puede fijar el color de la esfera así:&#xD;&#xA;&#x9;glEnable ( GL_COLOR_MATERIAL );&#xD;&#xA;&#x9;glColor3f (mColor.r, mColor.g, mColor.b);&#xD;&#xA;&#x9;// Aquí se puede fijar el modo de dibujar la esfera :&#xD;&#xA;&#x9;gluQuadricDrawStyle (q, GLU_FILL);&#xD;&#xA;&#x9;gluDisk(q, innerRadius, outerRadius, 50, 50);&#xD;&#xA;&#x9;// Aquí se debe recuperar el color :&#xD;&#xA;&#x9;glColor3f (1.0 , 1.0 , 1.0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;PartialDisk::PartialDisk(GLdouble innerRadius, GLdouble outerRadius, GLdouble startAngle, GLdouble sweepAngle)&#xD;&#xA;&#x9;: innerRadius(innerRadius), outerRadius(outerRadius), startAngle(startAngle), sweepAngle(sweepAngle)&#xD;&#xA;{}&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;PartialDisk::render(glm::dmat4 const&amp; modelViewMat) const {&#xD;&#xA;&#x9;dmat4 aMat = modelViewMat * mModelMat;&#xD;&#xA;&#x9;upload(aMat);&#xD;&#xA;&#x9;// Aquí se puede fijar el color de la esfera así:&#xD;&#xA;&#x9;glEnable ( GL_COLOR_MATERIAL );&#xD;&#xA;&#x9;glColor3f (mColor.r, mColor.g, mColor.b);&#xD;&#xA;&#x9;// Aquí se puede fijar el modo de dibujar la esfera :&#xD;&#xA;&#x9;gluQuadricDrawStyle (q, GLU_FILL);&#xD;&#xA;&#x9;gluPartialDisk(q, innerRadius, outerRadius, 50, 50,&#xD;&#xA;&#x9;&#x9;startAngle, sweepAngle);&#xD;&#xA;&#x9;// Aquí se debe recuperar el color :&#xD;&#xA;&#x9;glColor3f (1.0 , 1.0 , 1.0);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;IndexedBox::IndexedBox(GLdouble l)&#xD;&#xA;&#x9;: Abs_Entity()&#xD;&#xA;{&#xD;&#xA;&#x9;mMesh = IndexMesh::generateIndexedBox(l);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;IndexedBox::~IndexedBox()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;IndexedBox::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;&#x9;&#x9;dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;&#x9;upload(aMat);&#xD;&#xA;&#x9;&#x9;glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;&#x9;glLineWidth(2);&#xD;&#xA;&#x9;&#x9;if (material != nullptr) {&#xD;&#xA;&#x9;        glDisable(GL_COLOR_MATERIAL);&#xD;&#xA;&#x9;        material->upload();&#xD;&#xA;        }&#xD;&#xA;        mMesh->render();&#xD;&#xA;        glLineWidth(1);&#xD;&#xA;        if (material != nullptr) {&#xD;&#xA;&#x9;        glEnable(GL_COLOR_MATERIAL);&#xD;&#xA;        }&#xD;&#xA;&#x9;&#x9;glColor4d(1, 1, 1, 1);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Toroid::Toroid(GLdouble r, GLdouble R)&#xD;&#xA;&#x9;: Abs_Entity()&#xD;&#xA;{&#xD;&#xA;&#x9;int auxnum = 40*2 + 3;&#xD;&#xA;&#x9;float alfa = 270.0, angsep = 360.0 / (auxnum-1);&#xD;&#xA;&#xD;&#xA;&#x9;glm::dvec3* perfil = new glm::dvec3"/>
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
@@ -34,7 +35,7 @@
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </body>
-        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = glm::dvec3(x+ R, y, 0);&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;alfa += angsep;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;mMesh = MbR::generateIndexMbR(auxnum, 40, perfil);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Toroid::~Toroid()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Toroid::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;&#x9;&#x9;dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;&#x9;upload(aMat);&#xD;&#xA;&#x9;&#x9;glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;&#x9;glLineWidth(2);&#xD;&#xA;&#x9;&#x9;mMesh->render();&#xD;&#xA;&#x9;&#x9;glLineWidth(1);&#xD;&#xA;&#x9;&#x9;glColor4d(1, 1, 1, 1);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = glm::dvec3(x+ R, y, 0);&#xD;&#xA;&#xD;&#xA;&#x9;&#x9;alfa += angsep;&#xD;&#xA;&#x9;}&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#x9;mMesh = MbR::generateIndexMbR(auxnum, 40, perfil);&#xD;&#xA;}&#xD;&#xA;&#xD;&#xA;Toroid::~Toroid()&#xD;&#xA;{&#xD;&#xA;&#x9;delete mMesh;&#xD;&#xA;&#x9;mMesh = nullptr;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;void&#xD;&#xA;Toroid::render(dmat4 const&amp; modelViewMat) const&#xD;&#xA;{&#xD;&#xA;&#x9;if (mMesh != nullptr) {&#xD;&#xA;&#x9;&#x9;dmat4 aMat = modelViewMat * mModelMat; // glm matrix multiplication&#xD;&#xA;&#x9;&#x9;upload(aMat);&#xD;&#xA;&#x9;&#x9;glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);&#xD;&#xA;&#x9;&#x9;glLineWidth(2);&#xD;&#xA;&#x9;&#x9;if (material != nullptr) {&#xD;&#xA;&#x9;        glDisable(GL_COLOR_MATERIAL);&#xD;&#xA;&#x9;        material->upload();&#xD;&#xA;        }&#xD;&#xA;        mMesh->render();&#xD;&#xA;        glLineWidth(1);&#xD;&#xA;        if (material != nullptr) {&#xD;&#xA;&#x9;        glEnable(GL_COLOR_MATERIAL);&#xD;&#xA;        }&#xD;&#xA;&#x9;&#x9;glColor4d(1, 1, 1, 1);&#xD;&#xA;&#x9;}&#xD;&#xA;}&#xD;&#xA;"/>
         <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Entity.cpp">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </fileUrl>
@@ -76,6 +77,18 @@
             <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
           </source>
           <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/openGL_DSL#//Abs_Entity/BackTexture"/>
+        </argument>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;    "/>
+      <body xsi:type="mtl:TemplateInvocation">
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/materialFile.emtl#/0/generateMaterial"/>
+        <argument xsi:type="ocl.ecore:PropertyCallExp">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Material"/>
+          <source xsi:type="ocl.ecore:VariableExp" name="anEntity" referredVariable="/0/generateEntity/anEntity">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/openGL_DSL#//Abs_Entity/material"/>
         </argument>
       </body>
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;"/>
@@ -138,6 +151,18 @@
           <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
         </eParameters>
       </eOperations>
+      <eOperations name="generateMaterial">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/materialFile.emtl#/0/generateMaterial"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aMaterial">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Material"/>
+        </eParameters>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
@@ -172,6 +197,11 @@
     <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Texture_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
         <references href="http://www.example.org/openGL_DSL#//Texture"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Material_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/openGL_DSL#//Material"/>
       </eAnnotations>
     </eClassifiers>
   </ecore:EPackage>
@@ -221,168 +251,191 @@
     <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateEntity">
-      <details key="start" value="193"/>
-      <details key="end" value="14129"/>
-      <details key="line" value="7"/>
+      <details key="start" value="246"/>
+      <details key="end" value="15999"/>
+      <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateEntity/%">
-      <details key="start" value="318"/>
-      <details key="end" value="4063"/>
-      <details key="line" value="9"/>
-    </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/generateEntity/%/%">
-      <details key="start" value="355"/>
-      <details key="end" value="4052"/>
+      <details key="start" value="371"/>
+      <details key="end" value="4234"/>
       <details key="line" value="10"/>
     </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateEntity/%/%">
+      <details key="start" value="408"/>
+      <details key="end" value="4223"/>
+      <details key="line" value="11"/>
+    </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateEntity/%/%.1">
-      <details key="start" value="325"/>
-      <details key="end" value="335"/>
+      <details key="start" value="378"/>
+      <details key="end" value="388"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/generateEntity/%/%.2">
-      <details key="start" value="344"/>
-      <details key="end" value="351"/>
+      <details key="start" value="397"/>
+      <details key="end" value="404"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/generateEntity/%.1">
-      <details key="start" value="4065"/>
-      <details key="end" value="4067"/>
-      <details key="line" value="148"/>
+      <details key="start" value="4236"/>
+      <details key="end" value="4238"/>
+      <details key="line" value="152"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/generateEntity/%.2">
-      <details key="start" value="4071"/>
-      <details key="end" value="13982"/>
-      <details key="line" value="149"/>
+      <details key="start" value="4242"/>
+      <details key="end" value="15807"/>
+      <details key="line" value="153"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/generateEntity/%.2/%">
-      <details key="start" value="4110"/>
-      <details key="end" value="13273"/>
-      <details key="line" value="150"/>
+      <details key="start" value="4281"/>
+      <details key="end" value="14889"/>
+      <details key="line" value="154"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/generateEntity/%.2/%.1">
-      <details key="start" value="13275"/>
-      <details key="end" value="13278"/>
+      <details key="start" value="14891"/>
+      <details key="end" value="14894"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/generateEntity/%.2/%.2">
-      <details key="start" value="13281"/>
-      <details key="end" value="13287"/>
-      <details key="line" value="495"/>
+      <details key="start" value="14897"/>
+      <details key="end" value="14903"/>
+      <details key="line" value="548"/>
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/generateEntity/%.2/%.3">
-      <details key="start" value="13289"/>
-      <details key="end" value="13292"/>
+      <details key="start" value="14905"/>
+      <details key="end" value="14908"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/generateEntity/%.2/%.4">
-      <details key="start" value="13295"/>
-      <details key="end" value="13459"/>
-      <details key="line" value="495"/>
+      <details key="start" value="14911"/>
+      <details key="end" value="15075"/>
+      <details key="line" value="548"/>
     </eAnnotations>
     <eAnnotations source="positions.12" references="/0/generateEntity/%.2/%.5">
-      <details key="start" value="13461"/>
-      <details key="end" value="13464"/>
+      <details key="start" value="15077"/>
+      <details key="end" value="15080"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.13" references="/0/generateEntity/%.2/%.6">
-      <details key="start" value="13467"/>
-      <details key="end" value="13468"/>
-      <details key="line" value="504"/>
+      <details key="start" value="15083"/>
+      <details key="end" value="15084"/>
+      <details key="line" value="557"/>
     </eAnnotations>
     <eAnnotations source="positions.14" references="/0/generateEntity/%.2/%.7">
-      <details key="start" value="13470"/>
-      <details key="end" value="13473"/>
+      <details key="start" value="15086"/>
+      <details key="end" value="15089"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.15" references="/0/generateEntity/%.2/%.8">
-      <details key="start" value="13476"/>
-      <details key="end" value="13971"/>
-      <details key="line" value="504"/>
+      <details key="start" value="15092"/>
+      <details key="end" value="15796"/>
+      <details key="line" value="557"/>
     </eAnnotations>
     <eAnnotations source="positions.16" references="/0/generateEntity/%.2/%.9">
-      <details key="start" value="4078"/>
-      <details key="end" value="4090"/>
+      <details key="start" value="4249"/>
+      <details key="end" value="4261"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.17" references="/0/generateEntity/%.2/%.10">
-      <details key="start" value="4099"/>
-      <details key="end" value="4106"/>
+      <details key="start" value="4270"/>
+      <details key="end" value="4277"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.18" references="/0/generateEntity/%.3">
-      <details key="start" value="13984"/>
-      <details key="end" value="13988"/>
-      <details key="line" value="533"/>
+      <details key="start" value="15809"/>
+      <details key="end" value="15813"/>
+      <details key="line" value="593"/>
     </eAnnotations>
     <eAnnotations source="positions.19" references="/0/generateEntity/%.4">
-      <details key="start" value="13989"/>
-      <details key="end" value="14017"/>
+      <details key="start" value="15814"/>
+      <details key="end" value="15842"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.20" references="/0/generateEntity/%.4/%">
-      <details key="start" value="13989"/>
-      <details key="end" value="14002"/>
+      <details key="start" value="15814"/>
+      <details key="end" value="15827"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.21" references="/0/generateEntity/%.4/%/anEntity">
-      <details key="start" value="13989"/>
-      <details key="end" value="13997"/>
+      <details key="start" value="15814"/>
+      <details key="end" value="15822"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.22" references="/0/generateEntity/%.5">
-      <details key="start" value="14019"/>
-      <details key="end" value="14025"/>
-      <details key="line" value="534"/>
+      <details key="start" value="15844"/>
+      <details key="end" value="15850"/>
+      <details key="line" value="594"/>
     </eAnnotations>
     <eAnnotations source="positions.23" references="/0/generateEntity/%.6">
-      <details key="start" value="14026"/>
-      <details key="end" value="14065"/>
+      <details key="start" value="15851"/>
+      <details key="end" value="15890"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.24" references="/0/generateEntity/%.6/%">
-      <details key="start" value="14026"/>
-      <details key="end" value="14047"/>
+      <details key="start" value="15851"/>
+      <details key="end" value="15872"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.25" references="/0/generateEntity/%.6/%/anEntity">
-      <details key="start" value="14026"/>
-      <details key="end" value="14034"/>
+      <details key="start" value="15851"/>
+      <details key="end" value="15859"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/generateEntity/%.7">
-      <details key="start" value="14067"/>
-      <details key="end" value="14073"/>
-      <details key="line" value="535"/>
+      <details key="start" value="15892"/>
+      <details key="end" value="15898"/>
+      <details key="line" value="595"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/generateEntity/%.8">
-      <details key="start" value="14074"/>
-      <details key="end" value="14112"/>
+      <details key="start" value="15899"/>
+      <details key="end" value="15937"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.28" references="/0/generateEntity/%.8/%">
-      <details key="start" value="14074"/>
-      <details key="end" value="14094"/>
+      <details key="start" value="15899"/>
+      <details key="end" value="15919"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/generateEntity/%.8/%/anEntity">
-      <details key="start" value="14074"/>
-      <details key="end" value="14082"/>
+      <details key="start" value="15899"/>
+      <details key="end" value="15907"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/generateEntity/%.9">
-      <details key="start" value="14114"/>
-      <details key="end" value="14116"/>
-      <details key="line" value="536"/>
+      <details key="start" value="15939"/>
+      <details key="end" value="15945"/>
+      <details key="line" value="596"/>
     </eAnnotations>
-    <eAnnotations source="positions.31" references="/0/generateEntity/anEntity">
-      <details key="start" value="225"/>
-      <details key="end" value="246"/>
-      <details key="line" value="7"/>
+    <eAnnotations source="positions.31" references="/0/generateEntity/%.10">
+      <details key="start" value="15946"/>
+      <details key="end" value="15982"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateEntity/%.10/%">
+      <details key="start" value="15946"/>
+      <details key="end" value="15963"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateEntity/%.10/%/anEntity">
+      <details key="start" value="15946"/>
+      <details key="end" value="15954"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateEntity/%.11">
+      <details key="start" value="15984"/>
+      <details key="end" value="15986"/>
+      <details key="line" value="597"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateEntity/anEntity">
+      <details key="start" value="278"/>
+      <details key="end" value="299"/>
+      <details key="line" value="8"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

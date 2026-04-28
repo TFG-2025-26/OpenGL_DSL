@@ -139,6 +139,20 @@ Node* Node_[n.Name/]() {
 	backTexture[n.abs_entity->indexOf(ent)/]->load("[ent.BackTexture.Textura/]", [ent.BackTexture.Alfa/]);
     e[n.abs_entity->indexOf(ent)/]->setBackTexture(backTexture[n.abs_entity->indexOf(ent)/]);
 [/if]
+[if (ent.material <> null)]
+    Material* material[n.abs_entity->indexOf(ent)/] = new Material();
+[if (ent.material.ambient <> null)]
+    material[n.abs_entity->indexOf(ent)/]->setAmb(fvec4([ent.material.ambient.R/],[ent.material.ambient.G/],[ent.material.ambient.B/],[ent.material.ambient.A/]));
+[/if]
+[if (ent.material.difusse <> null)]
+    material[n.abs_entity->indexOf(ent)/]->setDiff(fvec4([ent.material.difusse.R/],[ent.material.difusse.G/],[ent.material.difusse.B/],[ent.material.difusse.A/]));
+[/if]
+[if (ent.material.specular <> null)]
+    material[n.abs_entity->indexOf(ent)/]->setSpec(fvec4([ent.material.specular.R/],[ent.material.specular.G/],[ent.material.specular.B/],[ent.material.specular.A/]));
+[/if]
+    material[n.abs_entity->indexOf(ent)/]->setExpF([ent.material.expF/]);
+    e[n.abs_entity->indexOf(ent)/]->setMaterial(material[n.abs_entity->indexOf(ent)/]);
+[/if]
 [/for]
     // Generar hijos recursivamente
 [for (child : Node | n.nodo)]

@@ -71,8 +71,15 @@ PoligonoRegular::render(dmat4 const& modelViewMat) const
         if (mTexture != nullptr) {
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         }
-	    mMesh->render();
-	    glLineWidth(1);
+	    if (material != nullptr) {
+	        glDisable(GL_COLOR_MATERIAL);
+	        material->upload();
+        }
+        mMesh->render();
+        glLineWidth(1);
+        if (material != nullptr) {
+	        glEnable(GL_COLOR_MATERIAL);
+        }
         if (mTexture != nullptr) {
             mTexture->unbind();
         }
@@ -89,8 +96,15 @@ PoligonoRegular::render(dmat4 const& modelViewMat) const
         if (mBackTexture != nullptr) {
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         }
-	    mMesh->render();
-	    glLineWidth(1);
+	    if (material != nullptr) {
+	        glDisable(GL_COLOR_MATERIAL);
+	        material->upload();
+        }
+        mMesh->render();
+        glLineWidth(1);
+        if (material != nullptr) {
+	        glEnable(GL_COLOR_MATERIAL);
+        }
         if (mBackTexture != nullptr) {
             mBackTexture->unbind();
         }
@@ -138,8 +152,15 @@ Rectangulo::render(dmat4 const& modelViewMat) const
         if (mTexture != nullptr) {
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         }
-	    mMesh->render();
-	    glLineWidth(1);
+	    if (material != nullptr) {
+	        glDisable(GL_COLOR_MATERIAL);
+	        material->upload();
+        }
+        mMesh->render();
+        glLineWidth(1);
+        if (material != nullptr) {
+	        glEnable(GL_COLOR_MATERIAL);
+        }
         if (mTexture != nullptr) {
             mTexture->unbind();
         }
@@ -156,8 +177,15 @@ Rectangulo::render(dmat4 const& modelViewMat) const
         if (mBackTexture != nullptr) {
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         }
-	    mMesh->render();
-	    glLineWidth(1);
+	    if (material != nullptr) {
+	        glDisable(GL_COLOR_MATERIAL);
+	        material->upload();
+        }
+        mMesh->render();
+        glLineWidth(1);
+        if (material != nullptr) {
+	        glEnable(GL_COLOR_MATERIAL);
+        }
         if (mBackTexture != nullptr) {
             mBackTexture->unbind();
         }
@@ -206,8 +234,15 @@ Circulo::render(dmat4 const& modelViewMat) const
         if (mTexture != nullptr) {
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         }
-	    mMesh->render();
-	    glLineWidth(1);
+	    if (material != nullptr) {
+	        glDisable(GL_COLOR_MATERIAL);
+	        material->upload();
+        }
+        mMesh->render();
+        glLineWidth(1);
+        if (material != nullptr) {
+	        glEnable(GL_COLOR_MATERIAL);
+        }
         if (mTexture != nullptr) {
             mTexture->unbind();
         }
@@ -224,8 +259,15 @@ Circulo::render(dmat4 const& modelViewMat) const
         if (mBackTexture != nullptr) {
             glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         }
-	    mMesh->render();
-	    glLineWidth(1);
+	    if (material != nullptr) {
+	        glDisable(GL_COLOR_MATERIAL);
+	        material->upload();
+        }
+        mMesh->render();
+        glLineWidth(1);
+        if (material != nullptr) {
+	        glEnable(GL_COLOR_MATERIAL);
+        }
         if (mBackTexture != nullptr) {
             mBackTexture->unbind();
         }
@@ -331,8 +373,15 @@ IndexedBox::render(dmat4 const& modelViewMat) const
 		upload(aMat);
 		glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);
 		glLineWidth(2);
-		mMesh->render();
-		glLineWidth(1);
+		if (material != nullptr) {
+	        glDisable(GL_COLOR_MATERIAL);
+	        material->upload();
+        }
+        mMesh->render();
+        glLineWidth(1);
+        if (material != nullptr) {
+	        glEnable(GL_COLOR_MATERIAL);
+        }
 		glColor4d(1, 1, 1, 1);
 	}
 }
@@ -375,8 +424,15 @@ Toroid::render(dmat4 const& modelViewMat) const
 		upload(aMat);
 		glColor4d(mColor.r, mColor.g, mColor.b, mColor.a);
 		glLineWidth(2);
-		mMesh->render();
-		glLineWidth(1);
+		if (material != nullptr) {
+	        glDisable(GL_COLOR_MATERIAL);
+	        material->upload();
+        }
+        mMesh->render();
+        glLineWidth(1);
+        if (material != nullptr) {
+	        glEnable(GL_COLOR_MATERIAL);
+        }
 		glColor4d(1, 1, 1, 1);
 	}
 }

@@ -4,10 +4,13 @@ package openGL_DSL.impl;
 
 import openGL_DSL.Material;
 import openGL_DSL.OpenGL_DSLPackage;
+import openGL_DSL.Vector4;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -24,72 +27,40 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link openGL_DSL.impl.MaterialImpl#getDifusse <em>Difusse</em>}</li>
  *   <li>{@link openGL_DSL.impl.MaterialImpl#getSpecular <em>Specular</em>}</li>
  *   <li>{@link openGL_DSL.impl.MaterialImpl#getExpF <em>Exp F</em>}</li>
- *   <li>{@link openGL_DSL.impl.MaterialImpl#getFace <em>Face</em>}</li>
- *   <li>{@link openGL_DSL.impl.MaterialImpl#getSh <em>Sh</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class MaterialImpl extends MinimalEObjectImpl.Container implements Material {
 	/**
-	 * The default value of the '{@link #getAmbient() <em>Ambient</em>}' attribute.
+	 * The cached value of the '{@link #getAmbient() <em>Ambient</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getAmbient()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object AMBIENT_EDEFAULT = null;
+	protected Vector4 ambient;
 
 	/**
-	 * The cached value of the '{@link #getAmbient() <em>Ambient</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAmbient()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object ambient = AMBIENT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getDifusse() <em>Difusse</em>}' attribute.
+	 * The cached value of the '{@link #getDifusse() <em>Difusse</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDifusse()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object DIFUSSE_EDEFAULT = null;
+	protected Vector4 difusse;
 
 	/**
-	 * The cached value of the '{@link #getDifusse() <em>Difusse</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getDifusse()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object difusse = DIFUSSE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSpecular() <em>Specular</em>}' attribute.
+	 * The cached value of the '{@link #getSpecular() <em>Specular</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getSpecular()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object SPECULAR_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSpecular() <em>Specular</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSpecular()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object specular = SPECULAR_EDEFAULT;
+	protected Vector4 specular;
 
 	/**
 	 * The default value of the '{@link #getExpF() <em>Exp F</em>}' attribute.
@@ -110,46 +81,6 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	 * @ordered
 	 */
 	protected float expF = EXP_F_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getFace() <em>Face</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFace()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Object FACE_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getFace() <em>Face</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getFace()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object face = FACE_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getSh() <em>Sh</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSh()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Object SH_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getSh() <em>Sh</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getSh()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object sh = SH_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -176,7 +107,7 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	 * @generated
 	 */
 	@Override
-	public Object getAmbient() {
+	public Vector4 getAmbient() {
 		return ambient;
 	}
 
@@ -185,12 +116,14 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setAmbient(Object newAmbient) {
-		Object oldAmbient = ambient;
+	public NotificationChain basicSetAmbient(Vector4 newAmbient, NotificationChain msgs) {
+		Vector4 oldAmbient = ambient;
 		ambient = newAmbient;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.MATERIAL__AMBIENT, oldAmbient, ambient));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.MATERIAL__AMBIENT, oldAmbient, newAmbient);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -199,7 +132,27 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	 * @generated
 	 */
 	@Override
-	public Object getDifusse() {
+	public void setAmbient(Vector4 newAmbient) {
+		if (newAmbient != ambient) {
+			NotificationChain msgs = null;
+			if (ambient != null)
+				msgs = ((InternalEObject)ambient).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.MATERIAL__AMBIENT, null, msgs);
+			if (newAmbient != null)
+				msgs = ((InternalEObject)newAmbient).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.MATERIAL__AMBIENT, null, msgs);
+			msgs = basicSetAmbient(newAmbient, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.MATERIAL__AMBIENT, newAmbient, newAmbient));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Vector4 getDifusse() {
 		return difusse;
 	}
 
@@ -208,12 +161,14 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setDifusse(Object newDifusse) {
-		Object oldDifusse = difusse;
+	public NotificationChain basicSetDifusse(Vector4 newDifusse, NotificationChain msgs) {
+		Vector4 oldDifusse = difusse;
 		difusse = newDifusse;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.MATERIAL__DIFUSSE, oldDifusse, difusse));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.MATERIAL__DIFUSSE, oldDifusse, newDifusse);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -222,7 +177,27 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	 * @generated
 	 */
 	@Override
-	public Object getSpecular() {
+	public void setDifusse(Vector4 newDifusse) {
+		if (newDifusse != difusse) {
+			NotificationChain msgs = null;
+			if (difusse != null)
+				msgs = ((InternalEObject)difusse).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.MATERIAL__DIFUSSE, null, msgs);
+			if (newDifusse != null)
+				msgs = ((InternalEObject)newDifusse).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.MATERIAL__DIFUSSE, null, msgs);
+			msgs = basicSetDifusse(newDifusse, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.MATERIAL__DIFUSSE, newDifusse, newDifusse));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Vector4 getSpecular() {
 		return specular;
 	}
 
@@ -231,12 +206,34 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	@Override
-	public void setSpecular(Object newSpecular) {
-		Object oldSpecular = specular;
+	public NotificationChain basicSetSpecular(Vector4 newSpecular, NotificationChain msgs) {
+		Vector4 oldSpecular = specular;
 		specular = newSpecular;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.MATERIAL__SPECULAR, oldSpecular, specular));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.MATERIAL__SPECULAR, oldSpecular, newSpecular);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setSpecular(Vector4 newSpecular) {
+		if (newSpecular != specular) {
+			NotificationChain msgs = null;
+			if (specular != null)
+				msgs = ((InternalEObject)specular).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.MATERIAL__SPECULAR, null, msgs);
+			if (newSpecular != null)
+				msgs = ((InternalEObject)newSpecular).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.MATERIAL__SPECULAR, null, msgs);
+			msgs = basicSetSpecular(newSpecular, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.MATERIAL__SPECULAR, newSpecular, newSpecular));
 	}
 
 	/**
@@ -268,44 +265,16 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	 * @generated
 	 */
 	@Override
-	public Object getFace() {
-		return face;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setFace(Object newFace) {
-		Object oldFace = face;
-		face = newFace;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.MATERIAL__FACE, oldFace, face));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object getSh() {
-		return sh;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setSh(Object newSh) {
-		Object oldSh = sh;
-		sh = newSh;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.MATERIAL__SH, oldSh, sh));
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case OpenGL_DSLPackage.MATERIAL__AMBIENT:
+				return basicSetAmbient(null, msgs);
+			case OpenGL_DSLPackage.MATERIAL__DIFUSSE:
+				return basicSetDifusse(null, msgs);
+			case OpenGL_DSLPackage.MATERIAL__SPECULAR:
+				return basicSetSpecular(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -324,10 +293,6 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 				return getSpecular();
 			case OpenGL_DSLPackage.MATERIAL__EXP_F:
 				return getExpF();
-			case OpenGL_DSLPackage.MATERIAL__FACE:
-				return getFace();
-			case OpenGL_DSLPackage.MATERIAL__SH:
-				return getSh();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -341,22 +306,16 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case OpenGL_DSLPackage.MATERIAL__AMBIENT:
-				setAmbient(newValue);
+				setAmbient((Vector4)newValue);
 				return;
 			case OpenGL_DSLPackage.MATERIAL__DIFUSSE:
-				setDifusse(newValue);
+				setDifusse((Vector4)newValue);
 				return;
 			case OpenGL_DSLPackage.MATERIAL__SPECULAR:
-				setSpecular(newValue);
+				setSpecular((Vector4)newValue);
 				return;
 			case OpenGL_DSLPackage.MATERIAL__EXP_F:
 				setExpF((Float)newValue);
-				return;
-			case OpenGL_DSLPackage.MATERIAL__FACE:
-				setFace(newValue);
-				return;
-			case OpenGL_DSLPackage.MATERIAL__SH:
-				setSh(newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -371,22 +330,16 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case OpenGL_DSLPackage.MATERIAL__AMBIENT:
-				setAmbient(AMBIENT_EDEFAULT);
+				setAmbient((Vector4)null);
 				return;
 			case OpenGL_DSLPackage.MATERIAL__DIFUSSE:
-				setDifusse(DIFUSSE_EDEFAULT);
+				setDifusse((Vector4)null);
 				return;
 			case OpenGL_DSLPackage.MATERIAL__SPECULAR:
-				setSpecular(SPECULAR_EDEFAULT);
+				setSpecular((Vector4)null);
 				return;
 			case OpenGL_DSLPackage.MATERIAL__EXP_F:
 				setExpF(EXP_F_EDEFAULT);
-				return;
-			case OpenGL_DSLPackage.MATERIAL__FACE:
-				setFace(FACE_EDEFAULT);
-				return;
-			case OpenGL_DSLPackage.MATERIAL__SH:
-				setSh(SH_EDEFAULT);
 				return;
 		}
 		super.eUnset(featureID);
@@ -401,17 +354,13 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case OpenGL_DSLPackage.MATERIAL__AMBIENT:
-				return AMBIENT_EDEFAULT == null ? ambient != null : !AMBIENT_EDEFAULT.equals(ambient);
+				return ambient != null;
 			case OpenGL_DSLPackage.MATERIAL__DIFUSSE:
-				return DIFUSSE_EDEFAULT == null ? difusse != null : !DIFUSSE_EDEFAULT.equals(difusse);
+				return difusse != null;
 			case OpenGL_DSLPackage.MATERIAL__SPECULAR:
-				return SPECULAR_EDEFAULT == null ? specular != null : !SPECULAR_EDEFAULT.equals(specular);
+				return specular != null;
 			case OpenGL_DSLPackage.MATERIAL__EXP_F:
 				return expF != EXP_F_EDEFAULT;
-			case OpenGL_DSLPackage.MATERIAL__FACE:
-				return FACE_EDEFAULT == null ? face != null : !FACE_EDEFAULT.equals(face);
-			case OpenGL_DSLPackage.MATERIAL__SH:
-				return SH_EDEFAULT == null ? sh != null : !SH_EDEFAULT.equals(sh);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -426,18 +375,8 @@ public class MaterialImpl extends MinimalEObjectImpl.Container implements Materi
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (ambient: ");
-		result.append(ambient);
-		result.append(", difusse: ");
-		result.append(difusse);
-		result.append(", specular: ");
-		result.append(specular);
-		result.append(", expF: ");
+		result.append(" (expF: ");
 		result.append(expF);
-		result.append(", face: ");
-		result.append(face);
-		result.append(", sh: ");
-		result.append(sh);
 		result.append(')');
 		return result.toString();
 	}

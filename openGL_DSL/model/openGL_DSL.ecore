@@ -116,12 +116,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="q" eType="#//GLquadricObj"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Material">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ambient" eType="#//vec4"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="difusse" eType="#//vec4"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="specular" eType="#//vec4"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ambient" eType="#//Vector4"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="difusse" eType="#//Vector4"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="specular" eType="#//Vector4"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="expF" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="face" eType="#//GLuint"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="sh" eType="#//GLuint"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Mesh">
     <eOperations name="mNumVertices" eType="#//GLuint"/>
