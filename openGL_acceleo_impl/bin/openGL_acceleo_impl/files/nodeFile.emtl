@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="nodeFile" nsURI="openGL_acceleo_impl::files::nodeFile" startHeaderPosition="29" endHeaderPosition="169">
+  <mtl:Module name="nodeFile" nsURI="openGL_acceleo_impl::files::nodeFile" startHeaderPosition="29" endHeaderPosition="131">
     <input>
       <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
     </input>
+    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/entityFile.emtl#/0"/>
+    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/lightFile.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateNode" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Node_H_&#xA;#define _H_Node_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;glm/glm.hpp>&#xA;&#xA;#include &quot;Entity.h&quot;&#xA;#include &quot;Light.h&quot;&#xA;&#xA;#include &lt;vector>&#xA;&#xA;using namespace glm;&#xA;&#xA;class Node&#xA;{&#xA;public:&#xA;&#x9;Node(dvec3 pos, dvec3 rot, dvec3 esc);&#xA;&#x9;~Node();&#xA;&#xA;&#x9;void render(glm::dmat4 const&amp; modelViewMat) const;&#xA;&#xA;&#x9;void addEntity(Abs_Entity* ent);&#xA;&#x9;void addNode(Node* n);&#xA;    void addLight(Light* n);&#xA;&#xA;&#xA;protected:&#xA;&#xA;&#x9;std::vector&lt;Abs_Entity*> gObjects;&#xA;&#x9;std::vector&lt;Node*> nodes;&#xA;    std::vector&lt;Light*> lights;&#xA;&#x9;dvec3 pos;&#xA;&#x9;dvec3 rot;&#xA;&#x9;dvec3 esc;&#xA;    dmat4 mModelMat;&#xA;};&#xA;#endif&#xA;"/>
@@ -23,6 +25,43 @@
         <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
+      </body>
+      <body xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/10/Sequence(String)">
+        <source xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(Abs_Entity)">
+          <source xsi:type="ocl.ecore:VariableExp" name="aNode" referredVariable="/0/generateNode/aNode">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/openGL_DSL#//Node/abs_entity"/>
+        </source>
+        <body xsi:type="mtl:TemplateInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/entityFile.emtl#/0/generateEntity"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/generateNode/collect/temp1">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+          </argument>
+        </body>
+        <iterator xsi:type="ocl.ecore:Variable" name="temp1">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+        </iterator>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/10/Sequence(String)">
+        <source xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(Light)">
+          <source xsi:type="ocl.ecore:VariableExp" name="aNode" referredVariable="/0/generateNode/aNode">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/openGL_DSL#//Node/light"/>
+        </source>
+        <body xsi:type="mtl:TemplateInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/lightFile.emtl#/0/generateLight"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/generateNode/collect.1/temp2">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+          </argument>
+        </body>
+        <iterator xsi:type="ocl.ecore:Variable" name="temp2">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+        </iterator>
       </body>
       <parameter name="aNode">
         <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
@@ -59,6 +98,30 @@
           <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
         </eParameters>
       </eOperations>
+      <eOperations name="generateEntity">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/entityFile.emtl#/0/generateEntity"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="anEntity">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+        </eParameters>
+      </eOperations>
+      <eOperations name="generateLight">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/lightFile.emtl#/0/generateLight"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aLight">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+        </eParameters>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
@@ -83,6 +146,16 @@
     <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Node_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
         <references href="http://www.example.org/openGL_DSL#//Node"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Abs_Entity_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Light_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/openGL_DSL#//Light"/>
       </eAnnotations>
     </eClassifiers>
   </ecore:EPackage>
@@ -110,64 +183,146 @@
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
   </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Abs_Entity)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(String)" instanceClassName="java.util.List">
+      <elementType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Light)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
+  </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateNode">
-      <details key="start" value="86"/>
-      <details key="end" value="2124"/>
-      <details key="line" value="5"/>
+      <details key="start" value="184"/>
+      <details key="end" value="2290"/>
+      <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateNode/%">
-      <details key="start" value="172"/>
-      <details key="end" value="770"/>
-      <details key="line" value="7"/>
-    </eAnnotations>
-    <eAnnotations source="positions.2" references="/0/generateNode/%/%">
-      <details key="start" value="206"/>
-      <details key="end" value="763"/>
+      <details key="start" value="270"/>
+      <details key="end" value="868"/>
       <details key="line" value="8"/>
     </eAnnotations>
+    <eAnnotations source="positions.2" references="/0/generateNode/%/%">
+      <details key="start" value="304"/>
+      <details key="end" value="861"/>
+      <details key="line" value="9"/>
+    </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateNode/%/%.1">
-      <details key="start" value="179"/>
-      <details key="end" value="187"/>
+      <details key="start" value="277"/>
+      <details key="end" value="285"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/generateNode/%/%.2">
-      <details key="start" value="196"/>
-      <details key="end" value="203"/>
+      <details key="start" value="294"/>
+      <details key="end" value="301"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/generateNode/%.1">
-      <details key="start" value="771"/>
-      <details key="end" value="772"/>
-      <details key="line" value="46"/>
+      <details key="start" value="869"/>
+      <details key="end" value="870"/>
+      <details key="line" value="47"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/generateNode/%.2">
-      <details key="start" value="815"/>
-      <details key="end" value="2112"/>
-      <details key="line" value="48"/>
-    </eAnnotations>
-    <eAnnotations source="positions.7" references="/0/generateNode/%.2/%">
-      <details key="start" value="851"/>
-      <details key="end" value="2105"/>
+      <details key="start" value="913"/>
+      <details key="end" value="2210"/>
       <details key="line" value="49"/>
     </eAnnotations>
+    <eAnnotations source="positions.7" references="/0/generateNode/%.2/%">
+      <details key="start" value="949"/>
+      <details key="end" value="2203"/>
+      <details key="line" value="50"/>
+    </eAnnotations>
     <eAnnotations source="positions.8" references="/0/generateNode/%.2/%.1">
-      <details key="start" value="822"/>
-      <details key="end" value="832"/>
+      <details key="start" value="920"/>
+      <details key="end" value="930"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/generateNode/%.2/%.2">
-      <details key="start" value="841"/>
-      <details key="end" value="848"/>
+      <details key="start" value="939"/>
+      <details key="end" value="946"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/generateNode/aNode">
-      <details key="start" value="116"/>
-      <details key="end" value="128"/>
-      <details key="line" value="5"/>
+    <eAnnotations source="positions.10" references="/0/generateNode/collect">
+      <details key="start" value="2212"/>
+      <details key="end" value="2245"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateNode/collect/%">
+      <details key="start" value="2212"/>
+      <details key="end" value="2228"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateNode/collect/%/aNode">
+      <details key="start" value="2212"/>
+      <details key="end" value="2217"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateNode/collect/%.1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateNode/collect/%.1/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateNode/collect/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateNode/%.3">
+      <details key="start" value="2247"/>
+      <details key="end" value="2248"/>
+      <details key="line" value="114"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateNode/collect.1">
+      <details key="start" value="2249"/>
+      <details key="end" value="2276"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateNode/collect.1/%">
+      <details key="start" value="2249"/>
+      <details key="end" value="2260"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateNode/collect.1/%/aNode">
+      <details key="start" value="2249"/>
+      <details key="end" value="2254"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateNode/collect.1/%.1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateNode/collect.1/%.1/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateNode/collect.1/temp2">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateNode/aNode">
+      <details key="start" value="214"/>
+      <details key="end" value="226"/>
+      <details key="line" value="6"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

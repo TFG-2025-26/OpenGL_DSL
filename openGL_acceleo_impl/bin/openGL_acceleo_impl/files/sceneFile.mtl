@@ -1,6 +1,6 @@
 [comment encoding = UTF-8 /]
 [module sceneFile('http://www.example.org/openGL_DSL')]
-
+[import openGL_acceleo_impl::files::nodeFile /]
 
 [template public generateScene(aScene : Scene)]
 [comment --- GENERACIÓN DE Scene.h --- /]
@@ -126,4 +126,6 @@ Scene::setVisible(bool v)
 }
 
 [/file]
+
+[aScene.nodo.generateNode()/]
 [/template]

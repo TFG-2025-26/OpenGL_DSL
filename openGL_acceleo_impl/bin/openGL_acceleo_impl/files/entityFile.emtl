@@ -70,18 +70,6 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;    "/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/textureFile.emtl#/0/generateTexture"/>
-        <argument xsi:type="ocl.ecore:PropertyCallExp">
-          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
-          <source xsi:type="ocl.ecore:VariableExp" name="anEntity" referredVariable="/0/generateEntity/anEntity">
-            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
-          </source>
-          <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/openGL_DSL#//Abs_Entity/BackTexture"/>
-        </argument>
-      </body>
-      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;    "/>
-      <body xsi:type="mtl:TemplateInvocation">
-        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/materialFile.emtl#/0/generateMaterial"/>
         <argument xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Material"/>
@@ -251,15 +239,12 @@
     <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Abs_Entity"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateEntity">
       <details key="start" value="246"/>
-      <details key="end" value="15999"/>
+      <details key="end" value="15952"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateEntity/%">
@@ -394,12 +379,12 @@
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/generateEntity/%.8">
       <details key="start" value="15899"/>
-      <details key="end" value="15937"/>
+      <details key="end" value="15935"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.28" references="/0/generateEntity/%.8/%">
       <details key="start" value="15899"/>
-      <details key="end" value="15919"/>
+      <details key="end" value="15916"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/generateEntity/%.8/%/anEntity">
@@ -408,31 +393,11 @@
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/generateEntity/%.9">
-      <details key="start" value="15939"/>
-      <details key="end" value="15945"/>
+      <details key="start" value="15937"/>
+      <details key="end" value="15939"/>
       <details key="line" value="596"/>
     </eAnnotations>
-    <eAnnotations source="positions.31" references="/0/generateEntity/%.10">
-      <details key="start" value="15946"/>
-      <details key="end" value="15982"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.32" references="/0/generateEntity/%.10/%">
-      <details key="start" value="15946"/>
-      <details key="end" value="15963"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.33" references="/0/generateEntity/%.10/%/anEntity">
-      <details key="start" value="15946"/>
-      <details key="end" value="15954"/>
-      <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.34" references="/0/generateEntity/%.11">
-      <details key="start" value="15984"/>
-      <details key="end" value="15986"/>
-      <details key="line" value="597"/>
-    </eAnnotations>
-    <eAnnotations source="positions.35" references="/0/generateEntity/anEntity">
+    <eAnnotations source="positions.31" references="/0/generateEntity/anEntity">
       <details key="start" value="278"/>
       <details key="end" value="299"/>
       <details key="line" value="8"/>

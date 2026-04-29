@@ -1,6 +1,7 @@
 [comment encoding = UTF-8 /]
 [module nodeFile('http://www.example.org/openGL_DSL')]
-
+[import openGL_acceleo_impl::files::entityFile /]
+[import openGL_acceleo_impl::files::lightFile /]
 
 [template public generateNode(aNode : Node)]
 [comment --- GENERACIÓN DE Node.h --- /]
@@ -109,4 +110,6 @@ void Node::render(dmat4 const& modelViewMat) const
 
 
 [/file]
+[aNode.abs_entity.generateEntity()/]
+[aNode.light.generateLight()/]
 [/template]

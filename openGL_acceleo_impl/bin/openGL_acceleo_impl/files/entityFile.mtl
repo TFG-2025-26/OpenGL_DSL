@@ -592,7 +592,6 @@ Toroid::render(dmat4 const& modelViewMat) const
     [/file]
     [anEntity.mesh.generateMesh()/]
     [anEntity.FrontTexture.generateTexture()/]
-    [anEntity.BackTexture.generateTexture()/]
     [anEntity.material.generateMaterial()/]
 
 [/template]

@@ -3,10 +3,7 @@
 
 [import openGL_acceleo_impl::files::viewportFile /]
 [import openGL_acceleo_impl::files::cameraFile /]
-[import openGL_acceleo_impl::files::entityFile /]
 [import openGL_acceleo_impl::files::sceneFile /]
-[import openGL_acceleo_impl::files::nodeFile /]
-[import openGL_acceleo_impl::files::lightFile /]
 [import openGL_acceleo_impl::common::sceneElements /]
 
 [template public generateElement(aSM : SceneManager)]
@@ -22,18 +19,7 @@
 
 
 [comment Generación de ficheros de clases de entidades /]
-[for (s : Scene | aSM.scenes)]
-    [s.generateScene()/]
-    [for (n : Node | s.nodo)]
-        [n.generateNode()/]
-        [for (lig : Light | n.light)]
-            [lig.generateLight() /]
-        [/for]
-        [for (ent : Abs_Entity | n.abs_entity)]
-            [ent.generateEntity() /]
-        [/for]
-    [/for]
-[/for]
+[aSM.scenes.generateScene()/]
 
 [comment 2. Generación del main.cpp con la lógica de renderizado real /]
 [file ('main.cpp', false, 'UTF-8')]

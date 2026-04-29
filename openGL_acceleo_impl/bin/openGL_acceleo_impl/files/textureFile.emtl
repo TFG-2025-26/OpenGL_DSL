@@ -25,6 +25,277 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
       </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_PixMap32RGBA_H&#xA;#define _H_PixMap32RGBA_H&#xA;&#xA;//#include &lt;Windows.h>&#xA;//#include &lt;gl/GL.h>&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;string>&#xA;#include &lt;glm/glm.hpp>&#xA;&#xA;&#xA;class PixMap32RGBA {   &#xA;public:&#xA;   &#xA;&#x9;typedef glm::u8vec4 rgba_color;  &#xA; &#xA;   PixMap32RGBA() noexcept : data_{ nullptr }, width_{ 0 }, height_{ 0 } {}&#xA;&#xA;   PixMap32RGBA(PixMap32RGBA &amp;&amp; pixmap) noexcept;&#xA;   PixMap32RGBA &amp; operator=(PixMap32RGBA &amp;&amp; pixmap) noexcept;&#xA;&#xA;   PixMap32RGBA(const PixMap32RGBA &amp; pixmap) = delete;&#xA;   PixMap32RGBA &amp; operator=(const PixMap32RGBA &amp; pixmap) = delete;&#xA;&#xA;   ~PixMap32RGBA() noexcept { free(); }&#xA;      &#xA;   void load_bmp24BGR(const std::string &amp; file_name);  // throw(std::ios_base::failure, std::exception);&#xA;   void save_bmp24BGR(const std::string &amp; file_name) const;  // throw(std::ios_base::failure);&#xA;   &#xA;   void reserve(GLsizei width, GLsizei height);  // throw(std::exception, std::bad_alloc);&#xA;   &#xA;   void set_alpha(GLubyte alpha) noexcept;&#xA;   void set_colorkey_alpha(glm::u8vec3 colorKey, GLubyte alpha) noexcept;&#xA;&#xA;   PixMap32RGBA clone();  // throw(std::exception, std::bad_alloc);&#xA;   &#xA;   void free() noexcept;&#xA;&#xA;   GLsizei width() const noexcept { return width_; }&#xA;&#xA;   GLsizei height() const noexcept { return height_; }&#xA;&#xA;   const rgba_color* data() const noexcept { return data_; }&#xA;&#xA;   rgba_color* data()  noexcept { return data_; }&#xA;&#xA;   bool is_null() const noexcept { return (data_ == nullptr); }&#xA;   &#xA;   const rgba_color &amp; pixel(const GLsizei x, const GLsizei y) const noexcept&#xA;   { return data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="y * width_ + x"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="; }&#xA;&#xA;   void set_pixel(const GLsizei x, const GLsizei y, const rgba_color &amp; rgba) noexcept&#xA;   { data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="y * width_ + x"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = rgba; }&#xA;&#xA;protected:&#xA;&#xA;   void load_headers(std::ifstream &amp; stream, unsigned int &amp; width, unsigned int &amp; height) const; // throw(std::ios_base::failure);&#xA;   void save_headers(std::ofstream &amp; stream) const noexcept;&#xA;&#xA;   void row_bgr_rgba(char* rowAux, unsigned int r) noexcept;&#xA;   void row_rgba_bgr(char* rowAux, unsigned int r) const noexcept;&#xA;&#xA;private:&#xA;&#xA;&#x9;rgba_color * data_;&#xA;&#x9;GLsizei   width_;&#xA;&#x9;GLsizei   height_;&#xA;&#xA;};&#xA;   &#xA;#endif //_H_PixMap32RGBA_H&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Pixmap32RGBA.h">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="mtl:FileBlock" openMode="OverWrite">
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#include &quot;PixMap32RGBA.h&quot;&#xA;#include &lt;fstream>&#xA;#include &lt;exception>&#xA;//using namespace std;&#xA;//---------------------------------------------------------------------------&#xA;&#xA;// cabeceras del archivo bmp&#xA;// tipo y valores para nuestro caso: bmp en modo bgr de 24 bits con los pixeles por filas bottom to top y columnas left to right&#xA;struct bitmap_file_header  &#xA;{ &#xA;  /*WORD*/  unsigned short signature;  // 'BM'&#xA;  /*DWORD*/ unsigned int   size_file;  // unreliable ->  = (offset_map + size_map) bytes &#xA;  /*WORD*/  unsigned short reserved1;  // 0&#xA;  /*WORD*/  unsigned short reserved2;  // 0&#xA;  /*DWORD*/ unsigned int   offset_map; // 54 (14 fileheader + 40 information_header) bytes &#xA;};&#xA;&#xA;struct bitmap_information_header&#xA;{&#xA;  /*DWORD*/ unsigned int size_info_header;  // 40 bytes = sizeof(bitmap_information_header)&#xA;  /*LONG*/  int width;  // columns (left to right order)&#xA;  /*LONG*/  int height; // rows (bottom to top order)&#xA;  /*WORD*/  unsigned short planes;  // 1 color planes &#xA;  /*WORD*/  unsigned short bits_per_pixel;  // 24 bits -> 3(BGR) bytes&#xA;  /*DWORD*/ unsigned int compression;   // 0 = BI_RGB, no pixel array compression used&#xA;  /*DWORD*/ unsigned int size_map;   // (width * 3 + pading) * height  bytes&#xA;  /*LONG*/  int x_prpm;  // (Print resolution pixels/meter horizontal) unreliable&#xA;  /*LONG*/  int y_prpm;  // (Print resolution pixels/meter vertical) unreliable &#xA;  /*DWORD*/ unsigned int clr_used;  // 0 (Number of colors in the palette)&#xA;  /*DWORD*/ unsigned int clr_important;   // 0 (means all colors are important)&#xA;};&#xA;//-------------------------------------------------------------------------------------------&#xA;&#xA;void PixMap32RGBA::load_headers(std::ifstream &amp; stream,  unsigned int &amp; width, unsigned int &amp; height) const// throw(std::ios_base::failure);&#xA;{&#xA;      width = 0; height = 0;&#xA;      bitmap_file_header bfh;&#xA;      bitmap_information_header bih; &#xA;      stream.read(reinterpret_cast&lt;char*>(&amp;bfh.signature), 2); &#xA;      stream.read(reinterpret_cast&lt;char*>(&amp;bfh.size_file), 4); &#xA;      stream.read(reinterpret_cast&lt;char*>(&amp;bfh.reserved1), 2); &#xA;      stream.read(reinterpret_cast&lt;char*>(&amp;bfh.reserved2), 2); &#xA;      stream.read(reinterpret_cast&lt;char*>(&amp;bfh.offset_map),4); &#xA;      &#xA;      stream.read(reinterpret_cast&lt;char*>(&amp;bih), 40);   &#xA;      width = bih.width; &#xA;      height = bih.height;&#xA;&#xA;      if (bfh.signature != 0x4D42) // 'BM' &#xA;      {&#xA;         throw std::ios_base::failure(&quot;PixMapRGBA::load_bmpBGR() ERROR: Invalid signature value&quot;);&#xA;      }&#xA;      if (bih.bits_per_pixel != 24)   // 3(BGR) bytes&#xA;      {&#xA;         throw std::ios_base::failure(&quot;PixMapRGBA::load_bmpBGR() ERROR: Invalid depth color (bits per pixel)&quot;);&#xA;      }&#xA;      if (bih.size_info_header != 40)   // size_of(bitmap_information_header)&#xA;      {&#xA;         throw std::ios_base::failure(&quot;PixMapRGBA::load_bmpBGR() ERROR: Invalid size information header&quot;);&#xA;      }&#xA;      if(bih.clr_used != 0) // color palette&#xA;      {&#xA;        throw std::ios_base::failure(&quot;PixMapRGBA::load_bmpBGR() ERROR: Invalid number of colors in the palette&quot;);&#xA;      }&#xA;}&#xA;//-------------------------------------------------------------------------------------------&#xA;&#xA;void PixMap32RGBA::save_headers(std::ofstream &amp; stream) const noexcept&#xA;{&#xA;      bitmap_file_header bfh;&#xA;      bitmap_information_header bih;&#xA;&#xA;      bih.size_info_header = 40;  // sizeof(bitmap_information_header) &#xA;      bih.width            = width_;&#xA;      bih.height           = height_;&#xA;      bih.planes           =  1;  // color planes&#xA;      bih.bits_per_pixel   = 24;  // 3(BGR) bytes&#xA;      bih.compression      =  0;  // BI_RGB&#xA;      bih.size_map         = ((bih.width * 3) + ((4 - ((3 * width_) % 4)) % 4)) * bih.height; &#xA;      bih.x_prpm           =  0;  //  Print resolution 2835 = 72 dpi × 39.3701 inches per meter yields 2834.6472&#xA;      bih.y_prpm           =  0;  //  Print resolution 2835 = 72 dpi × 39.3701 inches per meter yields 2834.6472&#xA;      bih.clr_used         =  0;&#xA;      bih.clr_important    =  0;&#xA;                                       &#xA;      bfh.signature   = 0x4D42;  // 'BM'    &#xA;      bfh.size_file   = 54 + bih.size_map; // offset_map + size_map      &#xA;      bfh.reserved1   = 0;&#xA;      bfh.reserved2   = 0;&#xA;      bfh.offset_map  = 54;       &#xA;&#xA;      stream.write(reinterpret_cast&lt;const char*>(&amp;bfh.signature), 2); &#xA;      stream.write(reinterpret_cast&lt;const char*>(&amp;bfh.size_file), 4); &#xA;      stream.write(reinterpret_cast&lt;const char*>(&amp;bfh.reserved1), 2); &#xA;      stream.write(reinterpret_cast&lt;const char*>(&amp;bfh.reserved2), 2); &#xA;      stream.write(reinterpret_cast&lt;const char*>(&amp;bfh.offset_map),4); &#xA;&#xA;      stream.write(reinterpret_cast&lt;const char*>(&amp;bih), 40);  &#xA;}&#xA;//-------------------------------------------------------------------------------------------&#xA;//-------------------------------------------------------------------------------------------&#xA;&#xA;PixMap32RGBA::PixMap32RGBA(PixMap32RGBA &amp;&amp; pixmap) noexcept&#xA;&#x9;: data_{ pixmap.data_ }, width_{ pixmap.width_ }, height_{ pixmap.height_ }&#xA;{&#xA;&#x9;pixmap.data_ = nullptr;&#xA;&#x9;pixmap.height_ = 0;&#xA;&#x9;pixmap.width_ = 0;&#xA;}&#xA;//-------------------------------------------------------------------------------------------&#xA;&#xA;PixMap32RGBA &amp; PixMap32RGBA::operator=(PixMap32RGBA &amp;&amp; pixmap) noexcept&#xA;{&#xA;&#x9;if (this != &amp;pixmap)&#xA;&#x9;{&#xA;&#x9;&#x9;delete"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" data_;&#xA;&#x9;&#x9;data_ = pixmap.data_;&#xA;&#x9;&#x9;width_ = pixmap.width_;&#xA;&#x9;&#x9;height_ = pixmap.height_;&#xA;&#x9;&#x9;pixmap.data_ = nullptr;&#xA;&#x9;&#x9;pixmap.width_ = 0;&#xA;&#x9;&#x9;pixmap.height_ = 0;&#xA;&#x9;}&#xA;&#xA;&#x9;return *this;&#xA;}&#xA;//-------------------------------------------------------------------------------------------&#xA;&#xA;void PixMap32RGBA::free() noexcept&#xA;{&#xA;   delete"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" data_;&#xA;   data_ = nullptr;&#xA;   width_ = 0;&#xA;   height_ = 0;&#xA;}&#xA;//-------------------------------------------------------------------------------------------&#xA;PixMap32RGBA PixMap32RGBA::clone()  // throw(std::exception, std::bad_alloc)&#xA;{&#xA;&#x9;PixMap32RGBA clon;&#xA;&#x9;clon.reserve(width(), height());&#xA;&#x9;&#xA;&#x9;for (GLsizei i = 0; i&lt; width_ * height_; i++)&#xA;&#x9;&#x9;clon.data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;&#xA;&#x9;return clon;&#xA;}&#xA;//-------------------------------------------------------------------------------------------&#xA;&#xA;void PixMap32RGBA::reserve(GLsizei width, GLsizei height) // throw(std::exception, std::bad_alloc)&#xA;{&#xA;  if(width > width_ || height > height_) &#xA;    {  &#xA;      try&#xA;      {  &#xA;         auto aux = new rgba_color "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="width * height"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";  &#xA;&#x9;&#x9; if (aux == nullptr) throw std::bad_alloc();&#xA;         &#xA;&#x9;&#x9; for (GLsizei i = 0; i&lt; width_ * height_; i++)&#xA;&#x9;&#x9;&#x9; aux"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;&#xA;&#x9;&#x9; delete "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" data_;&#xA;&#x9;&#x9; data_ = aux;&#xA;&#x9;&#x9; width_ = width;&#xA;&#x9;&#x9; height_ = height;&#xA;      }&#xA;      catch(std::bad_alloc &amp;) &#xA;&#x9;  {&#xA;        throw std::exception(&quot;PixMap32RGBA::reserve() ERROR: Could not allocate memory (bad_alloc)&quot;); &#xA;      }&#xA;  }   &#xA;}&#xA;//-------------------------------------------------------------------------------------------&#xA;&#xA;void PixMap32RGBA::load_bmp24BGR(const std::string &amp; file_name) // throw(std::ios_base::failure, std::bad_alloc)&#xA;{&#xA;      std::ifstream stream(file_name.c_str(), std::ios::binary);&#xA;      stream.exceptions( std::ifstream::failbit | std::ifstream::badbit );&#xA;      if (!stream.is_open()) throw std::ios_base::failure(&quot;PixMap32RGBA::load_bmpBGR() ERROR: Could not open file&quot;);&#xA;      &#xA;      unsigned int width, height;&#xA;      load_headers(stream, width, height);&#xA;&#xA;      //GLsizei Bytes_Per_Pixel = 3;&#xA;      unsigned int padding = (4 - ((3 * width) % 4)) % 4;     &#xA;      unsigned int rowSize = width * 3 + padding; &#xA;&#xA;&#x9;  reserve(width, height);&#xA;      char* rowAux = new char "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="rowSize"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";  // GLubyte&#xA;&#xA;&#x9;  for (GLsizei i = 0; i &lt; height_; ++i)&#xA;      {&#xA;         stream.read(rowAux,  rowSize); &#xA;         row_bgr_rgba(rowAux, i);  &#xA;      }&#xA;&#xA;      stream.close();&#xA;      delete "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" rowAux;&#xA;} &#xA;//-------------------------------------------------------------------------------------------&#xA;&#xA;void PixMap32RGBA::row_bgr_rgba(char* rowAux, unsigned int r) noexcept&#xA;{&#xA;   unsigned int j =  0, f = r* width_ + width_;  &#xA;&#xA;   for (unsigned int i = r* width_; i &lt;  f; i++)&#xA;   {&#xA;     data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".b = rowAux"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="j++"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;     data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".g = rowAux"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="j++"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;     data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".r = rowAux"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="j++"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;     data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".a = 255;&#xA;   }&#xA;}&#xA;//-------------------------------------------------------------------------------------------&#xA;&#xA;void PixMap32RGBA::row_rgba_bgr(char* rowAux, unsigned int r) const noexcept&#xA;{&#xA;   unsigned int j =  0, f = r* width_ + width_;  &#xA;&#xA;   for (unsigned int i = r* width_; i &lt;  f; i++)&#xA;   {&#xA;      rowAux"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="j++"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".b;&#xA;      rowAux"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="j++"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".g;&#xA;      rowAux"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="j++"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" = data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".r;&#xA;   }&#xA;}&#xA;//-------------------------------------------------------------------------------------------&#xA;&#xA;void PixMap32RGBA::save_bmp24BGR(const std::string&amp; file_name) const  // throw(std::ios_base::failure)&#xA;{&#xA;      std::ofstream stream(file_name.c_str(),std::ios::binary);&#xA;      stream.exceptions ( std::ifstream::failbit | std::ifstream::badbit );&#xA;      if (!stream.is_open())  throw std::ios_base::failure(&quot;PixMap32RGB::save_bmpBGR() ERROR: Could not open file&quot;); &#xA;   &#xA;      save_headers(stream);&#xA;      //GLsizei Bytes_Per_Pixel = 3;&#xA;      unsigned int padding = (4 - ((3 * width_) % 4)) % 4;   &#xA;      unsigned int rowSize = width_ * 3 + padding;  &#xA;     &#xA;      char* rowAux = new char "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="rowSize"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";  // GLubyte&#xA;&#xA;      for (GLsizei i = 0; i &lt; height_; ++i)&#xA;      {  &#xA;        row_rgba_bgr(rowAux,i);  &#xA;        stream.write(rowAux, rowSize);&#xA;      }&#xA;&#xA;      delete "/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=" rowAux;&#xA;      stream.close();&#xA;}&#xA;//-------------------------------------------------------------------------------------------&#xA;&#xA;void PixMap32RGBA::set_alpha(GLubyte alpha) noexcept&#xA;{&#xA;    //if(data_ != nullptr) &#xA;&#x9;  for (GLsizei i = 0; i&lt; width_ * height_; i++)&#xA;        data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".a = alpha;    &#xA;}&#xA;//-------------------------------------------------------------------------------------------&#xA;&#xA;void PixMap32RGBA::set_colorkey_alpha(glm::u8vec3 colorKey, GLubyte alpha ) noexcept&#xA;{&#xA;&#x9;//if (data_ != nullptr) &#xA;&#x9;  for (GLsizei i = 0; i&lt; width_ * height_; i++)&#xA;&#x9;  {&#xA;        if (data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".r == colorKey.r &amp;&amp; data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".g == colorKey.g &amp;&amp; data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".b == colorKey.b)&#xA;            data_"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="[">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="i"/>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="]">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </body>
+        <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=".a = alpha;&#xA;&#x9;  }&#xA;}&#xA;//-------------------------------------------------------------------------------------------&#xA;&#xA;"/>
+        <fileUrl xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="Pixmap32RGBA.cpp">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </fileUrl>
+        <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        </charset>
+      </body>
       <parameter name="aTexture">
         <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
       </parameter>
@@ -112,12 +383,216 @@
     <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
+  </ocl.ecore:Variable>
+  <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateTexture">
       <details key="start" value="89"/>
-      <details key="end" value="3803"/>
+      <details key="end" value="16489"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateTexture/%">
@@ -170,7 +645,672 @@
       <details key="end" value="1354"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.11" references="/0/generateTexture/aTexture">
+    <eAnnotations source="positions.11" references="/0/generateTexture/%.4">
+      <details key="start" value="3792"/>
+      <details key="end" value="3793"/>
+      <details key="line" value="139"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateTexture/%.5">
+      <details key="start" value="3828"/>
+      <details key="end" value="5988"/>
+      <details key="line" value="141"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateTexture/%.5/%">
+      <details key="start" value="3870"/>
+      <details key="end" value="5369"/>
+      <details key="line" value="142"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateTexture/%.5/%.1">
+      <details key="start" value="5371"/>
+      <details key="end" value="5374"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateTexture/%.5/%.2">
+      <details key="start" value="5377"/>
+      <details key="end" value="5391"/>
+      <details key="line" value="191"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateTexture/%.5/%.3">
+      <details key="start" value="5393"/>
+      <details key="end" value="5396"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateTexture/%.5/%.4">
+      <details key="start" value="5399"/>
+      <details key="end" value="5500"/>
+      <details key="line" value="191"/>
+    </eAnnotations>
+    <eAnnotations source="positions.18" references="/0/generateTexture/%.5/%.5">
+      <details key="start" value="5502"/>
+      <details key="end" value="5505"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.19" references="/0/generateTexture/%.5/%.6">
+      <details key="start" value="5508"/>
+      <details key="end" value="5522"/>
+      <details key="line" value="194"/>
+    </eAnnotations>
+    <eAnnotations source="positions.20" references="/0/generateTexture/%.5/%.7">
+      <details key="start" value="5524"/>
+      <details key="end" value="5527"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.21" references="/0/generateTexture/%.5/%.8">
+      <details key="start" value="5530"/>
+      <details key="end" value="5981"/>
+      <details key="line" value="194"/>
+    </eAnnotations>
+    <eAnnotations source="positions.22" references="/0/generateTexture/%.5/%.9">
+      <details key="start" value="3835"/>
+      <details key="end" value="3851"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.23" references="/0/generateTexture/%.5/%.10">
+      <details key="start" value="3860"/>
+      <details key="end" value="3867"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.24" references="/0/generateTexture/%.6">
+      <details key="start" value="5989"/>
+      <details key="end" value="5990"/>
+      <details key="line" value="214"/>
+    </eAnnotations>
+    <eAnnotations source="positions.25" references="/0/generateTexture/%.7">
+      <details key="start" value="6027"/>
+      <details key="end" value="16477"/>
+      <details key="line" value="216"/>
+    </eAnnotations>
+    <eAnnotations source="positions.26" references="/0/generateTexture/%.7/%">
+      <details key="start" value="6071"/>
+      <details key="end" value="11272"/>
+      <details key="line" value="217"/>
+    </eAnnotations>
+    <eAnnotations source="positions.27" references="/0/generateTexture/%.7/%.1">
+      <details key="start" value="11274"/>
+      <details key="end" value="11277"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.28" references="/0/generateTexture/%.7/%.2">
+      <details key="start" value="11282"/>
+      <details key="end" value="11285"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.29" references="/0/generateTexture/%.7/%.3">
+      <details key="start" value="11288"/>
+      <details key="end" value="11605"/>
+      <details key="line" value="331"/>
+    </eAnnotations>
+    <eAnnotations source="positions.30" references="/0/generateTexture/%.7/%.4">
+      <details key="start" value="11607"/>
+      <details key="end" value="11610"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.31" references="/0/generateTexture/%.7/%.5">
+      <details key="start" value="11615"/>
+      <details key="end" value="11618"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.32" references="/0/generateTexture/%.7/%.6">
+      <details key="start" value="11621"/>
+      <details key="end" value="11970"/>
+      <details key="line" value="346"/>
+    </eAnnotations>
+    <eAnnotations source="positions.33" references="/0/generateTexture/%.7/%.7">
+      <details key="start" value="11972"/>
+      <details key="end" value="11975"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.34" references="/0/generateTexture/%.7/%.8">
+      <details key="start" value="11978"/>
+      <details key="end" value="11979"/>
+      <details key="line" value="358"/>
+    </eAnnotations>
+    <eAnnotations source="positions.35" references="/0/generateTexture/%.7/%.9">
+      <details key="start" value="11981"/>
+      <details key="end" value="11984"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.36" references="/0/generateTexture/%.7/%.10">
+      <details key="start" value="11987"/>
+      <details key="end" value="11995"/>
+      <details key="line" value="358"/>
+    </eAnnotations>
+    <eAnnotations source="positions.37" references="/0/generateTexture/%.7/%.11">
+      <details key="start" value="11997"/>
+      <details key="end" value="12000"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.38" references="/0/generateTexture/%.7/%.12">
+      <details key="start" value="12003"/>
+      <details key="end" value="12004"/>
+      <details key="line" value="358"/>
+    </eAnnotations>
+    <eAnnotations source="positions.39" references="/0/generateTexture/%.7/%.13">
+      <details key="start" value="12006"/>
+      <details key="end" value="12009"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.40" references="/0/generateTexture/%.7/%.14">
+      <details key="start" value="12012"/>
+      <details key="end" value="12332"/>
+      <details key="line" value="358"/>
+    </eAnnotations>
+    <eAnnotations source="positions.41" references="/0/generateTexture/%.7/%.15">
+      <details key="start" value="12334"/>
+      <details key="end" value="12337"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.42" references="/0/generateTexture/%.7/%.16">
+      <details key="start" value="12340"/>
+      <details key="end" value="12354"/>
+      <details key="line" value="370"/>
+    </eAnnotations>
+    <eAnnotations source="positions.43" references="/0/generateTexture/%.7/%.17">
+      <details key="start" value="12356"/>
+      <details key="end" value="12359"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.44" references="/0/generateTexture/%.7/%.18">
+      <details key="start" value="12362"/>
+      <details key="end" value="12479"/>
+      <details key="line" value="370"/>
+    </eAnnotations>
+    <eAnnotations source="positions.45" references="/0/generateTexture/%.7/%.19">
+      <details key="start" value="12481"/>
+      <details key="end" value="12484"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.46" references="/0/generateTexture/%.7/%.20">
+      <details key="start" value="12487"/>
+      <details key="end" value="12488"/>
+      <details key="line" value="374"/>
+    </eAnnotations>
+    <eAnnotations source="positions.47" references="/0/generateTexture/%.7/%.21">
+      <details key="start" value="12490"/>
+      <details key="end" value="12493"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.48" references="/0/generateTexture/%.7/%.22">
+      <details key="start" value="12496"/>
+      <details key="end" value="12504"/>
+      <details key="line" value="374"/>
+    </eAnnotations>
+    <eAnnotations source="positions.49" references="/0/generateTexture/%.7/%.23">
+      <details key="start" value="12506"/>
+      <details key="end" value="12509"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.50" references="/0/generateTexture/%.7/%.24">
+      <details key="start" value="12512"/>
+      <details key="end" value="12513"/>
+      <details key="line" value="374"/>
+    </eAnnotations>
+    <eAnnotations source="positions.51" references="/0/generateTexture/%.7/%.25">
+      <details key="start" value="12515"/>
+      <details key="end" value="12518"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.52" references="/0/generateTexture/%.7/%.26">
+      <details key="start" value="12521"/>
+      <details key="end" value="12534"/>
+      <details key="line" value="374"/>
+    </eAnnotations>
+    <eAnnotations source="positions.53" references="/0/generateTexture/%.7/%.27">
+      <details key="start" value="12536"/>
+      <details key="end" value="12539"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.54" references="/0/generateTexture/%.7/%.28">
+      <details key="start" value="12544"/>
+      <details key="end" value="12547"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.55" references="/0/generateTexture/%.7/%.29">
+      <details key="start" value="12550"/>
+      <details key="end" value="13539"/>
+      <details key="line" value="376"/>
+    </eAnnotations>
+    <eAnnotations source="positions.56" references="/0/generateTexture/%.7/%.30">
+      <details key="start" value="13541"/>
+      <details key="end" value="13544"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.57" references="/0/generateTexture/%.7/%.31">
+      <details key="start" value="13547"/>
+      <details key="end" value="13554"/>
+      <details key="line" value="403"/>
+    </eAnnotations>
+    <eAnnotations source="positions.58" references="/0/generateTexture/%.7/%.32">
+      <details key="start" value="13556"/>
+      <details key="end" value="13559"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.59" references="/0/generateTexture/%.7/%.33">
+      <details key="start" value="13562"/>
+      <details key="end" value="13747"/>
+      <details key="line" value="403"/>
+    </eAnnotations>
+    <eAnnotations source="positions.60" references="/0/generateTexture/%.7/%.34">
+      <details key="start" value="13749"/>
+      <details key="end" value="13752"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.61" references="/0/generateTexture/%.7/%.35">
+      <details key="start" value="13757"/>
+      <details key="end" value="13760"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.62" references="/0/generateTexture/%.7/%.36">
+      <details key="start" value="13763"/>
+      <details key="end" value="14058"/>
+      <details key="line" value="412"/>
+    </eAnnotations>
+    <eAnnotations source="positions.63" references="/0/generateTexture/%.7/%.37">
+      <details key="start" value="14060"/>
+      <details key="end" value="14063"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.64" references="/0/generateTexture/%.7/%.38">
+      <details key="start" value="14066"/>
+      <details key="end" value="14067"/>
+      <details key="line" value="422"/>
+    </eAnnotations>
+    <eAnnotations source="positions.65" references="/0/generateTexture/%.7/%.39">
+      <details key="start" value="14069"/>
+      <details key="end" value="14072"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.66" references="/0/generateTexture/%.7/%.40">
+      <details key="start" value="14075"/>
+      <details key="end" value="14086"/>
+      <details key="line" value="422"/>
+    </eAnnotations>
+    <eAnnotations source="positions.67" references="/0/generateTexture/%.7/%.41">
+      <details key="start" value="14088"/>
+      <details key="end" value="14091"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.68" references="/0/generateTexture/%.7/%.42">
+      <details key="start" value="14094"/>
+      <details key="end" value="14097"/>
+      <details key="line" value="422"/>
+    </eAnnotations>
+    <eAnnotations source="positions.69" references="/0/generateTexture/%.7/%.43">
+      <details key="start" value="14099"/>
+      <details key="end" value="14102"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.70" references="/0/generateTexture/%.7/%.44">
+      <details key="start" value="14105"/>
+      <details key="end" value="14117"/>
+      <details key="line" value="422"/>
+    </eAnnotations>
+    <eAnnotations source="positions.71" references="/0/generateTexture/%.7/%.45">
+      <details key="start" value="14119"/>
+      <details key="end" value="14122"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.72" references="/0/generateTexture/%.7/%.46">
+      <details key="start" value="14125"/>
+      <details key="end" value="14126"/>
+      <details key="line" value="423"/>
+    </eAnnotations>
+    <eAnnotations source="positions.73" references="/0/generateTexture/%.7/%.47">
+      <details key="start" value="14128"/>
+      <details key="end" value="14131"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.74" references="/0/generateTexture/%.7/%.48">
+      <details key="start" value="14134"/>
+      <details key="end" value="14145"/>
+      <details key="line" value="423"/>
+    </eAnnotations>
+    <eAnnotations source="positions.75" references="/0/generateTexture/%.7/%.49">
+      <details key="start" value="14147"/>
+      <details key="end" value="14150"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.76" references="/0/generateTexture/%.7/%.50">
+      <details key="start" value="14153"/>
+      <details key="end" value="14156"/>
+      <details key="line" value="423"/>
+    </eAnnotations>
+    <eAnnotations source="positions.77" references="/0/generateTexture/%.7/%.51">
+      <details key="start" value="14158"/>
+      <details key="end" value="14161"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.78" references="/0/generateTexture/%.7/%.52">
+      <details key="start" value="14164"/>
+      <details key="end" value="14176"/>
+      <details key="line" value="423"/>
+    </eAnnotations>
+    <eAnnotations source="positions.79" references="/0/generateTexture/%.7/%.53">
+      <details key="start" value="14178"/>
+      <details key="end" value="14181"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.80" references="/0/generateTexture/%.7/%.54">
+      <details key="start" value="14184"/>
+      <details key="end" value="14185"/>
+      <details key="line" value="424"/>
+    </eAnnotations>
+    <eAnnotations source="positions.81" references="/0/generateTexture/%.7/%.55">
+      <details key="start" value="14187"/>
+      <details key="end" value="14190"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.82" references="/0/generateTexture/%.7/%.56">
+      <details key="start" value="14193"/>
+      <details key="end" value="14204"/>
+      <details key="line" value="424"/>
+    </eAnnotations>
+    <eAnnotations source="positions.83" references="/0/generateTexture/%.7/%.57">
+      <details key="start" value="14206"/>
+      <details key="end" value="14209"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.84" references="/0/generateTexture/%.7/%.58">
+      <details key="start" value="14212"/>
+      <details key="end" value="14215"/>
+      <details key="line" value="424"/>
+    </eAnnotations>
+    <eAnnotations source="positions.85" references="/0/generateTexture/%.7/%.59">
+      <details key="start" value="14217"/>
+      <details key="end" value="14220"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.86" references="/0/generateTexture/%.7/%.60">
+      <details key="start" value="14223"/>
+      <details key="end" value="14235"/>
+      <details key="line" value="424"/>
+    </eAnnotations>
+    <eAnnotations source="positions.87" references="/0/generateTexture/%.7/%.61">
+      <details key="start" value="14237"/>
+      <details key="end" value="14240"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.88" references="/0/generateTexture/%.7/%.62">
+      <details key="start" value="14243"/>
+      <details key="end" value="14244"/>
+      <details key="line" value="425"/>
+    </eAnnotations>
+    <eAnnotations source="positions.89" references="/0/generateTexture/%.7/%.63">
+      <details key="start" value="14246"/>
+      <details key="end" value="14249"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.90" references="/0/generateTexture/%.7/%.64">
+      <details key="start" value="14252"/>
+      <details key="end" value="14560"/>
+      <details key="line" value="425"/>
+    </eAnnotations>
+    <eAnnotations source="positions.91" references="/0/generateTexture/%.7/%.65">
+      <details key="start" value="14562"/>
+      <details key="end" value="14565"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.92" references="/0/generateTexture/%.7/%.66">
+      <details key="start" value="14568"/>
+      <details key="end" value="14571"/>
+      <details key="line" value="436"/>
+    </eAnnotations>
+    <eAnnotations source="positions.93" references="/0/generateTexture/%.7/%.67">
+      <details key="start" value="14573"/>
+      <details key="end" value="14576"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.94" references="/0/generateTexture/%.7/%.68">
+      <details key="start" value="14579"/>
+      <details key="end" value="14587"/>
+      <details key="line" value="436"/>
+    </eAnnotations>
+    <eAnnotations source="positions.95" references="/0/generateTexture/%.7/%.69">
+      <details key="start" value="14589"/>
+      <details key="end" value="14592"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.96" references="/0/generateTexture/%.7/%.70">
+      <details key="start" value="14595"/>
+      <details key="end" value="14596"/>
+      <details key="line" value="436"/>
+    </eAnnotations>
+    <eAnnotations source="positions.97" references="/0/generateTexture/%.7/%.71">
+      <details key="start" value="14598"/>
+      <details key="end" value="14601"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.98" references="/0/generateTexture/%.7/%.72">
+      <details key="start" value="14604"/>
+      <details key="end" value="14620"/>
+      <details key="line" value="436"/>
+    </eAnnotations>
+    <eAnnotations source="positions.99" references="/0/generateTexture/%.7/%.73">
+      <details key="start" value="14622"/>
+      <details key="end" value="14625"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.100" references="/0/generateTexture/%.7/%.74">
+      <details key="start" value="14628"/>
+      <details key="end" value="14631"/>
+      <details key="line" value="437"/>
+    </eAnnotations>
+    <eAnnotations source="positions.101" references="/0/generateTexture/%.7/%.75">
+      <details key="start" value="14633"/>
+      <details key="end" value="14636"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.102" references="/0/generateTexture/%.7/%.76">
+      <details key="start" value="14639"/>
+      <details key="end" value="14647"/>
+      <details key="line" value="437"/>
+    </eAnnotations>
+    <eAnnotations source="positions.103" references="/0/generateTexture/%.7/%.77">
+      <details key="start" value="14649"/>
+      <details key="end" value="14652"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.104" references="/0/generateTexture/%.7/%.78">
+      <details key="start" value="14655"/>
+      <details key="end" value="14656"/>
+      <details key="line" value="437"/>
+    </eAnnotations>
+    <eAnnotations source="positions.105" references="/0/generateTexture/%.7/%.79">
+      <details key="start" value="14658"/>
+      <details key="end" value="14661"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.106" references="/0/generateTexture/%.7/%.80">
+      <details key="start" value="14664"/>
+      <details key="end" value="14680"/>
+      <details key="line" value="437"/>
+    </eAnnotations>
+    <eAnnotations source="positions.107" references="/0/generateTexture/%.7/%.81">
+      <details key="start" value="14682"/>
+      <details key="end" value="14685"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.108" references="/0/generateTexture/%.7/%.82">
+      <details key="start" value="14688"/>
+      <details key="end" value="14691"/>
+      <details key="line" value="438"/>
+    </eAnnotations>
+    <eAnnotations source="positions.109" references="/0/generateTexture/%.7/%.83">
+      <details key="start" value="14693"/>
+      <details key="end" value="14696"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.110" references="/0/generateTexture/%.7/%.84">
+      <details key="start" value="14699"/>
+      <details key="end" value="14707"/>
+      <details key="line" value="438"/>
+    </eAnnotations>
+    <eAnnotations source="positions.111" references="/0/generateTexture/%.7/%.85">
+      <details key="start" value="14709"/>
+      <details key="end" value="14712"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.112" references="/0/generateTexture/%.7/%.86">
+      <details key="start" value="14715"/>
+      <details key="end" value="14716"/>
+      <details key="line" value="438"/>
+    </eAnnotations>
+    <eAnnotations source="positions.113" references="/0/generateTexture/%.7/%.87">
+      <details key="start" value="14718"/>
+      <details key="end" value="14721"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.114" references="/0/generateTexture/%.7/%.88">
+      <details key="start" value="14724"/>
+      <details key="end" value="15413"/>
+      <details key="line" value="438"/>
+    </eAnnotations>
+    <eAnnotations source="positions.115" references="/0/generateTexture/%.7/%.89">
+      <details key="start" value="15415"/>
+      <details key="end" value="15418"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.116" references="/0/generateTexture/%.7/%.90">
+      <details key="start" value="15421"/>
+      <details key="end" value="15428"/>
+      <details key="line" value="454"/>
+    </eAnnotations>
+    <eAnnotations source="positions.117" references="/0/generateTexture/%.7/%.91">
+      <details key="start" value="15430"/>
+      <details key="end" value="15433"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.118" references="/0/generateTexture/%.7/%.92">
+      <details key="start" value="15436"/>
+      <details key="end" value="15600"/>
+      <details key="line" value="454"/>
+    </eAnnotations>
+    <eAnnotations source="positions.119" references="/0/generateTexture/%.7/%.93">
+      <details key="start" value="15602"/>
+      <details key="end" value="15605"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.120" references="/0/generateTexture/%.7/%.94">
+      <details key="start" value="15610"/>
+      <details key="end" value="15613"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.121" references="/0/generateTexture/%.7/%.95">
+      <details key="start" value="15616"/>
+      <details key="end" value="15889"/>
+      <details key="line" value="462"/>
+    </eAnnotations>
+    <eAnnotations source="positions.122" references="/0/generateTexture/%.7/%.96">
+      <details key="start" value="15891"/>
+      <details key="end" value="15894"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.123" references="/0/generateTexture/%.7/%.97">
+      <details key="start" value="15897"/>
+      <details key="end" value="15898"/>
+      <details key="line" value="471"/>
+    </eAnnotations>
+    <eAnnotations source="positions.124" references="/0/generateTexture/%.7/%.98">
+      <details key="start" value="15900"/>
+      <details key="end" value="15903"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.125" references="/0/generateTexture/%.7/%.99">
+      <details key="start" value="15906"/>
+      <details key="end" value="16203"/>
+      <details key="line" value="471"/>
+    </eAnnotations>
+    <eAnnotations source="positions.126" references="/0/generateTexture/%.7/%.100">
+      <details key="start" value="16205"/>
+      <details key="end" value="16208"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.127" references="/0/generateTexture/%.7/%.101">
+      <details key="start" value="16211"/>
+      <details key="end" value="16212"/>
+      <details key="line" value="480"/>
+    </eAnnotations>
+    <eAnnotations source="positions.128" references="/0/generateTexture/%.7/%.102">
+      <details key="start" value="16214"/>
+      <details key="end" value="16217"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.129" references="/0/generateTexture/%.7/%.103">
+      <details key="start" value="16220"/>
+      <details key="end" value="16245"/>
+      <details key="line" value="480"/>
+    </eAnnotations>
+    <eAnnotations source="positions.130" references="/0/generateTexture/%.7/%.104">
+      <details key="start" value="16247"/>
+      <details key="end" value="16250"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.131" references="/0/generateTexture/%.7/%.105">
+      <details key="start" value="16253"/>
+      <details key="end" value="16254"/>
+      <details key="line" value="480"/>
+    </eAnnotations>
+    <eAnnotations source="positions.132" references="/0/generateTexture/%.7/%.106">
+      <details key="start" value="16256"/>
+      <details key="end" value="16259"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.133" references="/0/generateTexture/%.7/%.107">
+      <details key="start" value="16262"/>
+      <details key="end" value="16287"/>
+      <details key="line" value="480"/>
+    </eAnnotations>
+    <eAnnotations source="positions.134" references="/0/generateTexture/%.7/%.108">
+      <details key="start" value="16289"/>
+      <details key="end" value="16292"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.135" references="/0/generateTexture/%.7/%.109">
+      <details key="start" value="16295"/>
+      <details key="end" value="16296"/>
+      <details key="line" value="480"/>
+    </eAnnotations>
+    <eAnnotations source="positions.136" references="/0/generateTexture/%.7/%.110">
+      <details key="start" value="16298"/>
+      <details key="end" value="16301"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.137" references="/0/generateTexture/%.7/%.111">
+      <details key="start" value="16304"/>
+      <details key="end" value="16339"/>
+      <details key="line" value="480"/>
+    </eAnnotations>
+    <eAnnotations source="positions.138" references="/0/generateTexture/%.7/%.112">
+      <details key="start" value="16341"/>
+      <details key="end" value="16344"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.139" references="/0/generateTexture/%.7/%.113">
+      <details key="start" value="16347"/>
+      <details key="end" value="16348"/>
+      <details key="line" value="481"/>
+    </eAnnotations>
+    <eAnnotations source="positions.140" references="/0/generateTexture/%.7/%.114">
+      <details key="start" value="16350"/>
+      <details key="end" value="16353"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.141" references="/0/generateTexture/%.7/%.115">
+      <details key="start" value="16356"/>
+      <details key="end" value="16470"/>
+      <details key="line" value="481"/>
+    </eAnnotations>
+    <eAnnotations source="positions.142" references="/0/generateTexture/%.7/%.116">
+      <details key="start" value="6034"/>
+      <details key="end" value="6052"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.143" references="/0/generateTexture/%.7/%.117">
+      <details key="start" value="6061"/>
+      <details key="end" value="6068"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.144" references="/0/generateTexture/aTexture">
       <details key="start" value="122"/>
       <details key="end" value="140"/>
       <details key="line" value="5"/>

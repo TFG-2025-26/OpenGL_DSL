@@ -1,8 +1,6 @@
 [comment encoding = UTF-8 /]
 [module sceneElements('http://www.example.org/openGL_DSL')]
 
-[import openGL_acceleo_impl::files::entityFile /]
-
 [template public generateSceneLogic(aScene : Scene)]
 [for (n : Node | aScene.nodo)]
 [generateNode(n)/]

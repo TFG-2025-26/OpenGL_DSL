@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="sceneFile" nsURI="openGL_acceleo_impl::files::sceneFile" startHeaderPosition="29" endHeaderPosition="174">
+  <mtl:Module name="sceneFile" nsURI="openGL_acceleo_impl::files::sceneFile" startHeaderPosition="29" endHeaderPosition="130">
     <input>
       <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
     </input>
+    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/nodeFile.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateScene" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Scene_H_&#xA;#define _H_Scene_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;glm/glm.hpp>&#xA;&#xA;#include &quot;Camera.h&quot;&#xA;#include &quot;Node.h&quot;&#xA;&#xA;#include &lt;vector>&#xA;&#xA;class Scene&#xA;{&#xA;public:&#xA;&#x9;Scene() = default;&#xA;&#x9;~Scene()&#xA;&#x9;{&#xA;&#x9;&#x9;free();&#xA;&#x9;&#x9;resetGL();&#xA;&#x9;};&#xA;&#xA;&#x9;Scene(const Scene&amp; s) = delete;            // no copy constructor&#xA;&#x9;Scene&amp; operator=(const Scene&amp; s) = delete; // no copy assignment&#xA;&#xA;&#x9;void init();&#xA;&#xA;&#x9;void render(Camera const&amp; cam) const;&#xA;&#xA;    void addNode(Node* n);&#xA;    void setVisible(bool v);&#xA;&#xA;&#xA;protected:&#xA;&#x9;void free();&#xA;&#x9;void setGL();&#xA;&#x9;void resetGL();&#xA;&#xA;&#x9;std::vector&lt;Node*> nodes; // Entities (graphic objects) of the scene&#xA;    bool visible;&#xA;&#x9;&#xA;};&#xA;&#xA;#endif //_H_Scene_H_&#xA;"/>
@@ -23,6 +24,25 @@
         <charset xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="UTF-8">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
+      </body>
+      <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+      <body xsi:type="ocl.ecore:IteratorExp" name="collect" eType="/10/Sequence(String)">
+        <source xsi:type="ocl.ecore:PropertyCallExp" eType="/10/OrderedSet(Node)">
+          <source xsi:type="ocl.ecore:VariableExp" name="aScene" referredVariable="/0/generateScene/aScene">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+          </source>
+          <referredProperty xsi:type="ecore:EReference" href="http://www.example.org/openGL_DSL#//Scene/nodo"/>
+        </source>
+        <body xsi:type="mtl:TemplateInvocation">
+          <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+          <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/nodeFile.emtl#/0/generateNode"/>
+          <argument xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/generateScene/collect/temp1">
+            <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
+          </argument>
+        </body>
+        <iterator xsi:type="ocl.ecore:Variable" name="temp1">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
+        </iterator>
       </body>
       <parameter name="aScene">
         <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
@@ -59,6 +79,18 @@
           <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
         </eParameters>
       </eOperations>
+      <eOperations name="generateNode">
+        <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+          <contents xsi:type="ocl.ecore:Constraint"/>
+        </eAnnotations>
+        <eAnnotations source="MTL">
+          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/nodeFile.emtl#/0/generateNode"/>
+        </eAnnotations>
+        <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+        <eParameters name="aNode">
+          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
+        </eParameters>
+      </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
@@ -83,6 +115,11 @@
     <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Scene_Class">
       <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
         <references href="http://www.example.org/openGL_DSL#//Scene"/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Node_Class">
+      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
+        <references href="http://www.example.org/openGL_DSL#//Node"/>
       </eAnnotations>
     </eClassifiers>
   </ecore:EPackage>
@@ -110,63 +147,109 @@
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
   </ocl.ecore:Variable>
+  <ecore:EPackage name="collections">
+    <eClassifiers xsi:type="ocl.ecore:OrderedSetType" name="OrderedSet(Node)" instanceClassName="java.util.LinkedHashSet">
+      <elementType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ocl.ecore:SequenceType" name="Sequence(String)" instanceClassName="java.util.List">
+      <elementType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
+    </eClassifiers>
+  </ecore:EPackage>
+  <ocl.ecore:Variable name="self">
+    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Scene"/>
+  </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateScene">
-      <details key="start" value="87"/>
-      <details key="end" value="2105"/>
+      <details key="start" value="134"/>
+      <details key="end" value="2183"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateScene/%">
-      <details key="start" value="177"/>
-      <details key="end" value="870"/>
+      <details key="start" value="224"/>
+      <details key="end" value="917"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateScene/%/%">
-      <details key="start" value="212"/>
-      <details key="end" value="863"/>
+      <details key="start" value="259"/>
+      <details key="end" value="910"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateScene/%/%.1">
-      <details key="start" value="184"/>
-      <details key="end" value="193"/>
+      <details key="start" value="231"/>
+      <details key="end" value="240"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/generateScene/%/%.2">
-      <details key="start" value="202"/>
-      <details key="end" value="209"/>
+      <details key="start" value="249"/>
+      <details key="end" value="256"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/generateScene/%.1">
-      <details key="start" value="871"/>
-      <details key="end" value="872"/>
+      <details key="start" value="918"/>
+      <details key="end" value="919"/>
       <details key="line" value="52"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/generateScene/%.2">
-      <details key="start" value="916"/>
-      <details key="end" value="2093"/>
+      <details key="start" value="963"/>
+      <details key="end" value="2140"/>
       <details key="line" value="54"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/generateScene/%.2/%">
-      <details key="start" value="953"/>
-      <details key="end" value="2086"/>
+      <details key="start" value="1000"/>
+      <details key="end" value="2133"/>
       <details key="line" value="55"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/generateScene/%.2/%.1">
-      <details key="start" value="923"/>
-      <details key="end" value="934"/>
+      <details key="start" value="970"/>
+      <details key="end" value="981"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/generateScene/%.2/%.2">
-      <details key="start" value="943"/>
-      <details key="end" value="950"/>
+      <details key="start" value="990"/>
+      <details key="end" value="997"/>
       <details key="line" value="0"/>
     </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/generateScene/aScene">
-      <details key="start" value="118"/>
-      <details key="end" value="132"/>
+    <eAnnotations source="positions.10" references="/0/generateScene/%.3">
+      <details key="start" value="2141"/>
+      <details key="end" value="2142"/>
+      <details key="line" value="129"/>
+    </eAnnotations>
+    <eAnnotations source="positions.11" references="/0/generateScene/collect">
+      <details key="start" value="2143"/>
+      <details key="end" value="2169"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.12" references="/0/generateScene/collect/%">
+      <details key="start" value="2143"/>
+      <details key="end" value="2154"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.13" references="/0/generateScene/collect/%/aScene">
+      <details key="start" value="2143"/>
+      <details key="end" value="2149"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.14" references="/0/generateScene/collect/%.1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.15" references="/0/generateScene/collect/%.1/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.16" references="/0/generateScene/collect/temp1">
+      <details key="start" value="-1"/>
+      <details key="end" value="-1"/>
+      <details key="line" value="0"/>
+    </eAnnotations>
+    <eAnnotations source="positions.17" references="/0/generateScene/aScene">
+      <details key="start" value="165"/>
+      <details key="end" value="179"/>
       <details key="line" value="5"/>
     </eAnnotations>
   </ecore:EAnnotation>

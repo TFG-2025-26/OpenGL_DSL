@@ -32,7 +32,7 @@ public interface Scene extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getScene_Name()
-	 * @model required="true"
+	 * @model id="true" required="true"
 	 * @generated
 	 */
 	String getName();
