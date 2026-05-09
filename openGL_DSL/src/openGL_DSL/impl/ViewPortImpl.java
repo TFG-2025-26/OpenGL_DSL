@@ -2,14 +2,10 @@
  */
 package openGL_DSL.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import openGL_DSL.OpenGL_DSLPackage;
 import openGL_DSL.ViewPort;
 
 import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
@@ -25,7 +21,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * </p>
  * <ul>
  *   <li>{@link openGL_DSL.impl.ViewPortImpl#getXLeft <em>XLeft</em>}</li>
- *   <li>{@link openGL_DSL.impl.ViewPortImpl#getYBolt <em>YBolt</em>}</li>
+ *   <li>{@link openGL_DSL.impl.ViewPortImpl#getYBot <em>YBot</em>}</li>
  *   <li>{@link openGL_DSL.impl.ViewPortImpl#getXWidth <em>XWidth</em>}</li>
  *   <li>{@link openGL_DSL.impl.ViewPortImpl#getYHeight <em>YHeight</em>}</li>
  * </ul>
@@ -54,24 +50,24 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 	protected int xLeft = XLEFT_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getYBolt() <em>YBolt</em>}' attribute.
+	 * The default value of the '{@link #getYBot() <em>YBot</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getYBolt()
+	 * @see #getYBot()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final int YBOLT_EDEFAULT = 0;
+	protected static final int YBOT_EDEFAULT = 0;
 
 	/**
-	 * The cached value of the '{@link #getYBolt() <em>YBolt</em>}' attribute.
+	 * The cached value of the '{@link #getYBot() <em>YBot</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getYBolt()
+	 * @see #getYBot()
 	 * @generated
 	 * @ordered
 	 */
-	protected int yBolt = YBOLT_EDEFAULT;
+	protected int yBot = YBOT_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getXWidth() <em>XWidth</em>}' attribute.
@@ -81,7 +77,7 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object XWIDTH_EDEFAULT = null;
+	protected static final int XWIDTH_EDEFAULT = 800;
 
 	/**
 	 * The cached value of the '{@link #getXWidth() <em>XWidth</em>}' attribute.
@@ -91,7 +87,7 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 	 * @generated
 	 * @ordered
 	 */
-	protected Object xWidth = XWIDTH_EDEFAULT;
+	protected int xWidth = XWIDTH_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getYHeight() <em>YHeight</em>}' attribute.
@@ -101,7 +97,7 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object YHEIGHT_EDEFAULT = null;
+	protected static final int YHEIGHT_EDEFAULT = 600;
 
 	/**
 	 * The cached value of the '{@link #getYHeight() <em>YHeight</em>}' attribute.
@@ -111,7 +107,7 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 	 * @generated
 	 * @ordered
 	 */
-	protected Object yHeight = YHEIGHT_EDEFAULT;
+	protected int yHeight = YHEIGHT_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -161,8 +157,8 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 	 * @generated
 	 */
 	@Override
-	public int getYBolt() {
-		return yBolt;
+	public int getYBot() {
+		return yBot;
 	}
 
 	/**
@@ -171,11 +167,11 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 	 * @generated
 	 */
 	@Override
-	public void setYBolt(int newYBolt) {
-		int oldYBolt = yBolt;
-		yBolt = newYBolt;
+	public void setYBot(int newYBot) {
+		int oldYBot = yBot;
+		yBot = newYBot;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.VIEW_PORT__YBOLT, oldYBolt, yBolt));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.VIEW_PORT__YBOT, oldYBot, yBot));
 	}
 
 	/**
@@ -184,7 +180,7 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 	 * @generated
 	 */
 	@Override
-	public Object getXWidth() {
+	public int getXWidth() {
 		return xWidth;
 	}
 
@@ -194,8 +190,8 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 	 * @generated
 	 */
 	@Override
-	public void setXWidth(Object newXWidth) {
-		Object oldXWidth = xWidth;
+	public void setXWidth(int newXWidth) {
+		int oldXWidth = xWidth;
 		xWidth = newXWidth;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.VIEW_PORT__XWIDTH, oldXWidth, xWidth));
@@ -207,7 +203,7 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 	 * @generated
 	 */
 	@Override
-	public Object getYHeight() {
+	public int getYHeight() {
 		return yHeight;
 	}
 
@@ -217,23 +213,11 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 	 * @generated
 	 */
 	@Override
-	public void setYHeight(Object newYHeight) {
-		Object oldYHeight = yHeight;
+	public void setYHeight(int newYHeight) {
+		int oldYHeight = yHeight;
 		yHeight = newYHeight;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.VIEW_PORT__YHEIGHT, oldYHeight, yHeight));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void upload() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
 	}
 
 	/**
@@ -246,8 +230,8 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 		switch (featureID) {
 			case OpenGL_DSLPackage.VIEW_PORT__XLEFT:
 				return getXLeft();
-			case OpenGL_DSLPackage.VIEW_PORT__YBOLT:
-				return getYBolt();
+			case OpenGL_DSLPackage.VIEW_PORT__YBOT:
+				return getYBot();
 			case OpenGL_DSLPackage.VIEW_PORT__XWIDTH:
 				return getXWidth();
 			case OpenGL_DSLPackage.VIEW_PORT__YHEIGHT:
@@ -267,14 +251,14 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 			case OpenGL_DSLPackage.VIEW_PORT__XLEFT:
 				setXLeft((Integer)newValue);
 				return;
-			case OpenGL_DSLPackage.VIEW_PORT__YBOLT:
-				setYBolt((Integer)newValue);
+			case OpenGL_DSLPackage.VIEW_PORT__YBOT:
+				setYBot((Integer)newValue);
 				return;
 			case OpenGL_DSLPackage.VIEW_PORT__XWIDTH:
-				setXWidth(newValue);
+				setXWidth((Integer)newValue);
 				return;
 			case OpenGL_DSLPackage.VIEW_PORT__YHEIGHT:
-				setYHeight(newValue);
+				setYHeight((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -291,8 +275,8 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 			case OpenGL_DSLPackage.VIEW_PORT__XLEFT:
 				setXLeft(XLEFT_EDEFAULT);
 				return;
-			case OpenGL_DSLPackage.VIEW_PORT__YBOLT:
-				setYBolt(YBOLT_EDEFAULT);
+			case OpenGL_DSLPackage.VIEW_PORT__YBOT:
+				setYBot(YBOT_EDEFAULT);
 				return;
 			case OpenGL_DSLPackage.VIEW_PORT__XWIDTH:
 				setXWidth(XWIDTH_EDEFAULT);
@@ -314,29 +298,14 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 		switch (featureID) {
 			case OpenGL_DSLPackage.VIEW_PORT__XLEFT:
 				return xLeft != XLEFT_EDEFAULT;
-			case OpenGL_DSLPackage.VIEW_PORT__YBOLT:
-				return yBolt != YBOLT_EDEFAULT;
+			case OpenGL_DSLPackage.VIEW_PORT__YBOT:
+				return yBot != YBOT_EDEFAULT;
 			case OpenGL_DSLPackage.VIEW_PORT__XWIDTH:
-				return XWIDTH_EDEFAULT == null ? xWidth != null : !XWIDTH_EDEFAULT.equals(xWidth);
+				return xWidth != XWIDTH_EDEFAULT;
 			case OpenGL_DSLPackage.VIEW_PORT__YHEIGHT:
-				return YHEIGHT_EDEFAULT == null ? yHeight != null : !YHEIGHT_EDEFAULT.equals(yHeight);
+				return yHeight != YHEIGHT_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case OpenGL_DSLPackage.VIEW_PORT___UPLOAD:
-				upload();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -351,8 +320,8 @@ public class ViewPortImpl extends MinimalEObjectImpl.Container implements ViewPo
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (xLeft: ");
 		result.append(xLeft);
-		result.append(", yBolt: ");
-		result.append(yBolt);
+		result.append(", yBot: ");
+		result.append(yBot);
 		result.append(", xWidth: ");
 		result.append(xWidth);
 		result.append(", yHeight: ");

@@ -82,12 +82,4 @@ public interface Scene extends EObject {
 	 */
 	EList<Node> getNodo();
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void addNode();
-
 } // Scene

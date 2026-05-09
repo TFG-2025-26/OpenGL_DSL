@@ -1,109 +1,92 @@
-﻿  Entity.cpp
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,39): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,39): warning C4244:         with
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,39): warning C4244:         [
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,39): warning C4244:             T=glm::f64
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,39): warning C4244:         ]
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,29): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,29): warning C4244:         with
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,29): warning C4244:         [
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,29): warning C4244:             T=glm::f64
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,29): warning C4244:         ]
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,19): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,19): warning C4244:         with
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,19): warning C4244:         [
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,19): warning C4244:             T=glm::f64
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(293,19): warning C4244:         ]
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,39): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,39): warning C4244:         with
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,39): warning C4244:         [
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,39): warning C4244:             T=glm::f64
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,39): warning C4244:         ]
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,29): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,29): warning C4244:         with
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,29): warning C4244:         [
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,29): warning C4244:             T=glm::f64
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,29): warning C4244:         ]
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,19): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,19): warning C4244:         with
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,19): warning C4244:         [
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,19): warning C4244:             T=glm::f64
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(311,19): warning C4244:         ]
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,39): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,39): warning C4244:         with
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,39): warning C4244:         [
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,39): warning C4244:             T=glm::f64
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,39): warning C4244:         ]
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,29): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,29): warning C4244:         with
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,29): warning C4244:         [
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,29): warning C4244:             T=glm::f64
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,29): warning C4244:         ]
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,19): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,19): warning C4244:         with
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,19): warning C4244:         [
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,19): warning C4244:             T=glm::f64
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(329,19): warning C4244:         ]
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,39): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,39): warning C4244:         with
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,39): warning C4244:         [
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,39): warning C4244:             T=glm::f64
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,39): warning C4244:         ]
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,29): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,29): warning C4244:         with
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,29): warning C4244:         [
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,29): warning C4244:             T=glm::f64
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,29): warning C4244:         ]
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,19): warning C4244: 'argumento': conversión de 'const T' a 'GLfloat'; posible pérdida de datos
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,19): warning C4244:         with
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,19): warning C4244:         [
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,19): warning C4244:             T=glm::f64
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(347,19): warning C4244:         ]
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Entity.cpp(393,29): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-  Node.cpp
-  Pixmap32RGBA.cpp
-  Scene.cpp
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Scene.cpp(28,25): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Scene.cpp(28,20): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\Scene.cpp(28,15): warning C4305: 'argumento': truncamiento de 'double' a 'GLclampf'
-  Texture.cpp
-  main.cpp
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(1816,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(1841,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(1866,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(1911,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(1936,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(1961,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2006,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2031,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2056,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2101,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2126,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2151,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2596,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2621,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2646,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2708,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2733,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2758,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2803,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2828,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2853,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2898,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2923,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(2948,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3004,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3026,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3048,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3087,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3109,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3131,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3170,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3192,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3214,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3253,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3275,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3297,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3665,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
-  Generando código...
+﻿  main.cpp
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3304,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3326,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3348,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3387,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3409,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3431,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3470,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3492,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3514,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3553,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3575,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3597,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3973,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(3998,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4023,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4068,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4093,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4118,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4163,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4188,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4213,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4258,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4283,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4308,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4753,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4778,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4803,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4865,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4890,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4915,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4960,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(4985,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5010,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5055,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5080,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5105,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5167,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5192,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5217,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5262,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5287,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5312,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5357,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5382,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5407,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5469,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5494,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5519,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5564,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5589,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5614,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5659,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5684,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5709,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5771,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5796,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5821,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5866,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5891,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5916,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5961,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(5986,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6011,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6073,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6098,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6123,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6168,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6193,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6218,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6263,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6288,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6313,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6375,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6400,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6425,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6470,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6495,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6520,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6565,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6590,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6615,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6677,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6702,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6727,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6772,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6797,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6822,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6867,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6892,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
+C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\IG1App\main.cpp(6917,24): warning C4305: 'argumento': truncamiento de 'double' a 'GLfloat'
   IG1App.vcxproj -> C:\Users\diego\Desktop\Diego\UCM\4\TFG\OpenGL_DSL\Practica5\bin\IG1AppDebug.exe

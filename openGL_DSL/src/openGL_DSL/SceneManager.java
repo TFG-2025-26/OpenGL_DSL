@@ -15,13 +15,11 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link openGL_DSL.SceneManager#getWinId <em>Win Id</em>}</li>
  *   <li>{@link openGL_DSL.SceneManager#getWinW <em>Win W</em>}</li>
  *   <li>{@link openGL_DSL.SceneManager#getWinH <em>Win H</em>}</li>
  *   <li>{@link openGL_DSL.SceneManager#getViewport <em>Viewport</em>}</li>
  *   <li>{@link openGL_DSL.SceneManager#getCamera <em>Camera</em>}</li>
  *   <li>{@link openGL_DSL.SceneManager#getScenes <em>Scenes</em>}</li>
- *   <li>{@link openGL_DSL.SceneManager#isMStop <em>MStop</em>}</li>
  * </ul>
  *
  * @see openGL_DSL.OpenGL_DSLPackage#getSceneManager()
@@ -29,28 +27,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface SceneManager extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Win Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Win Id</em>' attribute.
-	 * @see #setWinId(int)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getSceneManager_WinId()
-	 * @model
-	 * @generated
-	 */
-	int getWinId();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.SceneManager#getWinId <em>Win Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Win Id</em>' attribute.
-	 * @see #getWinId()
-	 * @generated
-	 */
-	void setWinId(int value);
-
 	/**
 	 * Returns the value of the '<em><b>Win W</b></em>' attribute.
 	 * The default value is <code>"800"</code>.
@@ -152,44 +128,5 @@ public interface SceneManager extends EObject {
 	 * @generated
 	 */
 	EList<Scene> getScenes();
-
-	/**
-	 * Returns the value of the '<em><b>MStop</b></em>' attribute.
-	 * The default value is <code>"False"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>MStop</em>' attribute.
-	 * @see #setMStop(boolean)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getSceneManager_MStop()
-	 * @model default="False"
-	 * @generated
-	 */
-	boolean isMStop();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.SceneManager#isMStop <em>MStop</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>MStop</em>' attribute.
-	 * @see #isMStop()
-	 * @generated
-	 */
-	void setMStop(boolean value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void run();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void close();
 
 } // SceneManager

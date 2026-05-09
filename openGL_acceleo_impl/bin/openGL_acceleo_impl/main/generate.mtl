@@ -206,11 +206,26 @@ void init() {
     // create the scene after creating the context
     // allocate memory and resources
      // Inicialización de Viewport y Cámara
-    [if (not aSM.viewport.oclIsUndefined())]
+    
     viewport = new Viewport([aSM.WinW/], [aSM.WinH/]);
+    [if (aSM.viewport <> null)]
+    viewport->setPos([aSM.viewport.xLeft/],[aSM.viewport.yBot/]);
+    viewport->setSize([aSM.viewport.xWidth/],[aSM.viewport.yHeight/]);
     [/if]
-    [if (not aSM.camera.oclIsUndefined())]
     camera = new Camera(viewport);
+    [if (aSM.camera <> null)]
+    [if (not aSM.camera.bOrto)]
+    camera->changePrj();
+    [/if]
+    [if (aSM.camera.Eye <> null)]
+    camera->setEye(dvec3([aSM.camera.Eye.X/], [aSM.camera.Eye.Y/], [aSM.camera.Eye.Z/]));
+    [/if]
+    [if (aSM.camera.Look <> null)]
+    camera->setLook(dvec3([aSM.camera.Look.X/], [aSM.camera.Look.Y/], [aSM.camera.Look.Z/]));
+    [/if]
+    [if (aSM.camera.Up <> null)]
+    camera->setUp(dvec3([aSM.camera.Up.X/], [aSM.camera.Up.Y/], [aSM.camera.Up.Z/]));
+    [/if]
     [/if]
 
     // CARGA DE ENTIDADES DESDE EL MODELO XMI

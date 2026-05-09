@@ -2,8 +2,6 @@
  */
 package openGL_DSL.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import openGL_DSL.Node;
@@ -174,18 +172,6 @@ public class SceneImpl extends MinimalEObjectImpl.Container implements Scene {
 	 * @generated
 	 */
 	@Override
-	public void addNode() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case OpenGL_DSLPackage.SCENE__NODO:
@@ -272,21 +258,6 @@ public class SceneImpl extends MinimalEObjectImpl.Container implements Scene {
 				return nodo != null && !nodo.isEmpty();
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case OpenGL_DSLPackage.SCENE___ADD_NODE:
-				addNode();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

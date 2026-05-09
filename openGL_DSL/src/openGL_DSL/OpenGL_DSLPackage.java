@@ -69,22 +69,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int SCENE_MANAGER = 0;
 
 	/**
-	 * The feature id for the '<em><b>Win Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_MANAGER__WIN_ID = 0;
-
-	/**
 	 * The feature id for the '<em><b>Win W</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCENE_MANAGER__WIN_W = 1;
+	int SCENE_MANAGER__WIN_W = 0;
 
 	/**
 	 * The feature id for the '<em><b>Win H</b></em>' attribute.
@@ -93,7 +84,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENE_MANAGER__WIN_H = 2;
+	int SCENE_MANAGER__WIN_H = 1;
 
 	/**
 	 * The feature id for the '<em><b>Viewport</b></em>' containment reference.
@@ -102,7 +93,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENE_MANAGER__VIEWPORT = 3;
+	int SCENE_MANAGER__VIEWPORT = 2;
 
 	/**
 	 * The feature id for the '<em><b>Camera</b></em>' containment reference.
@@ -111,7 +102,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENE_MANAGER__CAMERA = 4;
+	int SCENE_MANAGER__CAMERA = 3;
 
 	/**
 	 * The feature id for the '<em><b>Scenes</b></em>' containment reference list.
@@ -120,16 +111,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENE_MANAGER__SCENES = 5;
-
-	/**
-	 * The feature id for the '<em><b>MStop</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_MANAGER__MSTOP = 6;
+	int SCENE_MANAGER__SCENES = 4;
 
 	/**
 	 * The number of structural features of the '<em>Scene Manager</em>' class.
@@ -138,25 +120,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENE_MANAGER_FEATURE_COUNT = 7;
-
-	/**
-	 * The operation id for the '<em>Run</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_MANAGER___RUN = 0;
-
-	/**
-	 * The operation id for the '<em>Close</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE_MANAGER___CLOSE = 1;
+	int SCENE_MANAGER_FEATURE_COUNT = 5;
 
 	/**
 	 * The number of operations of the '<em>Scene Manager</em>' class.
@@ -165,7 +129,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SCENE_MANAGER_OPERATION_COUNT = 2;
+	int SCENE_MANAGER_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link openGL_DSL.impl.ViewPortImpl <em>View Port</em>}' class.
@@ -187,13 +151,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int VIEW_PORT__XLEFT = 0;
 
 	/**
-	 * The feature id for the '<em><b>YBolt</b></em>' attribute.
+	 * The feature id for the '<em><b>YBot</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_PORT__YBOLT = 1;
+	int VIEW_PORT__YBOT = 1;
 
 	/**
 	 * The feature id for the '<em><b>XWidth</b></em>' attribute.
@@ -223,22 +187,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int VIEW_PORT_FEATURE_COUNT = 4;
 
 	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int VIEW_PORT___UPLOAD = 0;
-
-	/**
 	 * The number of operations of the '<em>View Port</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int VIEW_PORT_OPERATION_COUNT = 1;
+	int VIEW_PORT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link openGL_DSL.impl.CameraImpl <em>Camera</em>}' class.
@@ -251,67 +206,40 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int CAMERA = 2;
 
 	/**
-	 * The feature id for the '<em><b>MEye</b></em>' attribute.
+	 * The feature id for the '<em><b>BOrto</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA__MEYE = 0;
+	int CAMERA__BORTO = 0;
 
 	/**
-	 * The feature id for the '<em><b>MLook</b></em>' attribute.
+	 * The feature id for the '<em><b>Eye</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA__MLOOK = 1;
+	int CAMERA__EYE = 1;
 
 	/**
-	 * The feature id for the '<em><b>MUp</b></em>' attribute.
+	 * The feature id for the '<em><b>Look</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA__MUP = 2;
+	int CAMERA__LOOK = 2;
 
 	/**
-	 * The feature id for the '<em><b>Model View Mat</b></em>' attribute.
+	 * The feature id for the '<em><b>Up</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA__MODEL_VIEW_MAT = 3;
-
-	/**
-	 * The feature id for the '<em><b>MProj Mat</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAMERA__MPROJ_MAT = 4;
-
-	/**
-	 * The feature id for the '<em><b>MNear Val</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAMERA__MNEAR_VAL = 5;
-
-	/**
-	 * The feature id for the '<em><b>MFar Val</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CAMERA__MFAR_VAL = 6;
+	int CAMERA__UP = 3;
 
 	/**
 	 * The number of structural features of the '<em>Camera</em>' class.
@@ -320,7 +248,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA_FEATURE_COUNT = 7;
+	int CAMERA_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Camera</em>' class.
@@ -378,22 +306,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int SCENE_FEATURE_COUNT = 3;
 
 	/**
-	 * The operation id for the '<em>Add Node</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SCENE___ADD_NODE = 0;
-
-	/**
 	 * The number of operations of the '<em>Scene</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCENE_OPERATION_COUNT = 1;
+	int SCENE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link openGL_DSL.Light <em>Light</em>}' class.
@@ -406,40 +325,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int LIGHT = 4;
 
 	/**
-	 * The feature id for the '<em><b>Cont</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIGHT__CONT = 0;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIGHT__ID = 1;
-
-	/**
-	 * The feature id for the '<em><b>Pos DIr</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIGHT__POS_DIR = 2;
-
-	/**
 	 * The feature id for the '<em><b>Ambient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int LIGHT__AMBIENT = 3;
+	int LIGHT__AMBIENT = 0;
 
 	/**
 	 * The feature id for the '<em><b>Difusse</b></em>' containment reference.
@@ -448,7 +340,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIGHT__DIFUSSE = 4;
+	int LIGHT__DIFUSSE = 1;
 
 	/**
 	 * The feature id for the '<em><b>Specular</b></em>' containment reference.
@@ -457,7 +349,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIGHT__SPECULAR = 5;
+	int LIGHT__SPECULAR = 2;
 
 	/**
 	 * The feature id for the '<em><b>Direccion</b></em>' containment reference.
@@ -466,7 +358,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIGHT__DIRECCION = 6;
+	int LIGHT__DIRECCION = 3;
 
 	/**
 	 * The number of structural features of the '<em>Light</em>' class.
@@ -475,34 +367,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIGHT_FEATURE_COUNT = 7;
-
-	/**
-	 * The operation id for the '<em>Upload L</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIGHT___UPLOAD_L__OBJECT = 0;
-
-	/**
-	 * The operation id for the '<em>Disable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIGHT___DISABLE = 1;
-
-	/**
-	 * The operation id for the '<em>Enable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int LIGHT___ENABLE = 2;
+	int LIGHT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Light</em>' class.
@@ -511,7 +376,7 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int LIGHT_OPERATION_COUNT = 3;
+	int LIGHT_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link openGL_DSL.impl.DirLightImpl <em>Dir Light</em>}' class.
@@ -522,33 +387,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	int DIR_LIGHT = 5;
-
-	/**
-	 * The feature id for the '<em><b>Cont</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIR_LIGHT__CONT = LIGHT__CONT;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIR_LIGHT__ID = LIGHT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Pos DIr</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIR_LIGHT__POS_DIR = LIGHT__POS_DIR;
 
 	/**
 	 * The feature id for the '<em><b>Ambient</b></em>' containment reference.
@@ -596,33 +434,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int DIR_LIGHT_FEATURE_COUNT = LIGHT_FEATURE_COUNT + 0;
 
 	/**
-	 * The operation id for the '<em>Upload L</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIR_LIGHT___UPLOAD_L__OBJECT = LIGHT___UPLOAD_L__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Disable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIR_LIGHT___DISABLE = LIGHT___DISABLE;
-
-	/**
-	 * The operation id for the '<em>Enable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DIR_LIGHT___ENABLE = LIGHT___ENABLE;
-
-	/**
 	 * The number of operations of the '<em>Dir Light</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -640,33 +451,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	int POS_LIGHT = 6;
-
-	/**
-	 * The feature id for the '<em><b>Cont</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POS_LIGHT__CONT = LIGHT__CONT;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POS_LIGHT__ID = LIGHT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Pos DIr</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POS_LIGHT__POS_DIR = LIGHT__POS_DIR;
 
 	/**
 	 * The feature id for the '<em><b>Ambient</b></em>' containment reference.
@@ -741,33 +525,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int POS_LIGHT_FEATURE_COUNT = LIGHT_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Upload L</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POS_LIGHT___UPLOAD_L__OBJECT = LIGHT___UPLOAD_L__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Disable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POS_LIGHT___DISABLE = LIGHT___DISABLE;
-
-	/**
-	 * The operation id for the '<em>Enable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POS_LIGHT___ENABLE = LIGHT___ENABLE;
-
-	/**
 	 * The number of operations of the '<em>Pos Light</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -785,33 +542,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	int SPOT_LIGHT = 7;
-
-	/**
-	 * The feature id for the '<em><b>Cont</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPOT_LIGHT__CONT = POS_LIGHT__CONT;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPOT_LIGHT__ID = POS_LIGHT__ID;
-
-	/**
-	 * The feature id for the '<em><b>Pos DIr</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPOT_LIGHT__POS_DIR = POS_LIGHT__POS_DIR;
 
 	/**
 	 * The feature id for the '<em><b>Ambient</b></em>' containment reference.
@@ -902,33 +632,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int SPOT_LIGHT_FEATURE_COUNT = POS_LIGHT_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Upload L</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPOT_LIGHT___UPLOAD_L__OBJECT = POS_LIGHT___UPLOAD_L__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Disable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPOT_LIGHT___DISABLE = POS_LIGHT___DISABLE;
-
-	/**
-	 * The operation id for the '<em>Enable</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int SPOT_LIGHT___ENABLE = POS_LIGHT___ENABLE;
 
 	/**
 	 * The number of operations of the '<em>Spot Light</em>' class.
@@ -1113,31 +816,13 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int ABS_ENTITY_FEATURE_COUNT = 7;
 
 	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABS_ENTITY___RENDER__OBJECT = 0;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ABS_ENTITY___UPLOAD = 1;
-
-	/**
 	 * The number of operations of the '<em>Abs Entity</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ABS_ENTITY_OPERATION_COUNT = 2;
+	int ABS_ENTITY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link openGL_DSL.impl.QuadricEntityImpl <em>Quadric Entity</em>}' class.
@@ -1229,24 +914,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int QUADRIC_ENTITY_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUADRIC_ENTITY___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int QUADRIC_ENTITY___UPLOAD = ABS_ENTITY___UPLOAD;
 
 	/**
 	 * The number of operations of the '<em>Quadric Entity</em>' class.
@@ -1849,24 +1516,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int EJES_RGB_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 1;
 
 	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EJES_RGB___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int EJES_RGB___UPLOAD = ABS_ENTITY___UPLOAD;
-
-	/**
 	 * The number of operations of the '<em>Ejes RGB</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2038,24 +1687,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int POLIGONO_REGULAR_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 3;
-
-	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLIGONO_REGULAR___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int POLIGONO_REGULAR___UPLOAD = ABS_ENTITY___UPLOAD;
 
 	/**
 	 * The number of operations of the '<em>Poligono Regular</em>' class.
@@ -2240,24 +1871,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int RECTANGULO_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGULO___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int RECTANGULO___UPLOAD = ABS_ENTITY___UPLOAD;
-
-	/**
 	 * The number of operations of the '<em>Rectangulo</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2367,24 +1980,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int CIRCULO_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CIRCULO___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CIRCULO___UPLOAD = ABS_ENTITY___UPLOAD;
-
-	/**
 	 * The number of operations of the '<em>Circulo</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2492,24 +2087,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int ESFERA_FEATURE_COUNT = QUADRIC_ENTITY_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESFERA___RENDER__OBJECT = QUADRIC_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ESFERA___UPLOAD = QUADRIC_ENTITY___UPLOAD;
 
 	/**
 	 * The number of operations of the '<em>Esfera</em>' class.
@@ -2639,24 +2216,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int CILINDRO_FEATURE_COUNT = QUADRIC_ENTITY_FEATURE_COUNT + 3;
 
 	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CILINDRO___RENDER__OBJECT = QUADRIC_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CILINDRO___UPLOAD = QUADRIC_ENTITY___UPLOAD;
-
-	/**
 	 * The number of operations of the '<em>Cilindro</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2773,24 +2332,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int DISCO_FEATURE_COUNT = QUADRIC_ENTITY_FEATURE_COUNT + 2;
-
-	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISCO___RENDER__OBJECT = QUADRIC_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISCO___UPLOAD = QUADRIC_ENTITY___UPLOAD;
 
 	/**
 	 * The number of operations of the '<em>Disco</em>' class.
@@ -2929,24 +2470,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int DISCO_PARCIAL_FEATURE_COUNT = QUADRIC_ENTITY_FEATURE_COUNT + 4;
 
 	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISCO_PARCIAL___RENDER__OBJECT = QUADRIC_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int DISCO_PARCIAL___UPLOAD = QUADRIC_ENTITY___UPLOAD;
-
-	/**
 	 * The number of operations of the '<em>Disco Parcial</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3045,24 +2568,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @ordered
 	 */
 	int CUBO_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 1;
-
-	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CUBO___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CUBO___UPLOAD = ABS_ENTITY___UPLOAD;
 
 	/**
 	 * The number of operations of the '<em>Cubo</em>' class.
@@ -3174,24 +2679,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int TOROIDE_FEATURE_COUNT = ABS_ENTITY_FEATURE_COUNT + 2;
 
 	/**
-	 * The operation id for the '<em>Render</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOROIDE___RENDER__OBJECT = ABS_ENTITY___RENDER__OBJECT;
-
-	/**
-	 * The operation id for the '<em>Upload</em>' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int TOROIDE___UPLOAD = ABS_ENTITY___UPLOAD;
-
-	/**
 	 * The number of operations of the '<em>Toroide</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3282,17 +2769,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EClass getSceneManager();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.SceneManager#getWinId <em>Win Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Win Id</em>'.
-	 * @see openGL_DSL.SceneManager#getWinId()
-	 * @see #getSceneManager()
-	 * @generated
-	 */
-	EAttribute getSceneManager_WinId();
-
-	/**
 	 * Returns the meta object for the attribute '{@link openGL_DSL.SceneManager#getWinW <em>Win W</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3348,37 +2824,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EReference getSceneManager_Scenes();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.SceneManager#isMStop <em>MStop</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>MStop</em>'.
-	 * @see openGL_DSL.SceneManager#isMStop()
-	 * @see #getSceneManager()
-	 * @generated
-	 */
-	EAttribute getSceneManager_MStop();
-
-	/**
-	 * Returns the meta object for the '{@link openGL_DSL.SceneManager#run() <em>Run</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Run</em>' operation.
-	 * @see openGL_DSL.SceneManager#run()
-	 * @generated
-	 */
-	EOperation getSceneManager__Run();
-
-	/**
-	 * Returns the meta object for the '{@link openGL_DSL.SceneManager#close() <em>Close</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Close</em>' operation.
-	 * @see openGL_DSL.SceneManager#close()
-	 * @generated
-	 */
-	EOperation getSceneManager__Close();
-
-	/**
 	 * Returns the meta object for class '{@link openGL_DSL.ViewPort <em>View Port</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3400,15 +2845,15 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EAttribute getViewPort_XLeft();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.ViewPort#getYBolt <em>YBolt</em>}'.
+	 * Returns the meta object for the attribute '{@link openGL_DSL.ViewPort#getYBot <em>YBot</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>YBolt</em>'.
-	 * @see openGL_DSL.ViewPort#getYBolt()
+	 * @return the meta object for the attribute '<em>YBot</em>'.
+	 * @see openGL_DSL.ViewPort#getYBot()
 	 * @see #getViewPort()
 	 * @generated
 	 */
-	EAttribute getViewPort_YBolt();
+	EAttribute getViewPort_YBot();
 
 	/**
 	 * Returns the meta object for the attribute '{@link openGL_DSL.ViewPort#getXWidth <em>XWidth</em>}'.
@@ -3433,16 +2878,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EAttribute getViewPort_YHeight();
 
 	/**
-	 * Returns the meta object for the '{@link openGL_DSL.ViewPort#upload() <em>Upload</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Upload</em>' operation.
-	 * @see openGL_DSL.ViewPort#upload()
-	 * @generated
-	 */
-	EOperation getViewPort__Upload();
-
-	/**
 	 * Returns the meta object for class '{@link openGL_DSL.Camera <em>Camera</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3453,81 +2888,48 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EClass getCamera();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Camera#getMEye <em>MEye</em>}'.
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Camera#isBOrto <em>BOrto</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>MEye</em>'.
-	 * @see openGL_DSL.Camera#getMEye()
+	 * @return the meta object for the attribute '<em>BOrto</em>'.
+	 * @see openGL_DSL.Camera#isBOrto()
 	 * @see #getCamera()
 	 * @generated
 	 */
-	EAttribute getCamera_MEye();
+	EAttribute getCamera_BOrto();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Camera#getMLook <em>MLook</em>}'.
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Camera#getEye <em>Eye</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>MLook</em>'.
-	 * @see openGL_DSL.Camera#getMLook()
+	 * @return the meta object for the containment reference '<em>Eye</em>'.
+	 * @see openGL_DSL.Camera#getEye()
 	 * @see #getCamera()
 	 * @generated
 	 */
-	EAttribute getCamera_MLook();
+	EReference getCamera_Eye();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Camera#getMUp <em>MUp</em>}'.
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Camera#getLook <em>Look</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>MUp</em>'.
-	 * @see openGL_DSL.Camera#getMUp()
+	 * @return the meta object for the containment reference '<em>Look</em>'.
+	 * @see openGL_DSL.Camera#getLook()
 	 * @see #getCamera()
 	 * @generated
 	 */
-	EAttribute getCamera_MUp();
+	EReference getCamera_Look();
 
 	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Camera#getModelViewMat <em>Model View Mat</em>}'.
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Camera#getUp <em>Up</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Model View Mat</em>'.
-	 * @see openGL_DSL.Camera#getModelViewMat()
+	 * @return the meta object for the containment reference '<em>Up</em>'.
+	 * @see openGL_DSL.Camera#getUp()
 	 * @see #getCamera()
 	 * @generated
 	 */
-	EAttribute getCamera_ModelViewMat();
-
-	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Camera#getMProjMat <em>MProj Mat</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>MProj Mat</em>'.
-	 * @see openGL_DSL.Camera#getMProjMat()
-	 * @see #getCamera()
-	 * @generated
-	 */
-	EAttribute getCamera_MProjMat();
-
-	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Camera#getMNearVal <em>MNear Val</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>MNear Val</em>'.
-	 * @see openGL_DSL.Camera#getMNearVal()
-	 * @see #getCamera()
-	 * @generated
-	 */
-	EAttribute getCamera_MNearVal();
-
-	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Camera#getMFarVal <em>MFar Val</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>MFar Val</em>'.
-	 * @see openGL_DSL.Camera#getMFarVal()
-	 * @see #getCamera()
-	 * @generated
-	 */
-	EAttribute getCamera_MFarVal();
+	EReference getCamera_Up();
 
 	/**
 	 * Returns the meta object for class '{@link openGL_DSL.Scene <em>Scene</em>}'.
@@ -3573,16 +2975,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EReference getScene_Nodo();
 
 	/**
-	 * Returns the meta object for the '{@link openGL_DSL.Scene#addNode() <em>Add Node</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Add Node</em>' operation.
-	 * @see openGL_DSL.Scene#addNode()
-	 * @generated
-	 */
-	EOperation getScene__AddNode();
-
-	/**
 	 * Returns the meta object for class '{@link openGL_DSL.Light <em>Light</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3591,39 +2983,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getLight();
-
-	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Light#getCont <em>Cont</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Cont</em>'.
-	 * @see openGL_DSL.Light#getCont()
-	 * @see #getLight()
-	 * @generated
-	 */
-	EAttribute getLight_Cont();
-
-	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Light#getId <em>Id</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Id</em>'.
-	 * @see openGL_DSL.Light#getId()
-	 * @see #getLight()
-	 * @generated
-	 */
-	EAttribute getLight_Id();
-
-	/**
-	 * Returns the meta object for the attribute '{@link openGL_DSL.Light#getPosDIr <em>Pos DIr</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Pos DIr</em>'.
-	 * @see openGL_DSL.Light#getPosDIr()
-	 * @see #getLight()
-	 * @generated
-	 */
-	EAttribute getLight_PosDIr();
 
 	/**
 	 * Returns the meta object for the containment reference '{@link openGL_DSL.Light#getAmbient <em>Ambient</em>}'.
@@ -3668,36 +3027,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getLight_Direccion();
-
-	/**
-	 * Returns the meta object for the '{@link openGL_DSL.Light#uploadL(java.lang.Object) <em>Upload L</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Upload L</em>' operation.
-	 * @see openGL_DSL.Light#uploadL(java.lang.Object)
-	 * @generated
-	 */
-	EOperation getLight__UploadL__Object();
-
-	/**
-	 * Returns the meta object for the '{@link openGL_DSL.Light#disable() <em>Disable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Disable</em>' operation.
-	 * @see openGL_DSL.Light#disable()
-	 * @generated
-	 */
-	EOperation getLight__Disable();
-
-	/**
-	 * Returns the meta object for the '{@link openGL_DSL.Light#enable() <em>Enable</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Enable</em>' operation.
-	 * @see openGL_DSL.Light#enable()
-	 * @generated
-	 */
-	EOperation getLight__Enable();
 
 	/**
 	 * Returns the meta object for class '{@link openGL_DSL.DirLight <em>Dir Light</em>}'.
@@ -3957,26 +3286,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	EAttribute getAbs_Entity_TexturaRepeticionAlto();
-
-	/**
-	 * Returns the meta object for the '{@link openGL_DSL.Abs_Entity#render(java.lang.Object) <em>Render</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Render</em>' operation.
-	 * @see openGL_DSL.Abs_Entity#render(java.lang.Object)
-	 * @generated
-	 */
-	EOperation getAbs_Entity__Render__Object();
-
-	/**
-	 * Returns the meta object for the '{@link openGL_DSL.Abs_Entity#upload() <em>Upload</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the '<em>Upload</em>' operation.
-	 * @see openGL_DSL.Abs_Entity#upload()
-	 * @generated
-	 */
-	EOperation getAbs_Entity__Upload();
 
 	/**
 	 * Returns the meta object for class '{@link openGL_DSL.QuadricEntity <em>Quadric Entity</em>}'.
@@ -4826,14 +4135,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EClass SCENE_MANAGER = eINSTANCE.getSceneManager();
 
 		/**
-		 * The meta object literal for the '<em><b>Win Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCENE_MANAGER__WIN_ID = eINSTANCE.getSceneManager_WinId();
-
-		/**
 		 * The meta object literal for the '<em><b>Win W</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4874,30 +4175,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EReference SCENE_MANAGER__SCENES = eINSTANCE.getSceneManager_Scenes();
 
 		/**
-		 * The meta object literal for the '<em><b>MStop</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute SCENE_MANAGER__MSTOP = eINSTANCE.getSceneManager_MStop();
-
-		/**
-		 * The meta object literal for the '<em><b>Run</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SCENE_MANAGER___RUN = eINSTANCE.getSceneManager__Run();
-
-		/**
-		 * The meta object literal for the '<em><b>Close</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SCENE_MANAGER___CLOSE = eINSTANCE.getSceneManager__Close();
-
-		/**
 		 * The meta object literal for the '{@link openGL_DSL.impl.ViewPortImpl <em>View Port</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4916,12 +4193,12 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EAttribute VIEW_PORT__XLEFT = eINSTANCE.getViewPort_XLeft();
 
 		/**
-		 * The meta object literal for the '<em><b>YBolt</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>YBot</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute VIEW_PORT__YBOLT = eINSTANCE.getViewPort_YBolt();
+		EAttribute VIEW_PORT__YBOT = eINSTANCE.getViewPort_YBot();
 
 		/**
 		 * The meta object literal for the '<em><b>XWidth</b></em>' attribute feature.
@@ -4940,14 +4217,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EAttribute VIEW_PORT__YHEIGHT = eINSTANCE.getViewPort_YHeight();
 
 		/**
-		 * The meta object literal for the '<em><b>Upload</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation VIEW_PORT___UPLOAD = eINSTANCE.getViewPort__Upload();
-
-		/**
 		 * The meta object literal for the '{@link openGL_DSL.impl.CameraImpl <em>Camera</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4958,60 +4227,36 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EClass CAMERA = eINSTANCE.getCamera();
 
 		/**
-		 * The meta object literal for the '<em><b>MEye</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>BOrto</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CAMERA__MEYE = eINSTANCE.getCamera_MEye();
+		EAttribute CAMERA__BORTO = eINSTANCE.getCamera_BOrto();
 
 		/**
-		 * The meta object literal for the '<em><b>MLook</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Eye</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CAMERA__MLOOK = eINSTANCE.getCamera_MLook();
+		EReference CAMERA__EYE = eINSTANCE.getCamera_Eye();
 
 		/**
-		 * The meta object literal for the '<em><b>MUp</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Look</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CAMERA__MUP = eINSTANCE.getCamera_MUp();
+		EReference CAMERA__LOOK = eINSTANCE.getCamera_Look();
 
 		/**
-		 * The meta object literal for the '<em><b>Model View Mat</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Up</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CAMERA__MODEL_VIEW_MAT = eINSTANCE.getCamera_ModelViewMat();
-
-		/**
-		 * The meta object literal for the '<em><b>MProj Mat</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CAMERA__MPROJ_MAT = eINSTANCE.getCamera_MProjMat();
-
-		/**
-		 * The meta object literal for the '<em><b>MNear Val</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CAMERA__MNEAR_VAL = eINSTANCE.getCamera_MNearVal();
-
-		/**
-		 * The meta object literal for the '<em><b>MFar Val</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute CAMERA__MFAR_VAL = eINSTANCE.getCamera_MFarVal();
+		EReference CAMERA__UP = eINSTANCE.getCamera_Up();
 
 		/**
 		 * The meta object literal for the '{@link openGL_DSL.impl.SceneImpl <em>Scene</em>}' class.
@@ -5048,14 +4293,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EReference SCENE__NODO = eINSTANCE.getScene_Nodo();
 
 		/**
-		 * The meta object literal for the '<em><b>Add Node</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation SCENE___ADD_NODE = eINSTANCE.getScene__AddNode();
-
-		/**
 		 * The meta object literal for the '{@link openGL_DSL.Light <em>Light</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -5064,30 +4301,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 		 * @generated
 		 */
 		EClass LIGHT = eINSTANCE.getLight();
-
-		/**
-		 * The meta object literal for the '<em><b>Cont</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LIGHT__CONT = eINSTANCE.getLight_Cont();
-
-		/**
-		 * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LIGHT__ID = eINSTANCE.getLight_Id();
-
-		/**
-		 * The meta object literal for the '<em><b>Pos DIr</b></em>' attribute feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EAttribute LIGHT__POS_DIR = eINSTANCE.getLight_PosDIr();
 
 		/**
 		 * The meta object literal for the '<em><b>Ambient</b></em>' containment reference feature.
@@ -5120,30 +4333,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference LIGHT__DIRECCION = eINSTANCE.getLight_Direccion();
-
-		/**
-		 * The meta object literal for the '<em><b>Upload L</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation LIGHT___UPLOAD_L__OBJECT = eINSTANCE.getLight__UploadL__Object();
-
-		/**
-		 * The meta object literal for the '<em><b>Disable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation LIGHT___DISABLE = eINSTANCE.getLight__Disable();
-
-		/**
-		 * The meta object literal for the '<em><b>Enable</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation LIGHT___ENABLE = eINSTANCE.getLight__Enable();
 
 		/**
 		 * The meta object literal for the '{@link openGL_DSL.impl.DirLightImpl <em>Dir Light</em>}' class.
@@ -5346,22 +4535,6 @@ public interface OpenGL_DSLPackage extends EPackage {
 		 * @generated
 		 */
 		EAttribute ABS_ENTITY__TEXTURA_REPETICION_ALTO = eINSTANCE.getAbs_Entity_TexturaRepeticionAlto();
-
-		/**
-		 * The meta object literal for the '<em><b>Render</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ABS_ENTITY___RENDER__OBJECT = eINSTANCE.getAbs_Entity__Render__Object();
-
-		/**
-		 * The meta object literal for the '<em><b>Upload</b></em>' operation.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EOperation ABS_ENTITY___UPLOAD = eINSTANCE.getAbs_Entity__Upload();
 
 		/**
 		 * The meta object literal for the '{@link openGL_DSL.impl.QuadricEntityImpl <em>Quadric Entity</em>}' class.

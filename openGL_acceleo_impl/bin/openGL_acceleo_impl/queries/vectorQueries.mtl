@@ -12,5 +12,5 @@
 
 [comment Consulta para saber si una entidad tiene texturas (ejemplo de lógica) /]
 [query public hasTextures(e : Abs_Entity) : Boolean = 
-    e.texture->size() > 0 
+    e.FrontTexture->size() > 0 
 /]

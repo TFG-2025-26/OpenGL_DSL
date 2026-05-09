@@ -2,8 +2,6 @@
  */
 package openGL_DSL.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
 
 import openGL_DSL.Camera;
@@ -34,38 +32,16 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link openGL_DSL.impl.SceneManagerImpl#getWinId <em>Win Id</em>}</li>
  *   <li>{@link openGL_DSL.impl.SceneManagerImpl#getWinW <em>Win W</em>}</li>
  *   <li>{@link openGL_DSL.impl.SceneManagerImpl#getWinH <em>Win H</em>}</li>
  *   <li>{@link openGL_DSL.impl.SceneManagerImpl#getViewport <em>Viewport</em>}</li>
  *   <li>{@link openGL_DSL.impl.SceneManagerImpl#getCamera <em>Camera</em>}</li>
  *   <li>{@link openGL_DSL.impl.SceneManagerImpl#getScenes <em>Scenes</em>}</li>
- *   <li>{@link openGL_DSL.impl.SceneManagerImpl#isMStop <em>MStop</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class SceneManagerImpl extends MinimalEObjectImpl.Container implements SceneManager {
-	/**
-	 * The default value of the '{@link #getWinId() <em>Win Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWinId()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final int WIN_ID_EDEFAULT = 0;
-
-	/**
-	 * The cached value of the '{@link #getWinId() <em>Win Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getWinId()
-	 * @generated
-	 * @ordered
-	 */
-	protected int winId = WIN_ID_EDEFAULT;
-
 	/**
 	 * The default value of the '{@link #getWinW() <em>Win W</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -137,26 +113,6 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 	protected EList<Scene> scenes;
 
 	/**
-	 * The default value of the '{@link #isMStop() <em>MStop</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMStop()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final boolean MSTOP_EDEFAULT = false;
-
-	/**
-	 * The cached value of the '{@link #isMStop() <em>MStop</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #isMStop()
-	 * @generated
-	 * @ordered
-	 */
-	protected boolean mStop = MSTOP_EDEFAULT;
-
-	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -173,29 +129,6 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 	@Override
 	protected EClass eStaticClass() {
 		return OpenGL_DSLPackage.Literals.SCENE_MANAGER;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public int getWinId() {
-		return winId;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setWinId(int newWinId) {
-		int oldWinId = winId;
-		winId = newWinId;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.SCENE_MANAGER__WIN_ID, oldWinId, winId));
 	}
 
 	/**
@@ -353,53 +286,6 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 	 * @generated
 	 */
 	@Override
-	public boolean isMStop() {
-		return mStop;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMStop(boolean newMStop) {
-		boolean oldMStop = mStop;
-		mStop = newMStop;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.SCENE_MANAGER__MSTOP, oldMStop, mStop));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void run() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void close() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case OpenGL_DSLPackage.SCENE_MANAGER__VIEWPORT:
@@ -420,8 +306,6 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.SCENE_MANAGER__WIN_ID:
-				return getWinId();
 			case OpenGL_DSLPackage.SCENE_MANAGER__WIN_W:
 				return getWinW();
 			case OpenGL_DSLPackage.SCENE_MANAGER__WIN_H:
@@ -432,8 +316,6 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 				return getCamera();
 			case OpenGL_DSLPackage.SCENE_MANAGER__SCENES:
 				return getScenes();
-			case OpenGL_DSLPackage.SCENE_MANAGER__MSTOP:
-				return isMStop();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -447,9 +329,6 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.SCENE_MANAGER__WIN_ID:
-				setWinId((Integer)newValue);
-				return;
 			case OpenGL_DSLPackage.SCENE_MANAGER__WIN_W:
 				setWinW((Integer)newValue);
 				return;
@@ -466,9 +345,6 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 				getScenes().clear();
 				getScenes().addAll((Collection<? extends Scene>)newValue);
 				return;
-			case OpenGL_DSLPackage.SCENE_MANAGER__MSTOP:
-				setMStop((Boolean)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -481,9 +357,6 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.SCENE_MANAGER__WIN_ID:
-				setWinId(WIN_ID_EDEFAULT);
-				return;
 			case OpenGL_DSLPackage.SCENE_MANAGER__WIN_W:
 				setWinW(WIN_W_EDEFAULT);
 				return;
@@ -499,9 +372,6 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 			case OpenGL_DSLPackage.SCENE_MANAGER__SCENES:
 				getScenes().clear();
 				return;
-			case OpenGL_DSLPackage.SCENE_MANAGER__MSTOP:
-				setMStop(MSTOP_EDEFAULT);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -514,8 +384,6 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.SCENE_MANAGER__WIN_ID:
-				return winId != WIN_ID_EDEFAULT;
 			case OpenGL_DSLPackage.SCENE_MANAGER__WIN_W:
 				return winW != WIN_W_EDEFAULT;
 			case OpenGL_DSLPackage.SCENE_MANAGER__WIN_H:
@@ -526,28 +394,8 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 				return camera != null;
 			case OpenGL_DSLPackage.SCENE_MANAGER__SCENES:
 				return scenes != null && !scenes.isEmpty();
-			case OpenGL_DSLPackage.SCENE_MANAGER__MSTOP:
-				return mStop != MSTOP_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case OpenGL_DSLPackage.SCENE_MANAGER___RUN:
-				run();
-				return null;
-			case OpenGL_DSLPackage.SCENE_MANAGER___CLOSE:
-				close();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**
@@ -560,14 +408,10 @@ public class SceneManagerImpl extends MinimalEObjectImpl.Container implements Sc
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (WinId: ");
-		result.append(winId);
-		result.append(", WinW: ");
+		result.append(" (WinW: ");
 		result.append(winW);
 		result.append(", WinH: ");
 		result.append(winH);
-		result.append(", mStop: ");
-		result.append(mStop);
 		result.append(')');
 		return result.toString();
 	}

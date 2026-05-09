@@ -2,8 +2,6 @@
  */
 package openGL_DSL.impl;
 
-import java.lang.reflect.InvocationTargetException;
-
 import openGL_DSL.Abs_Entity;
 import openGL_DSL.Material;
 import openGL_DSL.Mesh;
@@ -13,8 +11,6 @@ import openGL_DSL.Vector4;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -428,30 +424,6 @@ public abstract class Abs_EntityImpl extends MinimalEObjectImpl.Container implem
 	 * @generated
 	 */
 	@Override
-	public void render(Object modelViewMat) {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void upload() {
-		// TODO: implement this method
-		// Ensure that you remove @generated or mark it @generated NOT
-		throw new UnsupportedOperationException();
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case OpenGL_DSLPackage.ABS_ENTITY__MATERIAL:
@@ -584,24 +556,6 @@ public abstract class Abs_EntityImpl extends MinimalEObjectImpl.Container implem
 				return texturaRepeticionAlto != TEXTURA_REPETICION_ALTO_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Object eInvoke(int operationID, EList<?> arguments) throws InvocationTargetException {
-		switch (operationID) {
-			case OpenGL_DSLPackage.ABS_ENTITY___RENDER__OBJECT:
-				render(arguments.get(0));
-				return null;
-			case OpenGL_DSLPackage.ABS_ENTITY___UPLOAD:
-				upload();
-				return null;
-		}
-		return super.eInvoke(operationID, arguments);
 	}
 
 	/**

@@ -4,7 +4,7 @@
     <input>
       <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
     </input>
-    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/nodeFile.emtl#/0"/>
+    <imports href="nodeFile.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateScene" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Scene_H_&#xA;#define _H_Scene_H_&#xA;&#xA;#include &lt;GL/freeglut.h>&#xA;#include &lt;glm/glm.hpp>&#xA;&#xA;#include &quot;Camera.h&quot;&#xA;#include &quot;Node.h&quot;&#xA;&#xA;#include &lt;vector>&#xA;&#xA;class Scene&#xA;{&#xA;public:&#xA;&#x9;Scene() = default;&#xA;&#x9;~Scene()&#xA;&#x9;{&#xA;&#x9;&#x9;free();&#xA;&#x9;&#x9;resetGL();&#xA;&#x9;};&#xA;&#xA;&#x9;Scene(const Scene&amp; s) = delete;            // no copy constructor&#xA;&#x9;Scene&amp; operator=(const Scene&amp; s) = delete; // no copy assignment&#xA;&#xA;&#x9;void init();&#xA;&#xA;&#x9;void render(Camera const&amp; cam) const;&#xA;&#xA;    void addNode(Node* n);&#xA;    void setVisible(bool v);&#xA;&#xA;&#xA;protected:&#xA;&#x9;void free();&#xA;&#x9;void setGL();&#xA;&#x9;void resetGL();&#xA;&#xA;&#x9;std::vector&lt;Node*> nodes; // Entities (graphic objects) of the scene&#xA;    bool visible;&#xA;&#x9;&#xA;};&#xA;&#xA;#endif //_H_Scene_H_&#xA;"/>
@@ -35,7 +35,7 @@
         </source>
         <body xsi:type="mtl:TemplateInvocation">
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-          <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/nodeFile.emtl#/0/generateNode"/>
+          <definition href="nodeFile.emtl#/0/generateNode"/>
           <argument xsi:type="ocl.ecore:VariableExp" name="temp1" referredVariable="/0/generateScene/collect/temp1">
             <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Node"/>
           </argument>
@@ -84,7 +84,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/nodeFile.emtl#/0/generateNode"/>
+          <references href="nodeFile.emtl#/0/generateNode"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aNode">

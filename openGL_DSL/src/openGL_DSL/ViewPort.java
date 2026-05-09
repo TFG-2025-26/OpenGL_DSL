@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link openGL_DSL.ViewPort#getXLeft <em>XLeft</em>}</li>
- *   <li>{@link openGL_DSL.ViewPort#getYBolt <em>YBolt</em>}</li>
+ *   <li>{@link openGL_DSL.ViewPort#getYBot <em>YBot</em>}</li>
  *   <li>{@link openGL_DSL.ViewPort#getXWidth <em>XWidth</em>}</li>
  *   <li>{@link openGL_DSL.ViewPort#getYHeight <em>YHeight</em>}</li>
  * </ul>
@@ -26,12 +26,13 @@ import org.eclipse.emf.ecore.EObject;
 public interface ViewPort extends EObject {
 	/**
 	 * Returns the value of the '<em><b>XLeft</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XLeft</em>' attribute.
 	 * @see #setXLeft(int)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getViewPort_XLeft()
-	 * @model
+	 * @model default="0"
 	 * @generated
 	 */
 	int getXLeft();
@@ -47,38 +48,40 @@ public interface ViewPort extends EObject {
 	void setXLeft(int value);
 
 	/**
-	 * Returns the value of the '<em><b>YBolt</b></em>' attribute.
+	 * Returns the value of the '<em><b>YBot</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>YBolt</em>' attribute.
-	 * @see #setYBolt(int)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getViewPort_YBolt()
-	 * @model
+	 * @return the value of the '<em>YBot</em>' attribute.
+	 * @see #setYBot(int)
+	 * @see openGL_DSL.OpenGL_DSLPackage#getViewPort_YBot()
+	 * @model default="0"
 	 * @generated
 	 */
-	int getYBolt();
+	int getYBot();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.ViewPort#getYBolt <em>YBolt</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.ViewPort#getYBot <em>YBot</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>YBolt</em>' attribute.
-	 * @see #getYBolt()
+	 * @param value the new value of the '<em>YBot</em>' attribute.
+	 * @see #getYBot()
 	 * @generated
 	 */
-	void setYBolt(int value);
+	void setYBot(int value);
 
 	/**
 	 * Returns the value of the '<em><b>XWidth</b></em>' attribute.
+	 * The default value is <code>"800"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>XWidth</em>' attribute.
-	 * @see #setXWidth(Object)
+	 * @see #setXWidth(int)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getViewPort_XWidth()
-	 * @model dataType="openGL_DSL.GLsizei"
+	 * @model default="800"
 	 * @generated
 	 */
-	Object getXWidth();
+	int getXWidth();
 
 	/**
 	 * Sets the value of the '{@link openGL_DSL.ViewPort#getXWidth <em>XWidth</em>}' attribute.
@@ -88,19 +91,20 @@ public interface ViewPort extends EObject {
 	 * @see #getXWidth()
 	 * @generated
 	 */
-	void setXWidth(Object value);
+	void setXWidth(int value);
 
 	/**
 	 * Returns the value of the '<em><b>YHeight</b></em>' attribute.
+	 * The default value is <code>"600"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>YHeight</em>' attribute.
-	 * @see #setYHeight(Object)
+	 * @see #setYHeight(int)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getViewPort_YHeight()
-	 * @model dataType="openGL_DSL.GLsizei"
+	 * @model default="600"
 	 * @generated
 	 */
-	Object getYHeight();
+	int getYHeight();
 
 	/**
 	 * Sets the value of the '{@link openGL_DSL.ViewPort#getYHeight <em>YHeight</em>}' attribute.
@@ -110,14 +114,6 @@ public interface ViewPort extends EObject {
 	 * @see #getYHeight()
 	 * @generated
 	 */
-	void setYHeight(Object value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void upload();
+	void setYHeight(int value);
 
 } // ViewPort

@@ -13,9 +13,6 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link openGL_DSL.Light#getCont <em>Cont</em>}</li>
- *   <li>{@link openGL_DSL.Light#getId <em>Id</em>}</li>
- *   <li>{@link openGL_DSL.Light#getPosDIr <em>Pos DIr</em>}</li>
  *   <li>{@link openGL_DSL.Light#getAmbient <em>Ambient</em>}</li>
  *   <li>{@link openGL_DSL.Light#getDifusse <em>Difusse</em>}</li>
  *   <li>{@link openGL_DSL.Light#getSpecular <em>Specular</em>}</li>
@@ -27,72 +24,6 @@ import org.eclipse.emf.ecore.EObject;
  * @generated
  */
 public interface Light extends EObject {
-	/**
-	 * Returns the value of the '<em><b>Cont</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Cont</em>' attribute.
-	 * @see #setCont(Object)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getLight_Cont()
-	 * @model dataType="openGL_DSL.GLuint"
-	 * @generated
-	 */
-	Object getCont();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.Light#getCont <em>Cont</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Cont</em>' attribute.
-	 * @see #getCont()
-	 * @generated
-	 */
-	void setCont(Object value);
-
-	/**
-	 * Returns the value of the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Id</em>' attribute.
-	 * @see #setId(Object)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getLight_Id()
-	 * @model id="true" dataType="openGL_DSL.GLuint"
-	 * @generated
-	 */
-	Object getId();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.Light#getId <em>Id</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Id</em>' attribute.
-	 * @see #getId()
-	 * @generated
-	 */
-	void setId(Object value);
-
-	/**
-	 * Returns the value of the '<em><b>Pos DIr</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Pos DIr</em>' attribute.
-	 * @see #setPosDIr(Object)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getLight_PosDIr()
-	 * @model dataType="openGL_DSL.vec4"
-	 * @generated
-	 */
-	Object getPosDIr();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.Light#getPosDIr <em>Pos DIr</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Pos DIr</em>' attribute.
-	 * @see #getPosDIr()
-	 * @generated
-	 */
-	void setPosDIr(Object value);
-
 	/**
 	 * Returns the value of the '<em><b>Ambient</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
@@ -180,29 +111,5 @@ public interface Light extends EObject {
 	 * @generated
 	 */
 	void setDireccion(Vector3 value);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model modelViewMatDataType="openGL_DSL.mat4"
-	 * @generated
-	 */
-	void uploadL(Object modelViewMat);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void disable();
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void enable();
 
 } // Light

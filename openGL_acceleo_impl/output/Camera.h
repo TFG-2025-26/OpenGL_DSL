@@ -50,6 +50,10 @@ public:
 
     void orbit(GLdouble incAng, GLdouble incY);
 
+    void setEye(glm::dvec3 eye);
+    void setLook(glm::dvec3 look);
+    void setUp(glm::dvec3 up);
+
 protected:
 	glm::dvec3 mEye = {0.0, 0.0, 500.0}; // camera's position
 	glm::dvec3 mLook = {0.0, 0.0, 0.0};  // target's position

@@ -13,13 +13,10 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link openGL_DSL.Camera#getMEye <em>MEye</em>}</li>
- *   <li>{@link openGL_DSL.Camera#getMLook <em>MLook</em>}</li>
- *   <li>{@link openGL_DSL.Camera#getMUp <em>MUp</em>}</li>
- *   <li>{@link openGL_DSL.Camera#getModelViewMat <em>Model View Mat</em>}</li>
- *   <li>{@link openGL_DSL.Camera#getMProjMat <em>MProj Mat</em>}</li>
- *   <li>{@link openGL_DSL.Camera#getMNearVal <em>MNear Val</em>}</li>
- *   <li>{@link openGL_DSL.Camera#getMFarVal <em>MFar Val</em>}</li>
+ *   <li>{@link openGL_DSL.Camera#isBOrto <em>BOrto</em>}</li>
+ *   <li>{@link openGL_DSL.Camera#getEye <em>Eye</em>}</li>
+ *   <li>{@link openGL_DSL.Camera#getLook <em>Look</em>}</li>
+ *   <li>{@link openGL_DSL.Camera#getUp <em>Up</em>}</li>
  * </ul>
  *
  * @see openGL_DSL.OpenGL_DSLPackage#getCamera()
@@ -28,158 +25,92 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Camera extends EObject {
 	/**
-	 * Returns the value of the '<em><b>MEye</b></em>' attribute.
+	 * Returns the value of the '<em><b>BOrto</b></em>' attribute.
+	 * The default value is <code>"true"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>MEye</em>' attribute.
-	 * @see #setMEye(Object)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_MEye()
-	 * @model dataType="openGL_DSL.vec3"
+	 * @return the value of the '<em>BOrto</em>' attribute.
+	 * @see #setBOrto(boolean)
+	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_BOrto()
+	 * @model default="true"
 	 * @generated
 	 */
-	Object getMEye();
+	boolean isBOrto();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.Camera#getMEye <em>MEye</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.Camera#isBOrto <em>BOrto</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>MEye</em>' attribute.
-	 * @see #getMEye()
+	 * @param value the new value of the '<em>BOrto</em>' attribute.
+	 * @see #isBOrto()
 	 * @generated
 	 */
-	void setMEye(Object value);
+	void setBOrto(boolean value);
 
 	/**
-	 * Returns the value of the '<em><b>MLook</b></em>' attribute.
+	 * Returns the value of the '<em><b>Eye</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>MLook</em>' attribute.
-	 * @see #setMLook(Object)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_MLook()
-	 * @model dataType="openGL_DSL.vec3"
+	 * @return the value of the '<em>Eye</em>' containment reference.
+	 * @see #setEye(Vector3)
+	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_Eye()
+	 * @model containment="true"
 	 * @generated
 	 */
-	Object getMLook();
+	Vector3 getEye();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.Camera#getMLook <em>MLook</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.Camera#getEye <em>Eye</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>MLook</em>' attribute.
-	 * @see #getMLook()
+	 * @param value the new value of the '<em>Eye</em>' containment reference.
+	 * @see #getEye()
 	 * @generated
 	 */
-	void setMLook(Object value);
+	void setEye(Vector3 value);
 
 	/**
-	 * Returns the value of the '<em><b>MUp</b></em>' attribute.
+	 * Returns the value of the '<em><b>Look</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>MUp</em>' attribute.
-	 * @see #setMUp(Object)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_MUp()
-	 * @model dataType="openGL_DSL.vec3"
+	 * @return the value of the '<em>Look</em>' containment reference.
+	 * @see #setLook(Vector3)
+	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_Look()
+	 * @model containment="true"
 	 * @generated
 	 */
-	Object getMUp();
+	Vector3 getLook();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.Camera#getMUp <em>MUp</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.Camera#getLook <em>Look</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>MUp</em>' attribute.
-	 * @see #getMUp()
+	 * @param value the new value of the '<em>Look</em>' containment reference.
+	 * @see #getLook()
 	 * @generated
 	 */
-	void setMUp(Object value);
+	void setLook(Vector3 value);
 
 	/**
-	 * Returns the value of the '<em><b>Model View Mat</b></em>' attribute.
+	 * Returns the value of the '<em><b>Up</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Model View Mat</em>' attribute.
-	 * @see #setModelViewMat(Object)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_ModelViewMat()
-	 * @model dataType="openGL_DSL.mat4"
+	 * @return the value of the '<em>Up</em>' containment reference.
+	 * @see #setUp(Vector3)
+	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_Up()
+	 * @model containment="true"
 	 * @generated
 	 */
-	Object getModelViewMat();
+	Vector3 getUp();
 
 	/**
-	 * Sets the value of the '{@link openGL_DSL.Camera#getModelViewMat <em>Model View Mat</em>}' attribute.
+	 * Sets the value of the '{@link openGL_DSL.Camera#getUp <em>Up</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Model View Mat</em>' attribute.
-	 * @see #getModelViewMat()
+	 * @param value the new value of the '<em>Up</em>' containment reference.
+	 * @see #getUp()
 	 * @generated
 	 */
-	void setModelViewMat(Object value);
-
-	/**
-	 * Returns the value of the '<em><b>MProj Mat</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>MProj Mat</em>' attribute.
-	 * @see #setMProjMat(Object)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_MProjMat()
-	 * @model dataType="openGL_DSL.mat4"
-	 * @generated
-	 */
-	Object getMProjMat();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.Camera#getMProjMat <em>MProj Mat</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>MProj Mat</em>' attribute.
-	 * @see #getMProjMat()
-	 * @generated
-	 */
-	void setMProjMat(Object value);
-
-	/**
-	 * Returns the value of the '<em><b>MNear Val</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>MNear Val</em>' attribute.
-	 * @see #setMNearVal(double)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_MNearVal()
-	 * @model
-	 * @generated
-	 */
-	double getMNearVal();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.Camera#getMNearVal <em>MNear Val</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>MNear Val</em>' attribute.
-	 * @see #getMNearVal()
-	 * @generated
-	 */
-	void setMNearVal(double value);
-
-	/**
-	 * Returns the value of the '<em><b>MFar Val</b></em>' attribute.
-	 * The default value is <code>"10000"</code>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>MFar Val</em>' attribute.
-	 * @see #setMFarVal(double)
-	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_MFarVal()
-	 * @model default="10000"
-	 * @generated
-	 */
-	double getMFarVal();
-
-	/**
-	 * Sets the value of the '{@link openGL_DSL.Camera#getMFarVal <em>MFar Val</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>MFar Val</em>' attribute.
-	 * @see #getMFarVal()
-	 * @generated
-	 */
-	void setMFarVal(double value);
+	void setUp(Vector3 value);
 
 } // Camera

@@ -4,10 +4,13 @@ package openGL_DSL.impl;
 
 import openGL_DSL.Camera;
 import openGL_DSL.OpenGL_DSLPackage;
+import openGL_DSL.Vector3;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
@@ -20,157 +23,64 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link openGL_DSL.impl.CameraImpl#getMEye <em>MEye</em>}</li>
- *   <li>{@link openGL_DSL.impl.CameraImpl#getMLook <em>MLook</em>}</li>
- *   <li>{@link openGL_DSL.impl.CameraImpl#getMUp <em>MUp</em>}</li>
- *   <li>{@link openGL_DSL.impl.CameraImpl#getModelViewMat <em>Model View Mat</em>}</li>
- *   <li>{@link openGL_DSL.impl.CameraImpl#getMProjMat <em>MProj Mat</em>}</li>
- *   <li>{@link openGL_DSL.impl.CameraImpl#getMNearVal <em>MNear Val</em>}</li>
- *   <li>{@link openGL_DSL.impl.CameraImpl#getMFarVal <em>MFar Val</em>}</li>
+ *   <li>{@link openGL_DSL.impl.CameraImpl#isBOrto <em>BOrto</em>}</li>
+ *   <li>{@link openGL_DSL.impl.CameraImpl#getEye <em>Eye</em>}</li>
+ *   <li>{@link openGL_DSL.impl.CameraImpl#getLook <em>Look</em>}</li>
+ *   <li>{@link openGL_DSL.impl.CameraImpl#getUp <em>Up</em>}</li>
  * </ul>
  *
  * @generated
  */
 public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	/**
-	 * The default value of the '{@link #getMEye() <em>MEye</em>}' attribute.
+	 * The default value of the '{@link #isBOrto() <em>BOrto</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMEye()
+	 * @see #isBOrto()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object MEYE_EDEFAULT = null;
+	protected static final boolean BORTO_EDEFAULT = true;
 
 	/**
-	 * The cached value of the '{@link #getMEye() <em>MEye</em>}' attribute.
+	 * The cached value of the '{@link #isBOrto() <em>BOrto</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMEye()
+	 * @see #isBOrto()
 	 * @generated
 	 * @ordered
 	 */
-	protected Object mEye = MEYE_EDEFAULT;
+	protected boolean bOrto = BORTO_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getMLook() <em>MLook</em>}' attribute.
+	 * The cached value of the '{@link #getEye() <em>Eye</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMLook()
+	 * @see #getEye()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object MLOOK_EDEFAULT = null;
+	protected Vector3 eye;
 
 	/**
-	 * The cached value of the '{@link #getMLook() <em>MLook</em>}' attribute.
+	 * The cached value of the '{@link #getLook() <em>Look</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMLook()
+	 * @see #getLook()
 	 * @generated
 	 * @ordered
 	 */
-	protected Object mLook = MLOOK_EDEFAULT;
+	protected Vector3 look;
 
 	/**
-	 * The default value of the '{@link #getMUp() <em>MUp</em>}' attribute.
+	 * The cached value of the '{@link #getUp() <em>Up</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMUp()
+	 * @see #getUp()
 	 * @generated
 	 * @ordered
 	 */
-	protected static final Object MUP_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMUp() <em>MUp</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMUp()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object mUp = MUP_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getModelViewMat() <em>Model View Mat</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModelViewMat()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Object MODEL_VIEW_MAT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getModelViewMat() <em>Model View Mat</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getModelViewMat()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object modelViewMat = MODEL_VIEW_MAT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMProjMat() <em>MProj Mat</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMProjMat()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final Object MPROJ_MAT_EDEFAULT = null;
-
-	/**
-	 * The cached value of the '{@link #getMProjMat() <em>MProj Mat</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMProjMat()
-	 * @generated
-	 * @ordered
-	 */
-	protected Object mProjMat = MPROJ_MAT_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMNearVal() <em>MNear Val</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMNearVal()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double MNEAR_VAL_EDEFAULT = 0.0;
-
-	/**
-	 * The cached value of the '{@link #getMNearVal() <em>MNear Val</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMNearVal()
-	 * @generated
-	 * @ordered
-	 */
-	protected double mNearVal = MNEAR_VAL_EDEFAULT;
-
-	/**
-	 * The default value of the '{@link #getMFarVal() <em>MFar Val</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMFarVal()
-	 * @generated
-	 * @ordered
-	 */
-	protected static final double MFAR_VAL_EDEFAULT = 10000.0;
-
-	/**
-	 * The cached value of the '{@link #getMFarVal() <em>MFar Val</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getMFarVal()
-	 * @generated
-	 * @ordered
-	 */
-	protected double mFarVal = MFAR_VAL_EDEFAULT;
+	protected Vector3 up;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -197,8 +107,8 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	 * @generated
 	 */
 	@Override
-	public Object getMEye() {
-		return mEye;
+	public boolean isBOrto() {
+		return bOrto;
 	}
 
 	/**
@@ -207,11 +117,11 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	 * @generated
 	 */
 	@Override
-	public void setMEye(Object newMEye) {
-		Object oldMEye = mEye;
-		mEye = newMEye;
+	public void setBOrto(boolean newBOrto) {
+		boolean oldBOrto = bOrto;
+		bOrto = newBOrto;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__MEYE, oldMEye, mEye));
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__BORTO, oldBOrto, bOrto));
 	}
 
 	/**
@@ -220,8 +130,23 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	 * @generated
 	 */
 	@Override
-	public Object getMLook() {
-		return mLook;
+	public Vector3 getEye() {
+		return eye;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetEye(Vector3 newEye, NotificationChain msgs) {
+		Vector3 oldEye = eye;
+		eye = newEye;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__EYE, oldEye, newEye);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -230,11 +155,18 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	 * @generated
 	 */
 	@Override
-	public void setMLook(Object newMLook) {
-		Object oldMLook = mLook;
-		mLook = newMLook;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__MLOOK, oldMLook, mLook));
+	public void setEye(Vector3 newEye) {
+		if (newEye != eye) {
+			NotificationChain msgs = null;
+			if (eye != null)
+				msgs = ((InternalEObject)eye).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.CAMERA__EYE, null, msgs);
+			if (newEye != null)
+				msgs = ((InternalEObject)newEye).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.CAMERA__EYE, null, msgs);
+			msgs = basicSetEye(newEye, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__EYE, newEye, newEye));
 	}
 
 	/**
@@ -243,8 +175,23 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	 * @generated
 	 */
 	@Override
-	public Object getMUp() {
-		return mUp;
+	public Vector3 getLook() {
+		return look;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetLook(Vector3 newLook, NotificationChain msgs) {
+		Vector3 oldLook = look;
+		look = newLook;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__LOOK, oldLook, newLook);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -253,11 +200,18 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	 * @generated
 	 */
 	@Override
-	public void setMUp(Object newMUp) {
-		Object oldMUp = mUp;
-		mUp = newMUp;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__MUP, oldMUp, mUp));
+	public void setLook(Vector3 newLook) {
+		if (newLook != look) {
+			NotificationChain msgs = null;
+			if (look != null)
+				msgs = ((InternalEObject)look).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.CAMERA__LOOK, null, msgs);
+			if (newLook != null)
+				msgs = ((InternalEObject)newLook).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.CAMERA__LOOK, null, msgs);
+			msgs = basicSetLook(newLook, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__LOOK, newLook, newLook));
 	}
 
 	/**
@@ -266,8 +220,23 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	 * @generated
 	 */
 	@Override
-	public Object getModelViewMat() {
-		return modelViewMat;
+	public Vector3 getUp() {
+		return up;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetUp(Vector3 newUp, NotificationChain msgs) {
+		Vector3 oldUp = up;
+		up = newUp;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__UP, oldUp, newUp);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -276,11 +245,18 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	 * @generated
 	 */
 	@Override
-	public void setModelViewMat(Object newModelViewMat) {
-		Object oldModelViewMat = modelViewMat;
-		modelViewMat = newModelViewMat;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__MODEL_VIEW_MAT, oldModelViewMat, modelViewMat));
+	public void setUp(Vector3 newUp) {
+		if (newUp != up) {
+			NotificationChain msgs = null;
+			if (up != null)
+				msgs = ((InternalEObject)up).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.CAMERA__UP, null, msgs);
+			if (newUp != null)
+				msgs = ((InternalEObject)newUp).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.CAMERA__UP, null, msgs);
+			msgs = basicSetUp(newUp, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__UP, newUp, newUp));
 	}
 
 	/**
@@ -289,67 +265,16 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	 * @generated
 	 */
 	@Override
-	public Object getMProjMat() {
-		return mProjMat;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMProjMat(Object newMProjMat) {
-		Object oldMProjMat = mProjMat;
-		mProjMat = newMProjMat;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__MPROJ_MAT, oldMProjMat, mProjMat));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public double getMNearVal() {
-		return mNearVal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMNearVal(double newMNearVal) {
-		double oldMNearVal = mNearVal;
-		mNearVal = newMNearVal;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__MNEAR_VAL, oldMNearVal, mNearVal));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public double getMFarVal() {
-		return mFarVal;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public void setMFarVal(double newMFarVal) {
-		double oldMFarVal = mFarVal;
-		mFarVal = newMFarVal;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__MFAR_VAL, oldMFarVal, mFarVal));
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case OpenGL_DSLPackage.CAMERA__EYE:
+				return basicSetEye(null, msgs);
+			case OpenGL_DSLPackage.CAMERA__LOOK:
+				return basicSetLook(null, msgs);
+			case OpenGL_DSLPackage.CAMERA__UP:
+				return basicSetUp(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -360,20 +285,14 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.CAMERA__MEYE:
-				return getMEye();
-			case OpenGL_DSLPackage.CAMERA__MLOOK:
-				return getMLook();
-			case OpenGL_DSLPackage.CAMERA__MUP:
-				return getMUp();
-			case OpenGL_DSLPackage.CAMERA__MODEL_VIEW_MAT:
-				return getModelViewMat();
-			case OpenGL_DSLPackage.CAMERA__MPROJ_MAT:
-				return getMProjMat();
-			case OpenGL_DSLPackage.CAMERA__MNEAR_VAL:
-				return getMNearVal();
-			case OpenGL_DSLPackage.CAMERA__MFAR_VAL:
-				return getMFarVal();
+			case OpenGL_DSLPackage.CAMERA__BORTO:
+				return isBOrto();
+			case OpenGL_DSLPackage.CAMERA__EYE:
+				return getEye();
+			case OpenGL_DSLPackage.CAMERA__LOOK:
+				return getLook();
+			case OpenGL_DSLPackage.CAMERA__UP:
+				return getUp();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -386,26 +305,17 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.CAMERA__MEYE:
-				setMEye(newValue);
+			case OpenGL_DSLPackage.CAMERA__BORTO:
+				setBOrto((Boolean)newValue);
 				return;
-			case OpenGL_DSLPackage.CAMERA__MLOOK:
-				setMLook(newValue);
+			case OpenGL_DSLPackage.CAMERA__EYE:
+				setEye((Vector3)newValue);
 				return;
-			case OpenGL_DSLPackage.CAMERA__MUP:
-				setMUp(newValue);
+			case OpenGL_DSLPackage.CAMERA__LOOK:
+				setLook((Vector3)newValue);
 				return;
-			case OpenGL_DSLPackage.CAMERA__MODEL_VIEW_MAT:
-				setModelViewMat(newValue);
-				return;
-			case OpenGL_DSLPackage.CAMERA__MPROJ_MAT:
-				setMProjMat(newValue);
-				return;
-			case OpenGL_DSLPackage.CAMERA__MNEAR_VAL:
-				setMNearVal((Double)newValue);
-				return;
-			case OpenGL_DSLPackage.CAMERA__MFAR_VAL:
-				setMFarVal((Double)newValue);
+			case OpenGL_DSLPackage.CAMERA__UP:
+				setUp((Vector3)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -419,26 +329,17 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.CAMERA__MEYE:
-				setMEye(MEYE_EDEFAULT);
+			case OpenGL_DSLPackage.CAMERA__BORTO:
+				setBOrto(BORTO_EDEFAULT);
 				return;
-			case OpenGL_DSLPackage.CAMERA__MLOOK:
-				setMLook(MLOOK_EDEFAULT);
+			case OpenGL_DSLPackage.CAMERA__EYE:
+				setEye((Vector3)null);
 				return;
-			case OpenGL_DSLPackage.CAMERA__MUP:
-				setMUp(MUP_EDEFAULT);
+			case OpenGL_DSLPackage.CAMERA__LOOK:
+				setLook((Vector3)null);
 				return;
-			case OpenGL_DSLPackage.CAMERA__MODEL_VIEW_MAT:
-				setModelViewMat(MODEL_VIEW_MAT_EDEFAULT);
-				return;
-			case OpenGL_DSLPackage.CAMERA__MPROJ_MAT:
-				setMProjMat(MPROJ_MAT_EDEFAULT);
-				return;
-			case OpenGL_DSLPackage.CAMERA__MNEAR_VAL:
-				setMNearVal(MNEAR_VAL_EDEFAULT);
-				return;
-			case OpenGL_DSLPackage.CAMERA__MFAR_VAL:
-				setMFarVal(MFAR_VAL_EDEFAULT);
+			case OpenGL_DSLPackage.CAMERA__UP:
+				setUp((Vector3)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -452,20 +353,14 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case OpenGL_DSLPackage.CAMERA__MEYE:
-				return MEYE_EDEFAULT == null ? mEye != null : !MEYE_EDEFAULT.equals(mEye);
-			case OpenGL_DSLPackage.CAMERA__MLOOK:
-				return MLOOK_EDEFAULT == null ? mLook != null : !MLOOK_EDEFAULT.equals(mLook);
-			case OpenGL_DSLPackage.CAMERA__MUP:
-				return MUP_EDEFAULT == null ? mUp != null : !MUP_EDEFAULT.equals(mUp);
-			case OpenGL_DSLPackage.CAMERA__MODEL_VIEW_MAT:
-				return MODEL_VIEW_MAT_EDEFAULT == null ? modelViewMat != null : !MODEL_VIEW_MAT_EDEFAULT.equals(modelViewMat);
-			case OpenGL_DSLPackage.CAMERA__MPROJ_MAT:
-				return MPROJ_MAT_EDEFAULT == null ? mProjMat != null : !MPROJ_MAT_EDEFAULT.equals(mProjMat);
-			case OpenGL_DSLPackage.CAMERA__MNEAR_VAL:
-				return mNearVal != MNEAR_VAL_EDEFAULT;
-			case OpenGL_DSLPackage.CAMERA__MFAR_VAL:
-				return mFarVal != MFAR_VAL_EDEFAULT;
+			case OpenGL_DSLPackage.CAMERA__BORTO:
+				return bOrto != BORTO_EDEFAULT;
+			case OpenGL_DSLPackage.CAMERA__EYE:
+				return eye != null;
+			case OpenGL_DSLPackage.CAMERA__LOOK:
+				return look != null;
+			case OpenGL_DSLPackage.CAMERA__UP:
+				return up != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -480,20 +375,8 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 		if (eIsProxy()) return super.toString();
 
 		StringBuilder result = new StringBuilder(super.toString());
-		result.append(" (mEye: ");
-		result.append(mEye);
-		result.append(", mLook: ");
-		result.append(mLook);
-		result.append(", mUp: ");
-		result.append(mUp);
-		result.append(", modelViewMat: ");
-		result.append(modelViewMat);
-		result.append(", mProjMat: ");
-		result.append(mProjMat);
-		result.append(", mNearVal: ");
-		result.append(mNearVal);
-		result.append(", mFarVal: ");
-		result.append(mFarVal);
+		result.append(" (bOrto: ");
+		result.append(bOrto);
 		result.append(')');
 		return result.toString();
 	}

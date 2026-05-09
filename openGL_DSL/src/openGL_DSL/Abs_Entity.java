@@ -183,20 +183,4 @@ public interface Abs_Entity extends EObject {
 	 */
 	void setTexturaRepeticionAlto(int value);
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model modelViewMatDataType="openGL_DSL.mat4"
-	 * @generated
-	 */
-	void render(Object modelViewMat);
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @model
-	 * @generated
-	 */
-	void upload();
-
 } // Abs_Entity

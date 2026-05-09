@@ -24,12 +24,13 @@ package openGL_DSL;
 public interface PoligonoRegular extends Abs_Entity {
 	/**
 	 * Returns the value of the '<em><b>Num Vertices</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Num Vertices</em>' attribute.
 	 * @see #setNumVertices(int)
 	 * @see openGL_DSL.OpenGL_DSLPackage#getPoligonoRegular_NumVertices()
-	 * @model
+	 * @model default="0"
 	 * @generated
 	 */
 	int getNumVertices();

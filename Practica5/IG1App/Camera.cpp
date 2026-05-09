@@ -168,3 +168,21 @@ Camera::orbit(GLdouble incAng, GLdouble incY) {
 	mEye.y += incY;
 	setVM();
 }
+
+void
+Camera::setEye(glm::dvec3 eye) {
+	mEye = eye;
+	setVM();
+}
+
+void
+Camera::setLook(glm::dvec3 look) {
+	mLook = look;
+	setVM();
+}
+
+void
+Camera::setUp(glm::dvec3 up) {
+	mUp = up;
+	setVM();
+}

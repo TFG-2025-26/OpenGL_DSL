@@ -216,10 +216,10 @@ void IndexMesh::buildNormalVectors() {
 }
 
 IndexMesh*
-IndexMesh::generateIndexedBox(GLdouble l) {
+IndexMesh::generateIndexedBox(GLdouble l, GLuint rw, GLuint rh) {
 	IndexMesh* indexMesh = new IndexMesh();
 
-	indexMesh->mNumVertices = 8;
+	indexMesh->mNumVertices = 18;
 
 	indexMesh->vVertices.reserve(indexMesh->mNumVertices);
 	indexMesh->vVertices.emplace_back(dvec3(-l / 2, l / 2, l / 2));
@@ -231,14 +231,46 @@ IndexMesh::generateIndexedBox(GLdouble l) {
 	indexMesh->vVertices.emplace_back(dvec3(-l / 2, l / 2, -l / 2));
 	indexMesh->vVertices.emplace_back(dvec3(-l / 2, -l / 2, -l / 2));
 
+	indexMesh->vVertices.emplace_back(dvec3(-l / 2, l / 2, l / 2));
+	indexMesh->vVertices.emplace_back(dvec3(-l / 2, -l / 2, l / 2));
+
+	indexMesh->vVertices.emplace_back(dvec3(-l / 2, l / 2, l / 2));
+	indexMesh->vVertices.emplace_back(dvec3(l / 2, l / 2, l / 2));
+	indexMesh->vVertices.emplace_back(dvec3(l / 2, l / 2, -l / 2));
+	indexMesh->vVertices.emplace_back(dvec3(-l / 2, l / 2, -l / 2));
+
+	indexMesh->vVertices.emplace_back(dvec3(-l / 2, -l / 2, l / 2));
+	indexMesh->vVertices.emplace_back(dvec3(l / 2, -l / 2, l / 2));
+	indexMesh->vVertices.emplace_back(dvec3(l / 2, -l / 2, -l / 2));
+	indexMesh->vVertices.emplace_back(dvec3(-l / 2, -l / 2, -l / 2));
+
 	indexMesh->vColors.reserve(indexMesh->mNumVertices);
-	for (int i = 0; i < 8; i++) {
-		indexMesh->vColors.emplace_back(0, 1, 0, 1);
-	}
+
+    indexMesh->vTexCoords.reserve(indexMesh->mNumVertices);
+    indexMesh->vTexCoords.emplace_back(0*rw, 1*rh);
+    indexMesh->vTexCoords.emplace_back(0*rw, 0*rh);
+    indexMesh->vTexCoords.emplace_back(1*rw, 1*rh);
+    indexMesh->vTexCoords.emplace_back(1*rw, 0*rh);
+    indexMesh->vTexCoords.emplace_back(2*rw, 1*rh);
+    indexMesh->vTexCoords.emplace_back(2*rw, 0*rh);
+    indexMesh->vTexCoords.emplace_back(3*rw, 1*rh);
+    indexMesh->vTexCoords.emplace_back(3*rw, 0*rh);
+	indexMesh->vTexCoords.emplace_back(4*rw, 1*rh);
+	indexMesh->vTexCoords.emplace_back(4*rw, 0*rh);
+
+	indexMesh->vTexCoords.emplace_back(0*rw, 0*rh);
+	indexMesh->vTexCoords.emplace_back(0*rw, 1*rh);
+	indexMesh->vTexCoords.emplace_back(1*rw, 1*rh);
+	indexMesh->vTexCoords.emplace_back(1*rw, 0*rh);
+
+	indexMesh->vTexCoords.emplace_back(0*rw, 1*rh);
+	indexMesh->vTexCoords.emplace_back(1*rw, 1*rh);
+	indexMesh->vTexCoords.emplace_back(1*rw, 0*rh);
+	indexMesh->vTexCoords.emplace_back(0*rw, 0*rh);
 
 	indexMesh->nNumIndices = 36;
 	
-	indexMesh->vIndices = new GLuint []{ 0,1,2, 1,3,2, 2,3,4, 3,5,4, 4,5,6, 5,7,6, 0,6,1, 6,7,1, 0,2,4, 4,6,0, 1,5,3, 1,7,5 };
+	indexMesh->vIndices = new GLuint []{ 0,1,2, 1,3,2, 2,3,4, 3,5,4, 4,5,6, 5,7,6, 8,6,9, 6,7,9, 10,11,12, 12,13,10, 14,16,15, 14,17,16 };
 
 	indexMesh->buildNormalVectors();
 
@@ -246,18 +278,20 @@ IndexMesh::generateIndexedBox(GLdouble l) {
 }
 
 MbR*
-MbR::generateIndexMbR(int mm, int nn, glm::dvec3* perfil) {
-	MbR* mesh = new MbR(nn, perfil, mm);
+MbR::generateIndexMbR(int mm, int nn, glm::dvec3* perfil, GLuint rw, GLuint rh) {
+	MbR* mesh = new MbR(nn+1, perfil, mm);
 	// Definir la primitiva como GL_TRIANGLES
 	mesh->mPrimitive = GL_TRIANGLES;
 	// Definir el número de vértices como nn*mm
-	mesh->mNumVertices = nn * mm;
+	mesh->mNumVertices = (nn+1) * mm;
 	// Usar un vector auxiliar de vértices
 	glm::dvec3* vs = new glm::dvec3[mesh->mNumVertices];
 
+    mesh->vTexCoords.reserve(mesh->mNumVertices);
+
 	int aux = 0;
 
-	for (int i = 0; i < nn; i++) {
+	for (int i = 0; i <= nn; i++) {
 		// Generar la muestra i- ésima de vértices
 		GLdouble theta = i * 360 / nn;
 		GLdouble c = cos(radians(theta));
@@ -267,6 +301,11 @@ MbR::generateIndexMbR(int mm, int nn, glm::dvec3* perfil) {
 			GLdouble x = c * perfil[j].x + s * perfil[j].z;
 			vs[aux] = glm::dvec3(x, perfil[j].y, z);
 			aux++;
+
+            double u = ((double)i / nn)*rw;
+            double v = ((double)j / (mm - 1))*rh;
+
+            mesh->vTexCoords.emplace_back(u, v);
 		}
 	}
 
@@ -293,12 +332,12 @@ MbR::generateIndexMbR(int mm, int nn, glm::dvec3* perfil) {
 
 			mesh->vIndices[indiceMayor] = indice;
 			indiceMayor++;
-			mesh->vIndices[indiceMayor] = (indice + mm) % (nn * mm);
+			mesh->vIndices[indiceMayor] = (indice + mm);
 			indiceMayor++;
-			mesh->vIndices[indiceMayor] = (indice + mm + 1) % (nn * mm);
+			mesh->vIndices[indiceMayor] = (indice + mm + 1);
 			indiceMayor++;
 
-			mesh->vIndices[indiceMayor] = (indice + mm + 1) % (nn * mm);
+			mesh->vIndices[indiceMayor] = (indice + mm + 1);
 			indiceMayor++;
 			mesh->vIndices[indiceMayor] = indice + 1;
 			indiceMayor++;

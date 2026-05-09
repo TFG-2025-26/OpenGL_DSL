@@ -100,27 +100,27 @@ Node* Node_[n.Name/]() {
 [/let]
 [elseif (ent.oclIsKindOf(Esfera))]
     [let e : Esfera = ent.oclAsType(Esfera)]
-    auto e[n.abs_entity->indexOf(ent)/] = new Sphere([e.Radio/]);
+    auto e[n.abs_entity->indexOf(ent)/] = new Sphere([e.Radio/],[ent.TexturaRepeticionAncho/],[ent.TexturaRepeticionAlto/]);
 [/let]
 [elseif (ent.oclIsKindOf(Cilindro))]
     [let e : Cilindro = ent.oclAsType(Cilindro)]
-    auto e[n.abs_entity->indexOf(ent)/] = new Cylinder([e.RadioBase/],[e.RadioTope/],[e.Altura/]);
+    auto e[n.abs_entity->indexOf(ent)/] = new Cylinder([e.RadioBase/],[e.RadioTope/],[e.Altura/],[ent.TexturaRepeticionAncho/],[ent.TexturaRepeticionAlto/]);
 [/let]
 [elseif (ent.oclIsKindOf(Disco))]
     [let e : Disco = ent.oclAsType(Disco)]
-    auto e[n.abs_entity->indexOf(ent)/] = new Disk([e.RadioInterno/],[e.RadioExterno/]);
+    auto e[n.abs_entity->indexOf(ent)/] = new Disk([e.RadioInterno/],[e.RadioExterno/],[ent.TexturaRepeticionAncho/],[ent.TexturaRepeticionAlto/]);
 [/let]
 [elseif (ent.oclIsKindOf(DiscoParcial))]
     [let e : DiscoParcial = ent.oclAsType(DiscoParcial)]
-    auto e[n.abs_entity->indexOf(ent)/] = new PartialDisk([e.RadioInterno/],[e.RadioExterno/],[e.AnguloInicio/],[e.AmplitudAngulo/]);
+    auto e[n.abs_entity->indexOf(ent)/] = new PartialDisk([e.RadioInterno/],[e.RadioExterno/],[e.AnguloInicio/],[e.AmplitudAngulo/],[ent.TexturaRepeticionAncho/],[ent.TexturaRepeticionAlto/]);
 [/let]
 [elseif (ent.oclIsKindOf(Cubo))]
     [let e : Cubo = ent.oclAsType(Cubo)]
-    auto e[n.abs_entity->indexOf(ent)/] = new IndexedBox([e.Lenght/]);
+    auto e[n.abs_entity->indexOf(ent)/] = new IndexedBox([e.Lenght/],[ent.TexturaRepeticionAncho/],[ent.TexturaRepeticionAlto/]);
 [/let]
 [elseif (ent.oclIsKindOf(Toroide))]
     [let e : Toroide = ent.oclAsType(Toroide)]
-    auto e[n.abs_entity->indexOf(ent)/] = new Toroid([e.RadioAnillo/],[e.RadioCentro/]);
+    auto e[n.abs_entity->indexOf(ent)/] = new Toroid([e.RadioAnillo/],[e.RadioCentro/],[ent.TexturaRepeticionAncho/],[ent.TexturaRepeticionAlto/]);
 [/let]
 [/if]
     node->addEntity(e[n.abs_entity->indexOf(ent)/]);

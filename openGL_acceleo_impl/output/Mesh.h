@@ -51,7 +51,7 @@ public:
 	virtual void draw() const;
 	void buildNormalVectors();
 
-	static IndexMesh* generateIndexedBox(GLdouble l);
+	static IndexMesh* generateIndexedBox(GLdouble l, GLuint rw, GLuint rh);
 };
 
 class MbR : public IndexMesh {
@@ -63,7 +63,7 @@ public:
 	MbR(int n, glm::dvec3* perfil, int m):n(n), perfil(perfil), m(m) {};
 	virtual ~MbR() { delete[] perfil; }
 
-	static MbR* generateIndexMbR(int mm, int nn, glm::dvec3* perfil);
+	static MbR* generateIndexMbR(int mm, int nn, glm::dvec3* perfil, GLuint rw, GLuint rh);
 };
 
 #endif //_H_Scene_H_

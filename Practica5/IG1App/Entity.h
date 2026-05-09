@@ -87,52 +87,64 @@ protected:
 
 class Sphere : public QuadricEntity {
 public:
-	Sphere(GLdouble r); // r es el radio de la esfera
+	Sphere(GLdouble r, GLuint rw, GLuint rh); // r es el radio de la esfera
+    ~Sphere();
 	virtual void render(glm::dmat4 const& modelViewMat) const;
 protected:
 	GLdouble r;
+    GLuint rw; 
+    GLuint rh;
 };
 
 class Cylinder : public QuadricEntity {
 public:
-	Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height); // r es el radio de la esfera
+	Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height, GLuint rw, GLuint rh); // r es el radio de la esfera
+    ~Cylinder();
 	virtual void render(glm::dmat4 const& modelViewMat) const;
 protected:
 	GLdouble baseRadius;
 	GLdouble topRadius;
 	GLdouble height;
+    GLuint rw; 
+    GLuint rh;
 };
 
 class Disk : public QuadricEntity {
 public:
-	Disk(GLdouble innerRadius, GLdouble outerRadius); // r es el radio de la esfera
+	Disk(GLdouble innerRadius, GLdouble outerRadius, GLuint rw, GLuint rh); // r es el radio de la esfera
+    ~Disk();
 	virtual void render(glm::dmat4 const& modelViewMat) const;
 protected:
 	GLdouble innerRadius;
 	GLdouble outerRadius;
+    GLuint rw; 
+    GLuint rh;
 };
 
 class PartialDisk : public QuadricEntity {
 public:
-	PartialDisk(GLdouble innerRadius, GLdouble outerRadius, GLdouble startAngle, GLdouble sweepAngle); // r es el radio de la esfera
+	PartialDisk(GLdouble innerRadius, GLdouble outerRadius, GLdouble startAngle, GLdouble sweepAngle, GLuint rw, GLuint rh); // r es el radio de la esfera
+    ~PartialDisk();
 	virtual void render(glm::dmat4 const& modelViewMat) const;
 protected:
 	GLdouble innerRadius;
 	GLdouble outerRadius;
 	GLdouble startAngle;
 	GLdouble sweepAngle;
+    GLuint rw; 
+    GLuint rh;
 };
 
 class IndexedBox : public Abs_Entity {
 public:
-	IndexedBox(GLdouble l);
+	IndexedBox(GLdouble l, GLuint rw, GLuint rh);
 	~IndexedBox();
 	virtual void render(glm::dmat4 const& modelViewMat) const;
 };
 
 class Toroid : public Abs_Entity {
 public:
-	Toroid(GLdouble r, GLdouble R);
+	Toroid(GLdouble r, GLdouble R, GLuint rw, GLuint rh);
 	~Toroid();
 	virtual void render(glm::dmat4 const& modelViewMat) const;
 };

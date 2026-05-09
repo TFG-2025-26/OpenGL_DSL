@@ -370,7 +370,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSceneManager_WinId() {
+	public EAttribute getSceneManager_WinW() {
 		return (EAttribute)sceneManagerEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -380,7 +380,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSceneManager_WinW() {
+	public EAttribute getSceneManager_WinH() {
 		return (EAttribute)sceneManagerEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -390,18 +390,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getSceneManager_WinH() {
-		return (EAttribute)sceneManagerEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getSceneManager_Viewport() {
-		return (EReference)sceneManagerEClass.getEStructuralFeatures().get(3);
+		return (EReference)sceneManagerEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -411,7 +401,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 */
 	@Override
 	public EReference getSceneManager_Camera() {
-		return (EReference)sceneManagerEClass.getEStructuralFeatures().get(4);
+		return (EReference)sceneManagerEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -421,37 +411,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 */
 	@Override
 	public EReference getSceneManager_Scenes() {
-		return (EReference)sceneManagerEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getSceneManager_MStop() {
-		return (EAttribute)sceneManagerEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getSceneManager__Run() {
-		return sceneManagerEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getSceneManager__Close() {
-		return sceneManagerEClass.getEOperations().get(1);
+		return (EReference)sceneManagerEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -480,7 +440,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getViewPort_YBolt() {
+	public EAttribute getViewPort_YBot() {
 		return (EAttribute)viewPortEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -510,16 +470,6 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getViewPort__Upload() {
-		return viewPortEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getCamera() {
 		return cameraEClass;
 	}
@@ -530,7 +480,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCamera_MEye() {
+	public EAttribute getCamera_BOrto() {
 		return (EAttribute)cameraEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -540,8 +490,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCamera_MLook() {
-		return (EAttribute)cameraEClass.getEStructuralFeatures().get(1);
+	public EReference getCamera_Eye() {
+		return (EReference)cameraEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -550,8 +500,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCamera_MUp() {
-		return (EAttribute)cameraEClass.getEStructuralFeatures().get(2);
+	public EReference getCamera_Look() {
+		return (EReference)cameraEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -560,38 +510,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getCamera_ModelViewMat() {
-		return (EAttribute)cameraEClass.getEStructuralFeatures().get(3);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCamera_MProjMat() {
-		return (EAttribute)cameraEClass.getEStructuralFeatures().get(4);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCamera_MNearVal() {
-		return (EAttribute)cameraEClass.getEStructuralFeatures().get(5);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getCamera_MFarVal() {
-		return (EAttribute)cameraEClass.getEStructuralFeatures().get(6);
+	public EReference getCamera_Up() {
+		return (EReference)cameraEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -640,16 +560,6 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EOperation getScene__AddNode() {
-		return sceneEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EClass getLight() {
 		return lightEClass;
 	}
@@ -660,38 +570,8 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
-	public EAttribute getLight_Cont() {
-		return (EAttribute)lightEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getLight_Id() {
-		return (EAttribute)lightEClass.getEStructuralFeatures().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EAttribute getLight_PosDIr() {
-		return (EAttribute)lightEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
 	public EReference getLight_Ambient() {
-		return (EReference)lightEClass.getEStructuralFeatures().get(3);
+		return (EReference)lightEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -701,7 +581,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 */
 	@Override
 	public EReference getLight_Difusse() {
-		return (EReference)lightEClass.getEStructuralFeatures().get(4);
+		return (EReference)lightEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -711,7 +591,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 */
 	@Override
 	public EReference getLight_Specular() {
-		return (EReference)lightEClass.getEStructuralFeatures().get(5);
+		return (EReference)lightEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -721,37 +601,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 */
 	@Override
 	public EReference getLight_Direccion() {
-		return (EReference)lightEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getLight__UploadL__Object() {
-		return lightEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getLight__Disable() {
-		return lightEClass.getEOperations().get(1);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getLight__Enable() {
-		return lightEClass.getEOperations().get(2);
+		return (EReference)lightEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -992,26 +842,6 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	@Override
 	public EAttribute getAbs_Entity_TexturaRepeticionAlto() {
 		return (EAttribute)abs_EntityEClass.getEStructuralFeatures().get(6);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getAbs_Entity__Render__Object() {
-		return abs_EntityEClass.getEOperations().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EOperation getAbs_Entity__Upload() {
-		return abs_EntityEClass.getEOperations().get(1);
 	}
 
 	/**
@@ -1804,49 +1634,34 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 
 		// Create classes and their features
 		sceneManagerEClass = createEClass(SCENE_MANAGER);
-		createEAttribute(sceneManagerEClass, SCENE_MANAGER__WIN_ID);
 		createEAttribute(sceneManagerEClass, SCENE_MANAGER__WIN_W);
 		createEAttribute(sceneManagerEClass, SCENE_MANAGER__WIN_H);
 		createEReference(sceneManagerEClass, SCENE_MANAGER__VIEWPORT);
 		createEReference(sceneManagerEClass, SCENE_MANAGER__CAMERA);
 		createEReference(sceneManagerEClass, SCENE_MANAGER__SCENES);
-		createEAttribute(sceneManagerEClass, SCENE_MANAGER__MSTOP);
-		createEOperation(sceneManagerEClass, SCENE_MANAGER___RUN);
-		createEOperation(sceneManagerEClass, SCENE_MANAGER___CLOSE);
 
 		viewPortEClass = createEClass(VIEW_PORT);
 		createEAttribute(viewPortEClass, VIEW_PORT__XLEFT);
-		createEAttribute(viewPortEClass, VIEW_PORT__YBOLT);
+		createEAttribute(viewPortEClass, VIEW_PORT__YBOT);
 		createEAttribute(viewPortEClass, VIEW_PORT__XWIDTH);
 		createEAttribute(viewPortEClass, VIEW_PORT__YHEIGHT);
-		createEOperation(viewPortEClass, VIEW_PORT___UPLOAD);
 
 		cameraEClass = createEClass(CAMERA);
-		createEAttribute(cameraEClass, CAMERA__MEYE);
-		createEAttribute(cameraEClass, CAMERA__MLOOK);
-		createEAttribute(cameraEClass, CAMERA__MUP);
-		createEAttribute(cameraEClass, CAMERA__MODEL_VIEW_MAT);
-		createEAttribute(cameraEClass, CAMERA__MPROJ_MAT);
-		createEAttribute(cameraEClass, CAMERA__MNEAR_VAL);
-		createEAttribute(cameraEClass, CAMERA__MFAR_VAL);
+		createEAttribute(cameraEClass, CAMERA__BORTO);
+		createEReference(cameraEClass, CAMERA__EYE);
+		createEReference(cameraEClass, CAMERA__LOOK);
+		createEReference(cameraEClass, CAMERA__UP);
 
 		sceneEClass = createEClass(SCENE);
 		createEAttribute(sceneEClass, SCENE__NAME);
 		createEAttribute(sceneEClass, SCENE__VISIBLE);
 		createEReference(sceneEClass, SCENE__NODO);
-		createEOperation(sceneEClass, SCENE___ADD_NODE);
 
 		lightEClass = createEClass(LIGHT);
-		createEAttribute(lightEClass, LIGHT__CONT);
-		createEAttribute(lightEClass, LIGHT__ID);
-		createEAttribute(lightEClass, LIGHT__POS_DIR);
 		createEReference(lightEClass, LIGHT__AMBIENT);
 		createEReference(lightEClass, LIGHT__DIFUSSE);
 		createEReference(lightEClass, LIGHT__SPECULAR);
 		createEReference(lightEClass, LIGHT__DIRECCION);
-		createEOperation(lightEClass, LIGHT___UPLOAD_L__OBJECT);
-		createEOperation(lightEClass, LIGHT___DISABLE);
-		createEOperation(lightEClass, LIGHT___ENABLE);
 
 		dirLightEClass = createEClass(DIR_LIGHT);
 
@@ -1876,8 +1691,6 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		createEReference(abs_EntityEClass, ABS_ENTITY__BACK_TEXTURE);
 		createEAttribute(abs_EntityEClass, ABS_ENTITY__TEXTURA_REPETICION_ANCHO);
 		createEAttribute(abs_EntityEClass, ABS_ENTITY__TEXTURA_REPETICION_ALTO);
-		createEOperation(abs_EntityEClass, ABS_ENTITY___RENDER__OBJECT);
-		createEOperation(abs_EntityEClass, ABS_ENTITY___UPLOAD);
 
 		quadricEntityEClass = createEClass(QUADRIC_ENTITY);
 		createEAttribute(quadricEntityEClass, QUADRIC_ENTITY__Q);
@@ -2023,57 +1836,34 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(sceneManagerEClass, SceneManager.class, "SceneManager", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSceneManager_WinId(), ecorePackage.getEInt(), "WinId", null, 0, 1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSceneManager_WinW(), ecorePackage.getEInt(), "WinW", "800", 0, 1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getSceneManager_WinH(), ecorePackage.getEInt(), "WinH", "600", 0, 1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSceneManager_Viewport(), this.getViewPort(), null, "viewport", null, 0, 1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSceneManager_Camera(), this.getCamera(), null, "camera", null, 0, 1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getSceneManager_Scenes(), this.getScene(), null, "scenes", null, 0, -1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSceneManager_MStop(), ecorePackage.getEBoolean(), "mStop", "False", 0, 1, SceneManager.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getSceneManager__Run(), null, "run", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getSceneManager__Close(), null, "close", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(viewPortEClass, ViewPort.class, "ViewPort", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getViewPort_XLeft(), ecorePackage.getEInt(), "xLeft", null, 0, 1, ViewPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getViewPort_YBolt(), ecorePackage.getEInt(), "yBolt", null, 0, 1, ViewPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getViewPort_XWidth(), this.getGLsizei(), "xWidth", null, 0, 1, ViewPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getViewPort_YHeight(), this.getGLsizei(), "yHeight", null, 0, 1, ViewPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEOperation(getViewPort__Upload(), null, "upload", 0, 1, IS_UNIQUE, IS_ORDERED);
+		initEAttribute(getViewPort_XLeft(), ecorePackage.getEInt(), "xLeft", "0", 0, 1, ViewPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getViewPort_YBot(), ecorePackage.getEInt(), "yBot", "0", 0, 1, ViewPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getViewPort_XWidth(), ecorePackage.getEInt(), "xWidth", "800", 0, 1, ViewPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getViewPort_YHeight(), ecorePackage.getEInt(), "yHeight", "600", 0, 1, ViewPort.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(cameraEClass, Camera.class, "Camera", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getCamera_MEye(), this.getvec3(), "mEye", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCamera_MLook(), this.getvec3(), "mLook", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCamera_MUp(), this.getvec3(), "mUp", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCamera_ModelViewMat(), this.getmat4(), "modelViewMat", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCamera_MProjMat(), this.getmat4(), "mProjMat", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCamera_MNearVal(), ecorePackage.getEDouble(), "mNearVal", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getCamera_MFarVal(), ecorePackage.getEDouble(), "mFarVal", "10000", 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCamera_BOrto(), ecorePackage.getEBoolean(), "bOrto", "true", 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCamera_Eye(), this.getVector3(), null, "Eye", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCamera_Look(), this.getVector3(), null, "Look", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getCamera_Up(), this.getVector3(), null, "Up", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sceneEClass, Scene.class, "Scene", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScene_Name(), ecorePackage.getEString(), "Name", null, 1, 1, Scene.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScene_Visible(), ecorePackage.getEBoolean(), "Visible", "true", 0, 1, Scene.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScene_Nodo(), this.getNode(), null, "nodo", null, 0, -1, Scene.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEOperation(getScene__AddNode(), null, "addNode", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(lightEClass, Light.class, "Light", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getLight_Cont(), this.getGLuint(), "cont", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLight_Id(), this.getGLuint(), "id", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getLight_PosDIr(), this.getvec4(), "posDIr", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLight_Ambient(), this.getVector4(), null, "ambient", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLight_Difusse(), this.getVector4(), null, "difusse", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLight_Specular(), this.getVector4(), null, "specular", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getLight_Direccion(), this.getVector3(), null, "direccion", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		EOperation op = initEOperation(getLight__UploadL__Object(), null, "uploadL", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getmat4(), "modelViewMat", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getLight__Disable(), null, "disable", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getLight__Enable(), null, "enable", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(dirLightEClass, DirLight.class, "DirLight", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -2104,11 +1894,6 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		initEAttribute(getAbs_Entity_TexturaRepeticionAncho(), ecorePackage.getEInt(), "TexturaRepeticionAncho", "1", 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getAbs_Entity_TexturaRepeticionAlto(), ecorePackage.getEInt(), "TexturaRepeticionAlto", "1", 0, 1, Abs_Entity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getAbs_Entity__Render__Object(), null, "render", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, this.getmat4(), "modelViewMat", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		initEOperation(getAbs_Entity__Upload(), null, "upload", 0, 1, IS_UNIQUE, IS_ORDERED);
-
 		initEClass(quadricEntityEClass, QuadricEntity.class, "QuadricEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQuadricEntity_Q(), this.getGLquadricObj(), "q", null, 0, 1, QuadricEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2135,7 +1920,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		initEAttribute(getMbR_M(), ecorePackage.getEInt(), "m", null, 0, 1, MbR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getMbR_Perfil(), this.getvec3(), "perfil", null, 0, 1, MbR.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		op = initEOperation(getMbR__GenerateIndexMbR__int_int_Object(), this.getMbR(), "generateIndexMbR", 0, 1, IS_UNIQUE, IS_ORDERED);
+		EOperation op = initEOperation(getMbR__GenerateIndexMbR__int_int_Object(), this.getMbR(), "generateIndexMbR", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "n", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEInt(), "m", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, this.getvec3(), "perfil", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -2159,7 +1944,7 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		initEAttribute(getVector3_Z(), ecorePackage.getEDouble(), "Z", null, 0, 1, Vector3.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(poligonoRegularEClass, PoligonoRegular.class, "PoligonoRegular", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPoligonoRegular_NumVertices(), ecorePackage.getEInt(), "NumVertices", null, 0, 1, PoligonoRegular.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPoligonoRegular_NumVertices(), ecorePackage.getEInt(), "NumVertices", "0", 0, 1, PoligonoRegular.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPoligonoRegular_Radio(), ecorePackage.getEDouble(), "Radio", null, 0, 1, PoligonoRegular.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getPoligonoRegular_Rellenar(), ecorePackage.getEBoolean(), "Rellenar", null, 0, 1, PoligonoRegular.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -2214,25 +1999,6 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 
 		// Create resource
 		createResource(eNS_URI);
-
-		// Create annotations
-		// null
-		createNullAnnotations();
-	}
-
-	/**
-	 * Initializes the annotations for <b>null</b>.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void createNullAnnotations() {
-		String source = null;
-		addAnnotation
-		  (getSceneManager_MStop(),
-		   source,
-		   new String[] {
-		   });
 	}
 
 } //OpenGL_DSLPackageImpl
