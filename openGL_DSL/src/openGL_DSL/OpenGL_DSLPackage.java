@@ -242,13 +242,40 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int CAMERA__UP = 3;
 
 	/**
+	 * The feature id for the '<em><b>Plano Cercano</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA__PLANO_CERCANO = 4;
+
+	/**
+	 * The feature id for the '<em><b>Plano Lejano</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA__PLANO_LEJANO = 5;
+
+	/**
+	 * The feature id for the '<em><b>Radio</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CAMERA__RADIO = 6;
+
+	/**
 	 * The number of structural features of the '<em>Camera</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CAMERA_FEATURE_COUNT = 4;
+	int CAMERA_FEATURE_COUNT = 7;
 
 	/**
 	 * The number of operations of the '<em>Camera</em>' class.
@@ -297,13 +324,22 @@ public interface OpenGL_DSLPackage extends EPackage {
 	int SCENE__NODO = 2;
 
 	/**
+	 * The feature id for the '<em><b>Color Fondo</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SCENE__COLOR_FONDO = 3;
+
+	/**
 	 * The number of structural features of the '<em>Scene</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SCENE_FEATURE_COUNT = 3;
+	int SCENE_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Scene</em>' class.
@@ -2932,6 +2968,39 @@ public interface OpenGL_DSLPackage extends EPackage {
 	EReference getCamera_Up();
 
 	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Camera#getPlanoCercano <em>Plano Cercano</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Plano Cercano</em>'.
+	 * @see openGL_DSL.Camera#getPlanoCercano()
+	 * @see #getCamera()
+	 * @generated
+	 */
+	EAttribute getCamera_PlanoCercano();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Camera#getPlanoLejano <em>Plano Lejano</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Plano Lejano</em>'.
+	 * @see openGL_DSL.Camera#getPlanoLejano()
+	 * @see #getCamera()
+	 * @generated
+	 */
+	EAttribute getCamera_PlanoLejano();
+
+	/**
+	 * Returns the meta object for the attribute '{@link openGL_DSL.Camera#getRadio <em>Radio</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Radio</em>'.
+	 * @see openGL_DSL.Camera#getRadio()
+	 * @see #getCamera()
+	 * @generated
+	 */
+	EAttribute getCamera_Radio();
+
+	/**
 	 * Returns the meta object for class '{@link openGL_DSL.Scene <em>Scene</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2973,6 +3042,17 @@ public interface OpenGL_DSLPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getScene_Nodo();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link openGL_DSL.Scene#getColorFondo <em>Color Fondo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Color Fondo</em>'.
+	 * @see openGL_DSL.Scene#getColorFondo()
+	 * @see #getScene()
+	 * @generated
+	 */
+	EReference getScene_ColorFondo();
 
 	/**
 	 * Returns the meta object for class '{@link openGL_DSL.Light <em>Light</em>}'.
@@ -4259,6 +4339,30 @@ public interface OpenGL_DSLPackage extends EPackage {
 		EReference CAMERA__UP = eINSTANCE.getCamera_Up();
 
 		/**
+		 * The meta object literal for the '<em><b>Plano Cercano</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CAMERA__PLANO_CERCANO = eINSTANCE.getCamera_PlanoCercano();
+
+		/**
+		 * The meta object literal for the '<em><b>Plano Lejano</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CAMERA__PLANO_LEJANO = eINSTANCE.getCamera_PlanoLejano();
+
+		/**
+		 * The meta object literal for the '<em><b>Radio</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CAMERA__RADIO = eINSTANCE.getCamera_Radio();
+
+		/**
 		 * The meta object literal for the '{@link openGL_DSL.impl.SceneImpl <em>Scene</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -4291,6 +4395,14 @@ public interface OpenGL_DSLPackage extends EPackage {
 		 * @generated
 		 */
 		EReference SCENE__NODO = eINSTANCE.getScene_Nodo();
+
+		/**
+		 * The meta object literal for the '<em><b>Color Fondo</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference SCENE__COLOR_FONDO = eINSTANCE.getScene_ColorFondo();
 
 		/**
 		 * The meta object literal for the '{@link openGL_DSL.Light <em>Light</em>}' class.

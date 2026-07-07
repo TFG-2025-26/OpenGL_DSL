@@ -7,6 +7,7 @@ import java.util.Collection;
 import openGL_DSL.Node;
 import openGL_DSL.OpenGL_DSLPackage;
 import openGL_DSL.Scene;
+import openGL_DSL.Vector4;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -33,6 +34,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link openGL_DSL.impl.SceneImpl#getName <em>Name</em>}</li>
  *   <li>{@link openGL_DSL.impl.SceneImpl#isVisible <em>Visible</em>}</li>
  *   <li>{@link openGL_DSL.impl.SceneImpl#getNodo <em>Nodo</em>}</li>
+ *   <li>{@link openGL_DSL.impl.SceneImpl#getColorFondo <em>Color Fondo</em>}</li>
  * </ul>
  *
  * @generated
@@ -87,6 +89,16 @@ public class SceneImpl extends MinimalEObjectImpl.Container implements Scene {
 	 * @ordered
 	 */
 	protected EList<Node> nodo;
+
+	/**
+	 * The cached value of the '{@link #getColorFondo() <em>Color Fondo</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getColorFondo()
+	 * @generated
+	 * @ordered
+	 */
+	protected Vector4 colorFondo;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -172,10 +184,57 @@ public class SceneImpl extends MinimalEObjectImpl.Container implements Scene {
 	 * @generated
 	 */
 	@Override
+	public Vector4 getColorFondo() {
+		return colorFondo;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetColorFondo(Vector4 newColorFondo, NotificationChain msgs) {
+		Vector4 oldColorFondo = colorFondo;
+		colorFondo = newColorFondo;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.SCENE__COLOR_FONDO, oldColorFondo, newColorFondo);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setColorFondo(Vector4 newColorFondo) {
+		if (newColorFondo != colorFondo) {
+			NotificationChain msgs = null;
+			if (colorFondo != null)
+				msgs = ((InternalEObject)colorFondo).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.SCENE__COLOR_FONDO, null, msgs);
+			if (newColorFondo != null)
+				msgs = ((InternalEObject)newColorFondo).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - OpenGL_DSLPackage.SCENE__COLOR_FONDO, null, msgs);
+			msgs = basicSetColorFondo(newColorFondo, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.SCENE__COLOR_FONDO, newColorFondo, newColorFondo));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case OpenGL_DSLPackage.SCENE__NODO:
 				return ((InternalEList<?>)getNodo()).basicRemove(otherEnd, msgs);
+			case OpenGL_DSLPackage.SCENE__COLOR_FONDO:
+				return basicSetColorFondo(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -194,6 +253,8 @@ public class SceneImpl extends MinimalEObjectImpl.Container implements Scene {
 				return isVisible();
 			case OpenGL_DSLPackage.SCENE__NODO:
 				return getNodo();
+			case OpenGL_DSLPackage.SCENE__COLOR_FONDO:
+				return getColorFondo();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,6 +278,9 @@ public class SceneImpl extends MinimalEObjectImpl.Container implements Scene {
 				getNodo().clear();
 				getNodo().addAll((Collection<? extends Node>)newValue);
 				return;
+			case OpenGL_DSLPackage.SCENE__COLOR_FONDO:
+				setColorFondo((Vector4)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -238,6 +302,9 @@ public class SceneImpl extends MinimalEObjectImpl.Container implements Scene {
 			case OpenGL_DSLPackage.SCENE__NODO:
 				getNodo().clear();
 				return;
+			case OpenGL_DSLPackage.SCENE__COLOR_FONDO:
+				setColorFondo((Vector4)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -256,6 +323,8 @@ public class SceneImpl extends MinimalEObjectImpl.Container implements Scene {
 				return visible != VISIBLE_EDEFAULT;
 			case OpenGL_DSLPackage.SCENE__NODO:
 				return nodo != null && !nodo.isEmpty();
+			case OpenGL_DSLPackage.SCENE__COLOR_FONDO:
+				return colorFondo != null;
 		}
 		return super.eIsSet(featureID);
 	}

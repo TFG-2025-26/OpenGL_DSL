@@ -17,6 +17,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link openGL_DSL.Camera#getEye <em>Eye</em>}</li>
  *   <li>{@link openGL_DSL.Camera#getLook <em>Look</em>}</li>
  *   <li>{@link openGL_DSL.Camera#getUp <em>Up</em>}</li>
+ *   <li>{@link openGL_DSL.Camera#getPlanoCercano <em>Plano Cercano</em>}</li>
+ *   <li>{@link openGL_DSL.Camera#getPlanoLejano <em>Plano Lejano</em>}</li>
+ *   <li>{@link openGL_DSL.Camera#getRadio <em>Radio</em>}</li>
  * </ul>
  *
  * @see openGL_DSL.OpenGL_DSLPackage#getCamera()
@@ -112,5 +115,74 @@ public interface Camera extends EObject {
 	 * @generated
 	 */
 	void setUp(Vector3 value);
+
+	/**
+	 * Returns the value of the '<em><b>Plano Cercano</b></em>' attribute.
+	 * The default value is <code>"1"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Plano Cercano</em>' attribute.
+	 * @see #setPlanoCercano(double)
+	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_PlanoCercano()
+	 * @model default="1"
+	 * @generated
+	 */
+	double getPlanoCercano();
+
+	/**
+	 * Sets the value of the '{@link openGL_DSL.Camera#getPlanoCercano <em>Plano Cercano</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Plano Cercano</em>' attribute.
+	 * @see #getPlanoCercano()
+	 * @generated
+	 */
+	void setPlanoCercano(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Plano Lejano</b></em>' attribute.
+	 * The default value is <code>"10000"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Plano Lejano</em>' attribute.
+	 * @see #setPlanoLejano(double)
+	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_PlanoLejano()
+	 * @model default="10000"
+	 * @generated
+	 */
+	double getPlanoLejano();
+
+	/**
+	 * Sets the value of the '{@link openGL_DSL.Camera#getPlanoLejano <em>Plano Lejano</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Plano Lejano</em>' attribute.
+	 * @see #getPlanoLejano()
+	 * @generated
+	 */
+	void setPlanoLejano(double value);
+
+	/**
+	 * Returns the value of the '<em><b>Radio</b></em>' attribute.
+	 * The default value is <code>"1000"</code>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Radio</em>' attribute.
+	 * @see #setRadio(double)
+	 * @see openGL_DSL.OpenGL_DSLPackage#getCamera_Radio()
+	 * @model default="1000"
+	 * @generated
+	 */
+	double getRadio();
+
+	/**
+	 * Sets the value of the '{@link openGL_DSL.Camera#getRadio <em>Radio</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Radio</em>' attribute.
+	 * @see #getRadio()
+	 * @generated
+	 */
+	void setRadio(double value);
 
 } // Camera

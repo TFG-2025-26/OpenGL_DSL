@@ -30,11 +30,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Camera/Eye"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Camera/Look"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Camera/Up"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Camera/PlanoCercano"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Camera/PlanoLejano"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Camera/Radio"/>
     </genClasses>
     <genClasses ecoreClass="openGL_DSL.ecore#//Scene">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Scene/Name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute openGL_DSL.ecore#//Scene/Visible"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Scene/nodo"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Scene/ColorFondo"/>
     </genClasses>
     <genClasses image="false" ecoreClass="openGL_DSL.ecore#//Light">
       <genFeatures createChild="false" ecoreFeature="ecore:EReference openGL_DSL.ecore#//Light/ambient"/>

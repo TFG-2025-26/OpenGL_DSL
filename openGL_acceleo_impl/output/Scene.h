@@ -29,6 +29,7 @@ public:
     void addNode(Node* n);
     void setVisible(bool v);
 
+    void setColor(glm::dvec4 const& aColor) { colorFondo = aColor; };
 
 protected:
 	void free();
@@ -37,7 +38,7 @@ protected:
 
 	std::vector<Node*> nodes; // Entities (graphic objects) of the scene
     bool visible;
-	
+	glm::dvec4 colorFondo = { 0.6, 0.7, 0.8, 1.0 };
 };
 
 #endif //_H_Scene_H_

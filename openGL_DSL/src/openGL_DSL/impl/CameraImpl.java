@@ -27,6 +27,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
  *   <li>{@link openGL_DSL.impl.CameraImpl#getEye <em>Eye</em>}</li>
  *   <li>{@link openGL_DSL.impl.CameraImpl#getLook <em>Look</em>}</li>
  *   <li>{@link openGL_DSL.impl.CameraImpl#getUp <em>Up</em>}</li>
+ *   <li>{@link openGL_DSL.impl.CameraImpl#getPlanoCercano <em>Plano Cercano</em>}</li>
+ *   <li>{@link openGL_DSL.impl.CameraImpl#getPlanoLejano <em>Plano Lejano</em>}</li>
+ *   <li>{@link openGL_DSL.impl.CameraImpl#getRadio <em>Radio</em>}</li>
  * </ul>
  *
  * @generated
@@ -81,6 +84,66 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	 * @ordered
 	 */
 	protected Vector3 up;
+
+	/**
+	 * The default value of the '{@link #getPlanoCercano() <em>Plano Cercano</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlanoCercano()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double PLANO_CERCANO_EDEFAULT = 1.0;
+
+	/**
+	 * The cached value of the '{@link #getPlanoCercano() <em>Plano Cercano</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlanoCercano()
+	 * @generated
+	 * @ordered
+	 */
+	protected double planoCercano = PLANO_CERCANO_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getPlanoLejano() <em>Plano Lejano</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlanoLejano()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double PLANO_LEJANO_EDEFAULT = 10000.0;
+
+	/**
+	 * The cached value of the '{@link #getPlanoLejano() <em>Plano Lejano</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getPlanoLejano()
+	 * @generated
+	 * @ordered
+	 */
+	protected double planoLejano = PLANO_LEJANO_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getRadio() <em>Radio</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRadio()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final double RADIO_EDEFAULT = 1000.0;
+
+	/**
+	 * The cached value of the '{@link #getRadio() <em>Radio</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getRadio()
+	 * @generated
+	 * @ordered
+	 */
+	protected double radio = RADIO_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -265,6 +328,75 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 	 * @generated
 	 */
 	@Override
+	public double getPlanoCercano() {
+		return planoCercano;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPlanoCercano(double newPlanoCercano) {
+		double oldPlanoCercano = planoCercano;
+		planoCercano = newPlanoCercano;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__PLANO_CERCANO, oldPlanoCercano, planoCercano));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public double getPlanoLejano() {
+		return planoLejano;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setPlanoLejano(double newPlanoLejano) {
+		double oldPlanoLejano = planoLejano;
+		planoLejano = newPlanoLejano;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__PLANO_LEJANO, oldPlanoLejano, planoLejano));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public double getRadio() {
+		return radio;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public void setRadio(double newRadio) {
+		double oldRadio = radio;
+		radio = newRadio;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, OpenGL_DSLPackage.CAMERA__RADIO, oldRadio, radio));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case OpenGL_DSLPackage.CAMERA__EYE:
@@ -293,6 +425,12 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 				return getLook();
 			case OpenGL_DSLPackage.CAMERA__UP:
 				return getUp();
+			case OpenGL_DSLPackage.CAMERA__PLANO_CERCANO:
+				return getPlanoCercano();
+			case OpenGL_DSLPackage.CAMERA__PLANO_LEJANO:
+				return getPlanoLejano();
+			case OpenGL_DSLPackage.CAMERA__RADIO:
+				return getRadio();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -316,6 +454,15 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 				return;
 			case OpenGL_DSLPackage.CAMERA__UP:
 				setUp((Vector3)newValue);
+				return;
+			case OpenGL_DSLPackage.CAMERA__PLANO_CERCANO:
+				setPlanoCercano((Double)newValue);
+				return;
+			case OpenGL_DSLPackage.CAMERA__PLANO_LEJANO:
+				setPlanoLejano((Double)newValue);
+				return;
+			case OpenGL_DSLPackage.CAMERA__RADIO:
+				setRadio((Double)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -341,6 +488,15 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 			case OpenGL_DSLPackage.CAMERA__UP:
 				setUp((Vector3)null);
 				return;
+			case OpenGL_DSLPackage.CAMERA__PLANO_CERCANO:
+				setPlanoCercano(PLANO_CERCANO_EDEFAULT);
+				return;
+			case OpenGL_DSLPackage.CAMERA__PLANO_LEJANO:
+				setPlanoLejano(PLANO_LEJANO_EDEFAULT);
+				return;
+			case OpenGL_DSLPackage.CAMERA__RADIO:
+				setRadio(RADIO_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -361,6 +517,12 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 				return look != null;
 			case OpenGL_DSLPackage.CAMERA__UP:
 				return up != null;
+			case OpenGL_DSLPackage.CAMERA__PLANO_CERCANO:
+				return planoCercano != PLANO_CERCANO_EDEFAULT;
+			case OpenGL_DSLPackage.CAMERA__PLANO_LEJANO:
+				return planoLejano != PLANO_LEJANO_EDEFAULT;
+			case OpenGL_DSLPackage.CAMERA__RADIO:
+				return radio != RADIO_EDEFAULT;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -377,6 +539,12 @@ public class CameraImpl extends MinimalEObjectImpl.Container implements Camera {
 		StringBuilder result = new StringBuilder(super.toString());
 		result.append(" (bOrto: ");
 		result.append(bOrto);
+		result.append(", PlanoCercano: ");
+		result.append(planoCercano);
+		result.append(", PlanoLejano: ");
+		result.append(planoLejano);
+		result.append(", Radio: ");
+		result.append(radio);
 		result.append(')');
 		return result.toString();
 	}

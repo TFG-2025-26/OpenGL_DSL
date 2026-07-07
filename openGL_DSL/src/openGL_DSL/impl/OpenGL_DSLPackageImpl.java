@@ -520,6 +520,36 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	 * @generated
 	 */
 	@Override
+	public EAttribute getCamera_PlanoCercano() {
+		return (EAttribute)cameraEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCamera_PlanoLejano() {
+		return (EAttribute)cameraEClass.getEStructuralFeatures().get(5);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EAttribute getCamera_Radio() {
+		return (EAttribute)cameraEClass.getEStructuralFeatures().get(6);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public EClass getScene() {
 		return sceneEClass;
 	}
@@ -552,6 +582,16 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 	@Override
 	public EReference getScene_Nodo() {
 		return (EReference)sceneEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public EReference getScene_ColorFondo() {
+		return (EReference)sceneEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1651,11 +1691,15 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		createEReference(cameraEClass, CAMERA__EYE);
 		createEReference(cameraEClass, CAMERA__LOOK);
 		createEReference(cameraEClass, CAMERA__UP);
+		createEAttribute(cameraEClass, CAMERA__PLANO_CERCANO);
+		createEAttribute(cameraEClass, CAMERA__PLANO_LEJANO);
+		createEAttribute(cameraEClass, CAMERA__RADIO);
 
 		sceneEClass = createEClass(SCENE);
 		createEAttribute(sceneEClass, SCENE__NAME);
 		createEAttribute(sceneEClass, SCENE__VISIBLE);
 		createEReference(sceneEClass, SCENE__NODO);
+		createEReference(sceneEClass, SCENE__COLOR_FONDO);
 
 		lightEClass = createEClass(LIGHT);
 		createEReference(lightEClass, LIGHT__AMBIENT);
@@ -1853,11 +1897,15 @@ public class OpenGL_DSLPackageImpl extends EPackageImpl implements OpenGL_DSLPac
 		initEReference(getCamera_Eye(), this.getVector3(), null, "Eye", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCamera_Look(), this.getVector3(), null, "Look", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getCamera_Up(), this.getVector3(), null, "Up", null, 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCamera_PlanoCercano(), ecorePackage.getEDouble(), "PlanoCercano", "1", 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCamera_PlanoLejano(), ecorePackage.getEDouble(), "PlanoLejano", "10000", 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getCamera_Radio(), ecorePackage.getEDouble(), "Radio", "1000", 0, 1, Camera.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(sceneEClass, Scene.class, "Scene", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getScene_Name(), ecorePackage.getEString(), "Name", null, 1, 1, Scene.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEAttribute(getScene_Visible(), ecorePackage.getEBoolean(), "Visible", "true", 0, 1, Scene.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getScene_Nodo(), this.getNode(), null, "nodo", null, 0, -1, Scene.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getScene_ColorFondo(), this.getVector4(), null, "ColorFondo", null, 0, 1, Scene.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(lightEClass, Light.class, "Light", IS_ABSTRACT, IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getLight_Ambient(), this.getVector4(), null, "ambient", null, 0, 1, Light.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

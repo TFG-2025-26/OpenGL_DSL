@@ -5,7 +5,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:openGL_DSL="http://www.example.org/openGL_DSL">
   <viewport/>
-  <camera/>
+  <camera>
+    <Eye Z="500.0"/>
+    <Look/>
+    <Up Y="1.0"/>
+  </camera>
   <scenes Name="eje">
     <nodo Name="eje">
       <abs_entity
@@ -5378,5 +5382,8 @@
             X="5200.0"/>
       </nodo>
     </nodo>
+    <ColorFondo
+        R="1.0"
+        A="1.0"/>
   </scenes>
 </openGL_DSL:SceneManager>

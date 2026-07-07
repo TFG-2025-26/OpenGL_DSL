@@ -6981,6 +6981,7 @@ Scene* Scene_materiales(){
     Scene* scene= new Scene();
     scene->addNode(Node_lucesM());
     scene->addNode(Node_materiales());
+    scene->setColor(dvec4(1.0,0.0,0.0,1.0));
     scene->setVisible(true);
     return scene;
 }
@@ -7150,6 +7151,11 @@ void init() {
     viewport->setPos(0,0);
     viewport->setSize(800,600);
     camera = new Camera(viewport);
+    camera->setEye(dvec3(0.0, 0.0, 500.0));
+    camera->setLook(dvec3(0.0, 0.0, 0.0));
+    camera->setUp(dvec3(0.0, 1.0, 0.0));
+    camera->setNearVal(1.0);
+    camera->setFarVal(10000.0);
 
     // CARGA DE ENTIDADES DESDE EL MODELO XMI
     Scene* sc;

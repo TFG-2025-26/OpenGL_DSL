@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link openGL_DSL.Scene#getName <em>Name</em>}</li>
  *   <li>{@link openGL_DSL.Scene#isVisible <em>Visible</em>}</li>
  *   <li>{@link openGL_DSL.Scene#getNodo <em>Nodo</em>}</li>
+ *   <li>{@link openGL_DSL.Scene#getColorFondo <em>Color Fondo</em>}</li>
  * </ul>
  *
  * @see openGL_DSL.OpenGL_DSLPackage#getScene()
@@ -81,5 +82,27 @@ public interface Scene extends EObject {
 	 * @generated
 	 */
 	EList<Node> getNodo();
+
+	/**
+	 * Returns the value of the '<em><b>Color Fondo</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Color Fondo</em>' containment reference.
+	 * @see #setColorFondo(Vector4)
+	 * @see openGL_DSL.OpenGL_DSLPackage#getScene_ColorFondo()
+	 * @model containment="true"
+	 * @generated
+	 */
+	Vector4 getColorFondo();
+
+	/**
+	 * Sets the value of the '{@link openGL_DSL.Scene#getColorFondo <em>Color Fondo</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Color Fondo</em>' containment reference.
+	 * @see #getColorFondo()
+	 * @generated
+	 */
+	void setColorFondo(Vector4 value);
 
 } // Scene

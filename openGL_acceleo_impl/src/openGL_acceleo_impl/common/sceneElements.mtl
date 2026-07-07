@@ -11,6 +11,9 @@ Scene* Scene_[aScene.Name/](){
 [for (n : Node | aScene.nodo)]
     scene->addNode(Node_[n.Name/]());
 [/for]
+[if (aScene.ColorFondo <> null)]
+    scene->setColor(dvec4([aScene.ColorFondo.R/],[aScene.ColorFondo.G/],[aScene.ColorFondo.B/],[aScene.ColorFondo.A/]));
+[/if]
     scene->setVisible([aScene.Visible/]);
     return scene;
 }

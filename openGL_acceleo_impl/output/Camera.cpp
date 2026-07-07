@@ -186,3 +186,15 @@ Camera::setUp(glm::dvec3 up) {
 	mUp = up;
 	setVM();
 }
+
+void
+Camera::setNearVal(GLdouble nearVal) {
+	mNearVal = nearVal;
+	setPM();
+}
+
+void
+Camera::setFarVal(GLdouble farVal) {
+	mFarVal = farVal;
+	setPM();
+}

@@ -4,9 +4,9 @@
     <input>
       <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
     </input>
-    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/meshFile.emtl#/0"/>
-    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/textureFile.emtl#/0"/>
-    <imports href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/materialFile.emtl#/0"/>
+    <imports href="meshFile.emtl#/0"/>
+    <imports href="textureFile.emtl#/0"/>
+    <imports href="materialFile.emtl#/0"/>
     <ownedModuleElement xsi:type="mtl:Template" name="generateEntity" visibility="Public">
       <body xsi:type="mtl:FileBlock" openMode="OverWrite">
         <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="#ifndef _H_Entity_H_&#xD;&#xA;#define _H_Entity_H_&#xD;&#xA;&#xD;&#xA;#include &lt;GL/freeglut.h>&#xD;&#xA;#include &lt;glm/glm.hpp>&#xD;&#xA;&#xD;&#xA;#include &quot;Mesh.h&quot;&#xD;&#xA;#include &quot;Texture.h&quot;&#xD;&#xA;#include &quot;Material.h&quot;&#xD;&#xA;&#xD;&#xA;class Abs_Entity // abstract class&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;Abs_Entity()&#xD;&#xA;&#x9;&#x9;: mModelMat(1.0), mColor(1) {&#xD;&#xA;&#x9;}; // 4x4 identity matrix&#xD;&#xA;&#x9;virtual ~Abs_Entity() = default;&#xD;&#xA;&#xD;&#xA;&#x9;Abs_Entity(const Abs_Entity&amp; e) = delete;            // no copy constructor&#xD;&#xA;&#x9;Abs_Entity&amp; operator=(const Abs_Entity&amp; e) = delete; // no copy assignment&#xD;&#xA;&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const = 0; // abstract method&#xD;&#xA;&#xD;&#xA;&#x9;// modeling matrix&#xD;&#xA;&#x9;glm::dmat4 const&amp; modelMat() const { return mModelMat; };&#xD;&#xA;&#x9;void setModelMat(glm::dmat4 const&amp; aMat) { mModelMat = aMat; };&#xD;&#xA;&#xD;&#xA;&#x9;glm::dvec4 const&amp; color() const { return mColor; };&#xD;&#xA;&#x9;void setColor(glm::dvec4 const&amp; aColor) { mColor = aColor; };&#xD;&#xA;    void setFrontTexture(Texture* aTexture) { mTexture = aTexture; };&#xD;&#xA;    void setBackTexture(Texture* aTexture) { mBackTexture = aTexture; };&#xD;&#xA;    void setMaterial(Material* matl) { material = matl; };&#xD;&#xA;&#xD;&#xA;protected:&#xD;&#xA;&#x9;Mesh* mMesh = nullptr; // the mesh&#xD;&#xA;&#x9;glm::dmat4 mModelMat;  // modeling matrix&#xD;&#xA;&#x9;glm::dvec4 mColor;     // entity color&#xD;&#xA;    Texture* mTexture = nullptr;&#xD;&#xA;    Texture* mBackTexture = nullptr;&#xD;&#xA;    Material* material = nullptr;&#xD;&#xA;&#xD;&#xA;&#x9;// transfers modelViewMat to the GPU&#xD;&#xA;&#x9;virtual void upload(glm::dmat4 const&amp; mModelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class EjesRGB : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit EjesRGB(GLdouble l);&#xD;&#xA;&#x9;~EjesRGB();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class PoligonoRegular : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit PoligonoRegular(GLuint num, GLdouble r,bool rellenar, GLuint rw, GLuint rh);&#xD;&#xA;&#x9;~PoligonoRegular();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Rectangulo : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit Rectangulo(GLdouble w, GLdouble h, bool rellenar, GLuint rw, GLuint rh);&#xD;&#xA;&#x9;~Rectangulo();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;private:&#xD;&#xA;    bool rellenar;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Circulo : public Abs_Entity&#xD;&#xA;{&#xD;&#xA;public:&#xD;&#xA;&#x9;explicit Circulo(GLdouble r, bool rellenar, GLuint rw, GLuint rh);&#xD;&#xA;&#x9;~Circulo();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class QuadricEntity : public Abs_Entity {&#xD;&#xA;public:&#xD;&#xA;&#x9;QuadricEntity();&#xD;&#xA;&#x9;virtual ~QuadricEntity() { gluDeleteQuadric(q); };&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLUquadricObj* q;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Sphere : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Sphere(GLdouble r, GLuint rw, GLuint rh); // r es el radio de la esfera&#xD;&#xA;    ~Sphere();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble r;&#xD;&#xA;    GLuint rw; &#xD;&#xA;    GLuint rh;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Cylinder : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Cylinder(GLdouble baseRadius, GLdouble topRadius, GLdouble height, GLuint rw, GLuint rh); // r es el radio de la esfera&#xD;&#xA;    ~Cylinder();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble baseRadius;&#xD;&#xA;&#x9;GLdouble topRadius;&#xD;&#xA;&#x9;GLdouble height;&#xD;&#xA;    GLuint rw; &#xD;&#xA;    GLuint rh;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Disk : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Disk(GLdouble innerRadius, GLdouble outerRadius, GLuint rw, GLuint rh); // r es el radio de la esfera&#xD;&#xA;    ~Disk();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble innerRadius;&#xD;&#xA;&#x9;GLdouble outerRadius;&#xD;&#xA;    GLuint rw; &#xD;&#xA;    GLuint rh;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class PartialDisk : public QuadricEntity {&#xD;&#xA;public:&#xD;&#xA;&#x9;PartialDisk(GLdouble innerRadius, GLdouble outerRadius, GLdouble startAngle, GLdouble sweepAngle, GLuint rw, GLuint rh); // r es el radio de la esfera&#xD;&#xA;    ~PartialDisk();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;protected:&#xD;&#xA;&#x9;GLdouble innerRadius;&#xD;&#xA;&#x9;GLdouble outerRadius;&#xD;&#xA;&#x9;GLdouble startAngle;&#xD;&#xA;&#x9;GLdouble sweepAngle;&#xD;&#xA;    GLuint rw; &#xD;&#xA;    GLuint rh;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class IndexedBox : public Abs_Entity {&#xD;&#xA;public:&#xD;&#xA;&#x9;IndexedBox(GLdouble l, GLuint rw, GLuint rh);&#xD;&#xA;&#x9;~IndexedBox();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;class Toroid : public Abs_Entity {&#xD;&#xA;public:&#xD;&#xA;&#x9;Toroid(GLdouble r, GLdouble R, GLuint rw, GLuint rh);&#xD;&#xA;&#x9;~Toroid();&#xD;&#xA;&#x9;virtual void render(glm::dmat4 const&amp; modelViewMat) const;&#xD;&#xA;};&#xD;&#xA;&#xD;&#xA;#endif&#xD;&#xA;"/>
@@ -46,7 +46,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="    "/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/meshFile.emtl#/0/generateMesh"/>
+        <definition href="meshFile.emtl#/0/generateMesh"/>
         <argument xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Mesh"/>
           <source xsi:type="ocl.ecore:VariableExp" name="anEntity" referredVariable="/0/generateEntity/anEntity">
@@ -58,7 +58,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;    "/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/textureFile.emtl#/0/generateTexture"/>
+        <definition href="textureFile.emtl#/0/generateTexture"/>
         <argument xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Texture"/>
           <source xsi:type="ocl.ecore:VariableExp" name="anEntity" referredVariable="/0/generateEntity/anEntity">
@@ -70,7 +70,7 @@
       <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xD;&#xA;    "/>
       <body xsi:type="mtl:TemplateInvocation">
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <definition href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/materialFile.emtl#/0/generateMaterial"/>
+        <definition href="materialFile.emtl#/0/generateMaterial"/>
         <argument xsi:type="ocl.ecore:PropertyCallExp">
           <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Material"/>
           <source xsi:type="ocl.ecore:VariableExp" name="anEntity" referredVariable="/0/generateEntity/anEntity">
@@ -120,7 +120,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/meshFile.emtl#/0/generateMesh"/>
+          <references href="meshFile.emtl#/0/generateMesh"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aMesh">
@@ -132,7 +132,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/textureFile.emtl#/0/generateTexture"/>
+          <references href="textureFile.emtl#/0/generateTexture"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aTexture">
@@ -144,7 +144,7 @@
           <contents xsi:type="ocl.ecore:Constraint"/>
         </eAnnotations>
         <eAnnotations source="MTL">
-          <references href="platform:/resource/openGL_acceleo_impl/bin/openGL_acceleo_impl/files/materialFile.emtl#/0/generateMaterial"/>
+          <references href="materialFile.emtl#/0/generateMaterial"/>
         </eAnnotations>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         <eParameters name="aMaterial">

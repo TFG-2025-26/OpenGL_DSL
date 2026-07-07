@@ -32,6 +32,12 @@
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="Up" eType="#//Vector3"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PlanoCercano" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="1"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="PlanoLejano" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="10000"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Radio" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"
+        defaultValueLiteral="1000"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scene">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -39,6 +45,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="Visible" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nodo" upperBound="-1" eType="#//Node"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ColorFondo" eType="#//Vector4"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Light" abstract="true" interface="true">
