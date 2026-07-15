@@ -10,7 +10,7 @@
 # memory leak detection.
 #
 
-project('ig1app', 'cpp', version: '1.0', default_options : ['cpp_std=c++20'])
+project('ProyectoDePrueba', 'cpp', version: '1.0', default_options : ['cpp_std=c++20'])
 
 # Program dependencies
 dependencies = [
@@ -21,14 +21,18 @@ dependencies = [
 
 # Source code files that will be compiled
 sourceFiles = [
-	'IG1App/Camera.cpp',
-	'IG1App/Entity.cpp',
-	'IG1App/IG1App.cpp',
-	'IG1App/main.cpp',
-	'IG1App/Mesh.cpp',
-	'IG1App/Scene.cpp',
-	'IG1App/Viewport.cpp',
+	'src/Camera.cpp',
+    'src/Entity.cpp',
+    'src/Light.cpp',
+    'src/main.cpp',
+    'src/Material.cpp',
+    'src/Mesh.cpp',
+    'src/Node.cpp',
+    'src/Pixmap32RGBA.cpp',
+    'src/Scene.cpp',
+    'src/Texture.cpp',
+    'src/Viewport.cpp',
 ]
 
 # Build a binary whose name is ig1app
-executable('ig1app', sourceFiles, dependencies: dependencies)
+executable('ProyectoDePrueba', sourceFiles, dependencies: dependencies)
