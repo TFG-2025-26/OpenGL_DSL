@@ -127,7 +127,6 @@ Node* Node_[n.Name/]() {
 [/let]
 [/if]
     node->addEntity(e[n.abs_entity->indexOf(ent)/]);
-
 [if (ent.Color <> null)]
     e[n.abs_entity->indexOf(ent)/]->setColor(dvec4([ent.Color.R/],[ent.Color.G/],[ent.Color.B/],[ent.Color.A/]));
 [/if]
@@ -137,13 +136,11 @@ Node* Node_[n.Name/]() {
 	frontTexture[n.abs_entity->indexOf(ent)/]->load("[ent.FrontTexture.Textura/]", [ent.FrontTexture.Alfa/]);
     e[n.abs_entity->indexOf(ent)/]->setFrontTexture(frontTexture[n.abs_entity->indexOf(ent)/]);
 [/if]
-
 [if (ent.BackTexture <> null)]
     Texture* backTexture[n.abs_entity->indexOf(ent)/] = new Texture();
 	backTexture[n.abs_entity->indexOf(ent)/]->load("[ent.BackTexture.Textura/]", [ent.BackTexture.Alfa/]);
     e[n.abs_entity->indexOf(ent)/]->setBackTexture(backTexture[n.abs_entity->indexOf(ent)/]);
 [/if]
-
 [if (ent.material <> null)]
     Material* material[n.abs_entity->indexOf(ent)/] = new Material();
 [if (ent.material.ambient <> null)]
@@ -158,7 +155,6 @@ Node* Node_[n.Name/]() {
     material[n.abs_entity->indexOf(ent)/]->setExpF([ent.material.expF/]);
     e[n.abs_entity->indexOf(ent)/]->setMaterial(material[n.abs_entity->indexOf(ent)/]);
 [/if]
-
 [/for]
     // Generar hijos recursivamente
 [for (child : Node | n.nodo)]

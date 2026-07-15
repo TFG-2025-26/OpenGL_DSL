@@ -101,7 +101,7 @@ void init() {
     [/if]
     camera->setNearVal([aSM.camera.PlanoCercano/]);
     camera->setFarVal([aSM.camera.PlanoLejano/]);
-    camera->setRadio([aSM.camera.Radio/])
+    camera->setRadio([aSM.camera.Radio/]);
     [/if]
 
     // CARGA DE ENTIDADES DESDE EL MODELO XMI
