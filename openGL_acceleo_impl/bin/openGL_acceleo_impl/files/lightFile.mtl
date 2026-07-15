@@ -1,8 +1,7 @@
 [comment encoding = UTF-8 /]
 [module lightFile('http://www.example.org/openGL_DSL')]
 
-
-[template public generateLight(aLight : Light)]
+[template public generateLight()]
 [comment --- Light.h --- /]
 [file ('Light.h', false, 'UTF-8')]
 #ifndef _H_Light_H_

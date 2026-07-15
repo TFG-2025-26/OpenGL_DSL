@@ -2,7 +2,7 @@
 [module meshFile('http://www.example.org/openGL_DSL')]
 
 
-[template public generateMesh(aMesh : Mesh)]
+[template public generateMesh()]
 [comment --- Mesh.h --- /]
 [file ('Mesh.h', false, 'UTF-8')]
 #ifndef _H_Mesh_H_

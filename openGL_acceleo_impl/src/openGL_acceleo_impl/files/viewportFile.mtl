@@ -1,7 +1,7 @@
 [comment encoding = UTF-8 /]
 [module viewportFile('http://www.example.org/openGL_DSL')]
 
-[template public generateViewport(aVP : ViewPort)]
+[template public generateViewport()]
 [comment --- Viewport.h: Solo declaraciones --- /]
 [file ('Viewport.h', false, 'UTF-8')]
 #ifndef _H_Viewport_H_

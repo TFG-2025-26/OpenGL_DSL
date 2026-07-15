@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="materialFile" nsURI="openGL_acceleo_impl::files::materialFile" startHeaderPosition="29" endHeaderPosition="175">
+  <mtl:Module name="materialFile" nsURI="openGL_acceleo_impl::files::materialFile" startHeaderPosition="29" endHeaderPosition="155">
     <input>
       <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
     </input>
@@ -24,9 +24,6 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
       </body>
-      <parameter name="aMaterial">
-        <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Material"/>
-      </parameter>
     </ownedModuleElement>
   </mtl:Module>
   <ecore:EPackage name="additions">
@@ -55,9 +52,6 @@
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/generateMaterial"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aMaterial">
-          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Material"/>
-        </eParameters>
       </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
@@ -80,35 +74,24 @@
         <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Material_Class">
-      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.example.org/openGL_DSL#//Material"/>
-      </eAnnotations>
-    </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Material"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Material"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Material"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Material"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Material"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Material"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -116,58 +99,53 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateMaterial">
       <details key="start" value="90"/>
-      <details key="end" value="1627"/>
+      <details key="end" value="1607"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateMaterial/%">
-      <details key="start" value="178"/>
-      <details key="end" value="910"/>
+      <details key="start" value="158"/>
+      <details key="end" value="890"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateMaterial/%/%">
-      <details key="start" value="216"/>
-      <details key="end" value="903"/>
+      <details key="start" value="196"/>
+      <details key="end" value="883"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateMaterial/%/%.1">
-      <details key="start" value="185"/>
-      <details key="end" value="197"/>
+      <details key="start" value="165"/>
+      <details key="end" value="177"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/generateMaterial/%/%.2">
-      <details key="start" value="206"/>
-      <details key="end" value="213"/>
+      <details key="start" value="186"/>
+      <details key="end" value="193"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/generateMaterial/%.1">
-      <details key="start" value="911"/>
-      <details key="end" value="912"/>
+      <details key="start" value="891"/>
+      <details key="end" value="892"/>
       <details key="line" value="38"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/generateMaterial/%.2">
-      <details key="start" value="945"/>
-      <details key="end" value="1615"/>
+      <details key="start" value="925"/>
+      <details key="end" value="1595"/>
       <details key="line" value="40"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/generateMaterial/%.2/%">
-      <details key="start" value="985"/>
-      <details key="end" value="1608"/>
+      <details key="start" value="965"/>
+      <details key="end" value="1588"/>
       <details key="line" value="41"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/generateMaterial/%.2/%.1">
-      <details key="start" value="952"/>
-      <details key="end" value="966"/>
+      <details key="start" value="932"/>
+      <details key="end" value="946"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/generateMaterial/%.2/%.2">
-      <details key="start" value="975"/>
-      <details key="end" value="982"/>
+      <details key="start" value="955"/>
+      <details key="end" value="962"/>
       <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/generateMaterial/aMaterial">
-      <details key="start" value="124"/>
-      <details key="end" value="144"/>
-      <details key="line" value="5"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

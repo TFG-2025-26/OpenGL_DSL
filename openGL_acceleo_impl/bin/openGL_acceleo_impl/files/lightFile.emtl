@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="lightFile" nsURI="openGL_acceleo_impl::files::lightFile" startHeaderPosition="29" endHeaderPosition="160">
+  <mtl:Module name="lightFile" nsURI="openGL_acceleo_impl::files::lightFile" startHeaderPosition="29" endHeaderPosition="145">
     <input>
       <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
     </input>
@@ -23,9 +23,6 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
       </body>
-      <parameter name="aLight">
-        <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
-      </parameter>
     </ownedModuleElement>
   </mtl:Module>
   <ecore:EPackage name="additions">
@@ -54,9 +51,6 @@
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/generateLight"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aLight">
-          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
-        </eParameters>
       </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
@@ -79,89 +73,73 @@
         <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Light_Class">
-      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.example.org/openGL_DSL#//Light"/>
-      </eAnnotations>
-    </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Light"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateLight">
-      <details key="start" value="87"/>
-      <details key="end" value="3980"/>
-      <details key="line" value="5"/>
+      <details key="start" value="86"/>
+      <details key="end" value="3965"/>
+      <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateLight/%">
-      <details key="start" value="163"/>
-      <details key="end" value="1863"/>
-      <details key="line" value="7"/>
+      <details key="start" value="148"/>
+      <details key="end" value="1848"/>
+      <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateLight/%/%">
-      <details key="start" value="198"/>
-      <details key="end" value="1856"/>
-      <details key="line" value="8"/>
+      <details key="start" value="183"/>
+      <details key="end" value="1841"/>
+      <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateLight/%/%.1">
-      <details key="start" value="170"/>
-      <details key="end" value="179"/>
+      <details key="start" value="155"/>
+      <details key="end" value="164"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/generateLight/%/%.2">
-      <details key="start" value="188"/>
-      <details key="end" value="195"/>
+      <details key="start" value="173"/>
+      <details key="end" value="180"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/generateLight/%.1">
-      <details key="start" value="1894"/>
-      <details key="end" value="3968"/>
-      <details key="line" value="72"/>
+      <details key="start" value="1879"/>
+      <details key="end" value="3953"/>
+      <details key="line" value="71"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/generateLight/%.1/%">
-      <details key="start" value="1931"/>
-      <details key="end" value="3961"/>
-      <details key="line" value="73"/>
+      <details key="start" value="1916"/>
+      <details key="end" value="3946"/>
+      <details key="line" value="72"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/generateLight/%.1/%.1">
-      <details key="start" value="1901"/>
-      <details key="end" value="1912"/>
+      <details key="start" value="1886"/>
+      <details key="end" value="1897"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/generateLight/%.1/%.2">
-      <details key="start" value="1921"/>
-      <details key="end" value="1928"/>
+      <details key="start" value="1906"/>
+      <details key="end" value="1913"/>
       <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.9" references="/0/generateLight/aLight">
-      <details key="start" value="118"/>
-      <details key="end" value="132"/>
-      <details key="line" value="5"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

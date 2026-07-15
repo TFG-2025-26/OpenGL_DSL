@@ -1,7 +1,7 @@
 [comment encoding = UTF-8 /]
 [module cameraFile('http://www.example.org/openGL_DSL')]
 
-[template public generateCamera(aCam : Camera)]
+[template public generateCamera()]
 [comment --- GENERACIÓN DE Camera.h --- /]
 [file ('Camera.h', false, 'UTF-8')]
 #ifndef _H_Camera_H_

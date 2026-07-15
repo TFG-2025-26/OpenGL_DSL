@@ -1,11 +1,7 @@
 [comment encoding = UTF-8 /]
 [module entityFile('http://www.example.org/openGL_DSL')]
 
-[import openGL_acceleo_impl::files::meshFile /]
-[import openGL_acceleo_impl::files::textureFile /]
-[import openGL_acceleo_impl::files::materialFile /]
-
-[template public generateEntity(anEntity : Abs_Entity)]
+[template public generateEntity()]
     [comment 1. Generar la clase base Abs_Entity (Interfaz) /]
     [file ('Entity.h', false, 'UTF-8')]
 #ifndef _H_Entity_H_
@@ -1089,8 +1085,6 @@ Toroid::render(dmat4 const& modelViewMat) const
 	}
 }
     [/file]
-    [anEntity.mesh.generateMesh()/]
-    [anEntity.FrontTexture.generateTexture()/]
-    [anEntity.material.generateMaterial()/]
+    
 
 [/template]

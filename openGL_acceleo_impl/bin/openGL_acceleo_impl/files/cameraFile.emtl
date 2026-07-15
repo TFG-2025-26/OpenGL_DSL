@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="cameraFile" nsURI="openGL_acceleo_impl::files::cameraFile" startHeaderPosition="30" endHeaderPosition="179">
+  <mtl:Module name="cameraFile" nsURI="openGL_acceleo_impl::files::cameraFile" startHeaderPosition="30" endHeaderPosition="166">
     <input>
       <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
     </input>
@@ -24,9 +24,6 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
       </body>
-      <parameter name="aCam">
-        <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
-      </parameter>
     </ownedModuleElement>
   </mtl:Module>
   <ecore:EPackage name="additions">
@@ -55,9 +52,6 @@
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/generateCamera"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aCam">
-          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
-        </eParameters>
       </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
@@ -80,35 +74,24 @@
         <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_Camera_Class">
-      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.example.org/openGL_DSL#//Camera"/>
-      </eAnnotations>
-    </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//Camera"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -116,58 +99,53 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateCamera">
       <details key="start" value="90"/>
-      <details key="end" value="6551"/>
+      <details key="end" value="6538"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateCamera/%">
-      <details key="start" value="183"/>
-      <details key="end" value="2592"/>
+      <details key="start" value="170"/>
+      <details key="end" value="2579"/>
       <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateCamera/%/%">
-      <details key="start" value="220"/>
-      <details key="end" value="2585"/>
+      <details key="start" value="207"/>
+      <details key="end" value="2572"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateCamera/%/%.1">
-      <details key="start" value="190"/>
-      <details key="end" value="200"/>
+      <details key="start" value="177"/>
+      <details key="end" value="187"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/generateCamera/%/%.2">
-      <details key="start" value="209"/>
-      <details key="end" value="216"/>
+      <details key="start" value="196"/>
+      <details key="end" value="203"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/generateCamera/%.1">
-      <details key="start" value="2594"/>
-      <details key="end" value="2596"/>
+      <details key="start" value="2581"/>
+      <details key="end" value="2583"/>
       <details key="line" value="100"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/generateCamera/%.2">
-      <details key="start" value="2642"/>
-      <details key="end" value="6538"/>
+      <details key="start" value="2629"/>
+      <details key="end" value="6525"/>
       <details key="line" value="102"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/generateCamera/%.2/%">
-      <details key="start" value="2681"/>
-      <details key="end" value="6531"/>
+      <details key="start" value="2668"/>
+      <details key="end" value="6518"/>
       <details key="line" value="103"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/generateCamera/%.2/%.1">
-      <details key="start" value="2649"/>
-      <details key="end" value="2661"/>
+      <details key="start" value="2636"/>
+      <details key="end" value="2648"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/generateCamera/%.2/%.2">
-      <details key="start" value="2670"/>
-      <details key="end" value="2677"/>
+      <details key="start" value="2657"/>
+      <details key="end" value="2664"/>
       <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/generateCamera/aCam">
-      <details key="start" value="122"/>
-      <details key="end" value="135"/>
-      <details key="line" value="4"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

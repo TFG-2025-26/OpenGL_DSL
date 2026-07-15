@@ -1,26 +1,16 @@
 [comment encoding = UTF-8 /]
 [module generate('http://www.example.org/openGL_DSL')]
 
-[import openGL_acceleo_impl::files::viewportFile /]
-[import openGL_acceleo_impl::files::cameraFile /]
-[import openGL_acceleo_impl::files::sceneFile /]
 [import openGL_acceleo_impl::common::sceneElements /]
 [import openGL_acceleo_impl::main::glutFuncs/]
+[import openGL_acceleo_impl::main::generateClasses/]
 
 [template public generateElement(aSM : SceneManager)]
 [comment @main/]
 
 [comment 1. Disparamos la generación de todos los ficheros .h y .cpp individuales /]
-[if (not aSM.viewport.oclIsUndefined())]
-    [aSM.viewport.generateViewport() /]
-[/if]
-[if (not aSM.camera.oclIsUndefined())]
-    [aSM.camera.generateCamera() /]
-[/if]
+[generateClasses()/]
 
-
-[comment Generación de ficheros de clases de entidades /]
-[aSM.scenes.generateScene()/]
 
 [comment 2. Generación del main.cpp con la lógica de renderizado real /]
 [file ('main.cpp', false, 'UTF-8')]

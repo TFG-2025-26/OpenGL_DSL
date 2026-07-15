@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:mtl="http://www.eclipse.org/acceleo/mtl/3.0" xmlns:ocl.ecore="http://www.eclipse.org/ocl/1.1.0/Ecore">
-  <mtl:Module name="viewportFile" nsURI="openGL_acceleo_impl::files::viewportFile" startHeaderPosition="30" endHeaderPosition="192">
+  <mtl:Module name="viewportFile" nsURI="openGL_acceleo_impl::files::viewportFile" startHeaderPosition="30" endHeaderPosition="178">
     <input>
       <takesTypesFrom href="http://www.example.org/openGL_DSL#/"/>
     </input>
@@ -24,9 +24,6 @@
           <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
         </charset>
       </body>
-      <parameter name="aVP">
-        <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
-      </parameter>
     </ownedModuleElement>
   </mtl:Module>
   <ecore:EPackage name="additions">
@@ -55,9 +52,6 @@
         </eAnnotations>
         <eAnnotations source="MTL" references="/0/generateViewport"/>
         <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
-        <eParameters name="aVP">
-          <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
-        </eParameters>
       </eOperations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="oclstdlib_OclAny_Class">
@@ -80,35 +74,24 @@
         <references href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/OrderedSet(T)"/>
       </eAnnotations>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="openGL_DSL_ViewPort_Class">
-      <eAnnotations source="http://www.eclipse.org/ocl/1.1.0/OCL">
-        <references href="http://www.example.org/openGL_DSL#//ViewPort"/>
-      </eAnnotations>
-    </eClassifiers>
   </ecore:EPackage>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
     <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
-  </ocl.ecore:Variable>
-  <ocl.ecore:Variable name="self">
-    <eType xsi:type="ecore:EClass" href="http://www.example.org/openGL_DSL#//ViewPort"/>
+    <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
   </ocl.ecore:Variable>
   <ocl.ecore:Variable name="self">
     <eType xsi:type="ecore:EClass" href="http://www.eclipse.org/emf/2002/Ecore#//EObject"/>
@@ -116,58 +99,53 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/generateViewport">
       <details key="start" value="92"/>
-      <details key="end" value="1567"/>
+      <details key="end" value="1553"/>
       <details key="line" value="4"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/generateViewport/%">
-      <details key="start" value="196"/>
-      <details key="end" value="1133"/>
+      <details key="start" value="182"/>
+      <details key="end" value="1119"/>
       <details key="line" value="6"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/generateViewport/%/%">
-      <details key="start" value="235"/>
-      <details key="end" value="1126"/>
+      <details key="start" value="221"/>
+      <details key="end" value="1112"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/generateViewport/%/%.1">
-      <details key="start" value="203"/>
-      <details key="end" value="215"/>
+      <details key="start" value="189"/>
+      <details key="end" value="201"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/generateViewport/%/%.2">
-      <details key="start" value="224"/>
-      <details key="end" value="231"/>
+      <details key="start" value="210"/>
+      <details key="end" value="217"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/generateViewport/%.1">
-      <details key="start" value="1135"/>
-      <details key="end" value="1137"/>
+      <details key="start" value="1121"/>
+      <details key="end" value="1123"/>
       <details key="line" value="37"/>
     </eAnnotations>
     <eAnnotations source="positions.6" references="/0/generateViewport/%.2">
-      <details key="start" value="1195"/>
-      <details key="end" value="1554"/>
+      <details key="start" value="1181"/>
+      <details key="end" value="1540"/>
       <details key="line" value="39"/>
     </eAnnotations>
     <eAnnotations source="positions.7" references="/0/generateViewport/%.2/%">
-      <details key="start" value="1236"/>
-      <details key="end" value="1547"/>
+      <details key="start" value="1222"/>
+      <details key="end" value="1533"/>
       <details key="line" value="40"/>
     </eAnnotations>
     <eAnnotations source="positions.8" references="/0/generateViewport/%.2/%.1">
-      <details key="start" value="1202"/>
-      <details key="end" value="1216"/>
+      <details key="start" value="1188"/>
+      <details key="end" value="1202"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.9" references="/0/generateViewport/%.2/%.2">
-      <details key="start" value="1225"/>
-      <details key="end" value="1232"/>
+      <details key="start" value="1211"/>
+      <details key="end" value="1218"/>
       <details key="line" value="0"/>
-    </eAnnotations>
-    <eAnnotations source="positions.10" references="/0/generateViewport/aVP">
-      <details key="start" value="126"/>
-      <details key="end" value="140"/>
-      <details key="line" value="4"/>
     </eAnnotations>
   </ecore:EAnnotation>
 </xmi:XMI>

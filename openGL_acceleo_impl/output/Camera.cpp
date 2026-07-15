@@ -198,3 +198,8 @@ Camera::setFarVal(GLdouble farVal) {
 	mFarVal = farVal;
 	setPM();
 }
+
+void
+Camera::setRadio(GLdouble radio) {
+	mRadio = radio;
+}

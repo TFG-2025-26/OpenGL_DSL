@@ -2,7 +2,7 @@
 [module textureFile('http://www.example.org/openGL_DSL')]
 
 
-[template public generateTexture(aTexture : Texture)]
+[template public generateTexture()]
 
 [comment --- Texture.h --- /]
 [file ('Texture.h', false, 'UTF-8')]
