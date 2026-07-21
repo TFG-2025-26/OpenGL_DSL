@@ -429,3 +429,7 @@ FodyWeavers.xsd
 *.msp
 /.metadata/
 /openGL_acceleo_impl/.metadata
+
+!ProyectoDePrueba/freeglut/
+!ProyectoDePrueba/freeglut/bin/
+!ProyectoDePrueba/freeglut/bin/**
